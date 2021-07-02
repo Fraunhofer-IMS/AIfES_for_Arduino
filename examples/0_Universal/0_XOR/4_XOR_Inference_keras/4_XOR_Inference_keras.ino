@@ -24,7 +24,7 @@
   
   The sketch shows how to import the weights of an artificial neural network (ANN) trained in Keras into AIfES. 
   The Phython script "XOR_Inference_keras.py" can be found in the AIfES libarys folder of this sketch.
-  Or here: https://github.com/Fraunhofer-IMS/AIfES_for_Arduino/tree/main/examples/0_XOR/4_XOR_Inference_keras 
+  Or here: https://github.com/Fraunhofer-IMS/AIfES_for_Arduino/tree/main/examples/0_Universal/0_XOR/4_XOR_Inference_keras 
   The script trains an ANN with the same network structure as in this AIfES example. 
   The weights calculated in Keras are printed in the script and can be easily pasted into this source code.
   The network structure is identical to the example sketch "0_XOR_Inference.ino"
