@@ -36,10 +36,9 @@ Please install the *Arduino_CMSIS-DSP* library in the Arduino IDE.
 ## Features
 ### Data types and quantization
 AIfES supports the following data types:
-F32:	32 Bit float 
-Q31:	32 Bit integer
-Q7:		8 Bit integer
-Quantization of an F32 FNN in Q31 and Q7 can be performed directly in AIfES.
+F32:	32 Bit float
+
+We are currently working on Q31 (32 Bit integer) and Q7 (8 Bit integer) support. We will release these features in the near future. Stay tuned!
 
 Neural network types
 AIfES supports in the current version:
@@ -47,49 +46,48 @@ AIfES supports in the current version:
 *	Other network types are in progress (see roadmap)
 
 The number of neurons and the number of different layers can be adapted individually. Inference and training can be performed on the controller.
-**Please note, that we are currently working on the training functionality for q31 nets.**
 
 **Inference layer**
 
 | Layer      | f32     |
 |------------|---------|
-| \link ailayer_dense.h Dense \endlink | ailayer_dense_f32_default()<br>ailayer_dense_f32_cmsis() |
-| \link ailayer_input.h Input \endlink | ailayer_input_f32_default() |
-| \link ailayer_relu.h ReLU \endlink | ailayer_relu_f32_default() |
-| \link ailayer_sigmoid.h Sigmoid \endlink | ailayer_sigmoid_f32_default() |
-| \link ailayer_softmax.h Softmax \endlink | ailayer_softmax_f32_default() |
-| \link ailayer_leaky_relu.h Leaky ReLU \endlink | ailayer_leaky_relu_f32_default() |
-| \link ailayer_elu.h ELU \endlink | ailayer_elu_f32_default() |
-| \link ailayer_tanh.h Tanh \endlink | ailayer_tanh_f32_default() |
-| \link ailayer_softsign.h Softsign \endlink | ailayer_softsign_f32_default() |
+| ailayer_dense.h Dense | ailayer_dense_f32_default()<br>ailayer_dense_f32_cmsis() |
+| ailayer_input.h Input | ailayer_input_f32_default() |
+| ailayer_relu.h ReLU | ailayer_relu_f32_default() |
+| ailayer_sigmoid.h Sigmoid | ailayer_sigmoid_f32_default() |
+| ailayer_softmax.h Softmax | ailayer_softmax_f32_default() |
+| ailayer_leaky_relu.h Leaky ReLU | ailayer_leaky_relu_f32_default() |
+| ailayer_elu.h ELU | ailayer_elu_f32_default() |
+| ailayer_tanh.h Tanh | ailayer_tanh_f32_default() |
+| ailayer_softsign.h Softsign | ailayer_softsign_f32_default() |
 
 **Training layer**
 
 | Layer      | f32     |
 |------------|---------|
-| \link ailayer_dense.h Dense \endlink | ailayer_dense_f32_default()<br>ailayer_dense_f32_cmsis() |
-| \link ailayer_input.h Input \endlink| ailayer_input_f32_default() |
-| \link ailayer_relu.h ReLU \endlink | ailayer_relu_f32_default() |
-| \link ailayer_sigmoid.h Sigmoid \endlink | ailayer_sigmoid_f32_default() |
-| \link ailayer_softmax.h Softmax \endlink | ailayer_softmax_f32_default() |
-| \link ailayer_leaky_relu.h Leaky ReLU \endlink | ailayer_leaky_relu_f32_default() |
-| \link ailayer_elu.h ELU \endlink | ailayer_elu_f32_default() |
-| \link ailayer_tanh.h Tanh \endlink | ailayer_tanh_f32_default() |
-| \link ailayer_softsign.h Softsign \endlink | ailayer_softsign_f32_default() |
+| ailayer_dense.h Dense | ailayer_dense_f32_default()<br>ailayer_dense_f32_cmsis() |
+| ailayer_input.h Input | ailayer_input_f32_default() |
+| ailayer_relu.h ReLU | ailayer_relu_f32_default() |
+| ailayer_sigmoid.h Sigmoid | ailayer_sigmoid_f32_default() |
+| ailayer_softmax.h Softmax | ailayer_softmax_f32_default() |
+| ailayer_leaky_relu.h Leaky ReLU | ailayer_leaky_relu_f32_default() |
+| ailayer_elu.h ELU | ailayer_elu_f32_default() |
+| ailayer_tanh.h Tanh | ailayer_tanh_f32_default() |
+| ailayer_softsign.h Softsign | ailayer_softsign_f32_default() |
 
 **Loss**
 
 | Loss                     | f32     |
 |--------------------------|---------|
-| \link ailoss_mse.h Mean Squared Error (MSE) \endlink | ailoss_mse_f32_default() |
-| \link ailoss_crossentropy.h Crossentropy \endlink | ailoss_crossentropy_f32_default() |
+| ailoss_mse.h Mean Squared Error (MSE) | ailoss_mse_f32_default() |
+| ailoss_crossentropy.h Crossentropy | ailoss_crossentropy_f32_default() |
 
 **Optimizer**
 
 | Optimizer                         | f32     |
 |-----------------------------------|---------|
-| \link aiopti_sgd.h Stochastic Gradient Descent (SGD) \endlink | aiopti_sgd_f32_default() |
-| \link aiopti_adam.h Adam \endlink | aiopti_adam_f32_default() |
+| aiopti_sgd.h Stochastic Gradient Descent (SGD) | aiopti_sgd_f32_default() |
+| aiopti_adam.h Adam | aiopti_adam_f32_default() |
 
 ## Installation
 Download the AIfES repository as a ZIP archive and follow these instructions:
