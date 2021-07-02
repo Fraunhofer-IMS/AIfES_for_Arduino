@@ -41,8 +41,9 @@
   1   1    0
   
   Tested on:
-    Arduino UNO
     Arduino Nano 33 BLE Sense
+	
+  Arduino Uno and similar devices unfortunately don't provide enough RAM to run this example.
   */
 
 #include <aifes.h>                  // include the AIfES libary
