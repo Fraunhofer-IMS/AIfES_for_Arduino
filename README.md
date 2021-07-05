@@ -1,3 +1,5 @@
+[![Docs](https://img.shields.io/badge/Docs-Doxygen-green)](https://fraunhofer-ims.github.io/AIfES_for_Arduino/)
+
 # AIfES for Arduino®
 
 AIfES (Artificial Intelligence for Embedded Systems) is a platform-independent and standalone AI software framework optimized for embedded systems.
