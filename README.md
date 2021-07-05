@@ -11,7 +11,7 @@ Not only inference of FNN is possible, but also training directly in the device.
 
 AIfES was developed by the Fraunhofer Institute for Microelectronic Circuits and Systems IMS. Additional information can be found at <www.aifes.ai>
 
-The Fraunhofer IMS with AIfES and Arduino intend to enter a partnership.
+The Fraunhofer IMS with AIfES and Arduino preapare to enter a partnership.
 
 ## Dual License
 ### For Maker and Open-Source-Projects (GNU GPLv3):
