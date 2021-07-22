@@ -13,6 +13,9 @@ AIfES was developed by the Fraunhofer Institute for Microelectronic Circuits and
 
 The Fraunhofer IMS with AIfES and Arduino preapare to enter a partnership.
 
+We are also at the Arduino Project Hub. Here you can find our new AIfES projects and examples:
+https://create.arduino.cc/projecthub/aifes_team
+
 ## Dual License
 ### For Maker and Open-Source-Projects (GNU GPLv3):
 For private projects or developers of Free Open Source Software (FOSS) under version 3 of the GNU General Public License (GPL), the AIfES version offered here can be used free of charge.
