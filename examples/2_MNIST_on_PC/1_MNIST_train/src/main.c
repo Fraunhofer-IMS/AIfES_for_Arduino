@@ -1,4 +1,6 @@
 /*
+  Author: Hahn-Schickard-Gesellschaft für angewandte Forschung e.V., Daniel Konegen + Marcus Rueb
+
   The sketch shows an example of how a neural network is trained from scratch in AIfES using training data.
   This is a script to train a neural network for the MNIST dataset on a PC.
 
