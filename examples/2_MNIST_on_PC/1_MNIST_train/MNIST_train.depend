@@ -1,0 +1,1259 @@
+# depslib dependency file v1.0
+1631882463 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\aialgo\aialgo_sequential_inference.c
+	"basic/base/aialgo/aialgo_sequential_inference.h"
+	"basic/default/aimath/aimath_f32_default.h"
+	<stdio.h>
+	<float.h>
+	<string.h>
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\aialgo\aialgo_sequential_inference.h
+	"core/aifes_core.h"
+	"core/aifes_math.h"
+	"basic/base/aimath/aimath_basic.h"
+	"basic/default/ailayer/ailayer_dense_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\core\aifes_core.h
+	"aifes_math.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\core\aifes_math.h
+	<stdint.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\aimath\aimath_basic.h
+	"core/aifes_math.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_dense_default.h
+	"basic/base/ailayer/ailayer_dense.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_dense.h
+	"core/aifes_core.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\aimath\aimath_f32_default.h
+	<stdint.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	"basic/base/aimath/aimath_f32.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\aimath\aimath_f32.h
+	"core/aifes_math.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1632130252 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\aialgo\aialgo_sequential_training.c
+	"basic/base/aialgo/aialgo_sequential_training.h"
+	"basic/base/aialgo/aialgo_sequential_inference.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\aialgo\aialgo_sequential_training.h
+	"core/aifes_core.h"
+	"core/aifes_math.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_dense.c
+	"basic/base/ailayer/ailayer_dense.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_elu.c
+	"basic/base/ailayer/ailayer_elu.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_elu.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_input.c
+	"basic/base/ailayer/ailayer_input.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_input.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_leaky_relu.c
+	"basic/base/ailayer/ailayer_leaky_relu.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_leaky_relu.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_relu.c
+	"basic/base/ailayer/ailayer_relu.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_relu.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_sigmoid.c
+	"basic/base/ailayer/ailayer_sigmoid.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_sigmoid.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_softmax.c
+	"basic/base/ailayer/ailayer_softmax.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_softmax.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_softsign.c
+	"basic/base/ailayer/ailayer_softsign.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_softsign.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_tanh.c
+	"basic/base/ailayer/ailayer_tanh.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_tanh.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_template.c
+	"basic/base/ailayer/ailayer_template.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailayer\ailayer_template.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailoss\ailoss_crossentropy.c
+	"basic/base/ailoss/ailoss_crossentropy.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailoss\ailoss_crossentropy.h
+	"core/aifes_core.h"
+	"basic/base/ailayer/ailayer_softmax.h"
+	"basic/base/ailayer/ailayer_sigmoid.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailoss\ailoss_mse.c
+	"basic/base/ailoss/ailoss_mse.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\ailoss\ailoss_mse.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\aimath\aimath_basic.c
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\aimath\aimath_f32.c
+	"basic/base/aimath/aimath_f32.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\aiopti\aiopti_adam.c
+	"basic/base/aiopti/aiopti_adam.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\aiopti\aiopti_adam.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\aiopti\aiopti_sgd.c
+	"basic/base/aiopti/aiopti_sgd.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\base\aiopti\aiopti_sgd.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\cmsis\ailayer\ailayer_dense_cmsis.c
+	"basic/default/ailayer/ailayer_dense_default.h"
+	"../../../aifes.h"
+	"basic/cmsis/ailayer/ailayer_dense_cmsis.h"
+	"basic/cmsis/aimath/aimath_f32_cmsis.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\aifes.h
+	"core/aifes_math.h"
+	"core/aifes_core.h"
+	"basic/base/aimath/aimath_f32.h"
+	"basic/base/aimath/aimath_basic.h"
+	"basic/base/ailayer/ailayer_dense.h"
+	"basic/base/ailayer/ailayer_input.h"
+	"basic/base/ailayer/ailayer_relu.h"
+	"basic/base/ailayer/ailayer_leaky_relu.h"
+	"basic/base/ailayer/ailayer_elu.h"
+	"basic/base/ailayer/ailayer_sigmoid.h"
+	"basic/base/ailayer/ailayer_tanh.h"
+	"basic/base/ailayer/ailayer_softmax.h"
+	"basic/base/ailayer/ailayer_softsign.h"
+	"basic/base/ailoss/ailoss_mse.h"
+	"basic/base/ailoss/ailoss_crossentropy.h"
+	"basic/base/aiopti/aiopti_sgd.h"
+	"basic/base/aiopti/aiopti_adam.h"
+	"basic/default/aimath/aimath_f32_default.h"
+	"basic/default/ailayer/ailayer_dense_default.h"
+	"basic/default/ailayer/ailayer_input_default.h"
+	"basic/default/ailayer/ailayer_relu_default.h"
+	"basic/default/ailayer/ailayer_leaky_relu_default.h"
+	"basic/default/ailayer/ailayer_elu_default.h"
+	"basic/default/ailayer/ailayer_sigmoid_default.h"
+	"basic/default/ailayer/ailayer_tanh_default.h"
+	"basic/default/ailayer/ailayer_softmax_default.h"
+	"basic/default/ailayer/ailayer_softsign_default.h"
+	"basic/default/ailoss/ailoss_mse_default.h"
+	"basic/default/ailoss/ailoss_crossentropy_default.h"
+	"basic/default/aiopti/aiopti_sgd_default.h"
+	"basic/default/aiopti/aiopti_adam_default.h"
+	"basic/cmsis/aimath/aimath_f32_cmsis.h"
+	"basic/cmsis/ailayer/ailayer_dense_cmsis.h"
+	"basic/base/aialgo/aialgo_sequential_inference.h"
+	"basic/base/aialgo/aialgo_sequential_training.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_input_default.h
+	"basic/base/ailayer/ailayer_input.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_relu_default.h
+	"basic/base/ailayer/ailayer_relu.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_leaky_relu_default.h
+	"basic/base/ailayer/ailayer_leaky_relu.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_elu_default.h
+	"basic/base/ailayer/ailayer_elu.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_sigmoid_default.h
+	"basic/base/ailayer/ailayer_sigmoid.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_tanh_default.h
+	"basic/base/ailayer/ailayer_tanh.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_softmax_default.h
+	"basic/base/ailayer/ailayer_softmax.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_softsign_default.h
+	"basic/base/ailayer/ailayer_softsign.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailoss\ailoss_mse_default.h
+	"basic/base/ailoss/ailoss_mse.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailoss\ailoss_crossentropy_default.h
+	"basic/base/ailoss/ailoss_crossentropy.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\aiopti\aiopti_sgd_default.h
+	"basic/base/aiopti/aiopti_sgd.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\aiopti\aiopti_adam_default.h
+	"basic/base/aiopti/aiopti_adam.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\cmsis\aimath\aimath_f32_cmsis.h
+	"basic/base/aimath/aimath_f32.h"
+	"../../../aifes.h"
+
+1628682756 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\cmsis\ailayer\ailayer_dense_cmsis.h
+	"../../../aifes.h"
+	"basic/base/ailayer/ailayer_dense.h"
+	"basic/cmsis/aimath/aimath_f32_cmsis.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\cmsis\aimath\aimath_f32_cmsis.c
+	"basic/cmsis/aimath/aimath_f32_cmsis.h"
+	"../../../aifes.h"
+	"arm_math.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_dense_default.c
+	"basic/default/ailayer/ailayer_dense_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_elu_default.c
+	"basic/default/ailayer/ailayer_elu_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_input_default.c
+	"basic/default/ailayer/ailayer_input_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_leaky_relu_default.c
+	"basic/default/ailayer/ailayer_leaky_relu_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_relu_default.c
+	"basic/default/ailayer/ailayer_relu_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_sigmoid_default.c
+	"basic/default/ailayer/ailayer_sigmoid_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_softmax_default.c
+	"basic/default/ailayer/ailayer_softmax_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_softsign_default.c
+	"basic/default/ailayer/ailayer_softsign_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailayer\ailayer_tanh_default.c
+	"basic/default/ailayer/ailayer_tanh_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailoss\ailoss_crossentropy_default.c
+	"basic/default/ailoss/ailoss_crossentropy_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\ailoss\ailoss_mse_default.c
+	"basic/default/ailoss/ailoss_mse_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\aimath\aimath_f32_default.c
+	"basic/default/aimath/aimath_f32_default.h"
+	<float.h>
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\aiopti\aiopti_adam_default.c
+	"basic/default/aiopti/aiopti_adam_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\basic\default\aiopti\aiopti_sgd_default.c
+	"basic/default/aiopti/aiopti_sgd_default.h"
+
+1632204420 source:c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
+	"aifes.h"
+	"MNIST_training_data.h"
+	"MNIST_training_data_label.h"
+	"MNIST_test_data.h"
+	"MNIST_test_data_label.h"
+
+1632137043 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\mnist_training_data.h
+
+1632137043 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\mnist_training_data_label.h
+
+1632131983 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\mnist_test_data.h
+
+1632131983 c:\users\dk100\documents\aifes\mnist\aifes_for_arduino\src\mnist_test_data_label.h
+
+1631882463 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\aialgo\aialgo_sequential_inference.c
+	"basic/base/aialgo/aialgo_sequential_inference.h"
+	"basic/default/aimath/aimath_f32_default.h"
+	<stdio.h>
+	<float.h>
+	<string.h>
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\aialgo\aialgo_sequential_inference.h
+	"core/aifes_core.h"
+	"core/aifes_math.h"
+	"basic/base/aimath/aimath_basic.h"
+	"basic/default/ailayer/ailayer_dense_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\core\aifes_core.h
+	"aifes_math.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\core\aifes_math.h
+	<stdint.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\aimath\aimath_basic.h
+	"core/aifes_math.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_dense_default.h
+	"basic/base/ailayer/ailayer_dense.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_dense.h
+	"core/aifes_core.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\aimath\aimath_f32_default.h
+	<stdint.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	"basic/base/aimath/aimath_f32.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\aimath\aimath_f32.h
+	"core/aifes_math.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1632130252 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\aialgo\aialgo_sequential_training.c
+	"basic/base/aialgo/aialgo_sequential_training.h"
+	"basic/base/aialgo/aialgo_sequential_inference.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\aialgo\aialgo_sequential_training.h
+	"core/aifes_core.h"
+	"core/aifes_math.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_dense.c
+	"basic/base/ailayer/ailayer_dense.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_elu.c
+	"basic/base/ailayer/ailayer_elu.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_elu.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_input.c
+	"basic/base/ailayer/ailayer_input.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_input.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_leaky_relu.c
+	"basic/base/ailayer/ailayer_leaky_relu.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_leaky_relu.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_relu.c
+	"basic/base/ailayer/ailayer_relu.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_relu.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_sigmoid.c
+	"basic/base/ailayer/ailayer_sigmoid.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_sigmoid.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_softmax.c
+	"basic/base/ailayer/ailayer_softmax.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_softmax.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_softsign.c
+	"basic/base/ailayer/ailayer_softsign.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_softsign.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_tanh.c
+	"basic/base/ailayer/ailayer_tanh.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_tanh.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_template.c
+	"basic/base/ailayer/ailayer_template.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailayer\ailayer_template.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailoss\ailoss_crossentropy.c
+	"basic/base/ailoss/ailoss_crossentropy.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailoss\ailoss_crossentropy.h
+	"core/aifes_core.h"
+	"basic/base/ailayer/ailayer_softmax.h"
+	"basic/base/ailayer/ailayer_sigmoid.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailoss\ailoss_mse.c
+	"basic/base/ailoss/ailoss_mse.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\ailoss\ailoss_mse.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\aimath\aimath_basic.c
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\aimath\aimath_f32.c
+	"basic/base/aimath/aimath_f32.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\aiopti\aiopti_adam.c
+	"basic/base/aiopti/aiopti_adam.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\aiopti\aiopti_adam.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\aiopti\aiopti_sgd.c
+	"basic/base/aiopti/aiopti_sgd.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\base\aiopti\aiopti_sgd.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\cmsis\ailayer\ailayer_dense_cmsis.c
+	"basic/default/ailayer/ailayer_dense_default.h"
+	"../../../aifes.h"
+	"basic/cmsis/ailayer/ailayer_dense_cmsis.h"
+	"basic/cmsis/aimath/aimath_f32_cmsis.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\aifes.h
+	"core/aifes_math.h"
+	"core/aifes_core.h"
+	"basic/base/aimath/aimath_f32.h"
+	"basic/base/aimath/aimath_basic.h"
+	"basic/base/ailayer/ailayer_dense.h"
+	"basic/base/ailayer/ailayer_input.h"
+	"basic/base/ailayer/ailayer_relu.h"
+	"basic/base/ailayer/ailayer_leaky_relu.h"
+	"basic/base/ailayer/ailayer_elu.h"
+	"basic/base/ailayer/ailayer_sigmoid.h"
+	"basic/base/ailayer/ailayer_tanh.h"
+	"basic/base/ailayer/ailayer_softmax.h"
+	"basic/base/ailayer/ailayer_softsign.h"
+	"basic/base/ailoss/ailoss_mse.h"
+	"basic/base/ailoss/ailoss_crossentropy.h"
+	"basic/base/aiopti/aiopti_sgd.h"
+	"basic/base/aiopti/aiopti_adam.h"
+	"basic/default/aimath/aimath_f32_default.h"
+	"basic/default/ailayer/ailayer_dense_default.h"
+	"basic/default/ailayer/ailayer_input_default.h"
+	"basic/default/ailayer/ailayer_relu_default.h"
+	"basic/default/ailayer/ailayer_leaky_relu_default.h"
+	"basic/default/ailayer/ailayer_elu_default.h"
+	"basic/default/ailayer/ailayer_sigmoid_default.h"
+	"basic/default/ailayer/ailayer_tanh_default.h"
+	"basic/default/ailayer/ailayer_softmax_default.h"
+	"basic/default/ailayer/ailayer_softsign_default.h"
+	"basic/default/ailoss/ailoss_mse_default.h"
+	"basic/default/ailoss/ailoss_crossentropy_default.h"
+	"basic/default/aiopti/aiopti_sgd_default.h"
+	"basic/default/aiopti/aiopti_adam_default.h"
+	"basic/cmsis/aimath/aimath_f32_cmsis.h"
+	"basic/cmsis/ailayer/ailayer_dense_cmsis.h"
+	"basic/base/aialgo/aialgo_sequential_inference.h"
+	"basic/base/aialgo/aialgo_sequential_training.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_input_default.h
+	"basic/base/ailayer/ailayer_input.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_relu_default.h
+	"basic/base/ailayer/ailayer_relu.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_leaky_relu_default.h
+	"basic/base/ailayer/ailayer_leaky_relu.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_elu_default.h
+	"basic/base/ailayer/ailayer_elu.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_sigmoid_default.h
+	"basic/base/ailayer/ailayer_sigmoid.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_tanh_default.h
+	"basic/base/ailayer/ailayer_tanh.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_softmax_default.h
+	"basic/base/ailayer/ailayer_softmax.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_softsign_default.h
+	"basic/base/ailayer/ailayer_softsign.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailoss\ailoss_mse_default.h
+	"basic/base/ailoss/ailoss_mse.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailoss\ailoss_crossentropy_default.h
+	"basic/base/ailoss/ailoss_crossentropy.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\aiopti\aiopti_sgd_default.h
+	"basic/base/aiopti/aiopti_sgd.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\aiopti\aiopti_adam_default.h
+	"basic/base/aiopti/aiopti_adam.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\cmsis\aimath\aimath_f32_cmsis.h
+	"basic/base/aimath/aimath_f32.h"
+	"../../../aifes.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\cmsis\ailayer\ailayer_dense_cmsis.h
+	"../../../aifes.h"
+	"basic/base/ailayer/ailayer_dense.h"
+	"basic/cmsis/aimath/aimath_f32_cmsis.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\cmsis\aimath\aimath_f32_cmsis.c
+	"basic/cmsis/aimath/aimath_f32_cmsis.h"
+	"../../../aifes.h"
+	"arm_math.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_dense_default.c
+	"basic/default/ailayer/ailayer_dense_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_elu_default.c
+	"basic/default/ailayer/ailayer_elu_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_input_default.c
+	"basic/default/ailayer/ailayer_input_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_leaky_relu_default.c
+	"basic/default/ailayer/ailayer_leaky_relu_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_relu_default.c
+	"basic/default/ailayer/ailayer_relu_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_sigmoid_default.c
+	"basic/default/ailayer/ailayer_sigmoid_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_softmax_default.c
+	"basic/default/ailayer/ailayer_softmax_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_softsign_default.c
+	"basic/default/ailayer/ailayer_softsign_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailayer\ailayer_tanh_default.c
+	"basic/default/ailayer/ailayer_tanh_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailoss\ailoss_crossentropy_default.c
+	"basic/default/ailoss/ailoss_crossentropy_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\ailoss\ailoss_mse_default.c
+	"basic/default/ailoss/ailoss_mse_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\aimath\aimath_f32_default.c
+	"basic/default/aimath/aimath_f32_default.h"
+	<float.h>
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\aiopti\aiopti_adam_default.c
+	"basic/default/aiopti/aiopti_adam_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\mnist\mnist\src\basic\default\aiopti\aiopti_sgd_default.c
+	"basic/default/aiopti/aiopti_sgd_default.h"
+
+1631882463 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\aialgo\aialgo_sequential_inference.c
+	"basic/base/aialgo/aialgo_sequential_inference.h"
+	"basic/default/aimath/aimath_f32_default.h"
+	<stdio.h>
+	<float.h>
+	<string.h>
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\aialgo\aialgo_sequential_inference.h
+	"core/aifes_core.h"
+	"core/aifes_math.h"
+	"basic/base/aimath/aimath_basic.h"
+	"basic/default/ailayer/ailayer_dense_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\core\aifes_core.h
+	"aifes_math.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\core\aifes_math.h
+	<stdint.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\aimath\aimath_basic.h
+	"core/aifes_math.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_dense_default.h
+	"basic/base/ailayer/ailayer_dense.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_dense.h
+	"core/aifes_core.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\aimath\aimath_f32_default.h
+	<stdint.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	"basic/base/aimath/aimath_f32.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\aimath\aimath_f32.h
+	"core/aifes_math.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1632130252 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\aialgo\aialgo_sequential_training.c
+	"basic/base/aialgo/aialgo_sequential_training.h"
+	"basic/base/aialgo/aialgo_sequential_inference.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\aialgo\aialgo_sequential_training.h
+	"core/aifes_core.h"
+	"core/aifes_math.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_dense.c
+	"basic/base/ailayer/ailayer_dense.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_elu.c
+	"basic/base/ailayer/ailayer_elu.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_elu.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_input.c
+	"basic/base/ailayer/ailayer_input.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_input.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_leaky_relu.c
+	"basic/base/ailayer/ailayer_leaky_relu.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_leaky_relu.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_relu.c
+	"basic/base/ailayer/ailayer_relu.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_relu.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_sigmoid.c
+	"basic/base/ailayer/ailayer_sigmoid.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_sigmoid.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_softmax.c
+	"basic/base/ailayer/ailayer_softmax.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_softmax.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_softsign.c
+	"basic/base/ailayer/ailayer_softsign.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_softsign.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_tanh.c
+	"basic/base/ailayer/ailayer_tanh.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_tanh.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_template.c
+	"basic/base/ailayer/ailayer_template.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailayer\ailayer_template.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailoss\ailoss_crossentropy.c
+	"basic/base/ailoss/ailoss_crossentropy.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailoss\ailoss_crossentropy.h
+	"core/aifes_core.h"
+	"basic/base/ailayer/ailayer_softmax.h"
+	"basic/base/ailayer/ailayer_sigmoid.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailoss\ailoss_mse.c
+	"basic/base/ailoss/ailoss_mse.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\ailoss\ailoss_mse.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\aimath\aimath_basic.c
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\aimath\aimath_f32.c
+	"basic/base/aimath/aimath_f32.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\aiopti\aiopti_adam.c
+	"basic/base/aiopti/aiopti_adam.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\aiopti\aiopti_adam.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\aiopti\aiopti_sgd.c
+	"basic/base/aiopti/aiopti_sgd.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\base\aiopti\aiopti_sgd.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\cmsis\ailayer\ailayer_dense_cmsis.c
+	"basic/default/ailayer/ailayer_dense_default.h"
+	"../../../aifes.h"
+	"basic/cmsis/ailayer/ailayer_dense_cmsis.h"
+	"basic/cmsis/aimath/aimath_f32_cmsis.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\aifes.h
+	"core/aifes_math.h"
+	"core/aifes_core.h"
+	"basic/base/aimath/aimath_f32.h"
+	"basic/base/aimath/aimath_basic.h"
+	"basic/base/ailayer/ailayer_dense.h"
+	"basic/base/ailayer/ailayer_input.h"
+	"basic/base/ailayer/ailayer_relu.h"
+	"basic/base/ailayer/ailayer_leaky_relu.h"
+	"basic/base/ailayer/ailayer_elu.h"
+	"basic/base/ailayer/ailayer_sigmoid.h"
+	"basic/base/ailayer/ailayer_tanh.h"
+	"basic/base/ailayer/ailayer_softmax.h"
+	"basic/base/ailayer/ailayer_softsign.h"
+	"basic/base/ailoss/ailoss_mse.h"
+	"basic/base/ailoss/ailoss_crossentropy.h"
+	"basic/base/aiopti/aiopti_sgd.h"
+	"basic/base/aiopti/aiopti_adam.h"
+	"basic/default/aimath/aimath_f32_default.h"
+	"basic/default/ailayer/ailayer_dense_default.h"
+	"basic/default/ailayer/ailayer_input_default.h"
+	"basic/default/ailayer/ailayer_relu_default.h"
+	"basic/default/ailayer/ailayer_leaky_relu_default.h"
+	"basic/default/ailayer/ailayer_elu_default.h"
+	"basic/default/ailayer/ailayer_sigmoid_default.h"
+	"basic/default/ailayer/ailayer_tanh_default.h"
+	"basic/default/ailayer/ailayer_softmax_default.h"
+	"basic/default/ailayer/ailayer_softsign_default.h"
+	"basic/default/ailoss/ailoss_mse_default.h"
+	"basic/default/ailoss/ailoss_crossentropy_default.h"
+	"basic/default/aiopti/aiopti_sgd_default.h"
+	"basic/default/aiopti/aiopti_adam_default.h"
+	"basic/cmsis/aimath/aimath_f32_cmsis.h"
+	"basic/cmsis/ailayer/ailayer_dense_cmsis.h"
+	"basic/base/aialgo/aialgo_sequential_inference.h"
+	"basic/base/aialgo/aialgo_sequential_training.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_input_default.h
+	"basic/base/ailayer/ailayer_input.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_relu_default.h
+	"basic/base/ailayer/ailayer_relu.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_leaky_relu_default.h
+	"basic/base/ailayer/ailayer_leaky_relu.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_elu_default.h
+	"basic/base/ailayer/ailayer_elu.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_sigmoid_default.h
+	"basic/base/ailayer/ailayer_sigmoid.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_tanh_default.h
+	"basic/base/ailayer/ailayer_tanh.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_softmax_default.h
+	"basic/base/ailayer/ailayer_softmax.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_softsign_default.h
+	"basic/base/ailayer/ailayer_softsign.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailoss\ailoss_mse_default.h
+	"basic/base/ailoss/ailoss_mse.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailoss\ailoss_crossentropy_default.h
+	"basic/base/ailoss/ailoss_crossentropy.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\aiopti\aiopti_sgd_default.h
+	"basic/base/aiopti/aiopti_sgd.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\aiopti\aiopti_adam_default.h
+	"basic/base/aiopti/aiopti_adam.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\cmsis\aimath\aimath_f32_cmsis.h
+	"basic/base/aimath/aimath_f32.h"
+	"../../../aifes.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\cmsis\ailayer\ailayer_dense_cmsis.h
+	"../../../aifes.h"
+	"basic/base/ailayer/ailayer_dense.h"
+	"basic/cmsis/aimath/aimath_f32_cmsis.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\cmsis\aimath\aimath_f32_cmsis.c
+	"basic/cmsis/aimath/aimath_f32_cmsis.h"
+	"../../../aifes.h"
+	"arm_math.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_dense_default.c
+	"basic/default/ailayer/ailayer_dense_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_elu_default.c
+	"basic/default/ailayer/ailayer_elu_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_input_default.c
+	"basic/default/ailayer/ailayer_input_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_leaky_relu_default.c
+	"basic/default/ailayer/ailayer_leaky_relu_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_relu_default.c
+	"basic/default/ailayer/ailayer_relu_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_sigmoid_default.c
+	"basic/default/ailayer/ailayer_sigmoid_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_softmax_default.c
+	"basic/default/ailayer/ailayer_softmax_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_softsign_default.c
+	"basic/default/ailayer/ailayer_softsign_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailayer\ailayer_tanh_default.c
+	"basic/default/ailayer/ailayer_tanh_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailoss\ailoss_crossentropy_default.c
+	"basic/default/ailoss/ailoss_crossentropy_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\ailoss\ailoss_mse_default.c
+	"basic/default/ailoss/ailoss_mse_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\aimath\aimath_f32_default.c
+	"basic/default/aimath/aimath_f32_default.h"
+	<float.h>
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\aiopti\aiopti_adam_default.c
+	"basic/default/aiopti/aiopti_adam_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\mnist_train\src\basic\default\aiopti\aiopti_sgd_default.c
+	"basic/default/aiopti/aiopti_sgd_default.h"
+
+1631882463 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\aialgo\aialgo_sequential_inference.c
+	"basic/base/aialgo/aialgo_sequential_inference.h"
+	"basic/default/aimath/aimath_f32_default.h"
+	<stdio.h>
+	<float.h>
+	<string.h>
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\aialgo\aialgo_sequential_inference.h
+	"core/aifes_core.h"
+	"core/aifes_math.h"
+	"basic/base/aimath/aimath_basic.h"
+	"basic/default/ailayer/ailayer_dense_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\core\aifes_core.h
+	"aifes_math.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\core\aifes_math.h
+	<stdint.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\aimath\aimath_basic.h
+	"core/aifes_math.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_dense_default.h
+	"basic/base/ailayer/ailayer_dense.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_dense.h
+	"core/aifes_core.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\aimath\aimath_f32_default.h
+	<stdint.h>
+	<math.h>
+	<stdio.h>
+	<stdlib.h>
+	"basic/base/aimath/aimath_f32.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\aimath\aimath_f32.h
+	"core/aifes_math.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1632130252 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\aialgo\aialgo_sequential_training.c
+	"basic/base/aialgo/aialgo_sequential_training.h"
+	"basic/base/aialgo/aialgo_sequential_inference.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\aialgo\aialgo_sequential_training.h
+	"core/aifes_core.h"
+	"core/aifes_math.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_dense.c
+	"basic/base/ailayer/ailayer_dense.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_elu.c
+	"basic/base/ailayer/ailayer_elu.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_elu.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_input.c
+	"basic/base/ailayer/ailayer_input.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_input.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_leaky_relu.c
+	"basic/base/ailayer/ailayer_leaky_relu.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_leaky_relu.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_relu.c
+	"basic/base/ailayer/ailayer_relu.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_relu.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_sigmoid.c
+	"basic/base/ailayer/ailayer_sigmoid.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_sigmoid.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_softmax.c
+	"basic/base/ailayer/ailayer_softmax.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_softmax.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_softsign.c
+	"basic/base/ailayer/ailayer_softsign.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_softsign.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_tanh.c
+	"basic/base/ailayer/ailayer_tanh.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_tanh.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_template.c
+	"basic/base/ailayer/ailayer_template.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailayer\ailayer_template.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailoss\ailoss_crossentropy.c
+	"basic/base/ailoss/ailoss_crossentropy.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailoss\ailoss_crossentropy.h
+	"core/aifes_core.h"
+	"basic/base/ailayer/ailayer_softmax.h"
+	"basic/base/ailayer/ailayer_sigmoid.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailoss\ailoss_mse.c
+	"basic/base/ailoss/ailoss_mse.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\ailoss\ailoss_mse.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\aimath\aimath_basic.c
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\aimath\aimath_f32.c
+	"basic/base/aimath/aimath_f32.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\aiopti\aiopti_adam.c
+	"basic/base/aiopti/aiopti_adam.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\aiopti\aiopti_adam.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\aiopti\aiopti_sgd.c
+	"basic/base/aiopti/aiopti_sgd.h"
+	"basic/base/aimath/aimath_basic.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\base\aiopti\aiopti_sgd.h
+	"core/aifes_core.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\cmsis\ailayer\ailayer_dense_cmsis.c
+	"basic/default/ailayer/ailayer_dense_default.h"
+	"../../../aifes.h"
+	"basic/cmsis/ailayer/ailayer_dense_cmsis.h"
+	"basic/cmsis/aimath/aimath_f32_cmsis.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\aifes.h
+	"core/aifes_math.h"
+	"core/aifes_core.h"
+	"basic/base/aimath/aimath_f32.h"
+	"basic/base/aimath/aimath_basic.h"
+	"basic/base/ailayer/ailayer_dense.h"
+	"basic/base/ailayer/ailayer_input.h"
+	"basic/base/ailayer/ailayer_relu.h"
+	"basic/base/ailayer/ailayer_leaky_relu.h"
+	"basic/base/ailayer/ailayer_elu.h"
+	"basic/base/ailayer/ailayer_sigmoid.h"
+	"basic/base/ailayer/ailayer_tanh.h"
+	"basic/base/ailayer/ailayer_softmax.h"
+	"basic/base/ailayer/ailayer_softsign.h"
+	"basic/base/ailoss/ailoss_mse.h"
+	"basic/base/ailoss/ailoss_crossentropy.h"
+	"basic/base/aiopti/aiopti_sgd.h"
+	"basic/base/aiopti/aiopti_adam.h"
+	"basic/default/aimath/aimath_f32_default.h"
+	"basic/default/ailayer/ailayer_dense_default.h"
+	"basic/default/ailayer/ailayer_input_default.h"
+	"basic/default/ailayer/ailayer_relu_default.h"
+	"basic/default/ailayer/ailayer_leaky_relu_default.h"
+	"basic/default/ailayer/ailayer_elu_default.h"
+	"basic/default/ailayer/ailayer_sigmoid_default.h"
+	"basic/default/ailayer/ailayer_tanh_default.h"
+	"basic/default/ailayer/ailayer_softmax_default.h"
+	"basic/default/ailayer/ailayer_softsign_default.h"
+	"basic/default/ailoss/ailoss_mse_default.h"
+	"basic/default/ailoss/ailoss_crossentropy_default.h"
+	"basic/default/aiopti/aiopti_sgd_default.h"
+	"basic/default/aiopti/aiopti_adam_default.h"
+	"basic/cmsis/aimath/aimath_f32_cmsis.h"
+	"basic/cmsis/ailayer/ailayer_dense_cmsis.h"
+	"basic/base/aialgo/aialgo_sequential_inference.h"
+	"basic/base/aialgo/aialgo_sequential_training.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_input_default.h
+	"basic/base/ailayer/ailayer_input.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_relu_default.h
+	"basic/base/ailayer/ailayer_relu.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_leaky_relu_default.h
+	"basic/base/ailayer/ailayer_leaky_relu.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_elu_default.h
+	"basic/base/ailayer/ailayer_elu.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_sigmoid_default.h
+	"basic/base/ailayer/ailayer_sigmoid.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_tanh_default.h
+	"basic/base/ailayer/ailayer_tanh.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_softmax_default.h
+	"basic/base/ailayer/ailayer_softmax.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_softsign_default.h
+	"basic/base/ailayer/ailayer_softsign.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailoss\ailoss_mse_default.h
+	"basic/base/ailoss/ailoss_mse.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailoss\ailoss_crossentropy_default.h
+	"basic/base/ailoss/ailoss_crossentropy.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\aiopti\aiopti_sgd_default.h
+	"basic/base/aiopti/aiopti_sgd.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\aiopti\aiopti_adam_default.h
+	"basic/base/aiopti/aiopti_adam.h"
+	"basic/default/aimath/aimath_f32_default.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\cmsis\aimath\aimath_f32_cmsis.h
+	"basic/base/aimath/aimath_f32.h"
+	"../../../aifes.h"
+
+1628682756 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\cmsis\ailayer\ailayer_dense_cmsis.h
+	"../../../aifes.h"
+	"basic/base/ailayer/ailayer_dense.h"
+	"basic/cmsis/aimath/aimath_f32_cmsis.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\cmsis\aimath\aimath_f32_cmsis.c
+	"basic/cmsis/aimath/aimath_f32_cmsis.h"
+	"../../../aifes.h"
+	"arm_math.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_dense_default.c
+	"basic/default/ailayer/ailayer_dense_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_elu_default.c
+	"basic/default/ailayer/ailayer_elu_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_input_default.c
+	"basic/default/ailayer/ailayer_input_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_leaky_relu_default.c
+	"basic/default/ailayer/ailayer_leaky_relu_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_relu_default.c
+	"basic/default/ailayer/ailayer_relu_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_sigmoid_default.c
+	"basic/default/ailayer/ailayer_sigmoid_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_softmax_default.c
+	"basic/default/ailayer/ailayer_softmax_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_softsign_default.c
+	"basic/default/ailayer/ailayer_softsign_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailayer\ailayer_tanh_default.c
+	"basic/default/ailayer/ailayer_tanh_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailoss\ailoss_crossentropy_default.c
+	"basic/default/ailoss/ailoss_crossentropy_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\ailoss\ailoss_mse_default.c
+	"basic/default/ailoss/ailoss_mse_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\aimath\aimath_f32_default.c
+	"basic/default/aimath/aimath_f32_default.h"
+	<float.h>
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\aiopti\aiopti_adam_default.c
+	"basic/default/aiopti/aiopti_adam_default.h"
+
+1628682756 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\basic\default\aiopti\aiopti_sgd_default.c
+	"basic/default/aiopti/aiopti_sgd_default.h"
+
+1632312912 source:c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\main.c
+	<stdio.h>
+	<stdlib.h>
+	<windows.h>
+	<time.h>
+	"aifes.h"
+	"MNIST_training_data.h"
+	"MNIST_training_data_label.h"
+	"MNIST_test_data.h"
+	"MNIST_test_data_label.h"
+
+1632313103 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\mnist_training_data.h
+
+1632313103 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\mnist_training_data_label.h
+
+1632313114 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\mnist_test_data.h
+
+1632313114 c:\users\dk100\documents\aifes\github\aifes_for_arduino\examples\2_mnist_on_pc\1_mnist_train\src\mnist_test_data_label.h
+
