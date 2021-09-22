@@ -325,7 +325,7 @@ int main(int argc, char *argv[])
     aialgo_calc_loss_model_f32(&model, &input_tensor_test_data, &target_tensor_test_data, &loss_test);
 
     //reduction / normalization of the loss
-    loss_test = loss_test / (OUTPUTS * NUM_TRAIN_DATA);
+    loss_test = loss_test / (OUTPUTS * NUM_TEST_DATA);
     printf("Loss: %f\n",loss_test);
 
 
