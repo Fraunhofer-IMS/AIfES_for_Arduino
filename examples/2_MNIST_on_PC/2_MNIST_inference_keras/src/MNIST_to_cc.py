@@ -1,3 +1,7 @@
+''' 
+Author: Hahn-Schickard-Gesellschaft für angewandte Forschung e.V., Daniel Konegen + Marcus Rueb
+'''
+
 import tensorflow as tf
 from tensorflow.keras.utils import to_categorical
 

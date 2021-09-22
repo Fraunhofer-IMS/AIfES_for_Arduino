@@ -1,4 +1,6 @@
 /*
+  Author: Hahn-Schickard-Gesellschaft für angewandte Forschung e.V., Daniel Konegen + Marcus Rueb
+
   The sketch shows an example of how a neural network is retrained in AIfES after training in Keras.
   Afterwards, the retrained neural network is executed to check the accuracy of the network.
   This is a script to retrain and execute a neural network for the MNIST dataset on a PC.

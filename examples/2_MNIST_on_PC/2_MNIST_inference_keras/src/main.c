@@ -1,4 +1,6 @@
 /*
+  Author: Hahn-Schickard-Gesellschaft für angewandte Forschung e.V., Daniel Konegen + Marcus Rueb
+
   The sketch shows an example of how a neural network is executed in AIfES after training in Keras.
   This is a script to execute and show the accuracy of a neural network for the MNIST dataset on a PC.
   
