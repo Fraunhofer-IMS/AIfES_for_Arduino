@@ -138,7 +138,7 @@ int main(int argc, char *argv[])
 
     // Dense layer (hidden layer_1)
     ailayer_dense_t dense_layer_1;                                  // Creation of the AIfES hidden dense layer
-    dense_layer_1.neurons = NEURONS_1;                                // Number of neurons
+    dense_layer_1.neurons = NEURONS_1;                              // Number of neurons
     dense_layer_1.weights.data = weights_data_dense_1;              // Passing the hidden layer weights
     dense_layer_1.bias.data = bias_data_dense_1;                    // Passing the hidden layer bias weights
 

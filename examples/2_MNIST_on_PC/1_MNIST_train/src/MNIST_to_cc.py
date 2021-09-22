@@ -6,7 +6,7 @@ import tensorflow as tf
 from tensorflow.keras.utils import to_categorical
 
 
-#Load and preprocess the MNIST data set
+# Load and preprocess the MNIST data set
 (x_train, y_train), (x_test, y_test) = tf.keras.datasets.mnist.load_data()
 
 x_train = x_train.astype(float)/255.0
@@ -18,8 +18,8 @@ y_test = to_categorical(y_test)
 print(x_train.shape)
 print(x_test.shape)
 
-NUM_TRAINING_DATA = 30000   #Max 60000
-NUM_TEST_DATA = 10000       #Max 10000
+NUM_TRAINING_DATA = 30000   # Max 60000
+NUM_TEST_DATA = 10000       # Max 10000
 
 def generate_train_data():
     '''
