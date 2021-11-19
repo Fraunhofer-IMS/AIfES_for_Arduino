@@ -16,7 +16,7 @@ The Fraunhofer IMS with AIfES and Arduino preapare to enter a partnership.
 We are also at the Arduino Project Hub. Here you can find our new AIfES projects and examples:
 https://create.arduino.cc/projecthub/aifes_team
 
-If you want to stay up to date visit us on LinkedIn:
+Follow us on LinkedIn to get all the latest news about AIfES:
 https://www.linkedin.com/showcase/aifes-ai
 
 ## Dual License
