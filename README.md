@@ -98,6 +98,9 @@ The number of neurons and the number of different layers can be adapted individu
 | aiopti_adam.h Adam | aiopti_adam_f32_default() |
 
 ## Installation
+You can download and install AIfES® (search for aifes) with the Arduino library manager.
+
+Manual download:
 Download the AIfES repository as a ZIP archive and follow these instructions:
 <https://www.arduino.cc/en/guide/libraries>
 
