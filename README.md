@@ -99,8 +99,9 @@ The number of neurons and the number of different layers can be adapted individu
 
 ## Installation
 You can download and install AIfES® (search for "aifes") with the Arduino library manager.
+https://www.arduino.cc/en/guide/libraries
 
-Manual download:
+Alternatively, the manual download is also possible:
 Download the AIfES repository as a ZIP archive and follow these instructions:
 <https://www.arduino.cc/en/guide/libraries>
 
