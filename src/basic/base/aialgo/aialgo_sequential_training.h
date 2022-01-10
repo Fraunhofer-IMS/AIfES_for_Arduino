@@ -8,16 +8,16 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief Functions required for the training of models
@@ -30,6 +30,7 @@
 #include "core/aifes_core.h"
 #include "core/aifes_math.h"
 #include "basic/base/aimath/aimath_basic.h"
+#include "basic/base/aimath/aimath_q31.h"
 
 /** @brief Calculate the memory requirements for model training
  *
@@ -114,6 +115,15 @@ void aialgo_train_model(aimodel_t *model, aitensor_t *input_tensor, aitensor_t *
  * @param *result        The calculated loss will be written here
  */
 void aialgo_calc_loss_model_f32(aimodel_t *model, aitensor_t *input_data, aitensor_t *target_data, float *result);
+
+/** @brief Calculate the loss in \link aimath_q31.h Q31 \endlink data type
+ *
+ * @param *model         The model
+ * @param *input_data    Tensor containing the input data
+ * @param *target_data   Tensor containing the target data / labels
+ * @param *result        The calculated loss will be written here. The zero_point and the scale should be set to proper values.
+ */
+void aialgo_calc_loss_model_q31(aimodel_t *model, aitensor_t *input_data, aitensor_t *target_data, aiscalar_q31_t *result);
 
 /** @brief Set the gradients to zero
  *

@@ -8,16 +8,16 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief AIfES 2 core interface
@@ -32,6 +32,7 @@
 #define AIFES_CORE
 
 #include "aifes_math.h"
+#include "aifes_config.h"
 
 #define TRUE	1
 #define FALSE	0
@@ -88,7 +89,7 @@ struct aicore_layertype {
 	* @param self           The layer
 	* @param *print         A function for printing (for example printf)
 	*/
-	void (*print_specs)(const ailayer_t *self, int (*print)(const char *format, ...));
+	void (*print_specs)(const ailayer_t *self);
 };
 
 /** @brief Type indicator of the loss to check for the loss type
@@ -127,7 +128,7 @@ struct aicore_losstype {
 	* @param self           The loss
 	* @param *print         A function for printing (for example printf)
 	*/
-	void (*print_specs)(const ailoss_t *self, int (*print)(const char *format, ...));
+	void (*print_specs)(const ailoss_t *self);
 };
 
 /** @brief Type indicator of the optimizer to check for the optimizer type
@@ -166,7 +167,7 @@ struct aicore_optitype {
 	* @param self           The optimizer
 	* @param *print         A function for printing (for example printf)
 	*/
-	void (*print_specs)(const aiopti_t *self, int (*print)(const char *format, ...));
+	void (*print_specs)(const aiopti_t *self);
 };
 
 /** @brief AIfES artificial neural network model
@@ -273,18 +274,6 @@ struct ailayer {
 
 	aitensor_t result; /**< The result of the forward function is stored here */
 
-	/** @brief Result and delta min and max values.
-	*
-	* Returns the min/max values if the result can only be in certain value ranges (like sigmoid).
-	* This may be used e.g. for quantization algorithms. Set to NULL if not in use.
-	*
-	* @param self           The layer
-	* @param selector       Select the requested bound (AILAYER_RESULT_LOWER_BOUND, AILAYER_RESULT_UPPER_BOUND, AILAYER_DELTA_LOWER_BOUND, AILAYER_DELTA_UPPER_BOUND)
-	* @param result_bound   A scalar of aiscalar type in which the bound value can be written
-	* @return TRUE if bound available else FALSE
-	*/
-	uint8_t (*get_result_bound)(const ailayer_t *self, const uint8_t selector, void *result_bound);
-
 	/** @brief Calculate and write the shape to the result tensor.
 	*
 	* Made for easy creation of the model (layers can be connected to each other without worrying about the shapes).
@@ -292,6 +281,15 @@ struct ailayer {
 	* @param self           The layer
 	*/
 	void (*calc_result_shape)(ailayer_t *self);
+
+	/** @brief If available, calculate and set the tensor_params of the result tensor.
+	*
+	* Some layers (like some activation functions) have pre-defined tensor_params that can be set to the result tensor with this function.
+	* Set this function to 0 if the tensor_params calculation is not trivial (e.g. dependent on input data).
+	*
+	* @param self           The layer
+	*/
+	void (*calc_result_tensor_params)(ailayer_t *self);
 
 	/** @brief Calculate the forward pass and write the result to the result tensor.
 	*

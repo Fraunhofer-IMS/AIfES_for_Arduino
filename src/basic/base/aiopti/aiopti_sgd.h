@@ -8,16 +8,16 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief Base \link aiopti optimizer \endlink implementation of the Stochastic Gradient Descent (with momentum) optimizer
@@ -265,7 +265,7 @@ void aiopti_sgd_update_params_without_momentum(aiopti_t *self, aitensor_t *param
  * @param *self     The optimizer to print the specification for
  * @param *print    Pointer to the print function to use
  */
-void aiopti_sgd_print_specs(const aiopti_t *self, int (*print)(const char *format, ...));
+void aiopti_sgd_print_specs(const aiopti_t *self);
 #endif // AIDEBUG_PRINT_MODULE_SPECS
 
 #endif // AIOPTI_SGD

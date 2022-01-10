@@ -6,16 +6,16 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief
@@ -28,6 +28,8 @@ ailayer_t *ailayer_sigmoid_f32_default(ailayer_sigmoid_f32_t *layer, ailayer_t *
 {
 	layer->dtype = aif32;
 
+	layer->base.calc_result_tensor_params = 0;
+
 	//forward
 	layer->sigmoid = aimath_f32_default_sigmoid;
 
@@ -35,30 +37,61 @@ ailayer_t *ailayer_sigmoid_f32_default(ailayer_sigmoid_f32_t *layer, ailayer_t *
 	layer->d_sigmoid = aimath_f32_default_d_sigmoid;
 	layer->multiply = aimath_f32_default_multiply;
 
-	layer->base.get_result_bound = ailayer_sigmoid_get_result_bound_f32_default;
+	return ailayer_sigmoid(layer, input_layer);
+}
+
+ailayer_t *ailayer_sigmoid_q31_default(ailayer_sigmoid_q31_t *layer, ailayer_t *input_layer)
+{
+	layer->dtype = aiq31;
+
+	layer->base.calc_result_tensor_params = ailayer_sigmoid_calc_result_tensor_params_q31_default;
+
+	//forward
+	layer->sigmoid = aimath_q31_default_sigmoid;
+
+	// backward
+	layer->d_sigmoid = aimath_q31_default_d_sigmoid;
+	layer->multiply = aimath_q31_default_multiply;
 
 	return ailayer_sigmoid(layer, input_layer);
 }
 
-uint8_t ailayer_sigmoid_get_result_bound_f32_default(const ailayer_t *self, const uint8_t selector, void *result_bound)
+ailayer_t *ailayer_sigmoid_q7_default(ailayer_sigmoid_q7_t *layer, ailayer_t *input_layer)
 {
-    float *bound = (float *) result_bound;
+    ailayer_t *return_layer;
 
-    switch(selector){
-    case AILAYER_RESULT_LOWER_BOUND:
-        *bound = 0.0f;
-        return TRUE;
-    case AILAYER_RESULT_UPPER_BOUND:
-        *bound = 1.0f;
-        return TRUE;
-    case AILAYER_DELTAS_LOWER_BOUND:
-        return FALSE;
-    case AILAYER_DELTAS_UPPER_BOUND:
-        return FALSE;
-    default:
-        #ifdef AIDEBUG_PRINT_ERROR_MESSAGES
-            printf("\n+++ ERROR: Not defined result bound selector.\n");
-        #endif // AIDEBUG_PRINT_ERROR_MESSAGES
-        return FALSE;
-    }
+	layer->dtype = aiq7;
+
+	layer->base.calc_result_tensor_params = ailayer_sigmoid_calc_result_tensor_params_q7_default;
+
+	return_layer = ailayer_sigmoid(layer, input_layer);
+
+	//forward
+	layer->sigmoid = aimath_q7_default_sigmoid;
+
+	// backward
+	// No backward supported for q7
+	return_layer->backward = 0;
+	layer->d_sigmoid = 0;
+	layer->multiply = 0;
+
+	return return_layer;
+}
+
+void ailayer_sigmoid_calc_result_tensor_params_q31_default(ailayer_t *self)
+{
+	aimath_q31_params_t *qparams = (aimath_q31_params_t *) (self->result.tensor_params);
+
+	// Values are the same as used in the sigmoid q31 default math function
+	qparams->shift = 32;
+	qparams->zero_point = - ((int64_t) 1 << 31);
+}
+
+void ailayer_sigmoid_calc_result_tensor_params_q7_default(ailayer_t *self)
+{
+	aimath_q7_params_t *qparams = (aimath_q7_params_t *) (self->result.tensor_params);
+
+	// Values are the same as used in the sigmoid q7 default math function
+	qparams->shift = 8;
+	qparams->zero_point = -128;
 }

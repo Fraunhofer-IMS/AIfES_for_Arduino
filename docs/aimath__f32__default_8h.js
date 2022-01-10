@@ -18,7 +18,9 @@ var aimath__f32__default_8h =
     [ "aimath_f32_default_init_zeros", "aimath__f32__default_8h.html#a760163e6cee0f2a5e341069ad20bfcde", null ],
     [ "aimath_f32_default_leaky_relu", "aimath__f32__default_8h.html#afaafd34ad1adc476a7c120dce8f39498", null ],
     [ "aimath_f32_default_linear", "aimath__f32__default_8h.html#a1ce664be9a6c513d1fb7cae44d1d7e17", null ],
+    [ "aimath_f32_default_linear_bt", "aimath__f32__default_8h.html#a234496e739207585fd533a33be9f1292", null ],
     [ "aimath_f32_default_mat_mul", "aimath__f32__default_8h.html#a76f4b7504be8560f3b8ce8fd651402a7", null ],
+    [ "aimath_f32_default_mat_mul_bt", "aimath__f32__default_8h.html#a04af5314c51e75495016026343dec02e", null ],
     [ "aimath_f32_default_max", "aimath__f32__default_8h.html#a2cca0f45a41c48a7730664f43933c066", null ],
     [ "aimath_f32_default_min", "aimath__f32__default_8h.html#a29b2f81f252312acbac15df0d415d791", null ],
     [ "aimath_f32_default_multiply", "aimath__f32__default_8h.html#abf4023f330ca3318b600967710aa4de1", null ],
@@ -36,6 +38,7 @@ var aimath__f32__default_8h =
     [ "aimath_f32_default_tensor_init_uniform", "aimath__f32__default_8h.html#a580a19afaf81fa085160be7fead0ac2f", null ],
     [ "aimath_f32_default_tensor_sub", "aimath__f32__default_8h.html#af1409f9886a9614f83cb0a5d5360be60", null ],
     [ "aimath_f32_default_tensor_sub_sparse8", "aimath__f32__default_8h.html#acbf32eb2340529176399d24fa2ceaae2", null ],
+    [ "aimath_f32_default_transpose_matrix", "aimath__f32__default_8h.html#a458efd0b4b295af5f84c15123158770d", null ],
     [ "aimath_f32_default_transpose_vector", "aimath__f32__default_8h.html#a750f616bbc38cd336a0d75581a811101", null ],
     [ "aimath_f32_default_zero_tensor", "aimath__f32__default_8h.html#a072ffbef0c60343957e4621f01551e85", null ]
 ];

@@ -8,16 +8,16 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief 	Definition of the F32 (aif32) data-type
@@ -31,6 +31,7 @@
  * \left( \begin{array}{rrr} 0 & 1 & 2 \\ 3 & 4 & 5 \end{array}\right)
  * @f]
  * can be created with
+ * In C:
  * \code{.c}
  * float example_data[] = {0.0f, 1.0f, 2.0f,
  *                         3.0f, 4.0f, 5.0f};
@@ -41,6 +42,13 @@
  *     .shape = example_shape,
  *     .data = example_data
  * };
+ * \endcode
+ * In C, C++ and on Arduino:
+ * \code{.c}
+ * float example_data[] = {0.0f, 1.0f, 2.0f,
+ *                         3.0f, 4.0f, 5.0f};
+ * uint16_t example_shape[] = {2, 3};
+ * aitensor_t example_tensor = AITENSOR_2D_F32(example_shape, example_data);
  * \endcode
  *
  * **Example: Create a F32 scalar**\n
@@ -109,6 +117,7 @@ typedef float				aiscalar_f32_t;
  * is prefered.
  *
  * @param *tensor	The tensor to print.
+ * @param *print	The print function to use (Must be able to handle formated strings)
  */
 void aimath_f32_print_aitensor(const aitensor_t *tensor);
 
@@ -121,9 +130,9 @@ void aimath_f32_print_aitensor(const aitensor_t *tensor);
  * is prefered.
  *
  * @param *scalar	The scalar (type: float) to print.
- * @param *print	The print function to use
+ * @param *print	The print function to use (Must be able to handle formated strings)
  */
-void aimath_f32_print_aiscalar(const void *scalar, int (*print)(const char *format, ...));
+void aimath_f32_print_aiscalar(const void *scalar);
 
 /** @brief The F32 data-type indicator
  *

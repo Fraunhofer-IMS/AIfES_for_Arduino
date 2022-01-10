@@ -1,0 +1,25 @@
+var aimath__q7__default_8h =
+[
+    [ "aimath_q7_default_copy_tensor", "aimath__q7__default_8h.html#a1d233a41fb19c9d444051cceea04c6d1", null ],
+    [ "aimath_q7_default_d_relu", "aimath__q7__default_8h.html#a3c64e64b1e09cd3b665d5436ee1a81f4", null ],
+    [ "aimath_q7_default_elu", "aimath__q7__default_8h.html#a9904ddb34fdb99f5e448fa6a72a1aedf", null ],
+    [ "aimath_q7_default_init_zeros", "aimath__q7__default_8h.html#a6bf3ea9845ce25041a98628df953f23c", null ],
+    [ "aimath_q7_default_leaky_relu", "aimath__q7__default_8h.html#abc7fe8c9d9ed1b56683871aad5b79e6b", null ],
+    [ "aimath_q7_default_linear32", "aimath__q7__default_8h.html#ae14116c35f7bcafa336131627e208acd", null ],
+    [ "aimath_q7_default_linear32_bt", "aimath__q7__default_8h.html#a8457eb57e8075ad70123092df8b57233", null ],
+    [ "aimath_q7_default_mat_mul", "aimath__q7__default_8h.html#abb9d7e4822da469bd0196c6c8c24039c", null ],
+    [ "aimath_q7_default_multiply", "aimath__q7__default_8h.html#aea8ff135f469f27eda0478fc21e4a568", null ],
+    [ "aimath_q7_default_relu", "aimath__q7__default_8h.html#a6baa6499f2ecf3ae40e9f08ba39499cf", null ],
+    [ "aimath_q7_default_scalar_mul", "aimath__q7__default_8h.html#ab09f6f205301031766d1211f1f22b77d", null ],
+    [ "aimath_q7_default_sigmoid", "aimath__q7__default_8h.html#a276405dee87319f05cff812b225ec5ed", null ],
+    [ "aimath_q7_default_softmax", "aimath__q7__default_8h.html#a9a397ffb85d001e9d99c904369e8c7f4", null ],
+    [ "aimath_q7_default_softsign", "aimath__q7__default_8h.html#ade55b697f7366df6aa1350cca23411f8", null ],
+    [ "aimath_q7_default_tanh", "aimath__q7__default_8h.html#ad54410eb70a8dc52402cce9df193efc8", null ],
+    [ "aimath_q7_default_tensor_add_different_shift", "aimath__q7__default_8h.html#a5495242497ca55e067957e5cfb8ecd47", null ],
+    [ "aimath_q7_default_tensor_add_same_shift", "aimath__q7__default_8h.html#a3030c62db3aba6f211019155866ac188", null ],
+    [ "aimath_q7_default_tensor_sub_different_shift", "aimath__q7__default_8h.html#a95cefff68f55a80365250be42c54079c", null ],
+    [ "aimath_q7_default_tensor_sub_same_shift", "aimath__q7__default_8h.html#ab7cd6d81cc93235513fc28b27dc2fbd8", null ],
+    [ "aimath_q7_default_transpose_matrix", "aimath__q7__default_8h.html#a1f38ebd2e786763092b3d9fa97088388", null ],
+    [ "aimath_q7_default_transpose_vector", "aimath__q7__default_8h.html#ae989b3b4870f77f485ac8c1fc1657703", null ],
+    [ "aimath_q7_default_zero_tensor", "aimath__q7__default_8h.html#a2264128c09cf1d1e7c0a6699fe75b2c8", null ]
+];
