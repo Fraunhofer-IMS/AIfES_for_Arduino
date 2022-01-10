@@ -1,6 +1,8 @@
 var ailayer__sigmoid__default_8h =
 [
-    [ "ailayer_sigmoid_f32_t", "ailayer__sigmoid__default_8h.html#a6f282e01b67becc4d6cc0a826d48e284", null ],
-    [ "ailayer_sigmoid_f32_default", "ailayer__sigmoid__default_8h.html#a1ec45b121e81b85e2109f0072d46f602", null ],
-    [ "ailayer_sigmoid_get_result_bound_f32_default", "ailayer__sigmoid__default_8h.html#a8cc8e14fdcbf45be5ab9a6b2cb9f7e5f", null ]
+    [ "ailayer_sigmoid_calc_result_tensor_params_q31_default", "ailayer__sigmoid__default_8h.html#a88f5d3306d9cdb985c9fc0f9dcd1d6c4", null ],
+    [ "ailayer_sigmoid_calc_result_tensor_params_q7_default", "ailayer__sigmoid__default_8h.html#a79fb15d39afc5e75e33944db370b2152", null ],
+    [ "ailayer_sigmoid_f32_default", "ailayer__sigmoid__default_8h.html#a15643ec0e56df2f674316b34f6f2ad5b", null ],
+    [ "ailayer_sigmoid_q31_default", "ailayer__sigmoid__default_8h.html#afd1d389befdf4d1963f90284e0a2b3e1", null ],
+    [ "ailayer_sigmoid_q7_default", "ailayer__sigmoid__default_8h.html#a6637260aca285dc17a2b1730a2ec7422", null ]
 ];

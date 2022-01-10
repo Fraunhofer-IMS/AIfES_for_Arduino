@@ -6,16 +6,16 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief
@@ -25,9 +25,11 @@
 #include "basic/base/ailoss/ailoss_crossentropy.h"
 #include "basic/base/aimath/aimath_basic.h"
 
+AISTRING_STORAGE_WRAPPER(aistring_loss_crossentropy) = "Cross-Entropy";
+
 const aicore_losstype_t ailoss_crossentropy_type_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
-    .name = "Cross-entropy",
+    .name = aistring_loss_crossentropy,
 	.print_specs = ailoss_crossentropy_print_specs
 #else
     .name = 0,
@@ -35,6 +37,8 @@ const aicore_losstype_t ailoss_crossentropy_type_s = {
 #endif
 };
 const aicore_losstype_t *ailoss_crossentropy_type = &ailoss_crossentropy_type_s;
+
+AISTRING_STORAGE_WRAPPER(aistring_error_loss_crossentropy_1) = "[ailoss_crossentropy] No valid input layer. Use either Sigmoid or Softmax as input.\n";
 
 ailoss_t *ailoss_crossentropy(ailoss_crossentropy_t *loss, ailayer_t *input_layer)
 {
@@ -56,7 +60,7 @@ ailoss_t *ailoss_crossentropy(ailoss_crossentropy_t *loss, ailayer_t *input_laye
     }
     else{
         #ifdef AIDEBUG_PRINT_ERROR_MESSAGES
-            printf("\n!!! ERROR !!! (ailoss_crossentropy): No valid input layer. Use either Sigmoid or Softmax as input.\n");
+            AILOG_E(aistring_error_loss_crossentropy_1);
         #endif
         return 0;
     }
@@ -102,7 +106,7 @@ void ailoss_crossentropy_dummy_backward(ailayer_t *self)
 
 
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
-void ailoss_crossentropy_print_specs(const ailoss_t *self, int (*print)(const char *format, ...))
+void ailoss_crossentropy_print_specs(const ailoss_t *self)
 {
     return;
 }

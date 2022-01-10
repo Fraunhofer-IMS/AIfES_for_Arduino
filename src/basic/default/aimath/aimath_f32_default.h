@@ -8,16 +8,16 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief Math functions for \link aimath_f32.h F32 \endlink data type, default implementation
@@ -30,7 +30,6 @@
 
 #include <stdint.h>
 #include <math.h>
-#include <stdio.h>
 #include <stdlib.h>
 
 #include "basic/base/aimath/aimath_f32.h"
@@ -39,7 +38,7 @@
  *
  * The addition of the horizontal vector c is performed via broadcast, i.e. element wise in each column
  * Mathematically this broadcast is equal to multiplying c with an vertical vector (with the same number of elements as c)
- * and adding the result to a * b
+ * and adding the result to \f$ a \cdot b \f$.
  *
  * @f[
  *  result = a \cdot b + \left( \begin{array}{c}
@@ -129,17 +128,155 @@
  * print_aitensor(&result);
  * \endcode
  *
- * @param *a        Q31 matrix a (2D tensor of shape [N x K])
- * @param *b        Q31 matrix b (2D tensor of shape [K x M])
- * @param *c        Q31 vector c (2D tensor of shape [1 x M])
- * @param *result   Resulting Q31 matrix (2D tensor of shape [N x M])
+ * @param *a        F32 matrix a (2D tensor of shape [N x K])
+ * @param *b        F32 matrix b (2D tensor of shape [K x M])
+ * @param *c        F32 vector c (2D tensor of shape [1 x M] or 1D tensor of shape [M])
+ * @param *result   Resulting F32 matrix (2D tensor of shape [N x M])
  */
 void aimath_f32_default_linear(const aitensor_t *a, const aitensor_t *b, const aitensor_t *c, aitensor_t *result);
 
+/** @brief Performs a matrix multiplication of \link aimath_f32.h F32 \endlink matrices a and b (transposed) and adds a vector c to each row
+ *
+ * Same operation as aimath_f32_default_linear() but with a transposed b matrix.
+ *
+ * The addition of the horizontal vector c is performed via broadcast, i.e. element wise in each column
+ * Mathematically this broadcast is equal to multiplying c with an vertical vector (with the same number of elements as c)
+ * and adding the result to \f$ a \cdot b^T \f$.
+ *
+ * @f[
+ *  result = a \cdot b^T + \left( \begin{array}{c}
+ 							1  \\
+							1 \\
+							\vdots \\
+							1  \\
+							\end{array}\right)  \cdot c
+ * @f]
+ *
+ * Example:
+ * 	@f[
+ *  a =  \left( \begin{array}{rrr}
+				1 & 2 & 3 \\
+				4 & 5 & 6 \\
+				7 & 8 & 9
+				\end{array}\right)
+ * @f]
+ *
+ * @f[
+ *  b =  \left( \begin{array}{rr}
+				1 & 0 & 0 \\
+				0 & 1 & 0
+                \end{array}\right)
+ * @f]
+ *
+ * @f[
+ *  c =  \left( \begin{array}{rr}
+				2 & 5
+				\end{array}\right)
+ * @f]
+ *
+ * @f[
+ *  result = a \cdot b^T + \left( \begin{array}{r} 1 \\
+							1 \\
+							1 \\
+							\end{array}\right)  \cdot c
+ * @f]
+ *
+ * @f[
+ *   = \left( \begin{array}{rr}
+				1 & 2  \\
+				4 & 5  \\
+				7 & 8
+				\end{array}\right)
+		 + \left( \begin{array}{rr}
+				2 & 5  \\
+				2 & 5  \\
+				2 & 5
+				\end{array}\right)
+ * @f]
+ *
+ * @details
+ *
+ * @f[
+ *   = \left( \begin{array}{rr} 3 & 7  \\
+				6 & 10  \\
+				9 & 13
+				\end{array}\right)
+ * @f]
+ *
+ * Example:
+ * \code{.c}
+ * uint16_t a_shape[2] = {3, 3};
+ * float a_data[3*3] = {1.0f, 2.0f, 3.0f,
+ *                      4.0f, 5.0f, 6.0f,
+ *                      7.0f, 8.0f, 9.0f};
+ * aitensor_t a = AITENSOR_2D_F32(a_shape, a_data);
+ *
+ * uint16_t b_shape[2] = {2, 3};
+ * float b_data[2*3] = {1.0f, 0.0f, 0.0f,
+ *                      0.0f, 1.0f, 0.0f};
+ * aitensor_t b = AITENSOR_2D_F32(b_shape, b_data);
+ *
+ * uint16_t c_shape[2] = {1, 2};
+ * float c_data[1*2] = {2.0f, 5.0f};
+ * aitensor_t c = AITENSOR_2D_F32(c_shape, c_data);
+ *
+ * uint16_t result_shape[2] = {3, 2};
+ * float result_data[3*2];
+ * aitensor_t result = AITENSOR_2D_F32(result_shape, result_data);
+ *
+ * aimath_f32_default_linear_bt(&a, &b, &c, &result);
+ *
+ * print_aitensor(&result);
+ * \endcode
+ *
+ * @param *a        F32 matrix a (2D tensor of shape [N x K])
+ * @param *b        F32 matrix b (2D tensor of shape [M x K])
+ * @param *c        F32 vector c (2D tensor of shape [1 x M] or 1D tensor of shape [M])
+ * @param *result   Resulting F32 matrix (2D tensor of shape [N x M])
+ */
+void aimath_f32_default_linear_bt(const aitensor_t *a, const aitensor_t *b, const aitensor_t *c, aitensor_t *result);
+
 /** @brief Performs a matrix multiplication of \link aimath_f32.h F32 \endlink matrices a and b
+ *
+ * @f[
+ *  result = a \cdot b
+ * @f]
+ *
+ * Example:
+ * \code{.c}
+ * uint16_t a_shape[2] = {3, 3};
+ * float a_data[3*3] = {1.0f, 2.0f, 3.0f,
+ *                      4.0f, 5.0f, 6.0f,
+ *                      7.0f, 8.0f, 9.0f};
+ * aitensor_t a = AITENSOR_2D_F32(a_shape, a_data);
+ *
+ * uint16_t b_shape[2] = {3, 2};
+ * float b_data[3*2] = {1.0f, 0.0f,
+ *                      0.0f, 1.0f,
+ *                      0.0f, 0.0f};
+ * aitensor_t b = AITENSOR_2D_F32(b_shape, b_data);
+ *
+ * uint16_t result_shape[2] = {3, 2};
+ * float result_data[3*2];
+ * aitensor_t result = AITENSOR_2D_F32(result_shape, result_data);
+ *
+ * aimath_f32_default_mat_mul(&a, &b, &result);
+ *
+ * print_aitensor(&result);
+ * \endcode
+ *
+ * @param *a       F32 matrix a (2D tensor of shape [N x K])
+ * @param *b       F32 matrix b (2D tensor of shape [K x M])
+ * @param *result  Resulting F32 matrix of the multiplication (2D tensor of shape [N x M])
+ */
+void aimath_f32_default_mat_mul(const aitensor_t *a, const aitensor_t *b, aitensor_t *result);
+
+/** @brief Performs a matrix multiplication of \link aimath_f32.h F32 \endlink matrices a and b (transposed)
+  *
+  * Same operation as aimath_f32_default_mat_mul() but with a transposed b matrix.
   *
   * @f[
-  *  result = a \cdot b
+  *  result = a \cdot b^T
   * @f]
   *
   * Example:
@@ -150,26 +287,25 @@ void aimath_f32_default_linear(const aitensor_t *a, const aitensor_t *b, const a
   *                      7.0f, 8.0f, 9.0f};
   * aitensor_t a = AITENSOR_2D_F32(a_shape, a_data);
   *
-  * uint16_t b_shape[2] = {3, 2};
-  * float b_data[3*2] = {1.0f, 0.0f,
-  *                      0.0f, 1.0f,
-  *                      0.0f, 0.0f};
+  * uint16_t b_shape[2] = {2, 3};
+  * float b_data[2*3] = {1.0f, 0.0f, 0.0f,
+  *                      0.0f, 1.0f, 0.0f};
   * aitensor_t b = AITENSOR_2D_F32(b_shape, b_data);
   *
   * uint16_t result_shape[2] = {3, 2};
   * float result_data[3*2];
   * aitensor_t result = AITENSOR_2D_F32(result_shape, result_data);
   *
-  * aimath_f32_default_mat_mul(&a, &b, &result);
+  * aimath_f32_default_mat_mul_bt(&a, &b, &result);
   *
   * print_aitensor(&result);
   * \endcode
   *
   * @param *a       F32 matrix a (2D tensor of shape [N x K])
-  * @param *b       F32 matrix b (2D tensor of shape [K x M])
+  * @param *b       F32 matrix b (2D tensor of shape [M x K])
   * @param *result  Resulting F32 matrix of the multiplication (2D tensor of shape [N x M])
   */
-void aimath_f32_default_mat_mul(const aitensor_t *a, const aitensor_t *b, aitensor_t *result);
+void aimath_f32_default_mat_mul_bt(const aitensor_t *a, const aitensor_t *b, aitensor_t *result);
 
 /** @brief Performs an element wise multiplication of \link aimath_f32.h F32 \endlink tensors a and b (Hadamard product)
   *
@@ -467,6 +603,28 @@ void aimath_f32_default_copy_tensor(const aitensor_t *from, aitensor_t *to);
   * @param *vector F32 vector (2D tensor of shape [1 x N] or [N x 1])
   */
 void aimath_f32_default_transpose_vector(aitensor_t *vector);
+
+/** @brief Transpose a \link aimath_f32.h F32 \endlink tensor
+  *
+  * @f[
+  *  x \leftarrow x^T
+  * @f]
+  *
+  * Example:
+  * \code{.c}
+  * uint16_t x_shape[2] = {2, 3};
+  * float x_data[2*3] = {  2.0f, -4.0f,   6.0f,
+  *                       -8.0f, 10.0f, -12.0f};
+  * aitensor_t x = AITENSOR_2D_F32(x_shape, x_data);
+  *
+  * aimath_f32_default_transpose_matrix(&x);
+  *
+  * print_aitensor(&x);
+  * \endcode
+  *
+  * @param *tensor F32 tensor to be transposed (N-D tensor)
+  */
+void aimath_f32_default_transpose_matrix(aitensor_t *x);
 
 /** @brief Calculates the squared sum of all elements in a \link aimath_f32.h F32 \endlink tensor
   *

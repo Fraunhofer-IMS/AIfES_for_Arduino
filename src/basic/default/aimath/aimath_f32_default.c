@@ -6,16 +6,16 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief
@@ -25,6 +25,9 @@
 #include "basic/default/aimath/aimath_f32_default.h"
 #include <float.h>
 
+
+AISTRING_STORAGE_WRAPPER(aistring_error_f32_linear_1) = "[aimath_f32_default_linear] MatMul input shapes doesn't match.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_f32_linear_2) = "[aimath_f32_default_linear] MatMul output shape doesn't match.\n";
 
 void aimath_f32_default_linear(const aitensor_t *a, const aitensor_t *b, const aitensor_t *c, aitensor_t *result)
 {
@@ -36,15 +39,15 @@ void aimath_f32_default_linear(const aitensor_t *a, const aitensor_t *b, const a
 	float *c_data = c != 0 ? (float *) c->data : 0;
 	float *result_data = (float *) result->data;
 
-#ifdef SHAPE_CHECK
+#ifdef AIDEBUG_SHAPE_CHECKS
 	if(a->shape[1] != b->shape[0])
 	{
-		LOG_E("MatMul input shapes doesn't match.\n");
+		AILOG_E(aistring_error_f32_linear_1);
 		return;
 	}
 	if(a->shape[0] != result->shape[0] || b->shape[1] != result->shape[1])
 	{
-		LOG_E("MatMul output shape doesn't match.\n");
+		AILOG_E(aistring_error_f32_linear_2);
 		return;
 	}
 #endif
@@ -68,8 +71,54 @@ void aimath_f32_default_linear(const aitensor_t *a, const aitensor_t *b, const a
 	return;
 }
 
+void aimath_f32_default_linear_bt(const aitensor_t *a, const aitensor_t *b, const aitensor_t *c, aitensor_t *result)
+{
+	uint16_t i, j, k;
+	float sum;
+
+	float *a_data = (float *) a->data;
+	float *b_data = (float *) b->data;
+	float *c_data = c != 0 ? (float *) c->data : 0;
+	float *result_data = (float *) result->data;
+
+#ifdef AIDEBUG_SHAPE_CHECKS
+	if(a->shape[1] != b->shape[1])
+	{
+		AILOG_E(aistring_error_f32_linear_1);
+		return;
+	}
+	if(a->shape[0] != result->shape[0] || b->shape[0] != result->shape[1])
+	{
+		AILOG_E(aistring_error_f32_linear_2);
+		return;
+	}
+#endif
+
+	for(i = 0; i < a->shape[0]; i++)
+	{
+		for(j = 0; j < b->shape[1]; j++)
+		{
+			sum = 0.0f;
+			for(k = 0; k < a->shape[1]; k++)
+			{
+				sum += a_data[i*a->shape[1] + k] * b_data[j*b->shape[1] + k];
+			}
+			if(c != 0){
+				// Bias add
+				sum += c_data[j];
+			}
+			result_data[i*b->shape[0] + j] = sum;
+		}
+	}
+	return;
+}
+
 void aimath_f32_default_mat_mul(const aitensor_t *a, const aitensor_t *b, aitensor_t *result){
 	aimath_f32_default_linear(a, b, 0, result);
+}
+
+void aimath_f32_default_mat_mul_bt(const aitensor_t *a, const aitensor_t *b, aitensor_t *result){
+	aimath_f32_default_linear_bt(a, b, 0, result);
 }
 
 void aimath_f32_default_multiply(const aitensor_t *a, const aitensor_t *b, aitensor_t *result)
@@ -167,6 +216,26 @@ void aimath_f32_default_transpose_vector(aitensor_t *vector)
 	vector->shape[0] = vector->shape[1];
 	vector->shape[1] = temp;
 	return;
+}
+
+void aimath_f32_default_transpose_matrix(aitensor_t *x)
+{
+    uint16_t i, j;
+    float temp_data[x->shape[0] * x->shape[1]], temp;
+    aitensor_t temp_tensor = AITENSOR_2D_F32(x->shape, temp_data);
+
+    aimath_f32_default_copy_tensor(x, &temp_tensor);
+
+    for(i = 0; i < x->shape[0]; i++){
+        for(j = 0; j < x->shape[1]; j++){
+            ((float *) x->data)[j*x->shape[0] + i] = temp_data[i*x->shape[1] + j];
+        }
+    }
+
+    temp = x->shape[0];
+    x->shape[0] = x->shape[1];
+    x->shape[1] = temp;
+    return;
 }
 
 void aimath_f32_default_norm_squared(const aitensor_t *x, void *result)
@@ -404,12 +473,12 @@ void aimath_f32_default_d_softsign(const aitensor_t *x, aitensor_t *result)
 void aimath_f32_default_binary_crossentropy(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)
 {
 	uint32_t i;
+
+	*((float *) result) = 0.0f;
 	for(i = 0; i < aimath_tensor_elements(predicted_data); i++)
 	{
-        if(((float *) target_data->data)[i] != 0){
-            *((float *) result) -= ((float *) target_data->data)[i] * log(((float *) predicted_data->data)[i])
-                    + (1.0f - ((float *) target_data->data)[i]) * log(1.0f - ((float *) predicted_data->data)[i]);
-        }
+        *((float *) result) -= ((float *) target_data->data)[i] * logf(((float *) predicted_data->data)[i])
+                + (1.0f - ((float *) target_data->data)[i]) * logf(1.0f - ((float *) predicted_data->data)[i]);
 	}
 	return;
 }
@@ -419,10 +488,12 @@ void aimath_f32_default_binary_crossentropy(const aitensor_t *predicted_data, co
 void aimath_f32_default_categorical_crossentropy(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)
 {
 	uint32_t i;
+
+	*((float *) result) = 0.0f;
 	for(i = 0; i < aimath_tensor_elements(predicted_data); i++)
 	{
         if(((float *) target_data->data)[i] != 0){
-            *((float *) result) -= ((float *) target_data->data)[i] * log(((float *) predicted_data->data)[i]);
+            *((float *) result) -= ((float *) target_data->data)[i] * logf(((float *) predicted_data->data)[i]);
         }
 	}
 	return;
@@ -434,10 +505,12 @@ void aimath_f32_default_categorical_crossentropy(const aitensor_t *predicted_dat
 void aimath_f32_default_categorical_crossentropy_sparse8(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)
 {
 	uint32_t i, index;
+
+	*((float *) result) = 0.0f;
 	for(i = 0; i < target_data->shape[0]; i++)
 	{
 	    index = i * predicted_data->shape[1] + ((uint8_t *) target_data->data)[i];
-        *((float *) result) -= log(((float *) predicted_data->data)[index]);
+        *((float *) result) -= logf(((float *) predicted_data->data)[index]);
 	}
 	return;
 }

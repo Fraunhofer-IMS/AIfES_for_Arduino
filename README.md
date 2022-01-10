@@ -20,12 +20,12 @@ Follow us on LinkedIn to get all the latest news about AIfES:
 https://www.linkedin.com/showcase/aifes-ai
 
 ## Dual License
-### For Maker and Open-Source-Projects (GNU GPLv3):
-For private projects or developers of Free Open Source Software (FOSS) under version 3 of the GNU General Public License (GPL), the AIfES version offered here can be used free of charge.
+### For Maker and Open-Source-Projects (GNU AGPLv3):
+For private projects or developers of Free Open Source Software (FOSS) under version 3 of the GNU Affero General Public License (AGPL), the AIfES version offered here can be used free of charge.
 
 ### For use in commercial applications:
 If AIfES is to be combined and distributed with commercially licensed software and/or if you do not wish to distribute the AIfES source code
-for the commercially licensed software under version 3 of the GNU General Public License (GPL), you must conclude a license agreement with Fraunhofer IMS.
+for the commercially licensed software under version 3 of the GNU Affero General Public License (AGPL), you must conclude a license agreement with Fraunhofer IMS.
 For more information and contact, refer to our [homepage](<https://www.ims.fraunhofer.de/en/Business-Unit/Industry/Industrial-AI/Artificial-Intelligence-for-Embedded-Systems-AIfES/AIFES_Cooperation.html>)
 
 ## Compatibility
@@ -38,15 +38,23 @@ AIfES in the current version supports almost all microcontroller types and Ardui
 ### ARM CMSIS
 AIfES also supports the *Cortex Microcontroller Software Interface Standard* (CMSIS) of the ARM Cortex controllers.
 This standard can speed up inference and training for large FNNs.
-Please install the *Arduino_CMSIS-DSP* library in the Arduino IDE.
+Please read the README.md in https://github.com/Fraunhofer-IMS/AIfES_for_Arduino/tree/main/src/CMSIS for more information on how to add the CMSIS library.
+
+### Python
+To help you with the quantization of a neural network, we provide some Python tools.
+Please read the README.md in https://github.com/Fraunhofer-IMS/AIfES_for_Arduino/tree/main/etc/python for more information
+on how to install the AIfES pytools.
+
+We also created some examples to show you how a tf.Keras and a PyTorch neural network can be quantized for AIfES, using the pytools
+https://github.com/Fraunhofer-IMS/AIfES_for_Arduino/tree/main/etc/python/examples.
 
 
 ## Features
 ### Data types and quantization
 AIfES supports the following data types:
 F32:	32 Bit float
-
-We are currently working on Q31 (32 Bit integer) and Q7 (8 Bit integer) support. We will release these features in the near future. Stay tuned!
+Q31:	32 Bit integer
+Q7: 	 8 Bit integer
 
 Neural network types
 AIfES supports in the current version:
@@ -57,45 +65,45 @@ The number of neurons and the number of different layers can be adapted individu
 
 **Inference layer**
 
-| Layer      | f32     |
-|------------|---------|
-| ailayer_dense.h Dense | ailayer_dense_f32_default()<br>ailayer_dense_f32_cmsis() |
-| ailayer_input.h Input | ailayer_input_f32_default() |
-| ailayer_relu.h ReLU | ailayer_relu_f32_default() |
-| ailayer_sigmoid.h Sigmoid | ailayer_sigmoid_f32_default() |
-| ailayer_softmax.h Softmax | ailayer_softmax_f32_default() |
-| ailayer_leaky_relu.h Leaky ReLU | ailayer_leaky_relu_f32_default() |
-| ailayer_elu.h ELU | ailayer_elu_f32_default() |
-| ailayer_tanh.h Tanh | ailayer_tanh_f32_default() |
-| ailayer_softsign.h Softsign | ailayer_softsign_f32_default() |
+| Layer      | f32     | q31     | q7      |
+|------------|---------|---------|---------|
+| Dense | ailayer_dense_f32_default()<br>ailayer_dense_f32_cmsis()<br>ailayer_dense_f32_avr_pgm() | ailayer_dense_q31_default() | ailayer_dense_q7_default()<br>ailayer_dense_wt_q7_default()<br>ailayer_dense_wt_q7_cmsis()<br>ailayer_dense_q7_avr_pgm()<br>ailayer_dense_wt_q7_avr_pgm() |
+| Input | ailayer_input_f32_default() | ailayer_input_q31_default() | ailayer_input_q7_default() |
+| ReLU | ailayer_relu_f32_default() | ailayer_relu_q31_default() | ailayer_relu_q7_default()<br>ailayer_relu_q7_avr_pgm() |
+| Sigmoid | ailayer_sigmoid_f32_default() | ailayer_sigmoid_q31_default() | ailayer_sigmoid_q7_default()<br>ailayer_sigmoid_q7_avr_pgm() |
+| Softmax | ailayer_softmax_f32_default() | ailayer_softmax_q31_default() | ailayer_softmax_q7_default()<br>ailayer_softmax_q7_avr_pgm() |
+| Leaky ReLU | ailayer_leaky_relu_f32_default() | ailayer_leaky_relu_q31_default()| ailayer_leaky_relu_q7_default()<br>ailayer_leaky_relu_q7_avr_pgm() |
+| ELU | ailayer_elu_f32_default() | ailayer_elu_q31_default() | ailayer_elu_q7_default()<br>ailayer_elu_q7_avr_pgm() |
+| Tanh | ailayer_tanh_f32_default() | ailayer_tanh_q31_default() | ailayer_tanh_q7_default()<br>ailayer_tanh_q7_avr_pgm() |
+| Softsign | ailayer_softsign_f32_default() | ailayer_softsign_q31_default()| ailayer_softsign_q7_default()<br>ailayer_softsign_q7_avr_pgm() |
 
 **Training layer**
 
-| Layer      | f32     |
-|------------|---------|
-| ailayer_dense.h Dense | ailayer_dense_f32_default()<br>ailayer_dense_f32_cmsis() |
-| ailayer_input.h Input | ailayer_input_f32_default() |
-| ailayer_relu.h ReLU | ailayer_relu_f32_default() |
-| ailayer_sigmoid.h Sigmoid | ailayer_sigmoid_f32_default() |
-| ailayer_softmax.h Softmax | ailayer_softmax_f32_default() |
-| ailayer_leaky_relu.h Leaky ReLU | ailayer_leaky_relu_f32_default() |
-| ailayer_elu.h ELU | ailayer_elu_f32_default() |
-| ailayer_tanh.h Tanh | ailayer_tanh_f32_default() |
-| ailayer_softsign.h Softsign | ailayer_softsign_f32_default() |
+| Layer      | f32     | q31     | q7      |
+|------------|---------|---------|---------|
+| Dense | ailayer_dense_f32_default()<br>ailayer_dense_f32_cmsis()<br>ailayer_dense_f32_avr_pgm() | ailayer_dense_q31_default() |         |
+| Input | ailayer_input_f32_default() | ailayer_input_q31_default() | ailayer_input_q7_default() |
+| ReLU | ailayer_relu_f32_default() | ailayer_relu_q31_default() | ailayer_relu_q7_default() |
+| Sigmoid | ailayer_sigmoid_f32_default() | ailayer_sigmoid_q31_default() |         |
+| Softmax | ailayer_softmax_f32_default() | ailayer_softmax_q31_default()|         |
+| Leaky ReLU | ailayer_leaky_relu_f32_default() | ailayer_leaky_relu_q31_default() |         |
+| ELU | ailayer_elu_f32_default() | ailayer_elu_q31_default()|         |
+| Tanh | ailayer_tanh_f32_default() | ailayer_tanh_q31_default() |         |
+| Softsign | ailayer_softsign_f32_default() | ailayer_softsign_q31_default() |         |
 
-**Loss**
+**Loss:**
 
-| Loss                     | f32     |
-|--------------------------|---------|
-| ailoss_mse.h Mean Squared Error (MSE) | ailoss_mse_f32_default() |
-| ailoss_crossentropy.h Crossentropy | ailoss_crossentropy_f32_default() |
+| Loss                     | f32     | q31     | q7      |
+|--------------------------|---------|---------|---------|
+| Mean Squared Error (MSE) | ailoss_mse_f32_default() | ailoss_mse_q31_default() |         |
+| Crossentropy | ailoss_crossentropy_f32_default()<br>ailoss_crossentropy_sparse8_f32_default() |         |         |
 
-**Optimizer**
+**Optimizer:**
 
-| Optimizer                         | f32     |
-|-----------------------------------|---------|
-| aiopti_sgd.h Stochastic Gradient Descent (SGD) | aiopti_sgd_f32_default() |
-| aiopti_adam.h Adam | aiopti_adam_f32_default() |
+| Optimizer                         | f32     | q31     | q7      |
+|-----------------------------------|---------|---------|---------|
+| Stochastic Gradient Descent (SGD) | aiopti_sgd_f32_default() | aiopti_sgd_q31_default() |         |
+| Adam | aiopti_adam_f32_default() |         |         |
 
 ## Installation
 You can download and install AIfES® (search for "aifes") with the Arduino library manager.

@@ -6,16 +6,16 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief
@@ -25,9 +25,11 @@
 #include "basic/base/ailayer/ailayer_input.h"
 #include "basic/base/aimath/aimath_basic.h"
 
+AISTRING_STORAGE_WRAPPER(aistring_layer_input) = "Input";
+
 const aicore_layertype_t ailayer_input_type_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
-    .name = "Input",
+    .name = aistring_layer_input,
 	.print_specs = ailayer_input_print_specs
 #else
     .name = 0,
@@ -57,8 +59,6 @@ ailayer_t *ailayer_input(ailayer_input_t *layer)
 	layer->base.sizeof_trainmem = 0;
 	layer->base.set_trainmem = 0;
 
-	layer->base.get_result_bound = 0;
-
 	layer->base.trainable_params_count = 0;
 
 	return &layer->base;
@@ -84,16 +84,25 @@ void ailayer_input_calc_result_shape(ailayer_t *self)
 }
 
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
-void ailayer_input_print_specs(const ailayer_t *self, int (*print)(const char *format, ...))
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_input_1) = "Dim: ";
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_input_2) = "; Shape: [";
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_input_3) = ", ";
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_input_4) = "]";
+
+void ailayer_input_print_specs(const ailayer_t *self)
 {
     ailayer_input_t *self_casted = (ailayer_input_t *) self;
     uint8_t i = 0;
 
-    print("Dim: %d; Shape: [%d", self_casted->input_dim, self_casted->input_shape[i]);
+    AIPRINT(aistring_print_layer_specs_input_1);
+    AIPRINT_UINT("%u", (unsigned int) self_casted->input_dim);
+    AIPRINT(aistring_print_layer_specs_input_2);
+    AIPRINT_LONG_INT("%ld", (long int) self_casted->input_shape[i]);
     for(i = 1; i < self_casted->input_dim; i++){
-        print(", %d", self_casted->input_shape[i]);
+        AIPRINT(aistring_print_layer_specs_input_3);
+        AIPRINT_LONG_INT("%ld", (long int) self_casted->input_shape[i]);
     }
-    print("]");
+    AIPRINT(aistring_print_layer_specs_input_4);
     return;
 }
 #endif

@@ -6,16 +6,16 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief
@@ -25,9 +25,11 @@
 #include "basic/base/ailayer/ailayer_dense.h"
 #include "basic/base/aimath/aimath_basic.h"
 
+AISTRING_STORAGE_WRAPPER(aistring_layer_dense) = "Dense";
+
 const aicore_layertype_t ailayer_dense_type_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
-    .name = "Dense",
+    .name = aistring_layer_dense,
 	.print_specs = ailayer_dense_print_specs
 #else
     .name = 0,
@@ -73,8 +75,6 @@ ailayer_t *ailayer_dense(ailayer_dense_t *layer, ailayer_t *input_layer)
 	layer->base.set_paramem = ailayer_dense_set_paramem;
 	layer->base.sizeof_trainmem = ailayer_dense_sizeof_trainmem;
 	layer->base.set_trainmem = ailayer_dense_set_trainmem;
-
-	layer->base.get_result_bound = 0;
 
 	layer->base.trainable_params_count = 2;
 	layer->base.trainable_params = layer->trainable_params;
@@ -157,10 +157,13 @@ uint32_t ailayer_dense_sizeof_paramem(const ailayer_t *self)
 
 	// Weights
 	memory += layer->weights_dtype->tensor_params_size;
+    AIFES_ALIGN_INTEGER(memory, AIFES_MEMORY_ALIGNMENT);
 	memory += self->input_layer->result.shape[1] * layer->neurons * aimath_sizeof_dtype(layer->weights_dtype); // data
+    AIFES_ALIGN_INTEGER(memory, AIFES_MEMORY_ALIGNMENT);
 
 	// Bias
 	memory += layer->bias_dtype->tensor_params_size;
+    AIFES_ALIGN_INTEGER(memory, AIFES_MEMORY_ALIGNMENT);
 	memory += layer->neurons * aimath_sizeof_dtype(layer->bias_dtype); // data
 	return memory;
 }
@@ -172,21 +175,16 @@ void ailayer_dense_set_paramem(ailayer_t *self, void *memory_ptr)
 
 	layer->weights.tensor_params = memory_ptr + address_counter;
 	address_counter += layer->weights_dtype->tensor_params_size;
-	layer->weights.dim = 2;
-	layer->weights.dtype = layer->weights_dtype;
-	layer->weights.shape = layer->weights_shape;
-	layer->weights.shape[0] = self->input_layer->result.shape[1];
-	layer->weights.shape[1] = layer->neurons;
+    AIFES_ALIGN_INTEGER(address_counter, AIFES_MEMORY_ALIGNMENT);
+
 	layer->weights.data = memory_ptr + address_counter;
 	address_counter += aimath_sizeof_tensor_data(&(layer->weights));
+    AIFES_ALIGN_INTEGER(address_counter, AIFES_MEMORY_ALIGNMENT);
 
 	layer->bias.tensor_params = memory_ptr + address_counter;
 	address_counter += layer->bias_dtype->tensor_params_size;
-	layer->bias.dim = 2;
-	layer->bias.dtype = layer->bias_dtype;
-	layer->bias.shape = layer->bias_shape;
-	layer->bias.shape[0] = 1;
-	layer->bias.shape[1] = layer->neurons;
+    AIFES_ALIGN_INTEGER(address_counter, AIFES_MEMORY_ALIGNMENT);
+
 	layer->bias.data = memory_ptr + address_counter;
 	//address_counter += aimath_sizeof_tensor_data(&(configuration->bias));
 
@@ -201,8 +199,17 @@ uint32_t ailayer_dense_sizeof_trainmem(const ailayer_t *self)
 	uint32_t memory = 0;
 	ailayer_dense_t *layer = (ailayer_dense_t *)(self->layer_configuration);
 
-	memory += aimath_sizeof_tensor(&layer->weights);
-	memory += aimath_sizeof_tensor(&layer->bias);
+	// Weights
+	memory += sizeof(aitensor_t);
+	memory += aimath_sizeof_tensor_data(&layer->weights);
+    AIFES_ALIGN_INTEGER(memory, AIFES_MEMORY_ALIGNMENT);
+	memory += aimath_sizeof_tensor_params(&layer->weights);
+    AIFES_ALIGN_INTEGER(memory, AIFES_MEMORY_ALIGNMENT);
+	// Bias
+	memory += sizeof(aitensor_t);
+	memory += aimath_sizeof_tensor_data(&layer->bias);
+    AIFES_ALIGN_INTEGER(memory, AIFES_MEMORY_ALIGNMENT);
+	memory += aimath_sizeof_tensor_params(&layer->bias);
 	return memory;
 }
 
@@ -219,8 +226,10 @@ void ailayer_dense_set_trainmem(ailayer_t *self, void *memory_ptr)
 	self->gradients[0]->dim = 2;
 	self->gradients[0]->shape = layer->weights.shape;
 	address_counter += aimath_sizeof_tensor_data(layer->gradients[0]);
+    AIFES_ALIGN_INTEGER(address_counter, AIFES_MEMORY_ALIGNMENT);
 	self->gradients[0]->tensor_params = memory_ptr + address_counter;
 	address_counter += aimath_sizeof_tensor_params(layer->gradients[0]);
+    AIFES_ALIGN_INTEGER(address_counter, AIFES_MEMORY_ALIGNMENT);
 
 	// Bias gradients in gradients[1]
 	self->gradients[1] = memory_ptr + address_counter;
@@ -230,6 +239,7 @@ void ailayer_dense_set_trainmem(ailayer_t *self, void *memory_ptr)
 	self->gradients[1]->dim = 2;
 	self->gradients[1]->shape = layer->bias.shape;
 	address_counter += aimath_sizeof_tensor_data(layer->gradients[1]);
+    AIFES_ALIGN_INTEGER(address_counter, AIFES_MEMORY_ALIGNMENT);
 	self->gradients[1]->tensor_params = memory_ptr + address_counter;
 	address_counter += aimath_sizeof_tensor_params(layer->gradients[1]);
 
@@ -237,10 +247,13 @@ void ailayer_dense_set_trainmem(ailayer_t *self, void *memory_ptr)
 }
 
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
-void ailayer_dense_print_specs(const ailayer_t *self, int (*print)(const char *format, ...))
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_dense_1) = "neurons: ";
+
+void ailayer_dense_print_specs(const ailayer_t *self)
 {
     ailayer_dense_t *layer = (ailayer_dense_t *)(self->layer_configuration);
 
-    print("neurons: %ld", (long unsigned int) layer->neurons);
+    AIPRINT(aistring_print_layer_specs_dense_1);
+    AIPRINT_LONG_INT("%ld", (long int) layer->neurons);
 }
 #endif

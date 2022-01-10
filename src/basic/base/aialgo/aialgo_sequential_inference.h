@@ -8,16 +8,16 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief Functions required for inference of models
@@ -97,23 +97,13 @@ aitensor_t *aialgo_forward_model(aimodel_t *model, aitensor_t *input_data);
  *
  * Example:
  * \code{.c}
- * float input_data[] = {0.0f, 1.0f};
- * uint16_t input_shape[] = {1, 2}
- * aitensor_t input_tensor = {
- *     .dtype = aif32,
- *     .dim = 2,
- *     .shape = input_shape,
- *     .data = input_data
- * };
+ * float input_data[] = {0.0f, 1.0f, 0.0f};
+ * uint16_t input_shape[] = {1, 3}
+ * aitensor_t input_tensor = AITENSOR_2D_F32(input_shape, input_data);
  *
- * float output_data[1];
- * uint16_t output_shape[] = {1, 1}
- * aitensor_t output_tensor = {
- *     .dtype = aif32,
- *     .dim = 2,
- *     .shape = output_shape,
- *     .data = output_data
- * };
+ * float output_data[2];
+ * uint16_t output_shape[] = {1, 2}
+ * aitensor_t output_tensor = AITENSOR_2D_F32(output_shape, output_data);
  *
  * aialgo_inference_model(&model, &input_tensor, &output_tensor);
  *
@@ -135,6 +125,46 @@ aitensor_t *aialgo_inference_model(aimodel_t *model, aitensor_t *input_data, ait
 * @return       0 if successful
 */
 uint8_t aialgo_compile_model(aimodel_t *model);
+
+/** @brief Quantize model parameters (weights and bias)
+*
+* @param *model_f32 Pointer to model with single-precision floating point parameters that should be quantized
+* @param *model_q7 Pointer to model with quantized, fixed-point parameters in q7 format
+* @param *representative_dataset Pointer to a dataset that represents real model inputs to determine fixed-point quantization parameters
+*/
+void aialgo_quantize_model_f32_to_q7(aimodel_t *model_f32, aimodel_t *model_q7, aitensor_t *representative_dataset);
+
+/** @brief Initialize the quantization parameters of the layer results for \link aimath_q31.h Q31 \endlink data type
+ *
+ * Initializes the quantization parameters of the layer output (ailayer.result; output of the forward function)
+ * to the given shift and zero_point = 0.\n
+ * Use this function for example when you train a model in Q31 data-type.
+ *
+ * @param *model The model
+ * @param shift  Number of decimal places (shift in Q31) of the layer results
+ */
+void aialgo_set_model_result_precision_q31(aimodel_t *model, uint16_t shift);
+
+/** @brief Initialize the quantization parameters of the layer deltas for \link aimath_q31.h Q31 \endlink data type
+ *
+ * Initializes the quantization parameters of the layer deltas tensor (ailayer.deltas; output of the backward function)
+ * to the given shift and zero_point = 0.\n
+ * Use this function when you train a model in Q31 data-type.
+ *
+ * @param *model The model
+ * @param shift  Number of decimal places (shift in Q31) of the layer deltas
+ */
+void aialgo_set_model_delta_precision_q31(aimodel_t *model, uint16_t shift);
+
+/** @brief Initialize the quantization parameters of the gradients for \link aimath_q31.h Q31 \endlink data type
+ *
+ * Initializes the quantization parameters of the gradients tensors to the given shift and zero_point = 0.\n
+ * Use this function when you train a model in Q31 data-type.
+ *
+ * @param *model The model
+ * @param shift  Number of decimal places (shift in Q31) of the gradients
+ */
+void aialgo_set_model_gradient_precision_q31(aimodel_t *model, uint16_t shift);
 
 /** @brief Print the layer structure of the model with the configured parameters
 *

@@ -6,32 +6,36 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief
  * \details
  */
 
-
-#include "basic/cmsis/aimath/aimath_f32_cmsis.h"
-#include "../../../aifes.h"
+#include "aifes_config.h"
 
 #if __arm__
 #ifdef AIFES_WITH_CMSIS
-#include "arm_math.h"
+
+#include "basic/cmsis/aimath/aimath_f32_cmsis.h"
+#include "CMSIS/DSP/Include/arm_math.h"
+
+
+AISTRING_STORAGE_WRAPPER(aistring_error_f32_linear_cmsis_1) = "[aimath_f32_cmsis_linear] MatMul input shapes doesn't match.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_f32_linear_cmsis_2) = "[aimath_f32_cmsis_linear] MatMul output shape doesn't match.\n";
 
 /**
-* Math CMSIS Matrix Multiplication and boradtcast Ass
+* Math CMSIS Matrix Multiplication and broadcast add
 *
 * Matrixmultiplication using the CMSIS DSP Library and broadcast add using for loop
 *
@@ -39,15 +43,19 @@
 void aimath_f32_cmsis_linear(const aitensor_t *a, const aitensor_t *b, const aitensor_t *c, aitensor_t *result)
 {
 
-#ifdef SHAPE_CHECK
+#ifdef AIDEBUG_SHAPE_CHECKS
 	if(a->shape[1] != b->shape[0])
 	{
-		LOG_E("MatMul input shapes doesn't match.\n");
+        #ifdef AIDEBUG_PRINT_ERROR_MESSAGES
+            AILOG_E(aistring_error_f32_linear_cmsis_1);
+        #endif
 		return;
 	}
 	if(a->shape[0] != result->shape[0] || b->shape[1] != result->shape[1])
 	{
-		LOG_E("MatMul output shape doesn't match.\n");
+        #ifdef AIDEBUG_PRINT_ERROR_MESSAGES
+            AILOG_E(aistring_error_f32_linear_cmsis_2);
+        #endif
 		return;
 	}
 #endif
@@ -100,5 +108,6 @@ void aimath_f32_cmsis_mat_mul(const aitensor_t *a, const aitensor_t *b, aitensor
 
 	arm_mat_mult_f32(&a_mat, &b_mat, &result_mat);
 }
+
 #endif // AIFES_WITH_CMSIS
 #endif // __arm__

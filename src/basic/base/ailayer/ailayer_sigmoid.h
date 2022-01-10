@@ -8,16 +8,16 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief Base \link ailayer layer \endlink implementation of the Sigmoid activation layer
@@ -176,7 +176,7 @@ void ailayer_sigmoid_calc_result_shape(ailayer_t *self);
  * @param *self     The layer to print the specification for
  * @param *print    Pointer to the print function to use
  */
-void ailayer_sigmoid_print_specs(const ailayer_t *self, int (*print)(const char *format, ...));
+void ailayer_sigmoid_print_specs(const ailayer_t *self);
 #endif // AIDEBUG_PRINT_MODULE_SPECS
 
 #endif // SIGMOID_LAYER

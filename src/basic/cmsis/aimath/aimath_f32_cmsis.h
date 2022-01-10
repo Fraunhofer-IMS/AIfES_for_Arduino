@@ -8,30 +8,31 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief
  * \details
  */
-#ifndef AIMATH_F32_CMSIS
-#define AIMATH_F32_CMSIS
 
-
-#include "basic/base/aimath/aimath_f32.h"
-#include "../../../aifes.h"
+#include "aifes_config.h"
 
 #if __arm__
 #ifdef AIFES_WITH_CMSIS
+
+#ifndef AIMATH_F32_CMSIS
+#define AIMATH_F32_CMSIS
+
+#include "basic/base/aimath/aimath_f32.h"
 
 
 /** @brief Performs a matrix multiplication of f32 tensors a and b and adds a 1D tensor c to each row, using the ARM CMSIS DSP
@@ -125,6 +126,7 @@ void aimath_f32_cmsis_linear(const aitensor_t *a, const aitensor_t *b, const ait
   */
 void aimath_f32_cmsis_mat_mul(const aitensor_t *a, const aitensor_t *b, aitensor_t *result);
 
+#endif // AIMATH_F32_CMSIS
+
 #endif // AIFES_WITH_CMSIS
 #endif //__arm__
-#endif // AIMATH_F32_CMSIS

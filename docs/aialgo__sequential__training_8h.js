@@ -2,6 +2,7 @@ var aialgo__sequential__training_8h =
 [
     [ "aialgo_backward_model", "aialgo__sequential__training_8h.html#aca4ec290b2db30cc76ad78aff649a69d", null ],
     [ "aialgo_calc_loss_model_f32", "aialgo__sequential__training_8h.html#adf0d71421bd6cab071633f275eb9b1b3", null ],
+    [ "aialgo_calc_loss_model_q31", "aialgo__sequential__training_8h.html#a10e79c34f409b115573706895c63823d", null ],
     [ "aialgo_init_model_for_training", "aialgo__sequential__training_8h.html#a62a55277765b0bdd5c88955eb92e4c13", null ],
     [ "aialgo_print_loss_specs", "aialgo__sequential__training_8h.html#ab19a3d00e7ac130806780cc90e317a09", null ],
     [ "aialgo_print_optimizer_specs", "aialgo__sequential__training_8h.html#aa0a7ab4189d2f68c675d42aa687758e6", null ],

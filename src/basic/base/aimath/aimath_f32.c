@@ -6,16 +6,16 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief 	Basic functions for f32 datatypes
@@ -23,9 +23,11 @@
 
 #include "basic/base/aimath/aimath_f32.h"
 
+AISTRING_STORAGE_WRAPPER(aistring_dtype_f32) = "F32";
+
 const aimath_dtype_t aif32_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
-    .name = "F32",
+    .name = aistring_dtype_f32,
 #else
     .name = 0,
 #endif
@@ -34,19 +36,23 @@ const aimath_dtype_t aif32_s = {
 	.print_aitensor = aimath_f32_print_aitensor,
 	.print_aiscalar = aimath_f32_print_aiscalar
 };
-
 const aimath_dtype_t *aif32 = &aif32_s;
 
+AISTRING_STORAGE_WRAPPER(aistring_f32_print_aitensor_tab) = "\t";
+AISTRING_STORAGE_WRAPPER(aistring_f32_print_aitensor_nl) = "\n";
+AISTRING_STORAGE_WRAPPER(aistring_f32_print_aitensor_1) = "F32 [\n";
+AISTRING_STORAGE_WRAPPER(aistring_f32_print_aitensor_2) = "]\n";
 
 void aimath_f32_print_aitensor(const aitensor_t *tensor)
 {
 	uint16_t i, j, k, n;
-	printf("F32 [\n");
+	AIPRINT(aistring_f32_print_aitensor_1);
 	if(tensor->dim == 1)
 	{
 		for(j = 0; j < tensor->shape[0]; j++)
 		{
-			printf("%10.5f\t", ((float *) tensor->data)[j]);
+			AIPRINT_FLOAT("%10.5f", ((float *) tensor->data)[j]);
+			AIPRINT(aistring_f32_print_aitensor_tab);
 		}
 	}
 	else if(tensor->dim == 2)
@@ -55,9 +61,10 @@ void aimath_f32_print_aitensor(const aitensor_t *tensor)
 		{
 			for(j = 0; j < tensor->shape[1]; j++)
 			{
-				printf("%10.5f\t", ((float *) tensor->data)[i*tensor->shape[1] + j]);
+				AIPRINT_FLOAT("%10.5f", ((float *) tensor->data)[i*tensor->shape[1] + j]);
+                AIPRINT(aistring_f32_print_aitensor_tab);
 			}
-			printf("\n");
+			AIPRINT(aistring_f32_print_aitensor_nl);
 		}
 	}
 	else if(tensor->dim == 4)
@@ -72,20 +79,24 @@ void aimath_f32_print_aitensor(const aitensor_t *tensor)
 				{
 					for(j = 0; j < tensor->shape[3]; j++)
 					{
-						printf("%10.5f\t", (*tensor_data)[n][k][i][j]);
+						AIPRINT_FLOAT("%10.5f", (*tensor_data)[n][k][i][j]);
+						AIPRINT(aistring_f32_print_aitensor_tab);
 					}
-					printf("\n");
+					AIPRINT(aistring_f32_print_aitensor_nl);
 				}
-				printf("\n");
+				AIPRINT(aistring_f32_print_aitensor_nl);
 			}
-			printf("\n");
+			AIPRINT(aistring_f32_print_aitensor_nl);
 		}
 	}
-	printf("]\n");
+	AIPRINT(aistring_f32_print_aitensor_2);
 	return;
 }
 
-void aimath_f32_print_aiscalar(const void *scalar, int (*print)(const char *format, ...))
+AISTRING_STORAGE_WRAPPER(aistring_f32_print_aiscalar_1) = " (F32)";
+
+void aimath_f32_print_aiscalar(const void *scalar)
 {
-    print("%f (F32)", *((float *) scalar));
+    AIPRINT_FLOAT("%f", *((float *) scalar));
+    AIPRINT(aistring_f32_print_aiscalar_1);
 }

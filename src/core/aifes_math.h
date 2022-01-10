@@ -8,16 +8,16 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief 	AIfES 2 math interface
@@ -33,14 +33,8 @@
 #include <stdio.h>
 #include <stdlib.h>
 
+#include "aifes_config.h"
 
-#define SHAPE_CHECK /**<Enable checking for tensorshapes before performaing math operations on them */
-#define DEBUG_CHECKS /**< Functions may printf some error messages and do usage checks of possible */
-#define AIDEBUG_PRINT_MODULE_SPECS  /**< Functions may printf some Layer info  */
-#define AIDEBUG_PRINT_ERROR_MESSAGES /**< Functions may printf some error messages */
-
-/** Logging function */
-#define LOG_E(M)	printf(M)
 
 typedef struct aimath_dtype aimath_dtype_t;
 
@@ -70,7 +64,7 @@ struct aimath_dtype {
 	 * @param tensor    The scalar to print
 	 * @param *print    The print function to use (for example printf)
 	 */
-	void (*print_aiscalar)(const void *scalar, int (*print)(const char *format, ...));
+	void (*print_aiscalar)(const void *scalar);
 };
 
 /** @brief A tensor in AIfES

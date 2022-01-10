@@ -69,24 +69,48 @@ var NAVTREE =
       [ "Test the trained model", "_tutorial_training_f32.html#autotoc_md29", null ],
       [ "Change working memory", "_tutorial_training_f32.html#autotoc_md30", null ]
     ] ],
-    [ "Tutorial to include the CMSIS DSP Library in an Arduino Project", "md__d___projekte__a_if_e_s__git_repos_aifes_int_doc_md_11_tutorial_include_cmsis_arduino.html", [
-      [ "Activate CMSIS for your Sketch", "md__d___projekte__a_if_e_s__git_repos_aifes_int_doc_md_11_tutorial_include_cmsis_arduino.html#autotoc_md32", null ]
+    [ "Tutorial inference Q7", "_tutorial_inference_q7.html", [
+      [ "Example", "_tutorial_inference_q7.html#autotoc_md31", null ],
+      [ "Design the neural network", "_tutorial_inference_q7.html#autotoc_md32", null ],
+      [ "Get the pre-trained weights and biases", "_tutorial_inference_q7.html#GetWeightsAndBiases", null ],
+      [ "Q7 quantization", "_tutorial_inference_q7.html#autotoc_md33", [
+        [ "General", "_tutorial_inference_q7.html#autotoc_md34", null ],
+        [ "Tensor quantization helper", "_tutorial_inference_q7.html#autotoc_md35", null ]
+      ] ],
+      [ "Manual quantization of the neural network", "_tutorial_inference_q7.html#autotoc_md36", [
+        [ "Quantization of the intermediate results", "_tutorial_inference_q7.html#autotoc_md37", null ],
+        [ "Quantization of the weights and biases", "_tutorial_inference_q7.html#autotoc_md38", null ]
+      ] ],
+      [ "Create the neural network in AIfES", "_tutorial_inference_q7.html#autotoc_md39", [
+        [ "Manual declaration and configuration of the layers", "_tutorial_inference_q7.html#ManualLayerDeclaration", null ],
+        [ "Automatic declaration and configuration of the layers", "_tutorial_inference_q7.html#AutomaticLayerDeclaration", null ],
+        [ "Connection and initialization of the layers", "_tutorial_inference_q7.html#autotoc_md40", null ],
+        [ "Print the layer structure to the console", "_tutorial_inference_q7.html#autotoc_md41", null ]
+      ] ],
+      [ "Perform the inference", "_tutorial_inference_q7.html#autotoc_md42", [
+        [ "Allocate and initialize the working memory", "_tutorial_inference_q7.html#autotoc_md43", null ],
+        [ "Run the inference", "_tutorial_inference_q7.html#RunInferenceQ7", null ]
+      ] ],
+      [ "Automatic quantization in AIfES", "_tutorial_inference_q7.html#AutomaticQuantizationAIfES", null ],
+      [ "Automatic quantization in Python", "_tutorial_inference_q7.html#AutomaticQuantizationPython", null ]
     ] ],
     [ "Data Structures", "annotated.html", [
       [ "Data Structures", "annotated.html", "annotated_dup" ],
       [ "Data Structure Index", "classes.html", null ],
       [ "Data Fields", "functions.html", [
-        [ "All", "functions.html", null ],
-        [ "Variables", "functions_vars.html", null ]
+        [ "All", "functions.html", "functions_dup" ],
+        [ "Variables", "functions_vars.html", "functions_vars" ]
       ] ]
     ] ],
     [ "Files", "files.html", [
       [ "File List", "files.html", "files_dup" ],
       [ "Globals", "globals.html", [
-        [ "All", "globals.html", null ],
-        [ "Functions", "globals_func.html", null ],
+        [ "All", "globals.html", "globals_dup" ],
+        [ "Functions", "globals_func.html", "globals_func" ],
         [ "Variables", "globals_vars.html", null ],
-        [ "Typedefs", "globals_type.html", null ]
+        [ "Typedefs", "globals_type.html", null ],
+        [ "Enumerations", "globals_enum.html", null ],
+        [ "Enumerator", "globals_eval.html", null ]
       ] ]
     ] ]
   ] ]
@@ -95,8 +119,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_tutorial_inference_f32.html",
-"aimath__f32__default_8h.html#a0e1b0cb1f84a73659b5b61b59045207c",
-"structaiopti.html"
+"ailayer__softsign_8h.html#aacf2b1e644b07eca0a0a58cece19d717",
+"aiopti__sgd_8h.html#aaf53c8e74f356f5f48976f95ba8fbab1",
+"structailoss__mse.html#abf7a461af7296a09d5246ca13591b988"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

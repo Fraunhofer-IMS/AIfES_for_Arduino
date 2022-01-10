@@ -1,5 +1,5 @@
 /**
- * \file basic/aifes.h
+ * \file basic/aifes_basic.h
  * \internal
  * \date 23.02.2021
  * \endinternal
@@ -8,19 +8,19 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
- * \brief Include all headers of the aifes 2 - basic module
+ * \brief Include all headers of the AIfES 2 basic module
  * \details
  */
 
@@ -35,6 +35,9 @@ extern "C" {
 
 // Include the datatypes
 #include "basic/base/aimath/aimath_f32.h"
+#include "basic/base/aimath/aimath_q31.h"
+#include "basic/base/aimath/aimath_q7.h"
+#include "basic/base/aimath/aimath_u8.h"
 
 // Include basic datatype independent math functions
 #include "basic/base/aimath/aimath_basic.h"
@@ -66,6 +69,8 @@ extern "C" {
 
 // Include the math in default implementation
 #include "basic/default/aimath/aimath_f32_default.h"
+#include "basic/default/aimath/aimath_q31_default.h"
+#include "basic/default/aimath/aimath_q7_default.h"
 
 // Include the layers in default implementation
 #include "basic/default/ailayer/ailayer_dense_default.h"
@@ -86,27 +91,21 @@ extern "C" {
 #include "basic/default/aiopti/aiopti_sgd_default.h"
 #include "basic/default/aiopti/aiopti_adam_default.h"
 
-// ---------------------------- CMSIS implementations -----------------------
-// ATTENTION!
-// If you want to use CMSIS for ARM controllers, you need to uncomment the define of AIFES_WITH_CMSIS
-
-//#define AIFES_WITH_CMSIS
-
-#ifdef AIFES_WITH_CMSIS
-
-// Include the math in cmsis implementation
-#include "basic/cmsis/aimath/aimath_f32_cmsis.h"
-
-// Include the layers in cmsis implementation
-#include "basic/cmsis/ailayer/ailayer_dense_cmsis.h"
-
-#endif /* AIFES_USE_CMSIS */
 
 // ---------------------------- Algorithmic -----------------------
 
 // Include the algorithmic
 #include "basic/base/aialgo/aialgo_sequential_inference.h"
 #include "basic/base/aialgo/aialgo_sequential_training.h"
+
+// ---------------------------- AIfES express -----------------------
+
+// Include AIfES express functions (high level api)
+
+#include "basic/express/aifes_express_f32_fnn.h"
+#include "basic/express/aifes_express_q7_fnn.h"
+
+
 
 #ifdef __cplusplus
 } // End extern "C"

@@ -7,16 +7,16 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief
@@ -29,6 +29,8 @@ ailayer_t *ailayer_tanh_f32_default(ailayer_tanh_f32_t *layer, ailayer_t *input_
 {
 	layer->dtype = aif32;
 
+	layer->base.calc_result_tensor_params = 0;
+
 	//forward
 	layer->tanh = aimath_f32_default_tanh;
 
@@ -36,32 +38,63 @@ ailayer_t *ailayer_tanh_f32_default(ailayer_tanh_f32_t *layer, ailayer_t *input_
 	layer->d_tanh = aimath_f32_default_d_tanh;
 	layer->multiply = aimath_f32_default_multiply;
 
-	layer->base.get_result_bound = ailayer_tanh_get_result_bound_f32_default;
+	return ailayer_tanh(layer, input_layer);
+}
+
+ailayer_t *ailayer_tanh_q31_default(ailayer_tanh_q31_t *layer, ailayer_t *input_layer)
+{
+	layer->dtype = aiq31;
+
+	layer->base.calc_result_tensor_params = ailayer_tanh_calc_result_tensor_params_q31_default;
+
+	//forward
+	layer->tanh = aimath_q31_default_tanh;
+
+	// backward
+	layer->d_tanh = aimath_q31_default_d_tanh;
+	layer->multiply = aimath_f32_default_multiply;
 
 	return ailayer_tanh(layer, input_layer);
 }
 
-uint8_t ailayer_tanh_get_result_bound_f32_default(const ailayer_t *self, const uint8_t selector, void *result_bound)
+ailayer_t *ailayer_tanh_q7_default(ailayer_tanh_q7_t *layer, ailayer_t *input_layer)
 {
-    float *bound = (float *) result_bound;
+    ailayer_t *return_layer;
 
-    switch(selector){
-    case AILAYER_RESULT_LOWER_BOUND:
-        *bound = -1.0f;
-        return TRUE;
-    case AILAYER_RESULT_UPPER_BOUND:
-        *bound = 1.0f;
-        return TRUE;
-    case AILAYER_DELTAS_LOWER_BOUND:
-        return FALSE;
-    case AILAYER_DELTAS_UPPER_BOUND:
-        return FALSE;
-    default:
-        #ifdef AIDEBUG_PRINT_ERROR_MESSAGES
-            printf("\n+++ ERROR: Not defined result bound selector.\n");
-        #endif // AIDEBUG_PRINT_ERROR_MESSAGES
-        return FALSE;
-    }
+	layer->dtype = aiq7;
+
+	layer->base.calc_result_tensor_params = ailayer_tanh_calc_result_tensor_params_q7_default;
+
+	return_layer = ailayer_tanh(layer, input_layer);
+
+	//forward
+	layer->tanh = aimath_q7_default_tanh;
+
+	// backward
+	// No backward supported for q7
+	return_layer->backward = 0;
+	layer->d_tanh = 0;
+	layer->multiply = 0;
+
+	return return_layer;
+}
+
+void ailayer_tanh_calc_result_tensor_params_q31_default(ailayer_t *self)
+{
+	aimath_q31_params_t *qparams = (aimath_q31_params_t *) (self->result.tensor_params);
+
+	// Values are the same as used in the sigmoid q31 default math function
+	qparams->shift = 31;
+	qparams->zero_point = 0;
+}
+
+void ailayer_tanh_calc_result_tensor_params_q7_default(ailayer_t *self)
+{
+	aimath_q7_params_t *qparams = (aimath_q7_params_t *) (self->result.tensor_params);
+
+	// Values are the same as used in the sigmoid q7 default math function
+	qparams->shift = 7;
+	qparams->zero_point = 0;
 }
 
 

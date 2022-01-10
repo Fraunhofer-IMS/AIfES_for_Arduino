@@ -8,21 +8,22 @@
     All rights reserved.
 
     AIfES is free software: you can redistribute it and/or modify
-    it under the terms of the GNU General Public License as published by
+    it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
     (at your option) any later version.
 
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU General Public License for more details.
+    GNU Affero General Public License for more details.
 
-    You should have received a copy of the GNU General Public License
+    You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
  * \brief Default implementation of the \link aiopti_adam.h Adam optimizer \endlink
  *
- * Hardware independent implementations of the Adam optimizer in \link aimath_f32.h F32 \endlink data-type.
+ * Hardware independent implementations of the Adam optimizer in \link aimath_f32.h F32 \endlink,
+ * \link aimath_q31.h Q31 \endlink data-type.
  * For more information about the Adam optimizer refer to aiopti_adam.h.
  */
 
@@ -32,8 +33,13 @@
 #include "basic/base/aiopti/aiopti_adam.h"
 
 #include "basic/default/aimath/aimath_f32_default.h"
+#include "basic/default/aimath/aimath_q7_default.h"
+
+#define AIOPTI_ADAM_F32(learning_rate, beta1, beta2, eps) {{{0,},},learning_rate, beta1, beta2, eps}
+#define AIOPTI_ADAM_Q31(learning_rate, beta1, beta2, eps) {{{0,},},learning_rate, beta1, beta2, eps}
 
 typedef struct aiopti_adam_f32 	aiopti_adam_f32_t;
+//typedef struct aiopti_adam_q31 	aiopti_adam_q31_t;
 
 /** @brief Data-type specific \link aiopti_adam.h Adam optimizer \endlink struct for \link aimath_f32.h F32 \endlink
  *
@@ -71,7 +77,8 @@ struct aiopti_adam_f32 {
 
 /** @brief Initializes an \link aiopti_adam.h Adam optimizer \endlink with the \link aimath_f32.h F32 \endlink default implementation
  *
- * Example: Create the optimizer structure:\n
+ * **Example:** Create the optimizer structure:\n
+ * In C:
  * \code{.c}
  * aiopti_adam_f32_t adam_optimizer = {
  *     .learning_rate = 0.01f,
@@ -81,8 +88,12 @@ struct aiopti_adam_f32 {
  *     .eps = 1e-7f
  * };
  * \endcode
+ * In C, C++ and on Arduino:
+ * \code{.c}
+ * aiopti_adam_f32_t adam_optimizer = AIOPTI_ADAM_F32(0.01f, 0.9f, 0.999f, 1e-7f);
+ * \endcode
  *
- * Example: Initialize the optimizer:\n
+ * **Example:** Initialize the optimizer:\n
  * \code{.c}
  * aiopti_t *optimizer;
  *
