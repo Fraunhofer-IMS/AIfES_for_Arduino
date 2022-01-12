@@ -1,5 +1,6 @@
 var ailoss__crossentropy__default_8h =
 [
-    [ "ailoss_crossentropy_f32_default", "ailoss__crossentropy__default_8h.html#a4287ee680740dbf3f98cc0f5869f8105", null ],
-    [ "ailoss_crossentropy_sparse8_f32_default", "ailoss__crossentropy__default_8h.html#a59845fc03c6b40137abf737458727e5c", null ]
+    [ "ailoss_crossentropy_f32_t", "ailoss__crossentropy__default_8h.html#af023a0214bf4a9c22222ddcf8d42e5a8", null ],
+    [ "ailoss_crossentropy_f32_default", "ailoss__crossentropy__default_8h.html#aa10b5c43deef1891d98cb8c45d57b3ee", null ],
+    [ "ailoss_crossentropy_sparse8_f32_default", "ailoss__crossentropy__default_8h.html#a01f977cc97f44940f402462686e13de3", null ]
 ];

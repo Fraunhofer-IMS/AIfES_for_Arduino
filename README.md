@@ -41,20 +41,25 @@ This standard can speed up inference and training for large FNNs.
 Please read the README.md in https://github.com/Fraunhofer-IMS/AIfES_for_Arduino/tree/main/src/CMSIS for more information on how to add the CMSIS library.
 
 ### Python
-To help you with the quantization of a neural network, we provide some Python tools.
+To help you with the quantization of a neural network, we provide some Python tools. You can install them via pip with:
+
+```pip install https://github.com/Fraunhofer-IMS/AIfES_for_Arduino/raw/main/etc/python/aifes_tools.zip```
+
 Please read the README.md in https://github.com/Fraunhofer-IMS/AIfES_for_Arduino/tree/main/etc/python for more information
-on how to install the AIfES pytools.
+on the AIfES pytools.
 
 We also created some examples to show you how a tf.Keras and a PyTorch neural network can be quantized for AIfES, using the pytools
 https://github.com/Fraunhofer-IMS/AIfES_for_Arduino/tree/main/etc/python/examples.
 
-
 ## Features
+
+Have a look at our [**documentation**](https://fraunhofer-ims.github.io/AIfES_for_Arduino/#OverviewFeatures) for a detailed overview of the provided features with code examples.
+
 ### Data types and quantization
 AIfES supports the following data types:
-F32:	32 Bit float
-Q31:	32 Bit integer
-Q7: 	 8 Bit integer
+* F32:	32 Bit float
+* Q31:	32 Bit integer
+* Q7: 	 8 Bit integer
 
 Neural network types
 AIfES supports in the current version:

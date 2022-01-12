@@ -13,8 +13,6 @@
 
 #include "aifes_config.h"
 
-#include <arduino.h>
-
 #ifdef AIDEBUG_ENABLE_PRINTING
 
 #if defined AIFES_USE_ARDUINO_SERIAL_PRINT

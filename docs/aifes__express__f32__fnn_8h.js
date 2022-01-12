@@ -3,6 +3,9 @@ var aifes__express__f32__fnn_8h =
     [ "AIFES_E_model_parameter_fnn_f32", "struct_a_i_f_e_s___e__model__parameter__fnn__f32.html", "struct_a_i_f_e_s___e__model__parameter__fnn__f32" ],
     [ "AIFES_E_training_parameter_fnn_f32", "struct_a_i_f_e_s___e__training__parameter__fnn__f32.html", "struct_a_i_f_e_s___e__training__parameter__fnn__f32" ],
     [ "AIFES_E_init_weights_parameter_fnn_f32", "struct_a_i_f_e_s___e__init__weights__parameter__fnn__f32.html", "struct_a_i_f_e_s___e__init__weights__parameter__fnn__f32" ],
+    [ "AIFES_E_init_weights_parameter_fnn_f32", "aifes__express__f32__fnn_8h.html#ac8b136eec59d63fd3bb313acf15754a0", null ],
+    [ "AIFES_E_model_parameter_fnn_f32", "aifes__express__f32__fnn_8h.html#af79dec2c6e48d0a4bc1ab3443bbe0359", null ],
+    [ "AIFES_E_training_parameter_fnn_f32", "aifes__express__f32__fnn_8h.html#a86c1eaca27d8e58e1a304ed0507db9b4", null ],
     [ "AIFES_E_activations", "aifes__express__f32__fnn_8h.html#a6dad88532ecc9bc7786bb69c0aab7c23", [
       [ "AIfES_E_relu", "aifes__express__f32__fnn_8h.html#a6dad88532ecc9bc7786bb69c0aab7c23a90e8205e5c84ffb25fa38491b248b013", null ],
       [ "AIfES_E_sigmoid", "aifes__express__f32__fnn_8h.html#a6dad88532ecc9bc7786bb69c0aab7c23a68c5b8166b0ec1f39f3f66eae44907d6", null ],

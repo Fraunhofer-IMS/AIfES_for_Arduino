@@ -2,7 +2,7 @@ var aiopti__sgd_8h =
 [
     [ "aiopti_sgd", "structaiopti__sgd.html", "structaiopti__sgd" ],
     [ "aiopti_sgd_t", "aiopti__sgd_8h.html#a61b25438699bd6f918253a70b0e92973", null ],
-    [ "aiopti_sgd", "aiopti__sgd_8h.html#ad9426319c17e08fafce0d20a1ba79819", null ],
+    [ "aiopti_sgd", "aiopti__sgd_8h.html#a17f3c6d6bc38f5be3d796a787aa4337d", null ],
     [ "aiopti_sgd_init_optimem_with_momentum", "aiopti__sgd_8h.html#a3ddbd762bf3c1fa7b4bf1af180bf2365", null ],
     [ "aiopti_sgd_init_optimem_without_momentum", "aiopti__sgd_8h.html#ac888d4220489192230ae82b3eb928d1a", null ],
     [ "aiopti_sgd_print_specs", "aiopti__sgd_8h.html#a935e38eb3fc504e1c63406b48ad404cd", null ],
