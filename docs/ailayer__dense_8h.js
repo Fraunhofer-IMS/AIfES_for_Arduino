@@ -1,7 +1,8 @@
 var ailayer__dense_8h =
 [
     [ "ailayer_dense", "structailayer__dense.html", "structailayer__dense" ],
-    [ "ailayer_dense", "ailayer__dense_8h.html#a23be002c446380a14ac21897c87fc4a6", null ],
+    [ "ailayer_dense_t", "ailayer__dense_8h.html#a2efb175179411e3a0f141a36c6405460", null ],
+    [ "ailayer_dense", "ailayer__dense_8h.html#a55f934a56796ad95ed1c84872a60036a", null ],
     [ "ailayer_dense_backward", "ailayer__dense_8h.html#a5e277ec1fb19ee7bf5ff5739e1ff602b", null ],
     [ "ailayer_dense_calc_result_shape", "ailayer__dense_8h.html#af5b9c869c1fa531d97c4552260a281bb", null ],
     [ "ailayer_dense_forward", "ailayer__dense_8h.html#a60a37f3b0d587837a4009493358a9099", null ],

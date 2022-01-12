@@ -27,13 +27,15 @@ var NAVTREE =
   [ "AIfES 2", "index.html", [
     [ "Main page", "index.html", [
       [ "Vocabulary and Abbreviations", "index.html#autotoc_md0", null ],
-      [ "Overview (documentation)", "index.html#autotoc_md1", null ],
-      [ "Overview (functionality)", "index.html#autotoc_md2", [
-        [ "Data types", "index.html#autotoc_md3", null ],
-        [ "General", "index.html#autotoc_md4", null ],
+      [ "Overview (Documentation)", "index.html#autotoc_md1", null ],
+      [ "Overview (Features)", "index.html#OverviewFeatures", [
+        [ "Data types", "index.html#autotoc_md2", null ],
+        [ "General", "index.html#autotoc_md3", null ],
         [ "For Inference", "index.html#OverviewInference", null ],
-        [ "For Training", "index.html#OverviewTraining", null ]
+        [ "For Training", "index.html#OverviewTraining", null ],
+        [ "AIfES Express", "index.html#OverviewExpress", null ]
       ] ],
+      [ "Python tools", "index.html#autotoc_md4", null ],
       [ "Structure and design concepts of AIfES", "index.html#autotoc_md5", null ]
     ] ],
     [ "Tutorial inference F32", "_tutorial_inference_f32.html", [
@@ -119,9 +121,9 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_tutorial_inference_f32.html",
-"ailayer__softsign_8h.html#aacf2b1e644b07eca0a0a58cece19d717",
-"aiopti__sgd_8h.html#aaf53c8e74f356f5f48976f95ba8fbab1",
-"structailoss__mse.html#abf7a461af7296a09d5246ca13591b988"
+"ailayer__sigmoid_8h.html#ac8b3179554261f9cb3dbf4036e18a265",
+"aimath__q7__avr__pgm_8h.html#ad4d2f63c565e7d4b9ac2cf7aef6c4844",
+"structailayer__leaky__relu.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';
