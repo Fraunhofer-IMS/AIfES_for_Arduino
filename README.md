@@ -35,6 +35,18 @@ AIfES in the current version supports almost all microcontroller types and Ardui
 *	32-Bit-Microcontroller
 *	64-Bit-Microcontroller
 
+### Installation guides for various IDEs
+
+We have already put the first guides to integrate AIfES in various IDEs in our GitHub repository which you can find [here](https://github.com/Fraunhofer-IMS/AIfES_for_Arduino/tree/main/etc/installation_guides). 
+
+Guides for the following IDEs are available by now:
+* Code::Blocks
+* STMCubeIDE
+* Wokwi - the simulator for Arduino / ESP32
+
+You can help us by downloading the *.docx template and write a manual for your favourite IDE.
+Send it as a PDF to `aifes(at)ims.fraunhofer.de`
+
 ### ARM CMSIS
 AIfES also supports the *Cortex Microcontroller Software Interface Standard* (CMSIS) of the ARM Cortex controllers.
 This standard can speed up inference and training for large FNNs.
