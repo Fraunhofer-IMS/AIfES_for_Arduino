@@ -47,6 +47,14 @@ Guides for the following IDEs are available by now:
 You can help us by downloading the *.docx template and write a manual for your favourite IDE.
 Send it as a PDF to `aifes(at)ims.fraunhofer.de`
 
+### Wokwi - Online Arduino and ESP32 Simulator
+
+If you don't have any hardware available, you can also test some AIfES examples in Wokwi. The simulation is slower, of course. Here are a few examples:
+* [AIfES_Express_XOR_F32_Inference (Arduino UNO 8-Bit)](https://wokwi.com/projects/326927612799615571)
+* [AIfES_Express_XOR_F32_training (Arduino Mega 8-Bit)](https://wokwi.com/projects/326198897167827538)
+* [AIfES_Express_XOR_F32_training (ESP32)](https://wokwi.com/projects/326180812579930706)
+* [TicTacToe_Q7 (Arduino UNO 8-Bit)](https://wokwi.com/projects/326999793082565203)
+
 ### ARM CMSIS
 AIfES also supports the *Cortex Microcontroller Software Interface Standard* (CMSIS) of the ARM Cortex controllers.
 This standard can speed up inference and training for large FNNs.
