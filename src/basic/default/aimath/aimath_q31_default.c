@@ -3,18 +3,15 @@
  * \version 2.0alpha
  * \date 03.02.2021
  * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
-    All rights reserved.
-
+    All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
+    (at your option) any later version.<br><br>
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
+    GNU Affero General Public License for more details.<br><br>
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
@@ -54,6 +51,7 @@ void aimath_q31_default_linear32(const aitensor_t *a, const aitensor_t *b, const
 	int32_t *b_data = (int32_t *) b->data;
 	int32_t *c_data;
 	if(c != 0) c_data = (int32_t *) c->data;
+	else c_data = 0;
 	int32_t *result_data = (int32_t *) result->data;
 
 
@@ -422,6 +420,7 @@ void aimath_q31_default_norm_squared(const aitensor_t *x, void *result)
 
 	uint16_t output_shift = 2 * ((aimath_q31_params_t *) x->tensor_params)->shift - ((aiscalar_q31_t *) result)->shift;
 
+	sum = 0;
 	for(i = 0; i < aimath_tensor_elements(x); i++)
 	{
 		sum += (int64_t) ((int32_t *) x->data)[i] * (int64_t) ((int32_t *) x->data)[i];
@@ -1144,19 +1143,51 @@ void aimath_q31_default_tensor_init_uniform(aitensor_t *tensor, float from, floa
 
 void aimath_q31_default_init_glorot_uniform(aitensor_t *tensor)
 {
+	aimath_q31_default_init_glorot_uniform_cdim(tensor, 0, 1);
+}
+
+void aimath_q31_default_init_glorot_uniform_cdim(aitensor_t *tensor, int8_t cin_axis, int8_t cout_axis)
+{
+	uint32_t i;
 	float fan_in, fan_out, fan_avg;
-	if(tensor->dim == 2)
-	{
-		fan_in = tensor->shape[0];
-		fan_out = tensor->shape[1];
-	}
-	else if(tensor->dim == 4)
-	{
-		fan_in = tensor->shape[1] * tensor->shape[2] * tensor->shape[3]; // In channel * kernel_elems
-		fan_out = tensor->shape[0] * tensor->shape[2] * tensor->shape[3]; // Out channel * kernel_elems
+    uint8_t cin_uaxis = cin_axis < 0 ? tensor->dim + cin_axis : cin_axis; // Negative axis = indexing from the end
+    uint8_t cout_uaxis = cout_axis < 0 ? tensor->dim + cout_axis : cout_axis; // Negative axis = indexing from the end
+
+	fan_in = 1.0f;
+	fan_out = 1.0f;
+	for(i = 0; i < tensor->dim; i++){
+        if(i != cout_uaxis){
+            fan_in *= tensor->shape[i];
+        }
+        if(i != cin_uaxis){
+            fan_out *= tensor->shape[i];
+        }
 	}
 
 	fan_avg = (fan_in + fan_out) / 2.0f;
+	float r = sqrt(3.0f / fan_avg);
+	aimath_q31_default_tensor_init_uniform(tensor, -r, r);
+}
+
+void aimath_q31_default_init_he_uniform(aitensor_t *tensor)
+{
+	aimath_q31_default_init_he_uniform_cdim(tensor, 1);
+}
+
+void aimath_q31_default_init_he_uniform_cdim(aitensor_t *tensor, int8_t cout_axis)
+{
+    uint32_t i;
+	float fan_in, fan_avg;
+    uint8_t cout_uaxis = cout_axis < 0 ? tensor->dim + cout_axis : cout_axis; // Negative axis = indexing from the end
+
+	fan_in = 1.0f;
+	for(i = 0; i < tensor->dim; i++){
+        if(i != cout_uaxis){
+            fan_in *= tensor->shape[i];
+        }
+	}
+
+	fan_avg = fan_in  / 2.0f;
 	float r = sqrt(3.0f / fan_avg);
 	aimath_q31_default_tensor_init_uniform(tensor, -r, r);
 }
@@ -1177,3 +1208,30 @@ int64_t aimath_q31_default_sqrt(int64_t x)
         return upper;
     }
 }
+
+
+
+void aimath_q31_default_sum_channelwise(const aitensor_t *x, int8_t channel_axis, aitensor_t *result){
+    uint32_t i, j, k;
+    uint32_t idx_multiplier1 = 1, idx_multiplier2 = 1;
+    uint8_t uaxis = channel_axis < 0 ? x->dim + channel_axis : channel_axis; // Negative axis = indexing from the end
+
+    for(i = 0; i < uaxis; i++){
+        idx_multiplier1 *= x->shape[i];
+    }
+    for(i = uaxis+1; i < x->dim; i++){
+        idx_multiplier2 *= x->shape[i];
+    }
+
+    for(i = 0; i < x->shape[uaxis]; i++){
+        ((int32_t *) result->data)[i] = ((aimath_q31_params_t *) result->tensor_params)->zero_point;
+        for(j = 0; j < idx_multiplier1; j++){
+            for(k = 0; k < idx_multiplier2; k++){
+                ((int32_t *) result->data)[i] += ((int32_t *) x->data)[i*idx_multiplier2 + j*idx_multiplier2*x->shape[uaxis] + k];
+            }
+        }
+        ((int32_t *) result->data)[i] -= idx_multiplier1 * idx_multiplier2 * ((aimath_q31_params_t *) x->tensor_params)->zero_point;
+    }
+    return;
+}
+

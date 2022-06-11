@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AIfES 2: /builds/ims-esa/aifes_2/include/basic/base/aimath/aimath_f32.h Source File</title>
+<title>AIfES 2: aimath_f32.h Source File</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -101,23 +101,27 @@ $(document).ready(function(){initNavTree('aimath__f32_8h_source.html',''); initR
 <div class="line"><a name="l00075"></a><span class="lineno">   75</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="aifes__math_8h.html">core/aifes_math.h</a>&quot;</span></div>
 <div class="line"><a name="l00076"></a><span class="lineno">   76</span>&#160;<span class="preprocessor">#include &quot;<a class="code" href="aimath__basic_8h.html">basic/base/aimath/aimath_basic.h</a>&quot;</span></div>
 <div class="line"><a name="l00077"></a><span class="lineno">   77</span>&#160; </div>
-<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#define AITENSOR_2D_F32(shape, data)    {aif32, 2, shape, 0, data}</span></div>
+<div class="line"><a name="l00083"></a><span class="lineno">   83</span>&#160;<span class="preprocessor">#define AITENSOR_1D_F32(shape, data)    {aif32, 1, (uint16_t *) shape, 0, (float *) data}</span></div>
 <div class="line"><a name="l00084"></a><span class="lineno">   84</span>&#160; </div>
-<div class="line"><a name="l00106"></a><span class="lineno"><a class="line" href="aimath__f32_8h.html#ad3ffba87614778a1d8ee2314117ff59c">  106</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">float</span>               <a class="code" href="aimath__f32_8h.html#ad3ffba87614778a1d8ee2314117ff59c">aiscalar_f32_t</a>;</div>
-<div class="line"><a name="l00107"></a><span class="lineno">  107</span>&#160; </div>
-<div class="line"><a name="l00118"></a><span class="lineno"><a class="line" href="aimath__f32_8h.html#a35be372b71f7d1cbeffa157448fe7c31">  118</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="aimath__f32_8h.html#a35be372b71f7d1cbeffa157448fe7c31">aimath_f32_print_aitensor</a>(<span class="keyword">const</span> <a class="code" href="structaitensor.html">aitensor_t</a> *tensor);</div>
-<div class="line"><a name="l00119"></a><span class="lineno">  119</span>&#160; </div>
-<div class="line"><a name="l00130"></a><span class="lineno"><a class="line" href="aimath__f32_8h.html#a5a71af5b0db68ff71ef6399f90f36cac">  130</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="aimath__f32_8h.html#a5a71af5b0db68ff71ef6399f90f36cac">aimath_f32_print_aiscalar</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *scalar);</div>
-<div class="line"><a name="l00131"></a><span class="lineno">  131</span>&#160; </div>
-<div class="line"><a name="l00136"></a><span class="lineno">  136</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="structaimath__dtype.html">aimath_dtype_t</a> *<a class="code" href="aimath__f32_8h.html#a06eea7384624233f57daab2648d8ce37">aif32</a>;</div>
-<div class="line"><a name="l00137"></a><span class="lineno">  137</span>&#160; </div>
-<div class="line"><a name="l00138"></a><span class="lineno">  138</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// AIMATH_F32</span></div>
+<div class="line"><a name="l00090"></a><span class="lineno">   90</span>&#160;<span class="preprocessor">#define AITENSOR_2D_F32(shape, data)    {aif32, 2, (uint16_t *) shape, 0, (float *) data}</span></div>
+<div class="line"><a name="l00091"></a><span class="lineno">   91</span>&#160; </div>
+<div class="line"><a name="l00097"></a><span class="lineno">   97</span>&#160;<span class="preprocessor">#define AITENSOR_4D_F32(shape, data)    {aif32, 4, (uint16_t *) shape, 0, (float *) data}</span></div>
+<div class="line"><a name="l00098"></a><span class="lineno">   98</span>&#160; </div>
+<div class="line"><a name="l00120"></a><span class="lineno"><a class="line" href="aimath__f32_8h.html#ad3ffba87614778a1d8ee2314117ff59c">  120</a></span>&#160;<span class="keyword">typedef</span> <span class="keywordtype">float</span>               <a class="code" href="aimath__f32_8h.html#ad3ffba87614778a1d8ee2314117ff59c">aiscalar_f32_t</a>;</div>
+<div class="line"><a name="l00121"></a><span class="lineno">  121</span>&#160; </div>
+<div class="line"><a name="l00132"></a><span class="lineno"><a class="line" href="aimath__f32_8h.html#a35be372b71f7d1cbeffa157448fe7c31">  132</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="aimath__f32_8h.html#a35be372b71f7d1cbeffa157448fe7c31">aimath_f32_print_aitensor</a>(<span class="keyword">const</span> <a class="code" href="structaitensor.html">aitensor_t</a> *tensor);</div>
+<div class="line"><a name="l00133"></a><span class="lineno">  133</span>&#160; </div>
+<div class="line"><a name="l00144"></a><span class="lineno"><a class="line" href="aimath__f32_8h.html#a5a71af5b0db68ff71ef6399f90f36cac">  144</a></span>&#160;<span class="keywordtype">void</span> <a class="code" href="aimath__f32_8h.html#a5a71af5b0db68ff71ef6399f90f36cac">aimath_f32_print_aiscalar</a>(<span class="keyword">const</span> <span class="keywordtype">void</span> *scalar);</div>
+<div class="line"><a name="l00145"></a><span class="lineno">  145</span>&#160; </div>
+<div class="line"><a name="l00150"></a><span class="lineno">  150</span>&#160;<span class="keyword">extern</span> <span class="keyword">const</span> <a class="code" href="structaimath__dtype.html">aimath_dtype_t</a> *<a class="code" href="aimath__f32_8h.html#a06eea7384624233f57daab2648d8ce37">aif32</a>;</div>
+<div class="line"><a name="l00151"></a><span class="lineno">  151</span>&#160; </div>
+<div class="line"><a name="l00152"></a><span class="lineno">  152</span>&#160;<span class="preprocessor">#endif </span><span class="comment">// AIMATH_F32</span></div>
 <div class="ttc" id="aaifes__math_8h_html"><div class="ttname"><a href="aifes__math_8h.html">aifes_math.h</a></div><div class="ttdoc">AIfES 2 math interface.</div></div>
 <div class="ttc" id="aaimath__basic_8h_html"><div class="ttname"><a href="aimath__basic_8h.html">aimath_basic.h</a></div><div class="ttdoc">Basic data-type independent math operations.</div></div>
 <div class="ttc" id="aaimath__f32_8h_html_a06eea7384624233f57daab2648d8ce37"><div class="ttname"><a href="aimath__f32_8h.html#a06eea7384624233f57daab2648d8ce37">aif32</a></div><div class="ttdeci">const aimath_dtype_t * aif32</div><div class="ttdoc">The F32 data-type indicator.</div></div>
 <div class="ttc" id="aaimath__f32_8h_html_a35be372b71f7d1cbeffa157448fe7c31"><div class="ttname"><a href="aimath__f32_8h.html#a35be372b71f7d1cbeffa157448fe7c31">aimath_f32_print_aitensor</a></div><div class="ttdeci">void aimath_f32_print_aitensor(const aitensor_t *tensor)</div><div class="ttdoc">Printing a F32 tensor to console.</div></div>
 <div class="ttc" id="aaimath__f32_8h_html_a5a71af5b0db68ff71ef6399f90f36cac"><div class="ttname"><a href="aimath__f32_8h.html#a5a71af5b0db68ff71ef6399f90f36cac">aimath_f32_print_aiscalar</a></div><div class="ttdeci">void aimath_f32_print_aiscalar(const void *scalar)</div><div class="ttdoc">Printing a F32 scalar to console.</div></div>
-<div class="ttc" id="aaimath__f32_8h_html_ad3ffba87614778a1d8ee2314117ff59c"><div class="ttname"><a href="aimath__f32_8h.html#ad3ffba87614778a1d8ee2314117ff59c">aiscalar_f32_t</a></div><div class="ttdeci">float aiscalar_f32_t</div><div class="ttdoc">Scalar for F32 (aif32) data-type.</div><div class="ttdef"><b>Definition:</b> aimath_f32.h:106</div></div>
+<div class="ttc" id="aaimath__f32_8h_html_ad3ffba87614778a1d8ee2314117ff59c"><div class="ttname"><a href="aimath__f32_8h.html#ad3ffba87614778a1d8ee2314117ff59c">aiscalar_f32_t</a></div><div class="ttdeci">float aiscalar_f32_t</div><div class="ttdoc">Scalar for F32 (aif32) data-type.</div><div class="ttdef"><b>Definition:</b> aimath_f32.h:120</div></div>
 <div class="ttc" id="astructaimath__dtype_html"><div class="ttname"><a href="structaimath__dtype.html">aimath_dtype</a></div><div class="ttdoc">Indicator for the used datatype.</div><div class="ttdef"><b>Definition:</b> aifes_math.h:44</div></div>
 <div class="ttc" id="astructaitensor_html"><div class="ttname"><a href="structaitensor.html">aitensor</a></div><div class="ttdoc">A tensor in AIfES.</div><div class="ttdef"><b>Definition:</b> aifes_math.h:89</div></div>
 </div><!-- fragment --></div><!-- contents -->
