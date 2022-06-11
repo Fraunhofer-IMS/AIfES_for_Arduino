@@ -121,9 +121,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_tutorial_inference_f32.html",
-"ailayer__sigmoid_8h.html#ac8b3179554261f9cb3dbf4036e18a265",
-"aimath__q7__avr__pgm_8h.html#ad4d2f63c565e7d4b9ac2cf7aef6c4844",
-"structailayer__leaky__relu.html"
+"ailayer__input__default_8h.html#a20e15725d131ac1488c236994add73dd",
+"aimath__f32__avr__pgm_8h.html",
+"globals_func.html",
+"structaimath__q7__params.html"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

@@ -5,18 +5,15 @@
  * \endinternal
  * \version 2.0alpha
  * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
-    All rights reserved.
-
+    All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
+    (at your option) any later version.<br><br>
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
+    GNU Affero General Public License for more details.<br><br>
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
@@ -135,6 +132,57 @@
  */
 void aimath_f32_default_linear(const aitensor_t *a, const aitensor_t *b, const aitensor_t *c, aitensor_t *result);
 
+/** @brief Performs a matrix multiplication of \link aimath_f32.h F32 \endlink matrices a (transposed) and b and adds a vector c to each row
+ *
+ * Same operation as aimath_f32_default_linear() but with a transposed a matrix.
+ *
+ * The addition of the horizontal vector c is performed via broadcast, i.e. element wise in each column
+ * Mathematically this broadcast is equal to multiplying c with an vertical vector (with the same number of elements as c)
+ * and adding the result to \f$ a^T \cdot b \f$.
+ *
+ * @f[
+ *  result = a \cdot b^T + \left( \begin{array}{c}
+ 							1  \\
+							1 \\
+							\vdots \\
+							1  \\
+							\end{array}\right)  \cdot c
+ * @f]
+ *
+ * Example:
+ * \code{.c}
+ * uint16_t a_shape[2] = {3, 3};
+ * float a_data[3*3] = {1.0f, 2.0f, 3.0f,
+ *                      4.0f, 5.0f, 6.0f,
+ *                      7.0f, 8.0f, 9.0f};
+ * aitensor_t a = AITENSOR_2D_F32(a_shape, a_data);
+ *
+ * uint16_t b_shape[2] = {3, 2};
+ * float b_data[3*2] = {1.0f, 0.0f,
+ *                      0.0f, 1.0f,
+ *                      0.0f, 0.0f};
+ * aitensor_t b = AITENSOR_2D_F32(b_shape, b_data);
+ *
+ * uint16_t c_shape[2] = {1, 2};
+ * float c_data[1*2] = {2.0f, 5.0f};
+ * aitensor_t c = AITENSOR_2D_F32(c_shape, c_data);
+ *
+ * uint16_t result_shape[2] = {3, 2};
+ * float result_data[3*2];
+ * aitensor_t result = AITENSOR_2D_F32(result_shape, result_data);
+ *
+ * aimath_f32_default_linear_at(&a, &b, &c, &result);
+ *
+ * print_aitensor(&result);
+ * \endcode
+ *
+ * @param *a        F32 matrix a (2D tensor of shape [K x N])
+ * @param *b        F32 matrix b (2D tensor of shape [K x M])
+ * @param *c        F32 vector c (2D tensor of shape [1 x M] or 1D tensor of shape [M])
+ * @param *result   Resulting F32 matrix (2D tensor of shape [N x M])
+ */
+void aimath_f32_default_linear_at(const aitensor_t *a, const aitensor_t *b, const aitensor_t *c, aitensor_t *result);
+
 /** @brief Performs a matrix multiplication of \link aimath_f32.h F32 \endlink matrices a and b (transposed) and adds a vector c to each row
  *
  * Same operation as aimath_f32_default_linear() but with a transposed b matrix.
@@ -150,57 +198,6 @@ void aimath_f32_default_linear(const aitensor_t *a, const aitensor_t *b, const a
 							\vdots \\
 							1  \\
 							\end{array}\right)  \cdot c
- * @f]
- *
- * Example:
- * 	@f[
- *  a =  \left( \begin{array}{rrr}
-				1 & 2 & 3 \\
-				4 & 5 & 6 \\
-				7 & 8 & 9
-				\end{array}\right)
- * @f]
- *
- * @f[
- *  b =  \left( \begin{array}{rr}
-				1 & 0 & 0 \\
-				0 & 1 & 0
-                \end{array}\right)
- * @f]
- *
- * @f[
- *  c =  \left( \begin{array}{rr}
-				2 & 5
-				\end{array}\right)
- * @f]
- *
- * @f[
- *  result = a \cdot b^T + \left( \begin{array}{r} 1 \\
-							1 \\
-							1 \\
-							\end{array}\right)  \cdot c
- * @f]
- *
- * @f[
- *   = \left( \begin{array}{rr}
-				1 & 2  \\
-				4 & 5  \\
-				7 & 8
-				\end{array}\right)
-		 + \left( \begin{array}{rr}
-				2 & 5  \\
-				2 & 5  \\
-				2 & 5
-				\end{array}\right)
- * @f]
- *
- * @details
- *
- * @f[
- *   = \left( \begin{array}{rr} 3 & 7  \\
-				6 & 10  \\
-				9 & 13
-				\end{array}\right)
  * @f]
  *
  * Example:
@@ -236,10 +233,21 @@ void aimath_f32_default_linear(const aitensor_t *a, const aitensor_t *b, const a
  */
 void aimath_f32_default_linear_bt(const aitensor_t *a, const aitensor_t *b, const aitensor_t *c, aitensor_t *result);
 
-/** @brief Performs a matrix multiplication of \link aimath_f32.h F32 \endlink matrices a and b
+/** @brief Performs a matrix multiplication with transposed result of \link aimath_f32.h F32 \endlink matrices a (transposed) and b and adds a vector c to each row
+ *
+ * Same operation as aimath_f32_default_linear() but with a transposed a matrix and transposed result.
+ *
+ * The addition of the horizontal vector c is performed via broadcast, i.e. element wise in each column
+ * Mathematically this broadcast is equal to multiplying c with an vertical vector (with the same number of elements as c)
+ * and adding the result to \f$ a^T \cdot b \f$.
  *
  * @f[
- *  result = a \cdot b
+ *  result = \left( a \cdot b^T + \left( \begin{array}{c}
+ 							1  \\
+							1 \\
+							\vdots \\
+							1  \\
+							\end{array}\right)  \cdot c \right)^T
  * @f]
  *
  * Example:
@@ -256,8 +264,47 @@ void aimath_f32_default_linear_bt(const aitensor_t *a, const aitensor_t *b, cons
  *                      0.0f, 0.0f};
  * aitensor_t b = AITENSOR_2D_F32(b_shape, b_data);
  *
- * uint16_t result_shape[2] = {3, 2};
- * float result_data[3*2];
+ * uint16_t c_shape[2] = {1, 2};
+ * float c_data[1*2] = {2.0f, 5.0f};
+ * aitensor_t c = AITENSOR_2D_F32(c_shape, c_data);
+ *
+ * uint16_t result_shape[2] = {2, 3};
+ * float result_data[2*3];
+ * aitensor_t result = AITENSOR_2D_F32(result_shape, result_data);
+ *
+ * aimath_f32_default_linear_atrt(&a, &b, &c, &result);
+ *
+ * print_aitensor(&result);
+ * \endcode
+ *
+ * @param *a        F32 matrix a (2D tensor of shape [K x N])
+ * @param *b        F32 matrix b (2D tensor of shape [K x M])
+ * @param *c        F32 vector c (2D tensor of shape [1 x M] or 1D tensor of shape [M])
+ * @param *result   Resulting F32 matrix (2D tensor of shape [M x N])
+ */
+void aimath_f32_default_linear_atrt(const aitensor_t *a, const aitensor_t *b, const aitensor_t *c, aitensor_t *result);
+
+/** @brief Performs a matrix multiplication of \link aimath_f32.h F32 \endlink matrices a and b
+ *
+ * @f[
+ *  result = a \cdot b
+ * @f]
+ *
+ * Example:
+ * \code{.c}
+ * uint16_t a_shape[2] = {2, 3};
+ * float a_data[2*3] = {1.0f, 2.0f, 3.0f,
+ *                      4.0f, 5.0f, 6.0f};
+ * aitensor_t a = AITENSOR_2D_F32(a_shape, a_data);
+ *
+ * uint16_t b_shape[2] = {3, 2};
+ * float b_data[3*2] = {1.0f, 0.0f,
+ *                      0.0f, 1.0f,
+ *                      0.0f, 0.0f};
+ * aitensor_t b = AITENSOR_2D_F32(b_shape, b_data);
+ *
+ * uint16_t result_shape[2] = {2, 2};
+ * float result_data[2*2];
  * aitensor_t result = AITENSOR_2D_F32(result_shape, result_data);
  *
  * aimath_f32_default_mat_mul(&a, &b, &result);
@@ -271,6 +318,43 @@ void aimath_f32_default_linear_bt(const aitensor_t *a, const aitensor_t *b, cons
  */
 void aimath_f32_default_mat_mul(const aitensor_t *a, const aitensor_t *b, aitensor_t *result);
 
+/** @brief Performs a matrix multiplication of \link aimath_f32.h F32 \endlink matrices a (transposed) and b
+  *
+  * Same operation as aimath_f32_default_mat_mul() but with a transposed a matrix.
+  *
+  * @f[
+  *  result = a^T \cdot b
+  * @f]
+  *
+  * Example:
+  * \code{.c}
+  * uint16_t a_shape[2] = {3, 2};
+  * float a_data[3*2] = {1.0f, 2.0f,
+  *                      4.0f, 5.0f,
+  *                      7.0f, 8.0f,};
+  * aitensor_t a = AITENSOR_2D_F32(a_shape, a_data);
+ *
+ * uint16_t b_shape[2] = {3, 2};
+ * float b_data[3*2] = {1.0f, 0.0f,
+ *                      0.0f, 1.0f,
+ *                      0.0f, 0.0f};
+  * aitensor_t b = AITENSOR_2D_F32(b_shape, b_data);
+  *
+  * uint16_t result_shape[2] = {2, 2};
+  * float result_data[2*2];
+  * aitensor_t result = AITENSOR_2D_F32(result_shape, result_data);
+  *
+  * aimath_f32_default_mat_mul_at(&a, &b, &result);
+  *
+  * print_aitensor(&result);
+  * \endcode
+  *
+  * @param *a       F32 matrix a (2D tensor of shape [K x N])
+  * @param *b       F32 matrix b (2D tensor of shape [K x M])
+  * @param *result  Resulting F32 matrix of the multiplication (2D tensor of shape [N x M])
+  */
+void aimath_f32_default_mat_mul_at(const aitensor_t *a, const aitensor_t *b, aitensor_t *result);
+
 /** @brief Performs a matrix multiplication of \link aimath_f32.h F32 \endlink matrices a and b (transposed)
   *
   * Same operation as aimath_f32_default_mat_mul() but with a transposed b matrix.
@@ -281,10 +365,9 @@ void aimath_f32_default_mat_mul(const aitensor_t *a, const aitensor_t *b, aitens
   *
   * Example:
   * \code{.c}
-  * uint16_t a_shape[2] = {3, 3};
-  * float a_data[3*3] = {1.0f, 2.0f, 3.0f,
-  *                      4.0f, 5.0f, 6.0f,
-  *                      7.0f, 8.0f, 9.0f};
+  * uint16_t a_shape[2] = {2, 3};
+  * float a_data[2*3] = {1.0f, 2.0f, 3.0f,
+  *                      4.0f, 5.0f, 6.0f};
   * aitensor_t a = AITENSOR_2D_F32(a_shape, a_data);
   *
   * uint16_t b_shape[2] = {2, 3};
@@ -292,8 +375,8 @@ void aimath_f32_default_mat_mul(const aitensor_t *a, const aitensor_t *b, aitens
   *                      0.0f, 1.0f, 0.0f};
   * aitensor_t b = AITENSOR_2D_F32(b_shape, b_data);
   *
-  * uint16_t result_shape[2] = {3, 2};
-  * float result_data[3*2];
+  * uint16_t result_shape[2] = {2, 2};
+  * float result_data[2*2];
   * aitensor_t result = AITENSOR_2D_F32(result_shape, result_data);
   *
   * aimath_f32_default_mat_mul_bt(&a, &b, &result);
@@ -306,6 +389,43 @@ void aimath_f32_default_mat_mul(const aitensor_t *a, const aitensor_t *b, aitens
   * @param *result  Resulting F32 matrix of the multiplication (2D tensor of shape [N x M])
   */
 void aimath_f32_default_mat_mul_bt(const aitensor_t *a, const aitensor_t *b, aitensor_t *result);
+
+/** @brief Performs a matrix multiplication with transposed result of \link aimath_f32.h F32 \endlink matrices a (transposed) and b
+  *
+  * Same operation as aimath_f32_default_mat_mul() but with a transposed a matrix.
+  *
+  * @f[
+  *  result = a^T \cdot b
+  * @f]
+  *
+  * Example:
+  * \code{.c}
+  * uint16_t a_shape[2] = {3, 2};
+  * float a_data[3*2] = {1.0f, 2.0f,
+  *                      4.0f, 5.0f,
+  *                      7.0f, 8.0f,};
+  * aitensor_t a = AITENSOR_2D_F32(a_shape, a_data);
+ *
+ * uint16_t b_shape[2] = {3, 1};
+ * float b_data[3*2] = {1.0f,
+ *                      0.0f,
+ *                      0.0f};
+  * aitensor_t b = AITENSOR_2D_F32(b_shape, b_data);
+  *
+  * uint16_t result_shape[2] = {1, 2};
+  * float result_data[1*2];
+  * aitensor_t result = AITENSOR_2D_F32(result_shape, result_data);
+  *
+  * aimath_f32_default_mat_mul_atrt(&a, &b, &result);
+  *
+  * print_aitensor(&result);
+  * \endcode
+  *
+  * @param *a       F32 matrix a (2D tensor of shape [K x N])
+  * @param *b       F32 matrix b (2D tensor of shape [K x M])
+  * @param *result  Resulting F32 matrix of the multiplication (2D tensor of shape [M x N])
+  */
+void aimath_f32_default_mat_mul_atrt(const aitensor_t *a, const aitensor_t *b, aitensor_t *result);
 
 /** @brief Performs an element wise multiplication of \link aimath_f32.h F32 \endlink tensors a and b (Hadamard product)
   *
@@ -622,7 +742,7 @@ void aimath_f32_default_transpose_vector(aitensor_t *vector);
   * print_aitensor(&x);
   * \endcode
   *
-  * @param *tensor F32 tensor to be transposed (N-D tensor)
+  * @param *x F32 tensor to be transposed (2D tensor)
   */
 void aimath_f32_default_transpose_matrix(aitensor_t *x);
 
@@ -1290,6 +1410,27 @@ void aimath_f32_default_zero_tensor(aitensor_t *tensor);
   */
 void aimath_f32_default_init_zeros(aitensor_t *tensor);
 
+/** @brief Fills a \link aimath_f32.h F32 \endlink tensor with ones
+  *
+  * @f[
+  *  tensor_{i} = 1
+  * @f]
+  *
+  * Example:
+  * \code{.c}
+  * uint16_t tensor_shape[2] = {2, 3};
+  * float tensor_data[2*3];
+  * aitensor_t tensor = AITENSOR_2D_F32(tensor_shape, tensor_data);
+  *
+  * aimath_f32_default_init_ones(&tensor);
+  *
+  * print_aitensor(&tensor);
+  * \endcode
+  *
+  * @param *tensor F32 tensor to set to zero (N-D tensor)
+  */
+void aimath_f32_default_init_ones(aitensor_t *tensor);
+
 /** @brief Fills a \link aimath_f32.h F32 \endlink tensor with random numbers created from a uniform distribution within given range
   *
   * @f[
@@ -1314,6 +1455,8 @@ void aimath_f32_default_init_zeros(aitensor_t *tensor);
 void aimath_f32_default_tensor_init_uniform(aitensor_t *tensor, float from, float to);
 
 /** @brief Fills a \link aimath_f32.h F32 \endlink tensor with random numbers uniformly within given range, according to Glorot et al.
+  *
+  * Same functionality as aimath_f32_default_init_glorot_uniform_cdim() with cin_axis = 0 and cout_axis = 1 (channels last dataformat).
   *
   * @f[
   *  fan_{avg} = \frac{fan_{in} + fan_{out}}{2}
@@ -1342,7 +1485,40 @@ void aimath_f32_default_tensor_init_uniform(aitensor_t *tensor, float from, floa
   */
 void aimath_f32_default_init_glorot_uniform(aitensor_t *tensor);
 
+/** @brief Fills a \link aimath_f32.h F32 \endlink tensor with random numbers uniformly within given range, according to Glorot et al.
+  *
+  * @f[
+  *  fan_{avg} = \frac{fan_{in} + fan_{out}}{2}
+  * @f]
+  * @f[
+  *  r = \sqrt{\frac{3}{fan_{avg}}}
+  * @f]
+  * @f[
+  *  tensor_i \in \mathcal{U(-r, r)}
+  * @f]
+  *
+  * Example:
+  * \code{.c}
+  * uint16_t tensor_shape[2] = {2, 3};
+  * float tensor_data[2*3];
+  * aitensor_t tensor = AITENSOR_2D_F32(tensor_shape, tensor_data);
+  *
+  * aimath_f32_default_init_glorot_uniform_cdim(&tensor, 0, 1);
+  *
+  * print_aitensor(&tensor);
+  * \endcode
+  *
+  * @see Glorot et al., 2010 ( http://jmlr.org/proceedings/papers/v9/glorot10a/glorot10a.pdf )
+  *
+  * @param *tensor      F32 tensor to initialize with random numbers (N-D tensor)
+  * @param cin_axis     Axis of the input channels (negative number means indexing from the end)
+  * @param cout_axis    Axis of the output channels (negative number means indexing from the end)
+  */
+void aimath_f32_default_init_glorot_uniform_cdim(aitensor_t *tensor, int8_t cin_axis, int8_t cout_axis);
+
 /** @brief Fills a \link aimath_f32.h F32 \endlink tensor with uniformly drawn random numbers within given range, according to He et al.
+  *
+  * Same functionality as aimath_f32_default_init_he_uniform_cdim() with cout_axis = 1 (channels last dataformat).
   *
   * @f[
   *  fan_{avg} = \frac{fan_{in}}{2}
@@ -1371,6 +1547,36 @@ void aimath_f32_default_init_glorot_uniform(aitensor_t *tensor);
   */
 void aimath_f32_default_init_he_uniform(aitensor_t *tensor);
 
+/** @brief Fills a \link aimath_f32.h F32 \endlink tensor with uniformly drawn random numbers within given range, according to He et al.
+  *
+  * @f[
+  *  fan_{avg} = \frac{fan_{in}}{2}
+  * @f]
+  * @f[
+  *  r = \sqrt{\frac{3}{fan_{avg}}}
+  * @f]
+  * @f[
+  *  tensor_i \in \mathcal{U(-r, r)}
+  * @f]
+  *
+  * Example:
+  * \code{.c}
+  * uint16_t tensor_shape[2] = {2, 3};
+  * float tensor_data[2*3];
+  * aitensor_t tensor = AITENSOR_2D_F32(tensor_shape, tensor_data);
+  *
+  * aimath_f32_default_init_he_uniform_cdim(&tensor, 1);
+  *
+  * print_aitensor(&tensor);
+  * \endcode
+  *
+  * @see He et al., 2015 ( https://www.cv-foundation.org/openaccess/content_iccv_2015/html/He_Delving_Deep_into_ICCV_2015_paper.html )
+  *
+  * @param *tensor      F32 tensor to initialize with random numbers (N-D tensor)
+  * @param cout_axis    Axis of the output channels (negative number means indexing from the end)
+  */
+void aimath_f32_default_init_he_uniform_cdim(aitensor_t *tensor, int8_t cout_axis);
+
 /** @brief Fast approximation of the exponential function
   *
   * @see http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.9.4508&rep=rep1&type=pdf
@@ -1378,6 +1584,59 @@ void aimath_f32_default_init_he_uniform(aitensor_t *tensor);
   * @param x Input of the exponential function
   */
 float aimath_f32_default_expf_fast(const float x);
+
+/** @brief Sums up all values of a channel of the \link aimath_f32.h F32 \endlink tensor x
+ *
+ * Calculates the sum of all elements of each channel c. The result tensor is 1D:
+ * @f[
+ *  result_c = \sum_i(x_{ci})
+ * @f
+ *
+ * @param x             F32 input tensor (N-D)
+ * @param channel_axis  Index of the channel axis (negative values mean indexing from the end).
+ * @param result        F32 result vector (1D)
+ */
+void aimath_f32_default_sum_channelwise(const aitensor_t *x, int8_t channel_axis, aitensor_t *result);
+
+/** @brief Calculate the channel-wise mean values of the \link aimath_f32.h F32 \endlink tensor x
+ *
+ * Calculates the empirical mean for each channel of the given axis:\n
+ * @f[
+ *  means_i = \frac{1}{m} \sum_{j=1}^{m} x_{i,j}
+ * @f]
+ *
+ * @param x             F32 input tensor (N-D)
+ * @param channel_axis  Index of the channel axis (negative values mean indexing from the end)
+ * @param result        F32 result vector (1D)
+ */
+void aimath_f32_default_mean_channelwise(const aitensor_t *x, int8_t channel_axis, aitensor_t *result);
+
+/** @brief Calculate the channel-wise variances of the \link aimath_f32.h F32 \endlink tensor x
+ *
+ * Calculates the empirical variance for each channel of the given axis:\n
+ * @f[
+ *  variances_i = \frac{1}{m} \sum_{j=1}^{m} (x_{i,j} - \mu_i)^2
+ * @f]
+ *
+ * @param x             F32 input tensor (N-D)
+ * @param channel_axis  Index of the channel axis (negative values mean indexing from the end)
+ * @param means         F32 mean vector (1D) for variance calculation
+ * @param result        F32 result vector (1D)
+ */
+void aimath_f32_default_variance_channelwise(const aitensor_t *x, int8_t channel_axis, const aitensor_t *means, aitensor_t *result);
+
+/** @brief Perform an exponential moving average
+ *
+ * Updates the moving average with a new data point:\n
+ * @f[
+ *  average \leftarrow momentum \cdot average + (1 - momentum) \cdot newdata
+ * @f]
+ *
+ * @param new_data  Input tensor (N-D) with the new data point.
+ * @param momentum  aiscalar_t (float value) which controls the momentum of the average (range [0, 1]).
+ * @param average   The average tensor (N-D) that is modified (input and output value),
+ */
+void aimath_f32_default_exponential_moving_average(const aitensor_t *new_data, const void *momentum, aitensor_t *average);
 
 #endif // AIMATH_F32_DEFAULT
 

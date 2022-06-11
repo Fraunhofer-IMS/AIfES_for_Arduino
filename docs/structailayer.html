@@ -112,6 +112,9 @@ const <a class="el" href="structaicore__layertype.html">aicore_layertype_t</a> *
 void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structailayer.html#a27d1eadee2654a2bd6e740eff4004ba8">layer_configuration</a></td></tr>
 <tr class="memdesc:a27d1eadee2654a2bd6e740eff4004ba8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Layer specific configurations (back-link from abstract layer class to implementation) <br /></td></tr>
 <tr class="separator:a27d1eadee2654a2bd6e740eff4004ba8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ac0da37622121ce424bfefdeaaf924508"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structailayer.html#ac0da37622121ce424bfefdeaaf924508">settings</a></td></tr>
+<tr class="memdesc:ac0da37622121ce424bfefdeaaf924508"><td class="mdescLeft">&#160;</td><td class="mdescRight">General layer settings like freezing weights or switching between training and evaluation mode.  <a href="structailayer.html#ac0da37622121ce424bfefdeaaf924508">More...</a><br /></td></tr>
+<tr class="separator:ac0da37622121ce424bfefdeaaf924508"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a1ed86d1fec7aae68bc79c55f3f965790"><td class="memItemLeft" align="right" valign="top"><a id="a1ed86d1fec7aae68bc79c55f3f965790"></a>
 <a class="el" href="structaitensor.html">aitensor_t</a>&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structailayer.html#a1ed86d1fec7aae68bc79c55f3f965790">result</a></td></tr>
 <tr class="memdesc:a1ed86d1fec7aae68bc79c55f3f965790"><td class="mdescLeft">&#160;</td><td class="mdescRight">The result of the forward function is stored here. <br /></td></tr>
@@ -183,6 +186,25 @@ uint32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href
 void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structailayer.html#a219921bd3b75e98894a33f6c2ff61c07">set_paramem</a> )(<a class="el" href="structailayer.html">ailayer_t</a> *self, void *memory_ptr)</td></tr>
 <tr class="memdesc:a219921bd3b75e98894a33f6c2ff61c07"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set and distribute the memory block internally. <br /></td></tr>
 <tr class="separator:a219921bd3b75e98894a33f6c2ff61c07"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aedac95cb35a037d0e513ac690c34681a"><td class="memItemLeft" align="right" valign="top"><a id="aedac95cb35a037d0e513ac690c34681a"></a>
+void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structailayer.html#aedac95cb35a037d0e513ac690c34681a">init_params</a> )(<a class="el" href="structailayer.html">ailayer_t</a> *self)</td></tr>
+<tr class="memdesc:aedac95cb35a037d0e513ac690c34681a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the (trainable and not trainable) parameters of the layer with default initializers. <br /></td></tr>
+<tr class="separator:aedac95cb35a037d0e513ac690c34681a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr><td colspan="2"><div class="groupHeader">Temporary memory for forward and backward pass</div></td></tr>
+<tr><td colspan="2"><div class="groupText"><p>Calculate the size of the required memory for temporary result in forward and backward pass </p>
+</div></td></tr>
+<tr class="memitem:adad0c59ab4a340940e6eb6a57f702b42"><td class="memItemLeft" align="right" valign="top"><a id="adad0c59ab4a340940e6eb6a57f702b42"></a>
+uint32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structailayer.html#adad0c59ab4a340940e6eb6a57f702b42">sizeof_fwdmem</a> )(const <a class="el" href="structailayer.html">ailayer_t</a> *self)</td></tr>
+<tr class="memdesc:adad0c59ab4a340940e6eb6a57f702b42"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of required memory for the forward pass (in bytes). <br /></td></tr>
+<tr class="separator:adad0c59ab4a340940e6eb6a57f702b42"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa82f1f4092a60d30090d4e519b02d98d"><td class="memItemLeft" align="right" valign="top"><a id="aa82f1f4092a60d30090d4e519b02d98d"></a>
+uint32_t(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structailayer.html#aa82f1f4092a60d30090d4e519b02d98d">sizeof_bwdmem</a> )(const <a class="el" href="structailayer.html">ailayer_t</a> *self)</td></tr>
+<tr class="memdesc:aa82f1f4092a60d30090d4e519b02d98d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Size of required memory for the backward pass (in bytes). <br /></td></tr>
+<tr class="separator:aa82f1f4092a60d30090d4e519b02d98d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a5b6e01700671b0cb2118edd432b09a76"><td class="memItemLeft" align="right" valign="top"><a id="a5b6e01700671b0cb2118edd432b09a76"></a>
+void *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structailayer.html#a5b6e01700671b0cb2118edd432b09a76">tempmem</a></td></tr>
+<tr class="memdesc:a5b6e01700671b0cb2118edd432b09a76"><td class="mdescLeft">&#160;</td><td class="mdescRight">Pointer to the memory for the forward pass, backward pass and the optimizer. <br /></td></tr>
+<tr class="separator:a5b6e01700671b0cb2118edd432b09a76"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr><td colspan="2"><div class="groupHeader">Training memory</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Calculate the size and set the working memory for the training</p>
 <p>This memory (for example for gradients, momentums, ...) is needed during the whole training process. If the training is finished, it can be deleted. </p>
@@ -211,8 +233,8 @@ void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 <div class="line">    <a class="code" href="structailayer.html#a5fbd0ec6a416b01399233d98e60ca060">forward</a>()</div>
 <div class="line">endfor</div>
 <div class="line"><span class="comment">// The result of the inference is now in output_layer.result tensor</span></div>
-<div class="ttc" id="astructailayer_html_a5fbd0ec6a416b01399233d98e60ca060"><div class="ttname"><a href="structailayer.html#a5fbd0ec6a416b01399233d98e60ca060">ailayer::forward</a></div><div class="ttdeci">void(* forward)(ailayer_t *self)</div><div class="ttdoc">Calculate the forward pass and write the result to the result tensor.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:295</div></div>
-<div class="ttc" id="astructailayer_html_a66787e37cfd371070476221e86386f7c"><div class="ttname"><a href="structailayer.html#a66787e37cfd371070476221e86386f7c">ailayer::calc_result_shape</a></div><div class="ttdeci">void(* calc_result_shape)(ailayer_t *self)</div><div class="ttdoc">Calculate and write the shape to the result tensor.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:280</div></div>
+<div class="ttc" id="astructailayer_html_a5fbd0ec6a416b01399233d98e60ca060"><div class="ttname"><a href="structailayer.html#a5fbd0ec6a416b01399233d98e60ca060">ailayer::forward</a></div><div class="ttdeci">void(* forward)(ailayer_t *self)</div><div class="ttdoc">Calculate the forward pass and write the result to the result tensor.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:315</div></div>
+<div class="ttc" id="astructailayer_html_a66787e37cfd371070476221e86386f7c"><div class="ttname"><a href="structailayer.html#a66787e37cfd371070476221e86386f7c">ailayer::calc_result_shape</a></div><div class="ttdeci">void(* calc_result_shape)(ailayer_t *self)</div><div class="ttdoc">Calculate and write the shape to the result tensor.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:300</div></div>
 </div><!-- fragment --><p>The call order of the functions for training:<br  />
 </p><div class="fragment"><div class="line"><span class="keywordflow">for each</span> layer in the model</div>
 <div class="line">    <a class="code" href="structailayer.html#a66787e37cfd371070476221e86386f7c">calc_result_shape</a>()</div>
@@ -249,11 +271,11 @@ void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 <div class="line">        update_params_model()</div>
 <div class="line">    endfor</div>
 <div class="line">endfor</div>
-<div class="ttc" id="astructailayer_html_a219921bd3b75e98894a33f6c2ff61c07"><div class="ttname"><a href="structailayer.html#a219921bd3b75e98894a33f6c2ff61c07">ailayer::set_paramem</a></div><div class="ttdeci">void(* set_paramem)(ailayer_t *self, void *memory_ptr)</div><div class="ttdoc">Set and distribute the memory block internally.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:332</div></div>
-<div class="ttc" id="astructailayer_html_a235e06f76bc9641b9c9b95ae29b56fe9"><div class="ttname"><a href="structailayer.html#a235e06f76bc9641b9c9b95ae29b56fe9">ailayer::backward</a></div><div class="ttdeci">void(* backward)(ailayer_t *self)</div><div class="ttdoc">Calculate the backward pass and write the result to the deltas tensor.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:321</div></div>
-<div class="ttc" id="astructailayer_html_a5062b6bf991a3ae278941c560847eeb6"><div class="ttname"><a href="structailayer.html#a5062b6bf991a3ae278941c560847eeb6">ailayer::set_trainmem</a></div><div class="ttdeci">void(* set_trainmem)(ailayer_t *self, void *memory_ptr)</div><div class="ttdoc">Set and distribute the memory block internally.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:343</div></div>
-<div class="ttc" id="astructailayer_html_ab758b2be3966c7cc0bf6920a60886bbf"><div class="ttname"><a href="structailayer.html#ab758b2be3966c7cc0bf6920a60886bbf">ailayer::sizeof_paramem</a></div><div class="ttdeci">uint32_t(* sizeof_paramem)(const ailayer_t *self)</div><div class="ttdoc">Size of required memory (in bytes).</div><div class="ttdef"><b>Definition:</b> aifes_core.h:331</div></div>
-<div class="ttc" id="astructailayer_html_af95ecd0e925bff73b30b1d1b6fc21028"><div class="ttname"><a href="structailayer.html#af95ecd0e925bff73b30b1d1b6fc21028">ailayer::sizeof_trainmem</a></div><div class="ttdeci">uint32_t(* sizeof_trainmem)(const ailayer_t *self)</div><div class="ttdoc">Size of required memory (in bytes).</div><div class="ttdef"><b>Definition:</b> aifes_core.h:342</div></div>
+<div class="ttc" id="astructailayer_html_a219921bd3b75e98894a33f6c2ff61c07"><div class="ttname"><a href="structailayer.html#a219921bd3b75e98894a33f6c2ff61c07">ailayer::set_paramem</a></div><div class="ttdeci">void(* set_paramem)(ailayer_t *self, void *memory_ptr)</div><div class="ttdoc">Set and distribute the memory block internally.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:352</div></div>
+<div class="ttc" id="astructailayer_html_a235e06f76bc9641b9c9b95ae29b56fe9"><div class="ttname"><a href="structailayer.html#a235e06f76bc9641b9c9b95ae29b56fe9">ailayer::backward</a></div><div class="ttdeci">void(* backward)(ailayer_t *self)</div><div class="ttdoc">Calculate the backward pass and write the result to the deltas tensor.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:341</div></div>
+<div class="ttc" id="astructailayer_html_a5062b6bf991a3ae278941c560847eeb6"><div class="ttname"><a href="structailayer.html#a5062b6bf991a3ae278941c560847eeb6">ailayer::set_trainmem</a></div><div class="ttdeci">void(* set_trainmem)(ailayer_t *self, void *memory_ptr)</div><div class="ttdoc">Set and distribute the memory block internally.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:373</div></div>
+<div class="ttc" id="astructailayer_html_ab758b2be3966c7cc0bf6920a60886bbf"><div class="ttname"><a href="structailayer.html#ab758b2be3966c7cc0bf6920a60886bbf">ailayer::sizeof_paramem</a></div><div class="ttdeci">uint32_t(* sizeof_paramem)(const ailayer_t *self)</div><div class="ttdoc">Size of required memory (in bytes).</div><div class="ttdef"><b>Definition:</b> aifes_core.h:351</div></div>
+<div class="ttc" id="astructailayer_html_af95ecd0e925bff73b30b1d1b6fc21028"><div class="ttname"><a href="structailayer.html#af95ecd0e925bff73b30b1d1b6fc21028">ailayer::sizeof_trainmem</a></div><div class="ttdeci">uint32_t(* sizeof_trainmem)(const ailayer_t *self)</div><div class="ttdoc">Size of required memory (in bytes).</div><div class="ttdef"><b>Definition:</b> aifes_core.h:372</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Field Documentation</h2>
 <a id="a235e06f76bc9641b9c9b95ae29b56fe9"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a235e06f76bc9641b9c9b95ae29b56fe9">&#9670;&nbsp;</a></span>backward</h2>
@@ -345,8 +367,29 @@ void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="st
 
 </div>
 </div>
+<a id="ac0da37622121ce424bfefdeaaf924508"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ac0da37622121ce424bfefdeaaf924508">&#9670;&nbsp;</a></span>settings</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">uint32_t settings</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>General layer settings like freezing weights or switching between training and evaluation mode. </p>
+<p><b>Example:</b> Read a value from the settings </p><div class="fragment"><div class="line"><span class="keywordflow">if</span>(AILAYER_SETTINGS_IS(layer-&gt;settings, 0b1, AILAYER_SETTINGS_TRAINABLE)){</div>
+<div class="line">  ...</div>
+<div class="line">}</div>
+</div><!-- fragment --><p><b>Example:</b> Write a value to the settings </p><div class="fragment"><div class="line">AILAYER_SETTINGS_SET(layer-&gt;settings, 0b1, AILAYER_SETTINGS_TRAINABLE, FALSE);</div>
+</div><!-- fragment --><p> General layer settings like freezing weights or switching between training and evaluation mode. </p>
+
+</div>
+</div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/builds/ims-esa/aifes_2/include/core/<a class="el" href="aifes__core_8h_source.html">aifes_core.h</a></li>
+<li><a class="el" href="aifes__core_8h_source.html">aifes_core.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

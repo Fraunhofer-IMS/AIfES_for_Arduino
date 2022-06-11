@@ -128,15 +128,15 @@ Example for the adam optimizer:<br  />
 <div class="line"><span class="keyword">const</span> <a class="code" href="structaicore__optitype.html">aicore_optitype_t</a> *<a class="code" href="aiopti__adam_8h.html#af4b770ca8b7c46a865a01dedd0c866af">aiopti_adam_type</a> = &amp;aiopti_adam_type_s;</div>
 <div class="ttc" id="aaiopti__adam_8h_html_a916f8f38aaeba5814db961c3ff00a3d4"><div class="ttname"><a href="aiopti__adam_8h.html#a916f8f38aaeba5814db961c3ff00a3d4">aiopti_adam_print_specs</a></div><div class="ttdeci">void aiopti_adam_print_specs(const aiopti_t *self)</div><div class="ttdoc">Print the optimizer specification.</div></div>
 <div class="ttc" id="aaiopti__adam_8h_html_af4b770ca8b7c46a865a01dedd0c866af"><div class="ttname"><a href="aiopti__adam_8h.html#af4b770ca8b7c46a865a01dedd0c866af">aiopti_adam_type</a></div><div class="ttdeci">const aicore_optitype_t * aiopti_adam_type</div><div class="ttdoc">Adam optimizer type.</div></div>
-<div class="ttc" id="astructaicore__optitype_html"><div class="ttname"><a href="structaicore__optitype.html">aicore_optitype</a></div><div class="ttdoc">Type indicator of the optimizer to check for the optimizer type.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:157</div></div>
-<div class="ttc" id="astructaicore__optitype_html_a8f8f80d37794cde9472343e4487ba3eb"><div class="ttname"><a href="structaicore__optitype.html#a8f8f80d37794cde9472343e4487ba3eb">aicore_optitype::name</a></div><div class="ttdeci">const char * name</div><div class="ttdoc">Name of the optimizer type (for example &quot;ADAM&quot;)</div><div class="ttdef"><b>Definition:</b> aifes_core.h:158</div></div>
+<div class="ttc" id="astructaicore__optitype_html"><div class="ttname"><a href="structaicore__optitype.html">aicore_optitype</a></div><div class="ttdoc">Type indicator of the optimizer to check for the optimizer type.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:160</div></div>
+<div class="ttc" id="astructaicore__optitype_html_a8f8f80d37794cde9472343e4487ba3eb"><div class="ttname"><a href="structaicore__optitype.html#a8f8f80d37794cde9472343e4487ba3eb">aicore_optitype::name</a></div><div class="ttdeci">const char * name</div><div class="ttdoc">Name of the optimizer type (for example &quot;ADAM&quot;)</div><div class="ttdef"><b>Definition:</b> aifes_core.h:161</div></div>
 </div><!-- fragment --><p>Checks for the optimizer type can look like this:<br  />
 </p><div class="fragment"><div class="line"><a class="code" href="structaiopti.html">aiopti_t</a> *example_optimizer;</div>
 <div class="line"><span class="keywordflow">if</span>(example_optimizer-&gt;<a class="code" href="structaiopti.html#a6ca0fdd2169bc462e1cc4f87e786933d">optimizer_type</a> == <a class="code" href="aiopti__adam_8h.html#af4b770ca8b7c46a865a01dedd0c866af">aiopti_adam_type</a>){</div>
 <div class="line">  ...</div>
 <div class="line">}</div>
-<div class="ttc" id="astructaiopti_html"><div class="ttname"><a href="structaiopti.html">aiopti</a></div><div class="ttdoc">AIfES optimizer interface.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:408</div></div>
-<div class="ttc" id="astructaiopti_html_a6ca0fdd2169bc462e1cc4f87e786933d"><div class="ttname"><a href="structaiopti.html#a6ca0fdd2169bc462e1cc4f87e786933d">aiopti::optimizer_type</a></div><div class="ttdeci">const aicore_optitype_t * optimizer_type</div><div class="ttdoc">Type of the optimizer (for example aiopti_sgd_type)</div><div class="ttdef"><b>Definition:</b> aifes_core.h:409</div></div>
+<div class="ttc" id="astructaiopti_html"><div class="ttname"><a href="structaiopti.html">aiopti</a></div><div class="ttdoc">AIfES optimizer interface.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:438</div></div>
+<div class="ttc" id="astructaiopti_html_a6ca0fdd2169bc462e1cc4f87e786933d"><div class="ttname"><a href="structaiopti.html#a6ca0fdd2169bc462e1cc4f87e786933d">aiopti::optimizer_type</a></div><div class="ttdeci">const aicore_optitype_t * optimizer_type</div><div class="ttdoc">Type of the optimizer (for example aiopti_sgd_type)</div><div class="ttdef"><b>Definition:</b> aifes_core.h:439</div></div>
 </div><!-- fragment --> </div><h2 class="groupheader">Field Documentation</h2>
 <a id="a6c47b929d158f7ef286d7faef130e018"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a6c47b929d158f7ef286d7faef130e018">&#9670;&nbsp;</a></span>print_specs</h2>
@@ -163,7 +163,7 @@ Example for the adam optimizer:<br  />
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/builds/ims-esa/aifes_2/include/core/<a class="el" href="aifes__core_8h_source.html">aifes_core.h</a></li>
+<li><a class="el" href="aifes__core_8h_source.html">aifes_core.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
