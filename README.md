@@ -101,6 +101,11 @@ The number of neurons and the number of different layers can be adapted individu
 | ELU | ailayer_elu_f32_default() | ailayer_elu_q31_default() | ailayer_elu_q7_default()<br>ailayer_elu_q7_avr_pgm() |
 | Tanh | ailayer_tanh_f32_default() | ailayer_tanh_q31_default() | ailayer_tanh_q7_default()<br>ailayer_tanh_q7_avr_pgm() |
 | Softsign | ailayer_softsign_f32_default() | ailayer_softsign_q31_default()| ailayer_softsign_q7_default()<br>ailayer_softsign_q7_avr_pgm() |
+| Conv2D | ailayer_conv2d_f32_default() |  |  |
+| Batch Normalization | ailayer_batch_norm_f32_default() |  |  |
+| MaxPool2D | ailayer_maxpool2d_f32_default() |  |  |
+| Reshape | ailayer_reshape_f32_default() |  |  |
+| Flatten | ailayer_flatten_f32_default() |  |  |
 
 **Training layer**
 
@@ -115,6 +120,11 @@ The number of neurons and the number of different layers can be adapted individu
 | ELU | ailayer_elu_f32_default() | ailayer_elu_q31_default()|         |
 | Tanh | ailayer_tanh_f32_default() | ailayer_tanh_q31_default() |         |
 | Softsign | ailayer_softsign_f32_default() | ailayer_softsign_q31_default() |         |
+| Conv2D | ailayer_conv2d_f32_default() |  |  |
+| Batch Normalization | ailayer_batch_norm_f32_default() |  |  |
+| MaxPool2D | ailayer_maxpool2d_f32_default() |  |  |
+| Reshape | ailayer_reshape_f32_default() |  |  |
+| Flatten | ailayer_flatten_f32_default() |  |  |
 
 **Loss:**
 
