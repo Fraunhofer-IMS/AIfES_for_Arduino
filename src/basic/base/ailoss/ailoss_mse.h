@@ -3,8 +3,8 @@
  * \internal
  * \date 20.10.2020
  * \endinternal
- * \version 2.0alpha
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \version 2.2.0
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -56,23 +56,19 @@ struct ailoss_mse {
 	 */
 	///@{
 
-	/** @brief Required math function: Element wise tensor subtraction
+	/** @brief Required math function: Gradient calculation of MSE loss function
 	 *
-	 * Requires a math function that subtracts two tensors element wise:\n
-     * @f[
-     *  result = a - b
-     * @f]
+	 * Requires a math function that calculates the gradient for each output with respect to the MSE loss:\n
+	 *
 	 */
-	void (*tensor_sub)(const aitensor_t *a, const aitensor_t *b, aitensor_t *result);
+	void (*mse_gradients)(const aitensor_t *predicted, const aitensor_t *target, aitensor_t *result);
 
-	/** @brief Required math function: Squared sum of tensor elements
+	/** @brief Required math function: Calculation of the MSE loss function
 	 *
-	 * Requires a math function that calculates the squared sum of all elements of a given tensor:\n
-     * @f[
-     *  result = \sum_i x_{i}^2
-     * @f]
+	 * Requires a math function that calculates loss of the prediction compared to the target:\n
+	 *
 	 */
-	void (*norm_squared)(const aitensor_t *x, void *result);
+	void (*mse_loss)(const aitensor_t *predicted, const aitensor_t *target, void *result);
 
 	///@}
 };

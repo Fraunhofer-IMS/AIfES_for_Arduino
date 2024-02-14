@@ -1,8 +1,8 @@
 /**
  * \file basic/base/ailayer/ailayer_elu.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 16.03.2021
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -22,7 +22,7 @@
 #include "basic/base/ailayer/ailayer_elu.h"
 #include "basic/base/aimath/aimath_basic.h"
 
-AISTRING_STORAGE_WRAPPER(aistring_layer_elu) = "ELU";
+AISTRING_STORAGE_WRAPPER(aistring_layer_elu, "ELU");
 
 const aicore_layertype_t ailayer_elu_type_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
@@ -98,16 +98,12 @@ void ailayer_elu_backward(ailayer_t *self)
 
 void ailayer_elu_calc_result_shape(ailayer_t *self)
 {
-	/* Unused: Shape is already defined (Pointer)
-
-	self->result.shape[0] = self->input_layer->result.shape[0];
-	self->result.shape[1] = self->input_layer->result.shape[1];
-	*/
+	// Unused: Shape is already defined (Pointer)
 	return;
 }
 
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_elu_1) = "alpha: ";
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_elu_1, "alpha: ");
 
 void ailayer_elu_print_specs(const ailayer_t *self)
 {

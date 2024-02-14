@@ -3,11 +3,11 @@
 # AIfES for Arduino®
 
 AIfES (Artificial Intelligence for Embedded Systems) is a platform-independent and standalone AI software framework optimized for embedded systems.
-The Feedforward Neural Networks (FNN) implemented in AIfES can be freely parameterized, trained, modified or reloaded at runtime.
+The Feedforward Neural Networks (FNN) and Convolutional Neural Networks (CNN) implemented in AIfES can be freely parameterized, trained, modified or reloaded at runtime.
 In this version, it is optimized for the Arduino IDE and compatible to almost any Arduino board.
 AIfES is developed in the C programming language and uses only standard libraries based on the GNU Compiler Collection (GCC).
 AIfES thus runs on almost any hardware from 8-bit microcontrollers over Raspberry PI to smartphones or PCs.
-Not only inference of FNN is possible, but also training directly in the device. Furthermore, compatibility to other AI software frameworks such as Keras or TensorFlow is also given.
+Not only inference of FNN and CNN is possible, but also training directly in the device. Furthermore, compatibility to other AI software frameworks such as Keras or TensorFlow is also given.
 
 AIfES was developed by the Fraunhofer Institute for Microelectronic Circuits and Systems IMS. Additional information can be found at <www.aifes.ai>
 
@@ -61,7 +61,14 @@ This standard can speed up inference and training for large FNNs.
 Please read the README.md in https://github.com/Fraunhofer-IMS/AIfES_for_Arduino/tree/main/src/CMSIS for more information on how to add the CMSIS library.
 
 ### Python
-To help you with the quantization of a neural network, we provide some Python tools. You can install them via pip with:
+
+To get you startet we developed the [AIfES-Converter](https://github.com/Fraunhofer-IMS/AIfES-Converter). It can export your FNN from Python and create the suitable AIfES code. 
+Furthermore, it helps you with the quantization of your neural network. 
+You can install it via pip with:
+
+```pip install AIfES-Converter```
+
+The quantization can also be done manually by using the provided Python tools in this repository. You can install them via pip with:
 
 ```pip install https://github.com/Fraunhofer-IMS/AIfES_for_Arduino/raw/main/etc/python/aifes_tools.zip```
 
@@ -149,7 +156,4 @@ Download the AIfES repository as a ZIP archive and follow these instructions:
 <https://www.arduino.cc/en/guide/libraries>
 
 ## Roadmap
-The AIfES team at Fraunhofer IMS is constantly working on new features and network types. The next feature you can look forward to is:
-
-### Convolutional Neural Networks (ConvNet) 
-Soon, classical ConvNets can be executed and trained in AIfES.
+The AIfES team at Fraunhofer IMS is constantly working on new features and network types.

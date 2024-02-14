@@ -1,8 +1,8 @@
 /**
  * \file basic/cmsis/aimath/aimath_q31_cmsis.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 15.03.2021
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by

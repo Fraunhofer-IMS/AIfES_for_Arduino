@@ -11,5 +11,6 @@ var ailayer__conv2d_8h =
     [ "ailayer_conv2d_set_trainmem", "ailayer__conv2d_8h.html#ad96151728506a3fe4121d74b8f94b609", null ],
     [ "ailayer_conv2d_sizeof_bwdmem", "ailayer__conv2d_8h.html#a3bbb7315e89362248b98c9a3f69e9246", null ],
     [ "ailayer_conv2d_sizeof_paramem", "ailayer__conv2d_8h.html#af08f7cdbd99086e1afc32f361c74e677", null ],
-    [ "ailayer_conv2d_sizeof_trainmem", "ailayer__conv2d_8h.html#a81907232bdcd49146c385c319da1ac9b", null ]
+    [ "ailayer_conv2d_sizeof_trainmem", "ailayer__conv2d_8h.html#a81907232bdcd49146c385c319da1ac9b", null ],
+    [ "ailayer_conv2d_type", "ailayer__conv2d_8h.html#a8b624b70925024d3f4bf9dc4942c65d7", null ]
 ];

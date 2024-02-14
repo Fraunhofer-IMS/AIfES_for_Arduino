@@ -1,8 +1,8 @@
 /**
  * \file basic/cmsis/aimath/aimath_q7_cmsis.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 15.03.2021
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -27,9 +27,9 @@
 #include "basic/cmsis/aimath/aimath_q7_cmsis.h"
 #include "CMSIS/NN/Include/arm_nnfunctions.h"
 
-AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_cmsis_1) = "[aimath_q7_cmsis_linear32] MatMul input shapes doesn't match.\n";
-AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_cmsis_2) = "[aimath_q7_cmsis_linear32] MatMul output shape doesn't match.\n";
-AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_cmsis_3) = "[aimath_q7_cmsis_linear32] Third operand shift does not match.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_cmsis_1, "[aimath_q7_cmsis_linear32] MatMul input shapes doesn't match.\n");
+AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_cmsis_2, "[aimath_q7_cmsis_linear32] MatMul output shape doesn't match.\n");
+AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_cmsis_3, "[aimath_q7_cmsis_linear32] Third operand shift does not match.\n");
 
 void aimath_q7_cmsis_linear32_bt(const aitensor_t *a, const aitensor_t *b, const aitensor_t *c, aitensor_t *result)
 {

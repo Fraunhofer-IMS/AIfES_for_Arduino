@@ -1,8 +1,8 @@
 /**
  * \file basic/base/aialgo/aialgo_sequential_training.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 20.10.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -26,7 +26,7 @@
 #include "basic/default/aimath/aimath_f32_default.h"
 
 #ifdef AIDEBUG_GENERAL_CHECKS
-AISTRING_STORAGE_WRAPPER(aistring_error_no_output_layer) = "[aialgo_..._training_memory] Layer output missing! Define a loss for every output layer or use aialgo_..._inference_memory() instead.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_no_output_layer, "[aialgo_..._training_memory] Layer output missing! Define a loss for every output layer or use aialgo_..._inference_memory() instead.\n");
 #endif
 
 uint32_t aialgo_sizeof_training_memory(aimodel_t *model, aiopti_t *optimizer)
@@ -140,13 +140,14 @@ uint8_t aialgo_schedule_training_memory(aimodel_t *model, aiopti_t *optimizer, v
             AIFES_ALIGN_INTEGER(address_counter, AIFES_MEMORY_ALIGNMENT);
         }
 
-		// Result memory = deltas memory of output layer
-		layer_ptr->result.data = memory_ptr + address_counter;
-		layer_ptr->output_layer->deltas.data = memory_ptr + address_counter;
-
-        // When the next layer uses the same result memory, don't increase address counter
-        if(layer_ptr->output_layer == 0
-            || !AILAYER_SETTINGS_IS(layer_ptr->output_layer->settings, 0b1, AILAYER_SETTINGS_KEEP_INPUT_BUFFER_FOR_RESULT)){
+        // Handle layers that reuse memory of previous layer, e.g. reshape or flatten layers
+        if(AILAYER_SETTINGS_IS(layer_ptr->settings, 0b1, AILAYER_SETTINGS_KEEP_INPUT_BUFFER_FOR_RESULT)){
+            layer_ptr->result.data = layer_ptr->input_layer->result.data;
+            layer_ptr->output_layer->deltas.data = layer_ptr->input_layer->result.data;
+        } else {
+            // Result memory = deltas memory of output layer
+            layer_ptr->result.data = memory_ptr + address_counter;
+            layer_ptr->output_layer->deltas.data = memory_ptr + address_counter;
             address_counter += aimath_sizeof_tensor_data(&(layer_ptr->result));
             AIFES_ALIGN_INTEGER(address_counter, AIFES_MEMORY_ALIGNMENT);
         }
@@ -203,7 +204,7 @@ void aialgo_init_model_for_training(aimodel_t *model, aiopti_t *optimizer)
 }
 
 #ifdef AIDEBUG_GENERAL_CHECKS
-AISTRING_STORAGE_WRAPPER(aistring_error_backward_1) = "[aialgo_backward_model] No backward function implementation in the layer\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_backward_1, "[aialgo_backward_model] No backward function implementation in the layer\n");
 #endif
 
 void aialgo_backward_model(aimodel_t *model, aitensor_t *target_data)
@@ -226,7 +227,7 @@ void aialgo_backward_model(aimodel_t *model, aitensor_t *target_data)
 	return;
 }
 
-AISTRING_STORAGE_WRAPPER(aistring_error_train_model_1) = "[aialgo_train_model] ERROR: Batch size must be dividable by the input layer batch size.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_train_model_1, "[aialgo_train_model] ERROR: Batch size must be dividable by the input layer batch size.\n");
 
 uint8_t aialgo_train_model(aimodel_t *model, aitensor_t *input_tensor, aitensor_t *target_tensor, aiopti_t *optimizer, uint32_t batch_size)
 {
@@ -293,7 +294,7 @@ uint8_t aialgo_train_model(aimodel_t *model, aitensor_t *input_tensor, aitensor_
 	return 0;
 }
 
-AISTRING_STORAGE_WRAPPER(aistring_error_loss_model_1) = "[aialgo_calc_loss_model] ERROR: Number of samples must be dividable by the input layer batch size.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_loss_model_1, "[aialgo_calc_loss_model] ERROR: Number of samples must be dividable by the input layer batch size.\n");
 
 uint8_t aialgo_calc_loss_model_f32(aimodel_t *model, aitensor_t *input_tensor, aitensor_t *target_tensor, float *result)
 {
@@ -455,9 +456,9 @@ void aialgo_update_params_model(aimodel_t *model, aiopti_t *optimizer)
 	return;
 }
 
-AISTRING_STORAGE_WRAPPER(aistring_print_loss_specs_1) = " (";
-AISTRING_STORAGE_WRAPPER(aistring_print_loss_specs_2) = ") <";
-AISTRING_STORAGE_WRAPPER(aistring_print_loss_specs_3) = ">";
+AISTRING_STORAGE_WRAPPER(aistring_print_loss_specs_1, " (");
+AISTRING_STORAGE_WRAPPER(aistring_print_loss_specs_2, ") <");
+AISTRING_STORAGE_WRAPPER(aistring_print_loss_specs_3, ">");
 
 void aialgo_print_loss_specs(ailoss_t *loss)
 {
@@ -470,9 +471,9 @@ void aialgo_print_loss_specs(ailoss_t *loss)
 	return;
 }
 
-AISTRING_STORAGE_WRAPPER(aistring_print_optimizer_specs_1) = " (";
-AISTRING_STORAGE_WRAPPER(aistring_print_optimizer_specs_2) = ") <";
-AISTRING_STORAGE_WRAPPER(aistring_print_optimizer_specs_3) = ">";
+AISTRING_STORAGE_WRAPPER(aistring_print_optimizer_specs_1, " (");
+AISTRING_STORAGE_WRAPPER(aistring_print_optimizer_specs_2, ") <");
+AISTRING_STORAGE_WRAPPER(aistring_print_optimizer_specs_3, ">");
 
 void aialgo_print_optimizer_specs(aiopti_t *opti)
 {
@@ -482,46 +483,6 @@ void aialgo_print_optimizer_specs(aiopti_t *opti)
     AIPRINT(aistring_print_optimizer_specs_2);
 	opti->optimizer_type->print_specs(opti);
 	AIPRINT(aistring_print_optimizer_specs_3);
-	return;
-}
-
-void aialgo_print_backward_pass(aimodel_t *model)
-{
-    uint16_t i, j, k, layer_cnt = 0, output_size = 0;
-	ailayer_t *layer_ptr = model->input_layer;
-
-	// ToDo: change it, when conv2d is implemented
-	if(model->output_layer->trainable_params_count > 0){
-        output_size = model->output_layer->trainable_params[0]->shape[1];
-	}
-	else{
-        output_size = model->output_layer->input_layer->trainable_params[0]->shape[1];
-	}
-
-	for(i = 0; i < model->layer_count; i++){
-	    if(layer_ptr->trainable_params_count > 0){
-            AIPRINT("Layer ");
-            AIPRINT_INT("%i:\n", ++layer_cnt);
-            for(j = 0; j < layer_ptr->trainable_params_count; j++){
-                if(j == 0)
-                {
-                    AIPRINT("Weights: ");
-                }
-                else
-                {
-                    AIPRINT("Bias: ");
-                }
-                for(k = 0; k < aimath_tensor_elements(layer_ptr->gradients[j]); k++){
-                    // The derivation of the mse function is 2/n * sum(y_pred - y_true).
-                    // However, the equation 2/output_size is not included in the mse backward function yet.
-                    // Therefore we calcuate the missing factor before printing
-                    AIPRINT_FLOAT("%.32f ", ((float*)layer_ptr->gradients[j]->data)[k] * 2/output_size);
-                }
-                AIPRINT("\n\n");
-            }
-	    }
-		layer_ptr = layer_ptr->output_layer;
-	}
 	return;
 }
 

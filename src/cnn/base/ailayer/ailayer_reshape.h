@@ -1,8 +1,8 @@
 /**
  * \file cnn/base/ailayer/ailayer_reshape.h
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 20.10.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -80,6 +80,13 @@ struct ailayer_flatten {
 
 	uint16_t output_shape[2]; /**< Target 2D shape for flatten operation. */
 };
+
+/** @brief Reshape layer type
+ *
+ * Defines the type of the layer (for example for type checks and debug prints).
+ * See aicore_layertype for more information about the layer type.
+ */
+extern const aicore_layertype_t *ailayer_reshape_type;
 
 /** @brief Initialize and connect the given Reshape layer
  *

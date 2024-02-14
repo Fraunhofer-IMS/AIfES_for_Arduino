@@ -1,8 +1,8 @@
 /**
  * \file basic/base/aiopti/aiopti_sgd.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 20.10.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -22,7 +22,7 @@
 #include "basic/base/aiopti/aiopti_sgd.h"
 #include "basic/base/aimath/aimath_basic.h"
 
-AISTRING_STORAGE_WRAPPER(aistring_opti_sgd) = "SGS";
+AISTRING_STORAGE_WRAPPER(aistring_opti_sgd, "SGS");
 
 const aicore_optitype_t aiopti_sgd_type_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
@@ -143,8 +143,8 @@ void aiopti_sgd_update_params_without_momentum(aiopti_t *self, aitensor_t *param
 }
 
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
-AISTRING_STORAGE_WRAPPER(aistring_opti_sgd_print_specs_1) = "lr: ";
-AISTRING_STORAGE_WRAPPER(aistring_opti_sgd_print_specs_2) = "; momentum: ";
+AISTRING_STORAGE_WRAPPER(aistring_opti_sgd_print_specs_1, "lr: ");
+AISTRING_STORAGE_WRAPPER(aistring_opti_sgd_print_specs_2, "; momentum: ");
 
 void aiopti_sgd_print_specs(const aiopti_t *self)
 {

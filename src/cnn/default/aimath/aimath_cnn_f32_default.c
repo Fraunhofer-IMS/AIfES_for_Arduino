@@ -1,8 +1,8 @@
 /**
  * \file cnn/default/aimath/aimath_cnn_f32_default.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 11.06.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -22,7 +22,7 @@
 #include "cnn/default/aimath/aimath_cnn_f32_default.h"
 #include <float.h>
 
-AISTRING_STORAGE_WRAPPER(aistring_error_f32_conv2d_add_default_1) = "[aimath_f32_default_conv2d_add] Conv2d output shape doesn't match.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_f32_conv2d_add_default_1, "[aimath_f32_default_conv2d_add] Conv2d output shape doesn't match.\n");
 
 void aimath_f32_default_conv2d_add(const aitensor_t *input,
                    const uint16_t stride[2],    // [s_h, s_w]
@@ -721,7 +721,7 @@ void aimath_f32_default_conv_transpose2d_fwd(
     }
 }
 
-AISTRING_STORAGE_WRAPPER(aistring_error_f32_maxpool2d_default_1) = "[aimath_f32_default_maxpool2d] MaxPool2D output shape doesn't match.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_f32_maxpool2d_default_1, "[aimath_f32_default_maxpool2d] MaxPool2D output shape doesn't match.\n");
 
 void aimath_f32_default_maxpool2d_fwd(
                                       const aitensor_t *input,
@@ -1097,7 +1097,7 @@ void aimath_f32_default_d_batch_norm(const aitensor_t *x_in,
     return;
 }
 
-AISTRING_STORAGE_WRAPPER(aistring_error_f32_padding_1) = "[aimath_f32_default_pad] Output shape doesn't match.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_f32_padding_1, "[aimath_f32_default_pad] Output shape doesn't match.\n");
 
 void aimath_f32_default_pad_zeros(const aitensor_t *x, const uint16_t (*padding)[2], aitensor_t *result)
 {

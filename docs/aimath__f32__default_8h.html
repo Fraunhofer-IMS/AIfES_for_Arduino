@@ -209,15 +209,24 @@ Functions</h2></td></tr>
 <tr class="memitem:a0e1b0cb1f84a73659b5b61b59045207c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#a0e1b0cb1f84a73659b5b61b59045207c">aimath_f32_default_d_softsign</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *x, <a class="el" href="structaitensor.html">aitensor_t</a> *result)</td></tr>
 <tr class="memdesc:a0e1b0cb1f84a73659b5b61b59045207c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the softsign derivative of each element in a <a class="el" href="aimath__f32_8h.html">F32 </a> tensor.  <a href="aimath__f32__default_8h.html#a0e1b0cb1f84a73659b5b61b59045207c">More...</a><br /></td></tr>
 <tr class="separator:a0e1b0cb1f84a73659b5b61b59045207c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a047c1f21b053aa22a219bcaa81fed8a0"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#a047c1f21b053aa22a219bcaa81fed8a0">aimath_f32_default_binary_crossentropy</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted_data, const <a class="el" href="structaitensor.html">aitensor_t</a> *target_data, void *result)</td></tr>
-<tr class="memdesc:a047c1f21b053aa22a219bcaa81fed8a0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the binary cross entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data.  <a href="aimath__f32__default_8h.html#a047c1f21b053aa22a219bcaa81fed8a0">More...</a><br /></td></tr>
-<tr class="separator:a047c1f21b053aa22a219bcaa81fed8a0"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a14f95692adfd922a9ff1c83f2b46c950"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#a14f95692adfd922a9ff1c83f2b46c950">aimath_f32_default_categorical_crossentropy</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted_data, const <a class="el" href="structaitensor.html">aitensor_t</a> *target_data, void *result)</td></tr>
-<tr class="memdesc:a14f95692adfd922a9ff1c83f2b46c950"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the categorical cross entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data.  <a href="aimath__f32__default_8h.html#a14f95692adfd922a9ff1c83f2b46c950">More...</a><br /></td></tr>
-<tr class="separator:a14f95692adfd922a9ff1c83f2b46c950"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad797c6ca00ad9a3418b09289401577f8"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#ad797c6ca00ad9a3418b09289401577f8">aimath_f32_default_categorical_crossentropy_sparse8</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted_data, const <a class="el" href="structaitensor.html">aitensor_t</a> *target_data, void *result)</td></tr>
-<tr class="memdesc:ad797c6ca00ad9a3418b09289401577f8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the categorical Cross-Entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted data and the <a class="el" href="aimath__u8_8h.html">U8 </a> target data in sparse representation.  <a href="aimath__f32__default_8h.html#ad797c6ca00ad9a3418b09289401577f8">More...</a><br /></td></tr>
-<tr class="separator:ad797c6ca00ad9a3418b09289401577f8"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a018ddfb520239b37f6924dce444e1d57"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#a018ddfb520239b37f6924dce444e1d57">aimath_f32_default_binary_crossentropy_sum</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted_data, const <a class="el" href="structaitensor.html">aitensor_t</a> *target_data, void *result)</td></tr>
+<tr class="memdesc:a018ddfb520239b37f6924dce444e1d57"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the binary cross entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data using a sum reduction.  <a href="aimath__f32__default_8h.html#a018ddfb520239b37f6924dce444e1d57">More...</a><br /></td></tr>
+<tr class="separator:a018ddfb520239b37f6924dce444e1d57"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af0c6e0860a56b1dad01f2da30ea85e8b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#af0c6e0860a56b1dad01f2da30ea85e8b">aimath_f32_default_binary_crossentropy_mean</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted_data, const <a class="el" href="structaitensor.html">aitensor_t</a> *target_data, void *result)</td></tr>
+<tr class="memdesc:af0c6e0860a56b1dad01f2da30ea85e8b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the binary cross entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data using a mean reduction.  <a href="aimath__f32__default_8h.html#af0c6e0860a56b1dad01f2da30ea85e8b">More...</a><br /></td></tr>
+<tr class="separator:af0c6e0860a56b1dad01f2da30ea85e8b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab64d737f8edfb64854254e8c9efff55b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#ab64d737f8edfb64854254e8c9efff55b">aimath_f32_default_categorical_crossentropy_sum</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted_data, const <a class="el" href="structaitensor.html">aitensor_t</a> *target_data, void *result)</td></tr>
+<tr class="memdesc:ab64d737f8edfb64854254e8c9efff55b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the categorical cross entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data using a sum reduction.  <a href="aimath__f32__default_8h.html#ab64d737f8edfb64854254e8c9efff55b">More...</a><br /></td></tr>
+<tr class="separator:ab64d737f8edfb64854254e8c9efff55b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a50c88d7354f3dbae71ad79897fd489f7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#a50c88d7354f3dbae71ad79897fd489f7">aimath_f32_default_categorical_crossentropy_mean</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted_data, const <a class="el" href="structaitensor.html">aitensor_t</a> *target_data, void *result)</td></tr>
+<tr class="memdesc:a50c88d7354f3dbae71ad79897fd489f7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the categorical cross entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data using a mean reduction.  <a href="aimath__f32__default_8h.html#a50c88d7354f3dbae71ad79897fd489f7">More...</a><br /></td></tr>
+<tr class="separator:a50c88d7354f3dbae71ad79897fd489f7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa9d04eb0036b9b2f0640d72d2952026b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#aa9d04eb0036b9b2f0640d72d2952026b">aimath_f32_default_categorical_crossentropy_sum_sparse8</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted_data, const <a class="el" href="structaitensor.html">aitensor_t</a> *target_data, void *result)</td></tr>
+<tr class="memdesc:aa9d04eb0036b9b2f0640d72d2952026b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the categorical Cross-Entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted data and the <a class="el" href="aimath__u8_8h.html">U8 </a> target data in sparse representation using a sum reduction.  <a href="aimath__f32__default_8h.html#aa9d04eb0036b9b2f0640d72d2952026b">More...</a><br /></td></tr>
+<tr class="separator:aa9d04eb0036b9b2f0640d72d2952026b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a89770c6699211e25f45e55ac04355eb4"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#a89770c6699211e25f45e55ac04355eb4">aimath_f32_default_categorical_crossentropy_mean_sparse8</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted_data, const <a class="el" href="structaitensor.html">aitensor_t</a> *target_data, void *result)</td></tr>
+<tr class="memdesc:a89770c6699211e25f45e55ac04355eb4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the categorical Cross-Entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted data and the <a class="el" href="aimath__u8_8h.html">U8 </a> target data in sparse representation using a mean reduction.  <a href="aimath__f32__default_8h.html#a89770c6699211e25f45e55ac04355eb4">More...</a><br /></td></tr>
+<tr class="separator:a89770c6699211e25f45e55ac04355eb4"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3bf3e26a0873244ef65ed20775360312"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#a3bf3e26a0873244ef65ed20775360312">aimath_f32_default_sqrt</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *x, <a class="el" href="structaitensor.html">aitensor_t</a> *result)</td></tr>
 <tr class="memdesc:a3bf3e26a0873244ef65ed20775360312"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the element wise square root of a <a class="el" href="aimath__f32_8h.html">F32 </a> tensor.  <a href="aimath__f32__default_8h.html#a3bf3e26a0873244ef65ed20775360312">More...</a><br /></td></tr>
 <tr class="separator:a3bf3e26a0873244ef65ed20775360312"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -257,11 +266,26 @@ Functions</h2></td></tr>
 <tr class="memitem:af5ee421317c740d6765ba1fbf413492a"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#af5ee421317c740d6765ba1fbf413492a">aimath_f32_default_exponential_moving_average</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *new_data, const void *momentum, <a class="el" href="structaitensor.html">aitensor_t</a> *average)</td></tr>
 <tr class="memdesc:af5ee421317c740d6765ba1fbf413492a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform an exponential moving average.  <a href="aimath__f32__default_8h.html#af5ee421317c740d6765ba1fbf413492a">More...</a><br /></td></tr>
 <tr class="separator:af5ee421317c740d6765ba1fbf413492a"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a44b61123d9b51b3d5abf710fdefa6695"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#a44b61123d9b51b3d5abf710fdefa6695">aimath_f32_default_mse_gradients_sum</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted, const <a class="el" href="structaitensor.html">aitensor_t</a> *target, <a class="el" href="structaitensor.html">aitensor_t</a> *result)</td></tr>
+<tr class="memdesc:a44b61123d9b51b3d5abf710fdefa6695"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the gradients of the mean squared error between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data using a sum reduction.  <a href="aimath__f32__default_8h.html#a44b61123d9b51b3d5abf710fdefa6695">More...</a><br /></td></tr>
+<tr class="separator:a44b61123d9b51b3d5abf710fdefa6695"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a7e43d536e6b3bf837d6003a879e6c62b"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#a7e43d536e6b3bf837d6003a879e6c62b">aimath_f32_default_mse_gradients_mean</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted, const <a class="el" href="structaitensor.html">aitensor_t</a> *target, <a class="el" href="structaitensor.html">aitensor_t</a> *result)</td></tr>
+<tr class="memdesc:a7e43d536e6b3bf837d6003a879e6c62b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the gradients of the mean squared error between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data using a mean reduction.  <a href="aimath__f32__default_8h.html#a7e43d536e6b3bf837d6003a879e6c62b">More...</a><br /></td></tr>
+<tr class="separator:a7e43d536e6b3bf837d6003a879e6c62b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a875479b966264b5e6d395514f0ca7e25"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#a875479b966264b5e6d395514f0ca7e25">aimath_f32_default_mse_loss_sum</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted, const <a class="el" href="structaitensor.html">aitensor_t</a> *target, void *result)</td></tr>
+<tr class="memdesc:a875479b966264b5e6d395514f0ca7e25"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the mean squared error between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data using a sum reduction.  <a href="aimath__f32__default_8h.html#a875479b966264b5e6d395514f0ca7e25">More...</a><br /></td></tr>
+<tr class="separator:a875479b966264b5e6d395514f0ca7e25"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a8daa94f78e201dd90a3fcb91ec83845c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#a8daa94f78e201dd90a3fcb91ec83845c">aimath_f32_default_mse_loss_mean</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted, const <a class="el" href="structaitensor.html">aitensor_t</a> *target, void *result)</td></tr>
+<tr class="memdesc:a8daa94f78e201dd90a3fcb91ec83845c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculates the mean squared error between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data using a mean reduction.  <a href="aimath__f32__default_8h.html#a8daa94f78e201dd90a3fcb91ec83845c">More...</a><br /></td></tr>
+<tr class="separator:a8daa94f78e201dd90a3fcb91ec83845c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a81128f005039e7eb349fdb0af24fdd2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aimath__f32__default_8h.html#a81128f005039e7eb349fdb0af24fdd2c">aimath_f32_default_scale_by_batch_size</a> (const <a class="el" href="structaitensor.html">aitensor_t</a> *a, <a class="el" href="structaitensor.html">aitensor_t</a> *result)</td></tr>
+<tr class="memdesc:a81128f005039e7eb349fdb0af24fdd2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Scales a <a class="el" href="aimath__f32_8h.html">F32 </a> tensor by batch size (size of first dimension)  <a href="aimath__f32__default_8h.html#a81128f005039e7eb349fdb0af24fdd2c">More...</a><br /></td></tr>
+<tr class="separator:a81128f005039e7eb349fdb0af24fdd2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Math functions for <a class="el" href="aimath__f32_8h.html">F32 </a> data type, default implementation. </p>
-<dl class="section version"><dt>Version</dt><dd>2.0alpha </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2020-2021 Fraunhofer Institute for Microelectronic Circuits and Systems. All rights reserved.<br  />
+<dl class="section version"><dt>Version</dt><dd>2.2.0 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2020-2023 Fraunhofer Institute for Microelectronic Circuits and Systems. All rights reserved.<br  />
 <br  />
  AIfES is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.<br  />
 <br  />
@@ -270,14 +294,14 @@ Functions</h2></td></tr>
  You should have received a copy of the GNU Affero General Public License along with this program. If not, see <a href="https://www.gnu.org/licenses/">https://www.gnu.org/licenses/</a>.</dd></dl>
 <p>These functions can be used when no hardware specific implementation is available. </p>
 </div><h2 class="groupheader">Function Documentation</h2>
-<a id="a047c1f21b053aa22a219bcaa81fed8a0"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a047c1f21b053aa22a219bcaa81fed8a0">&#9670;&nbsp;</a></span>aimath_f32_default_binary_crossentropy()</h2>
+<a id="af0c6e0860a56b1dad01f2da30ea85e8b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af0c6e0860a56b1dad01f2da30ea85e8b">&#9670;&nbsp;</a></span>aimath_f32_default_binary_crossentropy_mean()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void aimath_f32_default_binary_crossentropy </td>
+          <td class="memname">void aimath_f32_default_binary_crossentropy_mean </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
           <td class="paramname"><em>predicted_data</em>, </td>
@@ -302,7 +326,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Calculates the binary cross entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data. </p>
+<p>Calculates the binary cross entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data using a mean reduction. </p>
 <p class="formulaDsp">
 \[ result = - \sum_i (target_i \cdot \log(predicted_i) + (1 - target_i) \cdot \log(1 - predicted_i)) \]
 </p>
@@ -318,12 +342,12 @@ Functions</h2></td></tr>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">float</span> result;</div>
 <div class="line"> </div>
-<div class="line"><a class="code" href="aimath__f32__default_8h.html#a047c1f21b053aa22a219bcaa81fed8a0">aimath_f32_default_binary_crossentropy</a>(&amp;p, &amp;t, &amp;result);</div>
+<div class="line"><a class="code" href="aimath__f32__default_8h.html#af0c6e0860a56b1dad01f2da30ea85e8b">aimath_f32_default_binary_crossentropy_mean</a>(&amp;p, &amp;t, &amp;result);</div>
 <div class="line"> </div>
 <div class="line"><a class="code" href="aimath__basic_8h.html#aaa9ca757028820849ef3dde13cc46565">print_aiscalar</a>(&amp;result, <a class="code" href="aimath__f32_8h.html#a06eea7384624233f57daab2648d8ce37">aif32</a>);</div>
 <div class="ttc" id="aaimath__basic_8h_html_aaa9ca757028820849ef3dde13cc46565"><div class="ttname"><a href="aimath__basic_8h.html#aaa9ca757028820849ef3dde13cc46565">print_aiscalar</a></div><div class="ttdeci">void print_aiscalar(const void *scalar, const aimath_dtype_t *dtype)</div><div class="ttdoc">Printing a scalar to console.</div></div>
 <div class="ttc" id="aaimath__f32_8h_html_a06eea7384624233f57daab2648d8ce37"><div class="ttname"><a href="aimath__f32_8h.html#a06eea7384624233f57daab2648d8ce37">aif32</a></div><div class="ttdeci">const aimath_dtype_t * aif32</div><div class="ttdoc">The F32 data-type indicator.</div></div>
-<div class="ttc" id="aaimath__f32__default_8h_html_a047c1f21b053aa22a219bcaa81fed8a0"><div class="ttname"><a href="aimath__f32__default_8h.html#a047c1f21b053aa22a219bcaa81fed8a0">aimath_f32_default_binary_crossentropy</a></div><div class="ttdeci">void aimath_f32_default_binary_crossentropy(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)</div><div class="ttdoc">Calculates the binary cross entropy between the F32  predicted and the target data.</div></div>
+<div class="ttc" id="aaimath__f32__default_8h_html_af0c6e0860a56b1dad01f2da30ea85e8b"><div class="ttname"><a href="aimath__f32__default_8h.html#af0c6e0860a56b1dad01f2da30ea85e8b">aimath_f32_default_binary_crossentropy_mean</a></div><div class="ttdeci">void aimath_f32_default_binary_crossentropy_mean(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)</div><div class="ttdoc">Calculates the binary cross entropy between the F32  predicted and the target data using a mean reduc...</div></div>
 <div class="ttc" id="astructaitensor_html"><div class="ttname"><a href="structaitensor.html">aitensor</a></div><div class="ttdoc">A tensor in AIfES.</div><div class="ttdef"><b>Definition:</b> aifes_math.h:89</div></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -336,14 +360,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a14f95692adfd922a9ff1c83f2b46c950"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a14f95692adfd922a9ff1c83f2b46c950">&#9670;&nbsp;</a></span>aimath_f32_default_categorical_crossentropy()</h2>
+<a id="a018ddfb520239b37f6924dce444e1d57"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a018ddfb520239b37f6924dce444e1d57">&#9670;&nbsp;</a></span>aimath_f32_default_binary_crossentropy_sum()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void aimath_f32_default_categorical_crossentropy </td>
+          <td class="memname">void aimath_f32_default_binary_crossentropy_sum </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
           <td class="paramname"><em>predicted_data</em>, </td>
@@ -368,7 +392,70 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Calculates the categorical cross entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data. </p>
+<p>Calculates the binary cross entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data using a sum reduction. </p>
+<p class="formulaDsp">
+\[ result = - \sum_i (target_i \cdot \log(predicted_i) + (1 - target_i) \cdot \log(1 - predicted_i)) \]
+</p>
+<p>Example: </p><div class="fragment"><div class="line">uint16_t p_shape[2] = {2, 3};</div>
+<div class="line"><span class="keywordtype">float</span> p_data[2*3] = {0.8f, 0.1f, 0.7f,</div>
+<div class="line">                     0.2f, 0.3f, 0.0f};</div>
+<div class="line"><a class="code" href="structaitensor.html">aitensor_t</a> p = AITENSOR_2D_F32(p_shape, p_data);</div>
+<div class="line"> </div>
+<div class="line">uint16_t t_shape[2] = {2, 3};</div>
+<div class="line"><span class="keywordtype">float</span> t_data[2*3] = {1.0f, 0.0f, 1.0f,</div>
+<div class="line">                     0.0f, 0.0f, 0.0f};</div>
+<div class="line"><a class="code" href="structaitensor.html">aitensor_t</a> t = AITENSOR_2D_F32(t_shape, t_data);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">float</span> result;</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="aimath__f32__default_8h.html#a018ddfb520239b37f6924dce444e1d57">aimath_f32_default_binary_crossentropy_sum</a>(&amp;p, &amp;t, &amp;result);</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="aimath__basic_8h.html#aaa9ca757028820849ef3dde13cc46565">print_aiscalar</a>(&amp;result, <a class="code" href="aimath__f32_8h.html#a06eea7384624233f57daab2648d8ce37">aif32</a>);</div>
+<div class="ttc" id="aaimath__f32__default_8h_html_a018ddfb520239b37f6924dce444e1d57"><div class="ttname"><a href="aimath__f32__default_8h.html#a018ddfb520239b37f6924dce444e1d57">aimath_f32_default_binary_crossentropy_sum</a></div><div class="ttdeci">void aimath_f32_default_binary_crossentropy_sum(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)</div><div class="ttdoc">Calculates the binary cross entropy between the F32  predicted and the target data using a sum reduct...</div></div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*predicted_data</td><td>F32 matrix with the predicted or calculated values (2D tensor) </td></tr>
+    <tr><td class="paramname">*target_data</td><td>F32 matrix with the target data / true values / labels (2D tensor with binary values 0 or 1) </td></tr>
+    <tr><td class="paramname">*result</td><td>Resulting F32 matrix (2D tensor) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a50c88d7354f3dbae71ad79897fd489f7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a50c88d7354f3dbae71ad79897fd489f7">&#9670;&nbsp;</a></span>aimath_f32_default_categorical_crossentropy_mean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void aimath_f32_default_categorical_crossentropy_mean </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>predicted_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>target_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>result</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the categorical cross entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data using a mean reduction. </p>
 <p class="formulaDsp">
 \[ result = - \sum_i target_i \cdot \log(predicted_i) \]
 </p>
@@ -384,10 +471,10 @@ Functions</h2></td></tr>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">float</span> result;</div>
 <div class="line"> </div>
-<div class="line"><a class="code" href="aimath__f32__default_8h.html#a14f95692adfd922a9ff1c83f2b46c950">aimath_f32_default_categorical_crossentropy</a>(&amp;p, &amp;t, &amp;result);</div>
+<div class="line"><a class="code" href="aimath__f32__default_8h.html#a50c88d7354f3dbae71ad79897fd489f7">aimath_f32_default_categorical_crossentropy_mean</a>(&amp;p, &amp;t, &amp;result);</div>
 <div class="line"> </div>
 <div class="line"><a class="code" href="aimath__basic_8h.html#aaa9ca757028820849ef3dde13cc46565">print_aiscalar</a>(&amp;result, <a class="code" href="aimath__f32_8h.html#a06eea7384624233f57daab2648d8ce37">aif32</a>);</div>
-<div class="ttc" id="aaimath__f32__default_8h_html_a14f95692adfd922a9ff1c83f2b46c950"><div class="ttname"><a href="aimath__f32__default_8h.html#a14f95692adfd922a9ff1c83f2b46c950">aimath_f32_default_categorical_crossentropy</a></div><div class="ttdeci">void aimath_f32_default_categorical_crossentropy(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)</div><div class="ttdoc">Calculates the categorical cross entropy between the F32  predicted and the target data.</div></div>
+<div class="ttc" id="aaimath__f32__default_8h_html_a50c88d7354f3dbae71ad79897fd489f7"><div class="ttname"><a href="aimath__f32__default_8h.html#a50c88d7354f3dbae71ad79897fd489f7">aimath_f32_default_categorical_crossentropy_mean</a></div><div class="ttdeci">void aimath_f32_default_categorical_crossentropy_mean(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)</div><div class="ttdoc">Calculates the categorical cross entropy between the F32  predicted and the target data using a mean ...</div></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">*predicted_data</td><td>F32 matrix with the predicted or calculated values (2D tensor) </td></tr>
@@ -399,14 +486,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="ad797c6ca00ad9a3418b09289401577f8"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#ad797c6ca00ad9a3418b09289401577f8">&#9670;&nbsp;</a></span>aimath_f32_default_categorical_crossentropy_sparse8()</h2>
+<a id="a89770c6699211e25f45e55ac04355eb4"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a89770c6699211e25f45e55ac04355eb4">&#9670;&nbsp;</a></span>aimath_f32_default_categorical_crossentropy_mean_sparse8()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void aimath_f32_default_categorical_crossentropy_sparse8 </td>
+          <td class="memname">void aimath_f32_default_categorical_crossentropy_mean_sparse8 </td>
           <td>(</td>
           <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
           <td class="paramname"><em>predicted_data</em>, </td>
@@ -431,7 +518,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Calculates the categorical Cross-Entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted data and the <a class="el" href="aimath__u8_8h.html">U8 </a> target data in sparse representation. </p>
+<p>Calculates the categorical Cross-Entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted data and the <a class="el" href="aimath__u8_8h.html">U8 </a> target data in sparse representation using a mean reduction. </p>
 <p>This function can calculate the crossentropy between a row wise one-hot encoded matrix in sparse representation (just the integer index of the 1 is stored) and a normal F32 matrix a.</p>
 <p>For example the matrix </p><p class="formulaDsp">
 \[ \left( \begin{array}{ccc} 0 &amp; 0 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{array}\right) \]
@@ -454,10 +541,143 @@ Functions</h2></td></tr>
 <div class="line"> </div>
 <div class="line"><span class="keywordtype">float</span> result;</div>
 <div class="line"> </div>
-<div class="line"><a class="code" href="aimath__f32__default_8h.html#ad797c6ca00ad9a3418b09289401577f8">aimath_f32_default_categorical_crossentropy_sparse8</a>(&amp;p, &amp;t, &amp;result);</div>
+<div class="line"><a class="code" href="aimath__f32__default_8h.html#a89770c6699211e25f45e55ac04355eb4">aimath_f32_default_categorical_crossentropy_mean_sparse8</a>(&amp;p, &amp;t, &amp;result);</div>
 <div class="line"> </div>
 <div class="line"><a class="code" href="aimath__basic_8h.html#aaa9ca757028820849ef3dde13cc46565">print_aiscalar</a>(&amp;result, <a class="code" href="aimath__f32_8h.html#a06eea7384624233f57daab2648d8ce37">aif32</a>);</div>
-<div class="ttc" id="aaimath__f32__default_8h_html_ad797c6ca00ad9a3418b09289401577f8"><div class="ttname"><a href="aimath__f32__default_8h.html#ad797c6ca00ad9a3418b09289401577f8">aimath_f32_default_categorical_crossentropy_sparse8</a></div><div class="ttdeci">void aimath_f32_default_categorical_crossentropy_sparse8(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)</div><div class="ttdoc">Calculates the categorical Cross-Entropy between the F32  predicted data and the U8  target data in s...</div></div>
+<div class="ttc" id="aaimath__f32__default_8h_html_a89770c6699211e25f45e55ac04355eb4"><div class="ttname"><a href="aimath__f32__default_8h.html#a89770c6699211e25f45e55ac04355eb4">aimath_f32_default_categorical_crossentropy_mean_sparse8</a></div><div class="ttdeci">void aimath_f32_default_categorical_crossentropy_mean_sparse8(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)</div><div class="ttdoc">Calculates the categorical Cross-Entropy between the F32  predicted data and the U8  target data in s...</div></div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*predicted_data</td><td>F32 matrix with the predicted or calculated values (2D tensor of shape [N x M]) </td></tr>
+    <tr><td class="paramname">*target_data</td><td>U8 matrix with the target data / true values / labels (2D tensor of shape [N x 1] with true class indices) </td></tr>
+    <tr><td class="paramname">*result</td><td>Resulting F32 matrix (2D tensor of shape [N x M]) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab64d737f8edfb64854254e8c9efff55b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab64d737f8edfb64854254e8c9efff55b">&#9670;&nbsp;</a></span>aimath_f32_default_categorical_crossentropy_sum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void aimath_f32_default_categorical_crossentropy_sum </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>predicted_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>target_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>result</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the categorical cross entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data using a sum reduction. </p>
+<p class="formulaDsp">
+\[ result = - \sum_i target_i \cdot \log(predicted_i) \]
+</p>
+<p>Example: </p><div class="fragment"><div class="line">uint16_t p_shape[2] = {2, 3};</div>
+<div class="line"><span class="keywordtype">float</span> p_data[2*3] = {0.2f, 0.1f, 0.7f,</div>
+<div class="line">                     0.9f, 0.1f, 0.0f};</div>
+<div class="line"><a class="code" href="structaitensor.html">aitensor_t</a> p = AITENSOR_2D_F32(p_shape, p_data);</div>
+<div class="line"> </div>
+<div class="line">uint16_t t_shape[2] = {2, 3};</div>
+<div class="line"><span class="keywordtype">float</span> t_data[2*3] = {0.0f, 0.0f, 1.0f,</div>
+<div class="line">                     1.0f, 0.0f, 0.0f};</div>
+<div class="line"><a class="code" href="structaitensor.html">aitensor_t</a> t = AITENSOR_2D_F32(t_shape, t_data);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">float</span> result;</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="aimath__f32__default_8h.html#ab64d737f8edfb64854254e8c9efff55b">aimath_f32_default_categorical_crossentropy_sum</a>(&amp;p, &amp;t, &amp;result);</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="aimath__basic_8h.html#aaa9ca757028820849ef3dde13cc46565">print_aiscalar</a>(&amp;result, <a class="code" href="aimath__f32_8h.html#a06eea7384624233f57daab2648d8ce37">aif32</a>);</div>
+<div class="ttc" id="aaimath__f32__default_8h_html_ab64d737f8edfb64854254e8c9efff55b"><div class="ttname"><a href="aimath__f32__default_8h.html#ab64d737f8edfb64854254e8c9efff55b">aimath_f32_default_categorical_crossentropy_sum</a></div><div class="ttdeci">void aimath_f32_default_categorical_crossentropy_sum(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)</div><div class="ttdoc">Calculates the categorical cross entropy between the F32  predicted and the target data using a sum r...</div></div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*predicted_data</td><td>F32 matrix with the predicted or calculated values (2D tensor) </td></tr>
+    <tr><td class="paramname">*target_data</td><td>F32 matrix with the target data / true values / labels (2D tensor, rows one-hot encoded) </td></tr>
+    <tr><td class="paramname">*result</td><td>Resulting F32 matrix (2D tensor) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="aa9d04eb0036b9b2f0640d72d2952026b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa9d04eb0036b9b2f0640d72d2952026b">&#9670;&nbsp;</a></span>aimath_f32_default_categorical_crossentropy_sum_sparse8()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void aimath_f32_default_categorical_crossentropy_sum_sparse8 </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>predicted_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>target_data</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>result</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the categorical Cross-Entropy between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted data and the <a class="el" href="aimath__u8_8h.html">U8 </a> target data in sparse representation using a sum reduction. </p>
+<p>This function can calculate the crossentropy between a row wise one-hot encoded matrix in sparse representation (just the integer index of the 1 is stored) and a normal F32 matrix a.</p>
+<p>For example the matrix </p><p class="formulaDsp">
+\[ \left( \begin{array}{ccc} 0 &amp; 0 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{array}\right) \]
+</p>
+<p> in sparse representation is </p><p class="formulaDsp">
+\[ \left( \begin{array}{ccc} 3 \\ 0 \\ 2 \end{array}\right) \]
+</p>
+<p>The result is then calculated from the one-hot encoded target matrix: </p><p class="formulaDsp">
+\[ result = - \sum_i target_{one-hot,i} \cdot \log(predicted_i) \]
+</p>
+<p>Example: </p><div class="fragment"><div class="line">uint16_t p_shape[2] = {2, 3};</div>
+<div class="line"><span class="keywordtype">float</span> p_data[2*3] = {0.2f, 0.1f, 0.7f,</div>
+<div class="line">                     0.9f, 0.1f, 0.0f};</div>
+<div class="line"><a class="code" href="structaitensor.html">aitensor_t</a> p = AITENSOR_2D_F32(p_shape, p_data);</div>
+<div class="line"> </div>
+<div class="line">uint16_t t_shape[2] = {2, 1};</div>
+<div class="line">uint8_t t_data[2*1] = {2,</div>
+<div class="line">                       0};</div>
+<div class="line"><a class="code" href="structaitensor.html">aitensor_t</a> t = AITENSOR_2D_U8(t_shape, t_data);</div>
+<div class="line"> </div>
+<div class="line"><span class="keywordtype">float</span> result;</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="aimath__f32__default_8h.html#aa9d04eb0036b9b2f0640d72d2952026b">aimath_f32_default_categorical_crossentropy_sum_sparse8</a>(&amp;p, &amp;t, &amp;result);</div>
+<div class="line"> </div>
+<div class="line"><a class="code" href="aimath__basic_8h.html#aaa9ca757028820849ef3dde13cc46565">print_aiscalar</a>(&amp;result, <a class="code" href="aimath__f32_8h.html#a06eea7384624233f57daab2648d8ce37">aif32</a>);</div>
+<div class="ttc" id="aaimath__f32__default_8h_html_aa9d04eb0036b9b2f0640d72d2952026b"><div class="ttname"><a href="aimath__f32__default_8h.html#aa9d04eb0036b9b2f0640d72d2952026b">aimath_f32_default_categorical_crossentropy_sum_sparse8</a></div><div class="ttdeci">void aimath_f32_default_categorical_crossentropy_sum_sparse8(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)</div><div class="ttdoc">Calculates the categorical Cross-Entropy between the F32  predicted data and the U8  target data in s...</div></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">*predicted_data</td><td>F32 matrix with the predicted or calculated values (2D tensor of shape [N x M]) </td></tr>
@@ -2163,6 +2383,182 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a7e43d536e6b3bf837d6003a879e6c62b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a7e43d536e6b3bf837d6003a879e6c62b">&#9670;&nbsp;</a></span>aimath_f32_default_mse_gradients_mean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void aimath_f32_default_mse_gradients_mean </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>predicted</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>result</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the gradients of the mean squared error between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data using a mean reduction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*predicted_data</td><td>F32 matrix with the predicted or calculated values (2D tensor) </td></tr>
+    <tr><td class="paramname">*target_data</td><td>F32 matrix with the target data / true values / labels (2D tensor, rows one-hot encoded) </td></tr>
+    <tr><td class="paramname">*result</td><td>F32 tensor containing the gradients </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a44b61123d9b51b3d5abf710fdefa6695"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a44b61123d9b51b3d5abf710fdefa6695">&#9670;&nbsp;</a></span>aimath_f32_default_mse_gradients_sum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void aimath_f32_default_mse_gradients_sum </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>predicted</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>result</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the gradients of the mean squared error between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data using a sum reduction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*predicted_data</td><td>F32 matrix with the predicted or calculated values (2D tensor) </td></tr>
+    <tr><td class="paramname">*target_data</td><td>F32 matrix with the target data / true values / labels (2D tensor, rows one-hot encoded) </td></tr>
+    <tr><td class="paramname">*result</td><td>F32 tensor containing the gradients </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a8daa94f78e201dd90a3fcb91ec83845c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8daa94f78e201dd90a3fcb91ec83845c">&#9670;&nbsp;</a></span>aimath_f32_default_mse_loss_mean()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void aimath_f32_default_mse_loss_mean </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>predicted</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>result</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the mean squared error between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data using a mean reduction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*predicted_data</td><td>F32 matrix with the predicted or calculated values (2D tensor) </td></tr>
+    <tr><td class="paramname">*target_data</td><td>F32 matrix with the target data / true values / labels (2D tensor, rows one-hot encoded) </td></tr>
+    <tr><td class="paramname">*result</td><td>Resulting loss (float) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a875479b966264b5e6d395514f0ca7e25"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a875479b966264b5e6d395514f0ca7e25">&#9670;&nbsp;</a></span>aimath_f32_default_mse_loss_sum()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void aimath_f32_default_mse_loss_sum </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>predicted</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>target</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">void *&#160;</td>
+          <td class="paramname"><em>result</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Calculates the mean squared error between the <a class="el" href="aimath__f32_8h.html">F32 </a> predicted and the target data using a sum reduction. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*predicted_data</td><td>F32 matrix with the predicted or calculated values (2D tensor) </td></tr>
+    <tr><td class="paramname">*target_data</td><td>F32 matrix with the target data / true values / labels (2D tensor, rows one-hot encoded) </td></tr>
+    <tr><td class="paramname">*result</td><td>Resulting loss (float) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="abf4023f330ca3318b600967710aa4de1"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#abf4023f330ca3318b600967710aa4de1">&#9670;&nbsp;</a></span>aimath_f32_default_multiply()</h2>
 
@@ -2450,6 +2846,43 @@ Functions</h2></td></tr>
     <tr><td class="paramname">*scalar</td><td>Scalar (type aiscalar_f32_t / float) </td></tr>
     <tr><td class="paramname">*a</td><td>F32 tensor a (N-D tensor) </td></tr>
     <tr><td class="paramname">*result</td><td>Resulting F32 tensor of the scalar multiplication (N-D tensor) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a81128f005039e7eb349fdb0af24fdd2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a81128f005039e7eb349fdb0af24fdd2c">&#9670;&nbsp;</a></span>aimath_f32_default_scale_by_batch_size()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void aimath_f32_default_scale_by_batch_size </td>
+          <td>(</td>
+          <td class="paramtype">const <a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>a</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td>
+          <td class="paramname"><em>result</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Scales a <a class="el" href="aimath__f32_8h.html">F32 </a> tensor by batch size (size of first dimension) </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*a</td><td>F32 tensor that is going to be scaled by its batch size </td></tr>
+    <tr><td class="paramname">*result</td><td>Scaled F32 tensor </td></tr>
   </table>
   </dd>
 </dl>

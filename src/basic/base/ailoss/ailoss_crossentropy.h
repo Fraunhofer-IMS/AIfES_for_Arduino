@@ -3,8 +3,8 @@
  * \internal
  * \date 12.01.2021
  * \endinternal
- * \version 2.0alpha
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \version 2.2.0
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -93,6 +93,13 @@ struct ailoss_crossentropy {
      * @param result    A Scalar of the defined data type
 	 */
 	void (*crossentropy)(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result);
+
+	/** @brief Required math function: Scaling of the gradient tensor
+	 *
+	 * Requires a math function that scales a tensor by its batch size:\n
+	 *
+	 */
+	void (*scale_by_batch_size)(const aitensor_t *predicted_data, aitensor_t *result);
 
 	///@}
 };

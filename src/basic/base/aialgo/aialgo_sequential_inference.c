@@ -1,8 +1,8 @@
 /**
  * \file basic/base/aialgo/aialgo_sequential_inference.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 20.10.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -85,7 +85,6 @@ uint32_t aialgo_sizeof_parameter_memory(aimodel_t *model)
 	for(i = 0; i < model->layer_count; i++)
 	{
 		layer_ptr->calc_result_shape(layer_ptr);
-        //printf("params_size: %i\n",layer_ptr->result.dtype->tensor_params_size);
 		// Memory for the quantization parameter of the intermediate results
 		if(layer_ptr->calc_result_tensor_params == 0){
             // This memory is only needed if the parameters are NOT predefined by the layer (e.g. for dense layers)
@@ -225,16 +224,12 @@ aitensor_t *aialgo_forward_model(aimodel_t *model, aitensor_t *input_data)
 	for(i = 0; i < model->layer_count; i++)
 	{
 		layer_ptr->forward(layer_ptr);
-
-		// Print intermediate results
-		//print_aitensor(&layer_ptr->result);
-
 		layer_ptr = layer_ptr->output_layer;
 	}
 	return &(model->output_layer->result);
 }
 
-AISTRING_STORAGE_WRAPPER(aistring_error_inference_model_1) = "[aialgo_inference_model] Error: Number of samples must be dividable by the input layer batch size.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_inference_model_1, "[aialgo_inference_model] Error: Number of samples must be dividable by the input layer batch size.\n");
 
 uint8_t aialgo_inference_model(aimodel_t *model, aitensor_t *input_data, aitensor_t *output_data)
 {
@@ -282,9 +277,9 @@ uint8_t aialgo_inference_model(aimodel_t *model, aitensor_t *input_data, aitenso
 
 		for(j = 0; j < aimath_tensor_elements(output_batch); j++)
 		{
-		    memcpy(output_data->data + i * batch_slice_size * output_multiplier * input_data->dtype->size,
+		    memcpy(output_data->data + i * batch_slice_size * output_multiplier * output_batch->dtype->size,
               output_batch->data,
-              aimath_tensor_elements(output_batch) * input_data->dtype->size);
+              aimath_tensor_elements(output_batch) * output_batch->dtype->size);
 		}
 	}
 
@@ -427,7 +422,7 @@ void aialgo_set_model_result_precision_q31(aimodel_t *model, uint16_t shift)
 	return;
 }
 
-AISTRING_STORAGE_WRAPPER(aistring_error_set_model_delta_precision_q31_1) = "[aialgo_set_model_delta_precision_q31] No loss defined in the model.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_set_model_delta_precision_q31_1, "[aialgo_set_model_delta_precision_q31] No loss defined in the model.\n");
 
 void aialgo_set_model_delta_precision_q31(aimodel_t *model, uint16_t shift)
 {
@@ -467,11 +462,11 @@ void aialgo_set_model_gradient_precision_q31(aimodel_t *model, uint16_t shift)
 	return;
 }
 
-AISTRING_STORAGE_WRAPPER(aistring_print_model_structure_1) = ": ";
-AISTRING_STORAGE_WRAPPER(aistring_print_model_structure_2) = " (";
-AISTRING_STORAGE_WRAPPER(aistring_print_model_structure_3) = ") <";
-AISTRING_STORAGE_WRAPPER(aistring_print_model_structure_4) = ">\n";
-AISTRING_STORAGE_WRAPPER(aistring_print_model_structure_5) = ": No specification found for this layer.\n";
+AISTRING_STORAGE_WRAPPER(aistring_print_model_structure_1, ": ");
+AISTRING_STORAGE_WRAPPER(aistring_print_model_structure_2, " (");
+AISTRING_STORAGE_WRAPPER(aistring_print_model_structure_3, ") <");
+AISTRING_STORAGE_WRAPPER(aistring_print_model_structure_4, ">\n");
+AISTRING_STORAGE_WRAPPER(aistring_print_model_structure_5, ": No specification found for this layer.\n");
 
 void aialgo_print_model_structure(aimodel_t *model)
 {

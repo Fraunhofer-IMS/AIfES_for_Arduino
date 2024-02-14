@@ -1,8 +1,8 @@
 /**
  * \file cnn/base/ailayer/ailayer_conv2d.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 20.10.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -22,7 +22,7 @@
 #include "cnn/base/ailayer/ailayer_conv2d.h"
 #include "basic/base/aimath/aimath_basic.h"
 
-AISTRING_STORAGE_WRAPPER(aistring_layer_conv2d) = "Conv2D";
+AISTRING_STORAGE_WRAPPER(aistring_layer_conv2d, "Conv2D");
 
 const aicore_layertype_t ailayer_conv2d_type_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
@@ -36,7 +36,7 @@ const aicore_layertype_t ailayer_conv2d_type_s = {
 const aicore_layertype_t *ailayer_conv2d_type = &ailayer_conv2d_type_s;
 
 
-AISTRING_STORAGE_WRAPPER(aistring_error_conv2d_1) = "[ailayer_conv2d] Channel axis must be either 1 (-3) or 3 (-1).\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_conv2d_1, "[ailayer_conv2d] Channel axis must be either 1 (-3) or 3 (-1).\n");
 
 ailayer_t *ailayer_conv2d(ailayer_conv2d_t *layer, ailayer_t *input_layer)
 {
@@ -132,10 +132,8 @@ void ailayer_conv2d_backward(ailayer_t *self)
 	aitensor_t *delta_in = &(self->deltas);
 	aitensor_t *delta_out = &(self->output_layer->deltas);
 	aitensor_t *x_in = &(self->input_layer->result);
-//	aitensor_t *x_out = &(self->result);
 	ailayer_conv2d_t *layer = (ailayer_conv2d_t *)(self->layer_configuration);
 	aitensor_t *weights = &layer->weights;
-//	aitensor_t *bias = layer->bias;
 	aitensor_t *d_weights = layer->gradients[0];
 	aitensor_t *d_bias = layer->gradients[1];
 
@@ -227,55 +225,6 @@ void ailayer_conv2d_calc_result_shape(ailayer_t *self)
 uint32_t ailayer_conv2d_sizeof_bwdmem(const ailayer_t *self)
 {
 	const ailayer_conv2d_t *layer = (ailayer_conv2d_t *)(self->layer_configuration);
-	/*
-	const aitensor_t *x_in = &(self->input_layer->result);
-	const aitensor_t *x_out = &(self->result);
-    uint8_t channel_uaxis = layer->channel_axis < 0 ? 4 + layer->channel_axis : layer->channel_axis; // Negative axis = indexing from the end
-
-    uint32_t d_weights_mem = aimath_sizeof_tensor_data(&layer->weights);
-    uint32_t d_bias_mem = aimath_sizeof_tensor_data(&layer->bias);
-
-    uint16_t padded_deltas_shape[4];
-    aitensor_t padded_deltas;
-    padded_deltas.dtype = self->deltas.dtype;
-    padded_deltas.dim = 4;
-    padded_deltas.shape = padded_deltas_shape;
-    padded_deltas.tensor_params = self->deltas.tensor_params;
-
-    if(channel_uaxis == 1){ // Channels first
-        padded_deltas_shape[0] = self->deltas.shape[0];
-        padded_deltas_shape[1] = self->deltas.shape[1];
-        padded_deltas_shape[2] = self->deltas.shape[2]
-             + 2 * ((uint16_t)((((uint32_t) 1 << 15) * (uint32_t)((x_in->shape[2] - 1) * layer->dilation[0]
-             - x_out->shape[2] + layer->stride[0] * (layer->kernel_size[0] - 1) + 1)
-                              + ((uint32_t) 1 << 16) - 1) >> 16));
-        padded_deltas_shape[3] = self->deltas.shape[3]
-             + 2 * ((uint16_t)((((uint32_t) 1 << 15) * (uint32_t)((x_in->shape[3] - 1) * layer->dilation[1]
-             - x_out->shape[3] + layer->stride[1] * (layer->kernel_size[1] - 1) + 1)
-                              + ((uint32_t) 1 << 16) - 1) >> 16));
-    } else if(channel_uaxis == 3){ // Channels last
-        padded_deltas_shape[0] = self->deltas.shape[0];
-        padded_deltas_shape[1] = self->deltas.shape[1]
-             + 2 * ((uint16_t)((((uint32_t) 1 << 15) * (uint32_t)((x_in->shape[1] - 1) * layer->dilation[0]
-             - x_out->shape[1] + layer->stride[0] * (layer->kernel_size[0] - 1) + 1)
-                              + ((uint32_t) 1 << 16) - 1) >> 16));
-        padded_deltas_shape[2] = self->deltas.shape[2]
-             + 2 * ((uint16_t)((((uint32_t) 1 << 15) * (uint32_t)((x_in->shape[2] - 1) * layer->dilation[1]
-             - x_out->shape[2] + layer->stride[1] * (layer->kernel_size[1] - 1) + 1)
-                              + ((uint32_t) 1 << 16) - 1) >> 16));
-        padded_deltas_shape[3] = self->deltas.shape[3];
-    } else {
-        // ERROR
-        return 0;
-    }
-
-    uint32_t params_mem = d_weights_mem > d_bias_mem ? d_weights_mem : d_bias_mem;
-    uint32_t padded_deltas_mem = aimath_sizeof_tensor_data(&padded_deltas);
-
-    // Shared memory buffer for d_weights, d_bias and padded deltas calculation
-    return padded_deltas_mem > params_mem ? padded_deltas_mem : params_mem;*/
-
-
     uint32_t d_weights_mem, d_bias_mem;
 
     if(AILAYER_SETTINGS_IS(self->settings, 0b1, AILAYER_SETTINGS_TRAINABLE)){
@@ -325,7 +274,6 @@ void ailayer_conv2d_set_paramem(ailayer_t *self, void *memory_ptr)
     AIFES_ALIGN_INTEGER(address_counter, AIFES_MEMORY_ALIGNMENT);
 
 	layer->bias.data = memory_ptr + address_counter;
-	//address_counter += aimath_sizeof_tensor_data(&(layer->bias));
 
 	layer->trainable_params[0] = &(layer->weights);
 	layer->trainable_params[1] = &(layer->bias);
@@ -387,13 +335,13 @@ void ailayer_conv2d_set_trainmem(ailayer_t *self, void *memory_ptr)
 }
 
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_conv2d_1) = "filter_count: ";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_conv2d_2) = "; kernel_size: (";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_conv2d_3) = "); stride: (";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_conv2d_4) = "); dilation: (";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_conv2d_5) = "); padding: (";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_conv2d_6) = "); channel_axis: ";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_conv2d_7) = ", ";
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_conv2d_1, "filter_count: ");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_conv2d_2, "; kernel_size: (");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_conv2d_3, "); stride: (");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_conv2d_4, "); dilation: (");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_conv2d_5, "); padding: (");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_conv2d_6, "); channel_axis: ");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_conv2d_7, ", ");
 
 void ailayer_conv2d_print_specs(const ailayer_t *self)
 {

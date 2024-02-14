@@ -1,8 +1,8 @@
 /**
  * \file basic/default/aimath/aimath_q31_default.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 03.02.2021
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -22,8 +22,8 @@
 #include "basic/default/aimath/aimath_q31_default.h"
 
 
-AISTRING_STORAGE_WRAPPER(aistring_error_q31_linear32_1) = "[aimath_q31_default_linear32] MatMul input shapes doesn't match.\n";
-AISTRING_STORAGE_WRAPPER(aistring_error_q31_linear32_2) = "[aimath_q31_default_linear32] MatMul output shape doesn't match.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_q31_linear32_1, "[aimath_q31_default_linear32] MatMul input shapes doesn't match.\n");
+AISTRING_STORAGE_WRAPPER(aistring_error_q31_linear32_2, "[aimath_q31_default_linear32] MatMul output shape doesn't match.\n");
 
 void aimath_q31_default_linear32(const aitensor_t *a, const aitensor_t *b, const aitensor_t *c, aitensor_t *result)
 {
@@ -439,7 +439,7 @@ void aimath_q31_default_norm_squared(const aitensor_t *x, void *result)
 	return;
 }
 
-AISTRING_STORAGE_WRAPPER(aistring_error_q31_tensor_sqrt_1) = "[aimath_q31_default_tensor_sqrt] Sqrt of a negative integer is not supported\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_q31_tensor_sqrt_1, "[aimath_q31_default_tensor_sqrt] Sqrt of a negative integer is not supported\n");
 
 void aimath_q31_default_tensor_sqrt(const aitensor_t *x, aitensor_t *result)
 {
@@ -609,10 +609,6 @@ void aimath_q31_default_leaky_relu(const aitensor_t *x, const void *alpha, aiten
 
 	uint16_t s_x = ((aimath_q31_params_t *) x->tensor_params)->shift;
 	uint16_t s_alpha = ((aiscalar_q31_t *) alpha)->shift;
-    //////////////////////////////////
-    //printf("s_x: %i, z_x: %i, alpha_zero: %i, alpha_shift: %i, alpha_value: %i\n", s_x, z_x, z_alpha, s_alpha, ((aiscalar_q31_t *) alpha)->value);
-    //print_aitensor(&result);
-    ////////////////////////////////
 	uint16_t output_shift = s_alpha; // Output has same shift as input
 
 	for(i = 0; i < aimath_tensor_elements(x); i++)
@@ -661,7 +657,6 @@ void aimath_q31_default_leaky_relu(const aitensor_t *x, const void *alpha, aiten
                 ((int32_t *) result->data)[i] = (int32_t) ((acc >> output_shift) + z_result);
             }
         }
-        //printf("reslut_%i: %i\n", i, ((int32_t *) result->data)[i]);
 	}
 
 	((aimath_q31_params_t *) result->tensor_params)->shift = (uint16_t)s_x;
@@ -768,10 +763,6 @@ void aimath_q31_default_d_tanh(const aitensor_t *tanh_x, aitensor_t *result)
     uint32_t i;
 	int64_t acc;
     int32_t x_data;
-
-	//int64_t z_tanh_x = (int64_t) ((aimath_q31_params_t *) tanh_x->tensor_params)->zero_point;
-	//int64_t z_result = 0;
-
 
 	uint16_t s_tanh_x = ((aimath_q31_params_t *) tanh_x->tensor_params)->shift;
 
@@ -1131,9 +1122,6 @@ void aimath_q31_default_tensor_init_uniform(aitensor_t *tensor, float from, floa
 	uint32_t i;
 	aimath_q31_params_t *tensor_params = (aimath_q31_params_t *) tensor->tensor_params;
 
-	// Calc range with safety margin
-	//aimath_q31_calc_q_params_from_f32(from - (to-from) * 1.0f, to + (to-from) * 1.0f, tensor_params);
-
 	for(i = 0; i < aimath_tensor_elements(tensor); i++)
 	{
 		((int32_t *) tensor->data)[i] = FLOAT_TO_Q31(((float) rand() / (float) RAND_MAX) * (to - from) + from, tensor_params->shift, tensor_params->zero_point);
@@ -1209,8 +1197,6 @@ int64_t aimath_q31_default_sqrt(int64_t x)
     }
 }
 
-
-
 void aimath_q31_default_sum_channelwise(const aitensor_t *x, int8_t channel_axis, aitensor_t *result){
     uint32_t i, j, k;
     uint32_t idx_multiplier1 = 1, idx_multiplier2 = 1;
@@ -1233,5 +1219,110 @@ void aimath_q31_default_sum_channelwise(const aitensor_t *x, int8_t channel_axis
         ((int32_t *) result->data)[i] -= idx_multiplier1 * idx_multiplier2 * ((aimath_q31_params_t *) x->tensor_params)->zero_point;
     }
     return;
+}
+
+void aimath_q31_default_mse_gradients_sum(const aitensor_t *predicted, const aitensor_t *target, aitensor_t *result)
+{
+    int32_t temp_data[aimath_sizeof_tensor(predicted)];
+    aitensor_t temp_tensor = AITENSOR_2D_Q31(predicted->shape, (aimath_q31_params_t *) predicted->tensor_params, temp_data);
+
+    aimath_q31_default_tensor_sub_different_shift(predicted, target, &temp_tensor);
+
+    float factor = 2.0f;
+
+    aiscalar_q31_t factor_q31 = AISCALAR_Q31(factor, 16, 0);
+
+    aimath_q31_default_scalar_mul(&factor_q31, &temp_tensor, result);
+
+    return;
+}
+
+void aimath_q31_default_mse_gradients_mean(const aitensor_t *predicted, const aitensor_t *target, aitensor_t *result)
+{
+    int32_t temp_data[aimath_sizeof_tensor(predicted)];
+    aitensor_t temp_tensor = AITENSOR_2D_Q31(predicted->shape, (aimath_q31_params_t *) predicted->tensor_params, temp_data);
+
+    aimath_q31_default_tensor_sub_different_shift(predicted, target, &temp_tensor);
+
+    float factor = 2.0f / (float) aimath_tensor_elements(predicted);
+
+    aiscalar_q31_t factor_q31 = AISCALAR_Q31(factor, 16, 0);
+
+    aimath_q31_default_scalar_mul(&factor_q31, &temp_tensor, result);
+
+    return;
+}
+
+void aimath_q31_default_mse_loss_sum(const aitensor_t *predicted, const aitensor_t *target, void *result)
+{
+    int32_t temp_data[aimath_sizeof_tensor(predicted)];
+    aitensor_t temp_tensor = AITENSOR_2D_Q31(predicted->shape, (aimath_q31_params_t *) predicted->tensor_params, temp_data);
+
+    aimath_q31_default_tensor_sub_different_shift(predicted, target, &temp_tensor);
+    aimath_q31_default_norm_squared(&temp_tensor, result);
+
+    return;
+}
+
+void aimath_q31_default_mse_loss_mean(const aitensor_t *predicted, const aitensor_t *target, void *result)
+{
+    // calculate sum
+    aimath_q31_default_mse_loss_sum(predicted, target, result);
+
+    // scale with tensor size
+    float factor = 1.0f / (float) aimath_tensor_elements(predicted);
+
+    aiscalar_q31_t scalar_t = AISCALAR_Q31(factor, 16, 0);
+
+    aiscalar_q31_t *scalar = &scalar_t;
+
+	int64_t acc;
+
+	int64_t z_scalar = (int64_t) ((aiscalar_q31_t *) scalar)->zero_point; // scalar
+	int64_t z_result = (int64_t) ((aiscalar_q31_t *) result)->zero_point; // a
+
+	uint16_t output_shift = ((aiscalar_q31_t *) scalar)->shift - ((aiscalar_q31_t *) result)->shift;
+
+	// Check if zero point correction is needed
+	if(z_result != 0 && z_scalar != 0){
+        // q_scalar * q_result
+        acc = (int64_t) ((aiscalar_q31_t *) scalar)->value * (int64_t) ((aiscalar_q31_t *) result)->value;
+
+        // - q_result * z_scalar
+        acc -= (int64_t) ((aiscalar_q31_t *) result)->value * z_scalar;
+
+        // - q_scalar * z_result
+        acc -= (int64_t) ((aiscalar_q31_t *) scalar)->value * z_result;
+
+        // + z_scalar * z_result
+        acc += z_scalar * z_result;
+
+        ((aiscalar_q31_t *)result)->value = (int32_t) ((acc >> output_shift) + z_result);
+	}
+	else if(z_result != 0){
+        // q_scalar * q_result
+        acc = (int64_t) ((aiscalar_q31_t *) scalar)->value * (int64_t) ((aiscalar_q31_t *) result)->value;
+
+        // - q_scalar * z_result
+        acc -= (int64_t) ((aiscalar_q31_t *) scalar)->value * z_result;
+
+        ((aiscalar_q31_t *)result)->value = (int32_t) ((acc >> output_shift) + z_result);
+    }
+	else if(z_scalar != 0){
+        // q_scalar * q_result
+        acc = (int64_t) ((aiscalar_q31_t *) scalar)->value * (int64_t) ((aiscalar_q31_t *) result)->value;
+
+        // - q_result * z_scalar
+        acc -= (int64_t) ((aiscalar_q31_t *) result)->value * z_scalar;
+
+        ((aiscalar_q31_t *)result)->value = (int32_t) ((acc >> output_shift) + z_result);
+	}
+	else{
+        // q_scalar * q_result
+        acc = (int64_t) ((aiscalar_q31_t *) scalar)->value * (int64_t) ((aiscalar_q31_t *) result)->value;
+
+        ((aiscalar_q31_t *)result)->value = (int32_t) ((acc >> output_shift) + z_result);
+	}
+	return;
 }
 

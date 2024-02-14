@@ -1,8 +1,8 @@
 /**
  * \file basic/default/aimath/aimath_f32_default.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 25.10.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -23,8 +23,8 @@
 #include <float.h>
 
 
-AISTRING_STORAGE_WRAPPER(aistring_error_f32_linear_1) = "[aimath_f32_default_linear] MatMul input shapes doesn't match.\n";
-AISTRING_STORAGE_WRAPPER(aistring_error_f32_linear_2) = "[aimath_f32_default_linear] MatMul output shape doesn't match.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_f32_linear_1, "[aimath_f32_default_linear] MatMul input shapes doesn't match.\n");
+AISTRING_STORAGE_WRAPPER(aistring_error_f32_linear_2, "[aimath_f32_default_linear] MatMul output shape doesn't match.\n");
 
 void aimath_f32_default_linear(const aitensor_t *a, const aitensor_t *b, const aitensor_t *c, aitensor_t *result)
 {
@@ -578,7 +578,7 @@ void aimath_f32_default_d_softsign(const aitensor_t *x, aitensor_t *result)
 
 // predicted data: f32
 // target_data: f32
-void aimath_f32_default_binary_crossentropy(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)
+void aimath_f32_default_binary_crossentropy_sum(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)
 {
 	uint32_t i;
 
@@ -593,7 +593,16 @@ void aimath_f32_default_binary_crossentropy(const aitensor_t *predicted_data, co
 
 // predicted data: f32
 // target_data: f32
-void aimath_f32_default_categorical_crossentropy(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)
+void aimath_f32_default_binary_crossentropy_mean(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)
+{
+	aimath_f32_default_binary_crossentropy_sum(predicted_data, target_data, result);
+	*((float *) result) /= predicted_data->shape[0];
+	return;
+}
+
+// predicted data: f32
+// target_data: f32
+void aimath_f32_default_categorical_crossentropy_sum(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)
 {
 	uint32_t i;
 
@@ -607,10 +616,19 @@ void aimath_f32_default_categorical_crossentropy(const aitensor_t *predicted_dat
 	return;
 }
 
+// predicted data: f32
+// target_data: f32
+void aimath_f32_default_categorical_crossentropy_mean(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)
+{
+	aimath_f32_default_categorical_crossentropy_sum(predicted_data, target_data, result);
+	*((float *) result) /= predicted_data->shape[0];
+	return;
+}
+
 // 2D tensors only
 // predicted data: f32
 // target_data: u8
-void aimath_f32_default_categorical_crossentropy_sparse8(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)
+void aimath_f32_default_categorical_crossentropy_sum_sparse8(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)
 {
 	uint32_t i, index;
 
@@ -620,6 +638,13 @@ void aimath_f32_default_categorical_crossentropy_sparse8(const aitensor_t *predi
 	    index = i * predicted_data->shape[1] + ((uint8_t *) target_data->data)[i];
         *((float *) result) -= logf(((float *) predicted_data->data)[index]);
 	}
+	return;
+}
+
+void aimath_f32_default_categorical_crossentropy_mean_sparse8(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result)
+{
+	aimath_f32_default_categorical_crossentropy_sum_sparse8(predicted_data, target_data, result);
+	*((float *) result) /= predicted_data->shape[0];
 	return;
 }
 
@@ -841,3 +866,50 @@ void aimath_f32_default_exponential_moving_average(const aitensor_t *new_data, c
     }
     return;
 }
+
+void aimath_f32_default_mse_gradients_mean(const aitensor_t *predicted, const aitensor_t *target, aitensor_t *result)
+{
+    aimath_f32_default_tensor_sub(predicted, target, result);
+
+    float factor = 2.0f / (float) aimath_tensor_elements(predicted);
+    aimath_f32_default_scalar_mul(&factor, result, result);
+
+    return;
+}
+
+void aimath_f32_default_mse_gradients_sum(const aitensor_t *predicted, const aitensor_t *target, aitensor_t *result)
+{
+    aimath_f32_default_tensor_sub(predicted, target, result);
+
+    float factor = 2.0f;
+    aimath_f32_default_scalar_mul(&factor, result, result);
+
+    return;
+}
+
+void aimath_f32_default_mse_loss_sum(const aitensor_t *predicted, const aitensor_t *target, void *result)
+{
+    float temp_data[aimath_sizeof_tensor(predicted)];
+    aitensor_t temp_tensor = AITENSOR_2D_F32(predicted->shape, temp_data);
+
+    aimath_f32_default_tensor_sub(predicted, target, &temp_tensor);
+    aimath_f32_default_norm_squared(&temp_tensor, result);
+
+    return;
+}
+
+void aimath_f32_default_mse_loss_mean(const aitensor_t *predicted, const aitensor_t *target, void *result)
+{
+    aimath_f32_default_mse_loss_sum(predicted, target, result);
+    *((float *) result) /= aimath_tensor_elements(predicted);
+
+    return;
+}
+
+void aimath_f32_default_scale_by_batch_size(const aitensor_t *a, aitensor_t *result)
+{
+    float factor = 1.0f / a->shape[0];
+    aimath_f32_default_scalar_mul(&factor, a, result);
+    return;
+}
+

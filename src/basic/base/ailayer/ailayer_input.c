@@ -1,8 +1,8 @@
 /**
  * \file basic/base/ailayer/ailayer_input.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 20.10.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -22,7 +22,7 @@
 #include "basic/base/ailayer/ailayer_input.h"
 #include "basic/base/aimath/aimath_basic.h"
 
-AISTRING_STORAGE_WRAPPER(aistring_layer_input) = "Input";
+AISTRING_STORAGE_WRAPPER(aistring_layer_input, "Input");
 
 const aicore_layertype_t ailayer_input_type_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
@@ -80,18 +80,14 @@ void ailayer_input_backward(ailayer_t *self)
 
 void ailayer_input_calc_result_shape(ailayer_t *self)
 {
-	//ailayer_input_t *layer = (ailayer_input_t *)(self->layer_configuration);
-
-	//self->result.shape[0] = configuration->input_shape[0];
-	//self->result.shape[1] = configuration->input_shape[1];
 	return;
 }
 
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_input_1) = "Dim: ";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_input_2) = "; Shape: [";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_input_3) = ", ";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_input_4) = "]";
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_input_1, "Dim: ");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_input_2, "; Shape: [");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_input_3, ", ");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_input_4, "]");
 
 void ailayer_input_print_specs(const ailayer_t *self)
 {

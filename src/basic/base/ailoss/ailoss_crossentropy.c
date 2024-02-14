@@ -1,8 +1,8 @@
 /**
  * \file basic/base/ailoss/ailoss_crossentropy.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 12.01.2021
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -22,7 +22,7 @@
 #include "basic/base/ailoss/ailoss_crossentropy.h"
 #include "basic/base/aimath/aimath_basic.h"
 
-AISTRING_STORAGE_WRAPPER(aistring_loss_crossentropy) = "Cross-Entropy";
+AISTRING_STORAGE_WRAPPER(aistring_loss_crossentropy, "Cross-Entropy");
 
 const aicore_losstype_t ailoss_crossentropy_type_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
@@ -35,7 +35,7 @@ const aicore_losstype_t ailoss_crossentropy_type_s = {
 };
 const aicore_losstype_t *ailoss_crossentropy_type = &ailoss_crossentropy_type_s;
 
-AISTRING_STORAGE_WRAPPER(aistring_error_loss_crossentropy_1) = "[ailoss_crossentropy] No valid input layer. Use either Sigmoid or Softmax as input.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_loss_crossentropy_1, "[ailoss_crossentropy] No valid input layer. Use either Sigmoid or Softmax as input.\n");
 
 ailoss_t *ailoss_crossentropy(ailoss_crossentropy_t *loss, ailayer_t *input_layer)
 {
@@ -77,7 +77,10 @@ void ailoss_crossentropy_calc_delta(ailoss_t *self, const aitensor_t *target_dat
 	// dC/dz = (a_L - y) ( * 1/batch_size)
 	loss->tensor_sub(predicted_data, target_data, deltas);
 
-	// ToDo: Scale by batch size. (Divide / Shift)
+	if(loss->scale_by_batch_size)
+    {
+        loss->scale_by_batch_size(deltas, deltas);
+    }
 
 	return;
 }
@@ -90,8 +93,6 @@ void ailoss_crossentropy_calc_loss(ailoss_t *self, const aitensor_t *target_data
 
     //C = - y * log(a_L) ( * 1/batch_size)
 	loss->crossentropy(predicted_data, target_data, result);
-
-	// ToDo: Scale by batch size. (Divide / Shift)
 
 	return;
 }

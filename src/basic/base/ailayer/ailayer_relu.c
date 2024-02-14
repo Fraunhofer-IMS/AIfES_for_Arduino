@@ -1,8 +1,8 @@
 /**
  * \file basic/base/ailayer/ailayer_relu.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 07.12.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -22,7 +22,7 @@
 #include "basic/base/ailayer/ailayer_relu.h"
 #include "basic/base/aimath/aimath_basic.h"
 
-AISTRING_STORAGE_WRAPPER(aistring_layer_relu) = "ReLU";
+AISTRING_STORAGE_WRAPPER(aistring_layer_relu, "ReLU");
 
 const aicore_layertype_t ailayer_relu_type_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
@@ -99,11 +99,7 @@ void ailayer_relu_backward(ailayer_t *self)
 
 void ailayer_relu_calc_result_shape(ailayer_t *self)
 {
-	/* Unused: Shape is already defined (Pointer)
-
-	self->result.shape[0] = self->input_layer->result.shape[0];
-	self->result.shape[1] = self->input_layer->result.shape[1];
-	*/
+	// Unused: Shape is already defined (Pointer)
 	return;
 }
 

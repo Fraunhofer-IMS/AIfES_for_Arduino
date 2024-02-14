@@ -1,8 +1,8 @@
 /**
  * \file basic/default/aimath/aimath_q7_default.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 28.10.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -22,9 +22,9 @@
 #include "basic/default/aimath/aimath_q7_default.h"
 
 
-AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_1) = "[aimath_q7_default_linear32] MatMul input shapes doesn't match.\n";
-AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_2) = "[aimath_q7_default_linear32] MatMul output shape doesn't match.\n";
-AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_3) = "[aimath_q7_default_linear32] Third operand shift does not match.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_1, "[aimath_q7_default_linear32] MatMul input shapes doesn't match.\n");
+AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_2, "[aimath_q7_default_linear32] MatMul output shape doesn't match.\n");
+AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_3, "[aimath_q7_default_linear32] Third operand shift does not match.\n");
 
 void aimath_q7_default_linear32(const aitensor_t *a, const aitensor_t *b, const aitensor_t *c, aitensor_t *result)
 {
@@ -921,31 +921,24 @@ void aimath_q7_default_softmax(const aitensor_t *x, aitensor_t *result) {
             x_data_point = (int16_t) ((int8_t *) x->data)[i * multiplier + j] - (int16_t) x_zero_point;
 
             if (x_data_point > borders[0]) {
-                //printf("Between 0 and -1\n");
                 res = ((161 * x_data_point) >> x_shift) + 127;
             }
             else if (x_data_point > borders[1]) {
-                //printf("Between -1 and -2\n");
                 res = ((59 * x_data_point) >> x_shift) + 26;
             }
             else if (x_data_point > borders[2]) {
-                //printf("Between -2 and -3\n");
                 res = ((23 * x_data_point) >> x_shift) - 46;
             }
             else if (x_data_point > borders[3]) {
-                //printf("Between -3 and -5\n");
                 res = ((6 * x_data_point) >> x_shift) - 96;
             }
             else {
-                //printf("Smaller than -5\n");
                 res = -128;
             }
 
             acc += (res + 128);
             e_x[i * multiplier + j] = (int8_t) res;
-            //printf("%d\n", res);
         }
-        //printf("Denom = %d\n", acc);
 
         //calc softmax
         for(j = 0; j < multiplier; j++)

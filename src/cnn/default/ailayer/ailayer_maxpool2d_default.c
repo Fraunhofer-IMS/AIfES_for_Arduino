@@ -1,8 +1,8 @@
 /**
  * \file cnn/default/ailayer/ailayer_maxpool2d_default.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 18.10.2021
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -19,7 +19,7 @@
  * \details
  */
 
-#include "cnn/default/ailayer/ailayer_maxpool2D_default.h"
+#include "cnn/default/ailayer/ailayer_maxpool2d_default.h"
 
 ailayer_t *ailayer_maxpool2d_f32_default(ailayer_maxpool2d_f32_t *layer, ailayer_t *input_layer){
     layer->base.result.dtype = aif32;

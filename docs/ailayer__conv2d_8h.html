@@ -93,7 +93,8 @@ $(document).ready(function(){initNavTree('ailayer__conv2d_8h.html',''); initResi
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">ailayer_conv2d.h File Reference</div>  </div>
 </div><!--header-->
@@ -148,12 +149,18 @@ Functions</h2></td></tr>
 <tr class="memitem:a941843e9236cfa862443070e0035ec67"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ailayer__conv2d_8h.html#a941843e9236cfa862443070e0035ec67">ailayer_conv2d_print_specs</a> (const <a class="el" href="structailayer.html">ailayer_t</a> *self)</td></tr>
 <tr class="memdesc:a941843e9236cfa862443070e0035ec67"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the layer specification.  <a href="ailayer__conv2d_8h.html#a941843e9236cfa862443070e0035ec67">More...</a><br /></td></tr>
 <tr class="separator:a941843e9236cfa862443070e0035ec67"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a8b624b70925024d3f4bf9dc4942c65d7"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structaicore__layertype.html">aicore_layertype_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ailayer__conv2d_8h.html#a8b624b70925024d3f4bf9dc4942c65d7">ailayer_conv2d_type</a></td></tr>
+<tr class="memdesc:a8b624b70925024d3f4bf9dc4942c65d7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Conv2D layer type.  <a href="ailayer__conv2d_8h.html#a8b624b70925024d3f4bf9dc4942c65d7">More...</a><br /></td></tr>
+<tr class="separator:a8b624b70925024d3f4bf9dc4942c65d7"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base <a class="el" href="structailayer.html">layer </a> implementation of the Conv2D layer. </p>
-<dl class="section version"><dt>Version</dt><dd>2.0alpha </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>2.2.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>20.10.2020 </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2020-2021 Fraunhofer Institute for Microelectronic Circuits and Systems. All rights reserved.<br  />
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2020-2023 Fraunhofer Institute for Microelectronic Circuits and Systems. All rights reserved.<br  />
 <br  />
  AIfES is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.<br  />
 <br  />
@@ -522,6 +529,32 @@ The required parameter size can be calculated with <a class="el" href="ailayer__
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Calculated gradient memory size in bytes. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a8b624b70925024d3f4bf9dc4942c65d7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a8b624b70925024d3f4bf9dc4942c65d7">&#9670;&nbsp;</a></span>ailayer_conv2d_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structaicore__layertype.html">aicore_layertype_t</a>* ailayer_conv2d_type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>Conv2D layer type. </p>
+<p>Defines the type of the layer (for example for type checks and debug prints). See <a class="el" href="structaicore__layertype.html" title="Type indicator of the layer.">aicore_layertype</a> for more information about the layer type. </p>
 
 </div>
 </div>

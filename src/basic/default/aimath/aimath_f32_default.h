@@ -3,8 +3,8 @@
  * \internal
  * \date 25.10.2020
  * \endinternal
- * \version 2.0alpha
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \version 2.2.0
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -1229,7 +1229,7 @@ void aimath_f32_default_softsign(const aitensor_t *x, aitensor_t *result);
  */
 void aimath_f32_default_d_softsign(const aitensor_t *x, aitensor_t *result);
 
-/** @brief Calculates the binary cross entropy between the \link aimath_f32.h F32 \endlink predicted and the target data
+/** @brief Calculates the binary cross entropy between the \link aimath_f32.h F32 \endlink predicted and the target data using a sum reduction
   *
   * @f[
   *  result =  - \sum_i (target_i \cdot \log(predicted_i) + (1 - target_i) \cdot \log(1 - predicted_i))
@@ -1249,7 +1249,7 @@ void aimath_f32_default_d_softsign(const aitensor_t *x, aitensor_t *result);
   *
   * float result;
   *
-  * aimath_f32_default_binary_crossentropy(&p, &t, &result);
+  * aimath_f32_default_binary_crossentropy_sum(&p, &t, &result);
   *
   * print_aiscalar(&result, aif32);
   * \endcode
@@ -1258,9 +1258,40 @@ void aimath_f32_default_d_softsign(const aitensor_t *x, aitensor_t *result);
   * @param *target_data     F32 matrix with the target data / true values / labels (2D tensor with binary values 0 or 1)
   * @param *result          Resulting F32 matrix (2D tensor)
   */
-void aimath_f32_default_binary_crossentropy(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result);
+void aimath_f32_default_binary_crossentropy_sum(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result);
 
-/** @brief Calculates the categorical cross entropy between the \link aimath_f32.h F32 \endlink predicted and the target data
+/** @brief Calculates the binary cross entropy between the \link aimath_f32.h F32 \endlink predicted and the target data using a mean reduction
+  *
+  * @f[
+  *  result =  - \sum_i (target_i \cdot \log(predicted_i) + (1 - target_i) \cdot \log(1 - predicted_i))
+  * @f]
+  *
+  * Example:
+  * \code{.c}
+  * uint16_t p_shape[2] = {2, 3};
+  * float p_data[2*3] = {0.8f, 0.1f, 0.7f,
+  *                      0.2f, 0.3f, 0.0f};
+  * aitensor_t p = AITENSOR_2D_F32(p_shape, p_data);
+  *
+  * uint16_t t_shape[2] = {2, 3};
+  * float t_data[2*3] = {1.0f, 0.0f, 1.0f,
+  *                      0.0f, 0.0f, 0.0f};
+  * aitensor_t t = AITENSOR_2D_F32(t_shape, t_data);
+  *
+  * float result;
+  *
+  * aimath_f32_default_binary_crossentropy_mean(&p, &t, &result);
+  *
+  * print_aiscalar(&result, aif32);
+  * \endcode
+  *
+  * @param *predicted_data  F32 matrix with the predicted or calculated values (2D tensor)
+  * @param *target_data     F32 matrix with the target data / true values / labels (2D tensor with binary values 0 or 1)
+  * @param *result          Resulting F32 matrix (2D tensor)
+  */
+void aimath_f32_default_binary_crossentropy_mean(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result);
+
+/** @brief Calculates the categorical cross entropy between the \link aimath_f32.h F32 \endlink predicted and the target data using a sum reduction
   *
   * @f[
   *  result =  - \sum_i target_i \cdot \log(predicted_i)
@@ -1280,7 +1311,7 @@ void aimath_f32_default_binary_crossentropy(const aitensor_t *predicted_data, co
   *
   * float result;
   *
-  * aimath_f32_default_categorical_crossentropy(&p, &t, &result);
+  * aimath_f32_default_categorical_crossentropy_sum(&p, &t, &result);
   *
   * print_aiscalar(&result, aif32);
   * \endcode
@@ -1289,9 +1320,40 @@ void aimath_f32_default_binary_crossentropy(const aitensor_t *predicted_data, co
   * @param *target_data     F32 matrix with the target data / true values / labels (2D tensor, rows one-hot encoded)
   * @param *result          Resulting F32 matrix (2D tensor)
   */
-void aimath_f32_default_categorical_crossentropy(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result);
+void aimath_f32_default_categorical_crossentropy_sum(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result);
 
-/** @brief Calculates the categorical Cross-Entropy between the \link aimath_f32.h F32 \endlink predicted data and the \link aimath_u8.h U8 \endlink target data in sparse representation
+/** @brief Calculates the categorical cross entropy between the \link aimath_f32.h F32 \endlink predicted and the target data using a mean reduction
+  *
+  * @f[
+  *  result =  - \sum_i target_i \cdot \log(predicted_i)
+  * @f]
+  *
+  * Example:
+  * \code{.c}
+  * uint16_t p_shape[2] = {2, 3};
+  * float p_data[2*3] = {0.2f, 0.1f, 0.7f,
+  *                      0.9f, 0.1f, 0.0f};
+  * aitensor_t p = AITENSOR_2D_F32(p_shape, p_data);
+  *
+  * uint16_t t_shape[2] = {2, 3};
+  * float t_data[2*3] = {0.0f, 0.0f, 1.0f,
+  *                      1.0f, 0.0f, 0.0f};
+  * aitensor_t t = AITENSOR_2D_F32(t_shape, t_data);
+  *
+  * float result;
+  *
+  * aimath_f32_default_categorical_crossentropy_mean(&p, &t, &result);
+  *
+  * print_aiscalar(&result, aif32);
+  * \endcode
+  *
+  * @param *predicted_data  F32 matrix with the predicted or calculated values (2D tensor)
+  * @param *target_data     F32 matrix with the target data / true values / labels (2D tensor, rows one-hot encoded)
+  * @param *result          Resulting F32 matrix (2D tensor)
+  */
+void aimath_f32_default_categorical_crossentropy_mean(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result);
+
+/** @brief Calculates the categorical Cross-Entropy between the \link aimath_f32.h F32 \endlink predicted data and the \link aimath_u8.h U8 \endlink target data in sparse representation using a sum reduction
   *
   * This function can calculate the crossentropy between a row wise one-hot encoded matrix in sparse representation
   * (just the integer index of the 1 is stored) and a normal F32 matrix a.
@@ -1324,7 +1386,7 @@ void aimath_f32_default_categorical_crossentropy(const aitensor_t *predicted_dat
   *
   * float result;
   *
-  * aimath_f32_default_categorical_crossentropy_sparse8(&p, &t, &result);
+  * aimath_f32_default_categorical_crossentropy_sum_sparse8(&p, &t, &result);
   *
   * print_aiscalar(&result, aif32);
   * \endcode
@@ -1333,7 +1395,51 @@ void aimath_f32_default_categorical_crossentropy(const aitensor_t *predicted_dat
   * @param *target_data     U8 matrix with the target data / true values / labels (2D tensor of shape [N x 1] with true class indices)
   * @param *result          Resulting F32 matrix (2D tensor of shape [N x M])
   */
-void aimath_f32_default_categorical_crossentropy_sparse8(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result);
+void aimath_f32_default_categorical_crossentropy_sum_sparse8(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result);
+
+/** @brief Calculates the categorical Cross-Entropy between the \link aimath_f32.h F32 \endlink predicted data and the \link aimath_u8.h U8 \endlink target data in sparse representation using a mean reduction
+  *
+  * This function can calculate the crossentropy between a row wise one-hot encoded matrix in sparse representation
+  * (just the integer index of the 1 is stored) and a normal F32 matrix a.
+  *
+  * For example the matrix
+  * @f[
+  *   \left( \begin{array}{ccc} 0 & 0 & 0 & 1 \\ 1 & 0 & 0 & 0 \\ 0 & 0 & 1 & 0 \end{array}\right)
+  * @f]
+  * in sparse representation is
+  * @f[
+  *   \left( \begin{array}{ccc} 3 \\ 0 \\ 2 \end{array}\right)
+  * @f]
+  *
+  * The result is then calculated from the one-hot encoded target matrix:
+  * @f[
+  *  result =  - \sum_i target_{one-hot,i} \cdot \log(predicted_i)
+  * @f]
+  *
+  * Example:
+  * \code{.c}
+  * uint16_t p_shape[2] = {2, 3};
+  * float p_data[2*3] = {0.2f, 0.1f, 0.7f,
+  *                      0.9f, 0.1f, 0.0f};
+  * aitensor_t p = AITENSOR_2D_F32(p_shape, p_data);
+  *
+  * uint16_t t_shape[2] = {2, 1};
+  * uint8_t t_data[2*1] = {2,
+  *                        0};
+  * aitensor_t t = AITENSOR_2D_U8(t_shape, t_data);
+  *
+  * float result;
+  *
+  * aimath_f32_default_categorical_crossentropy_mean_sparse8(&p, &t, &result);
+  *
+  * print_aiscalar(&result, aif32);
+  * \endcode
+  *
+  * @param *predicted_data  F32 matrix with the predicted or calculated values (2D tensor of shape [N x M])
+  * @param *target_data     U8 matrix with the target data / true values / labels (2D tensor of shape [N x 1] with true class indices)
+  * @param *result          Resulting F32 matrix (2D tensor of shape [N x M])
+  */
+void aimath_f32_default_categorical_crossentropy_mean_sparse8(const aitensor_t *predicted_data, const aitensor_t *target_data, void *result);
 
 /** @brief Calculates the element wise square root of a \link aimath_f32.h F32 \endlink tensor
   *
@@ -1638,5 +1744,43 @@ void aimath_f32_default_variance_channelwise(const aitensor_t *x, int8_t channel
  */
 void aimath_f32_default_exponential_moving_average(const aitensor_t *new_data, const void *momentum, aitensor_t *average);
 
+/** @brief Calculates the gradients of the mean squared error between the \link aimath_f32.h F32 \endlink predicted and the target data using a sum reduction
+  *
+  * @param *predicted_data  F32 matrix with the predicted or calculated values (2D tensor)
+  * @param *target_data     F32 matrix with the target data / true values / labels (2D tensor, rows one-hot encoded)
+  * @param *result          F32 tensor containing the gradients
+  */
+void aimath_f32_default_mse_gradients_sum(const aitensor_t *predicted, const aitensor_t *target, aitensor_t *result);
+
+/** @brief Calculates the gradients of the mean squared error between the \link aimath_f32.h F32 \endlink predicted and the target data using a mean reduction
+  *
+  * @param *predicted_data  F32 matrix with the predicted or calculated values (2D tensor)
+  * @param *target_data     F32 matrix with the target data / true values / labels (2D tensor, rows one-hot encoded)
+  * @param *result          F32 tensor containing the gradients
+  */
+void aimath_f32_default_mse_gradients_mean(const aitensor_t *predicted, const aitensor_t *target, aitensor_t *result);
+
+/** @brief Calculates the mean squared error between the \link aimath_f32.h F32 \endlink predicted and the target data using a sum reduction
+  *
+  * @param *predicted_data  F32 matrix with the predicted or calculated values (2D tensor)
+  * @param *target_data     F32 matrix with the target data / true values / labels (2D tensor, rows one-hot encoded)
+  * @param *result          Resulting loss (float)
+  */
+void aimath_f32_default_mse_loss_sum(const aitensor_t *predicted, const aitensor_t *target, void *result);
+
+/** @brief Calculates the mean squared error between the \link aimath_f32.h F32 \endlink predicted and the target data using a mean reduction
+  *
+  * @param *predicted_data  F32 matrix with the predicted or calculated values (2D tensor)
+  * @param *target_data     F32 matrix with the target data / true values / labels (2D tensor, rows one-hot encoded)
+  * @param *result          Resulting loss (float)
+  */
+void aimath_f32_default_mse_loss_mean(const aitensor_t *predicted, const aitensor_t *target, void *result);
+
+/** @brief Scales a \link aimath_f32.h F32 \endlink tensor by batch size (size of first dimension)
+  *
+  * @param *a               F32 tensor that is going to be scaled by its batch size
+  * @param *result          Scaled F32 tensor
+  */
+void aimath_f32_default_scale_by_batch_size(const aitensor_t *a, aitensor_t *result);
 #endif // AIMATH_F32_DEFAULT
 

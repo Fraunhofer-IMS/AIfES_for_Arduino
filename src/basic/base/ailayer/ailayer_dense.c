@@ -1,8 +1,8 @@
 /**
  * \file basic/base/ailayer/ailayer_dense.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 20.10.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -22,7 +22,7 @@
 #include "basic/base/ailayer/ailayer_dense.h"
 #include "basic/base/aimath/aimath_basic.h"
 
-AISTRING_STORAGE_WRAPPER(aistring_layer_dense) = "Dense";
+AISTRING_STORAGE_WRAPPER(aistring_layer_dense, "Dense");
 
 const aicore_layertype_t ailayer_dense_type_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
@@ -268,7 +268,7 @@ void ailayer_dense_set_trainmem(ailayer_t *self, void *memory_ptr)
 }
 
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_dense_1) = "neurons: ";
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_dense_1, "neurons: ");
 
 void ailayer_dense_print_specs(const ailayer_t *self)
 {

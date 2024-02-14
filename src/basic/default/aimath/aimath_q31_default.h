@@ -3,8 +3,8 @@
  * \internal
  * \date 03.02.2021
  * \endinternal
- * \version 2.0alpha
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \version 2.2.0
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -1228,6 +1228,13 @@ int64_t aimath_q31_default_sqrt(int64_t x);
  */
 void aimath_q31_default_sum_channelwise(const aitensor_t *x, int8_t channel_axis, aitensor_t *result);
 
+// TODO: docs
+void aimath_q31_default_mse_gradients_sum(const aitensor_t *predicted, const aitensor_t *target, aitensor_t *result);
 
+void aimath_q31_default_mse_gradients_mean(const aitensor_t *predicted, const aitensor_t *target, aitensor_t *result);
+
+void aimath_q31_default_mse_loss_sum(const aitensor_t *predicted, const aitensor_t *target, void *result);
+
+void aimath_q31_default_mse_loss_mean(const aitensor_t *predicted, const aitensor_t *target, void *result);
 #endif // AIMATH_Q31_DEFAULT
 

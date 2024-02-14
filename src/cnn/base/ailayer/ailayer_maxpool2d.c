@@ -1,8 +1,8 @@
 /**
  * \file cnn/base/ailayer/ailayer_maxpool2d.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 20.10.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -23,7 +23,7 @@
 #include "basic/base/aimath/aimath_basic.h"
 
 
-AISTRING_STORAGE_WRAPPER(aistring_layer_maxpool2d) = "MaxPool2D";
+AISTRING_STORAGE_WRAPPER(aistring_layer_maxpool2d, "MaxPool2D");
 
 const aicore_layertype_t ailayer_maxpool2d_type_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
@@ -37,8 +37,8 @@ const aicore_layertype_t ailayer_maxpool2d_type_s = {
 const aicore_layertype_t *ailayer_maxpool2d_type = &ailayer_maxpool2d_type_s;
 
 
-AISTRING_STORAGE_WRAPPER(aistring_error_maxpool2d_1) = "[ailayer_maxpool2d] Padding shape must be smaller than pool_size.\n";
-AISTRING_STORAGE_WRAPPER(aistring_error_maxpool2d_2) = "[ailayer_maxpool2d] Channel axis must be either 1 (-3) or 3 (-1).\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_maxpool2d_1, "[ailayer_maxpool2d] Padding shape must be smaller than pool_size.\n");
+AISTRING_STORAGE_WRAPPER(aistring_error_maxpool2d_2, "[ailayer_maxpool2d] Channel axis must be either 1 (-3) or 3 (-1).\n");
 
 ailayer_t *ailayer_maxpool2d(ailayer_maxpool2d_t *layer, ailayer_t *input_layer)
 {
@@ -200,11 +200,11 @@ void ailayer_maxpool2d_set_trainmem(ailayer_t *self, void *memory_ptr)
 }
 
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_maxpool2d_1) = "pool_size: (";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_maxpool2d_2) = "); stride: (";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_maxpool2d_3) = "); padding: (";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_maxpool2d_4) = "); channel_axis: ";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_maxpool2d_5) = ", ";
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_maxpool2d_1, "pool_size: (");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_maxpool2d_2, "); stride: (");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_maxpool2d_3, "); padding: (");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_maxpool2d_4, "); channel_axis: ");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_maxpool2d_5, ", ");
 
 void ailayer_maxpool2d_print_specs(const ailayer_t *self)
 {

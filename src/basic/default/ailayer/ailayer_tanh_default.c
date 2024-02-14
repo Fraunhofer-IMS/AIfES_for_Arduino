@@ -1,9 +1,9 @@
 
 /**
  * \file basic/default/ailayer/ailayer_tanh_default.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 17.03.2021
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -53,7 +53,7 @@ ailayer_t *ailayer_tanh_q31_default(ailayer_tanh_q31_t *layer, ailayer_t *input_
 
 	// backward
 	layer->d_tanh = aimath_q31_default_d_tanh;
-	layer->multiply = aimath_f32_default_multiply;
+	layer->multiply = aimath_q31_default_multiply;
 
 	return ailayer_tanh(layer, input_layer);
 }

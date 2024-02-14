@@ -1,8 +1,8 @@
 /**
  * \file cnn/base/ailayer/ailayer_reshape.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 20.10.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -22,7 +22,7 @@
 #include "cnn/base/ailayer/ailayer_reshape.h"
 #include "basic/base/aimath/aimath_basic.h"
 
-AISTRING_STORAGE_WRAPPER(aistring_layer_reshape) = "Reshape";
+AISTRING_STORAGE_WRAPPER(aistring_layer_reshape, "Reshape");
 
 const aicore_layertype_t ailayer_reshape_type_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
@@ -128,9 +128,9 @@ void ailayer_reshape_calc_result_shape(ailayer_t *self)
 }
 
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_reshape1) = "output_shape: [";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_reshape2) = ", ";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_reshape3) = "]";
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_reshape1, "output_shape: [");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_reshape2, ", ");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_reshape3, "]");
 
 void ailayer_reshape_print_specs(const ailayer_t *self)
 {

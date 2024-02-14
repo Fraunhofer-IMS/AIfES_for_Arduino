@@ -3,8 +3,8 @@
  * \internal
  * \date 16.11.2021
  * \endinternal
- * \version 2.0alpha
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \version 2.2.0
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -30,9 +30,9 @@
 #include "basic/base/aimath/aimath_q31.h"
 
 
-AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_avr_pgm_1) = "[aimath_q7_avr_pgm_linear32] MatMul input shapes doesn't match.\n";
-AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_avr_pgm_2) = "[aimath_q7_avr_pgm_linear32] MatMul output shape doesn't match.\n";
-AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_avr_pgm_3) = "[aimath_q7_avr_pgm_linear32] Third operand shift does not match.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_avr_pgm_1, "[aimath_q7_avr_pgm_linear32] MatMul input shapes doesn't match.\n");
+AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_avr_pgm_2, "[aimath_q7_avr_pgm_linear32] MatMul output shape doesn't match.\n");
+AISTRING_STORAGE_WRAPPER(aistring_error_q7_linear32_avr_pgm_3, "[aimath_q7_avr_pgm_linear32] Third operand shift does not match.\n");
 
 void aimath_q7_avr_pgm_linear32_1(const aitensor_t *a, const aitensor_t *b, const aitensor_t *c, aitensor_t *result)
     {

@@ -2,7 +2,7 @@
  * \file cnn/base/ailayer/ailayer_batch_normalization.c
  * \version 2.2.0
  * \date 17.01.2022
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -22,7 +22,7 @@
 #include "cnn/base/ailayer/ailayer_batch_normalization.h"
 #include "basic/base/aimath/aimath_basic.h"
 
-AISTRING_STORAGE_WRAPPER(aistring_layer_batch_norm) = "Batch Normalization";
+AISTRING_STORAGE_WRAPPER(aistring_layer_batch_norm, "Batch Normalization");
 
 const aicore_layertype_t ailayer_batch_norm_type_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
@@ -378,9 +378,9 @@ void ailayer_batch_norm_set_trainmem(ailayer_t *self, void *memory_ptr)
 }
 
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_batch_norm_1) = "momentum: ";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_batch_norm_2) = ", eps: ";
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_batch_norm_3) = ", channel_axis: ";
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_batch_norm_1, "momentum: ");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_batch_norm_2, ", eps: ");
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_batch_norm_3, ", channel_axis: ");
 
 void ailayer_batch_norm_print_specs(const ailayer_t *self)
 {

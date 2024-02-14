@@ -93,7 +93,8 @@ $(document).ready(function(){initNavTree('ailayer__maxpool2d_8h.html',''); initR
   <div class="summary">
 <a href="#nested-classes">Data Structures</a> &#124;
 <a href="#typedef-members">Typedefs</a> &#124;
-<a href="#func-members">Functions</a>  </div>
+<a href="#func-members">Functions</a> &#124;
+<a href="#var-members">Variables</a>  </div>
   <div class="headertitle">
 <div class="title">ailayer_maxpool2d.h File Reference</div>  </div>
 </div><!--header-->
@@ -139,12 +140,18 @@ Functions</h2></td></tr>
 <tr class="memitem:ad141fd613fa8aed4795b1d943aceb99d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ailayer__maxpool2d_8h.html#ad141fd613fa8aed4795b1d943aceb99d">ailayer_maxpool2d_print_specs</a> (const <a class="el" href="structailayer.html">ailayer_t</a> *self)</td></tr>
 <tr class="memdesc:ad141fd613fa8aed4795b1d943aceb99d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the layer specification.  <a href="ailayer__maxpool2d_8h.html#ad141fd613fa8aed4795b1d943aceb99d">More...</a><br /></td></tr>
 <tr class="separator:ad141fd613fa8aed4795b1d943aceb99d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+</table><table class="memberdecls">
+<tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="var-members"></a>
+Variables</h2></td></tr>
+<tr class="memitem:a4487d1de4f6a327ef9860f98f8be6a6c"><td class="memItemLeft" align="right" valign="top">const <a class="el" href="structaicore__layertype.html">aicore_layertype_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ailayer__maxpool2d_8h.html#a4487d1de4f6a327ef9860f98f8be6a6c">ailayer_maxpool2d_type</a></td></tr>
+<tr class="memdesc:a4487d1de4f6a327ef9860f98f8be6a6c"><td class="mdescLeft">&#160;</td><td class="mdescRight">MaxPool2D layer type.  <a href="ailayer__maxpool2d_8h.html#a4487d1de4f6a327ef9860f98f8be6a6c">More...</a><br /></td></tr>
+<tr class="separator:a4487d1de4f6a327ef9860f98f8be6a6c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base <a class="el" href="structailayer.html">layer </a> implementation of the MaxPool2D layer. </p>
-<dl class="section version"><dt>Version</dt><dd>2.0alpha </dd></dl>
+<dl class="section version"><dt>Version</dt><dd>2.2.0 </dd></dl>
 <dl class="section date"><dt>Date</dt><dd>20.10.2020 </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2020-2021 Fraunhofer Institute for Microelectronic Circuits and Systems. All rights reserved.<br  />
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2020-2023 Fraunhofer Institute for Microelectronic Circuits and Systems. All rights reserved.<br  />
 <br  />
  AIfES is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.<br  />
 <br  />
@@ -385,6 +392,32 @@ This function is not intended to call it directly. Instead use one of the data t
   </dd>
 </dl>
 <dl class="section return"><dt>Returns</dt><dd>Calculated gradient memory size in bytes. </dd></dl>
+
+</div>
+</div>
+<h2 class="groupheader">Variable Documentation</h2>
+<a id="a4487d1de4f6a327ef9860f98f8be6a6c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a4487d1de4f6a327ef9860f98f8be6a6c">&#9670;&nbsp;</a></span>ailayer_maxpool2d_type</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">const <a class="el" href="structaicore__layertype.html">aicore_layertype_t</a>* ailayer_maxpool2d_type</td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">extern</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+
+<p>MaxPool2D layer type. </p>
+<p>Defines the type of the layer (for example for type checks and debug prints). See <a class="el" href="structaicore__layertype.html" title="Type indicator of the layer.">aicore_layertype</a> for more information about the layer type. </p>
 
 </div>
 </div>

@@ -8,5 +8,6 @@ var ailayer__maxpool2d_8h =
     [ "ailayer_maxpool2d_forward", "ailayer__maxpool2d_8h.html#a36b772521d7348550ed2756106eea5ab", null ],
     [ "ailayer_maxpool2d_print_specs", "ailayer__maxpool2d_8h.html#ad141fd613fa8aed4795b1d943aceb99d", null ],
     [ "ailayer_maxpool2d_set_trainmem", "ailayer__maxpool2d_8h.html#a09b4385fa2b5c8606f33fe1b62caf235", null ],
-    [ "ailayer_maxpool2d_sizeof_trainmem", "ailayer__maxpool2d_8h.html#a3e00dc97dd7b07ece086a40445735b43", null ]
+    [ "ailayer_maxpool2d_sizeof_trainmem", "ailayer__maxpool2d_8h.html#a3e00dc97dd7b07ece086a40445735b43", null ],
+    [ "ailayer_maxpool2d_type", "ailayer__maxpool2d_8h.html#a4487d1de4f6a327ef9860f98f8be6a6c", null ]
 ];
