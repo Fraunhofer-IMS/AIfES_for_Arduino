@@ -155,5 +155,29 @@ Alternatively, the manual download is also possible:
 Download the AIfES repository as a ZIP archive and follow these instructions:
 <https://www.arduino.cc/en/guide/libraries>
 
+## Citation
+If you use this software in your work please cite it.
+
+For your scientific work you can cite the following paper:
+Plain Text:
+``` 
+L. Wulfert et al., "AIfES: A Next-Generation Edge AI Framework," in IEEE Transactions on Pattern Analysis and Machine Intelligence, doi: 10.1109/TPAMI.2024.3355495.
+keywords: {Training;Data models;Artificial intelligence;Support vector machines;Hardware acceleration;Libraries;Performance evaluation;Machine Learning Framework;Edge AI Framework;On-Device Training;Embedded Systems;Resource-Constrained Devices;TinyML}
+```
+
+BibTex:
+```
+@ARTICLE{10403985,
+  author={Wulfert, Lars and Kühnel, Johannes and Krupp, Lukas and Viga, Justus and Wiede, Christian and Gembaczka, Pierre and Grabmaier, Anton},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+  title={AIfES: A Next-Generation Edge AI Framework}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-16},
+  keywords={Training;Data models;Artificial intelligence;Support vector machines;Hardware acceleration;Libraries;Performance evaluation;Machine Learning Framework;Edge AI Framework;On-Device Training;Embedded Systems;Resource-Constrained Devices;TinyML},
+  doi={10.1109/TPAMI.2024.3355495}}
+```
+
 ## Roadmap
 The AIfES team at Fraunhofer IMS is constantly working on new features and network types.
