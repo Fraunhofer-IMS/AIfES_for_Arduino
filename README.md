@@ -159,6 +159,7 @@ Download the AIfES repository as a ZIP archive and follow these instructions:
 If you use this software in your work please cite it.
 
 For your scientific work you can cite the following paper:
+
 Plain Text:
 ``` 
 L. Wulfert et al., "AIfES: A Next-Generation Edge AI Framework," in IEEE Transactions on Pattern Analysis and Machine Intelligence, doi: 10.1109/TPAMI.2024.3355495.
