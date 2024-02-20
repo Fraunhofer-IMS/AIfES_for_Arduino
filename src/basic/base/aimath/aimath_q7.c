@@ -1,20 +1,17 @@
 /**
  * \file basic/base/aimath/aimath_q7.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 28.10.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
-    All rights reserved.
-
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
+    All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
+    (at your option) any later version.<br><br>
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
+    GNU Affero General Public License for more details.<br><br>
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
@@ -24,7 +21,7 @@
 
 #include "basic/base/aimath/aimath_q7.h"
 
-AISTRING_STORAGE_WRAPPER(aistring_dtype_q7) = "Q7";
+AISTRING_STORAGE_WRAPPER(aistring_dtype_q7, "Q7");
 
 const aimath_dtype_t aiq7_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
@@ -39,13 +36,13 @@ const aimath_dtype_t aiq7_s = {
 };
 const aimath_dtype_t *aiq7 = &aiq7_s;
 
-AISTRING_STORAGE_WRAPPER(aistring_q7_print_aitensor_bracket) = " (";
-AISTRING_STORAGE_WRAPPER(aistring_q7_print_aitensor_tab) = ")\t";
-AISTRING_STORAGE_WRAPPER(aistring_q7_print_aitensor_nl) = "\n";
-AISTRING_STORAGE_WRAPPER(aistring_q7_print_aitensor_1) = "Q7 (S: ";
-AISTRING_STORAGE_WRAPPER(aistring_q7_print_aitensor_2) = "; ZP: ";
-AISTRING_STORAGE_WRAPPER(aistring_q7_print_aitensor_3) = ") [\n";
-AISTRING_STORAGE_WRAPPER(aistring_q7_print_aitensor_4) = "]\n";
+AISTRING_STORAGE_WRAPPER(aistring_q7_print_aitensor_bracket, " (");
+AISTRING_STORAGE_WRAPPER(aistring_q7_print_aitensor_tab, ")\t");
+AISTRING_STORAGE_WRAPPER(aistring_q7_print_aitensor_nl, "\n");
+AISTRING_STORAGE_WRAPPER(aistring_q7_print_aitensor_1, "Q7 (S: ");
+AISTRING_STORAGE_WRAPPER(aistring_q7_print_aitensor_2, "; ZP: ");
+AISTRING_STORAGE_WRAPPER(aistring_q7_print_aitensor_3, ") [\n");
+AISTRING_STORAGE_WRAPPER(aistring_q7_print_aitensor_4, "]\n");
 
 void aimath_q7_print_aitensor(const aitensor_t *tensor)
 {
@@ -111,10 +108,10 @@ void aimath_q7_print_aitensor(const aitensor_t *tensor)
 	return;
 }
 
-AISTRING_STORAGE_WRAPPER(aistring_q7_print_aiscalar_1) = " (Q7 | V: ";
-AISTRING_STORAGE_WRAPPER(aistring_q7_print_aiscalar_2) = "; S: ";
-AISTRING_STORAGE_WRAPPER(aistring_q7_print_aiscalar_3) = "; ZP: ";
-AISTRING_STORAGE_WRAPPER(aistring_q7_print_aiscalar_4) = ")";
+AISTRING_STORAGE_WRAPPER(aistring_q7_print_aiscalar_1, " (Q7 | V: ");
+AISTRING_STORAGE_WRAPPER(aistring_q7_print_aiscalar_2, "; S: ");
+AISTRING_STORAGE_WRAPPER(aistring_q7_print_aiscalar_3, "; ZP: ");
+AISTRING_STORAGE_WRAPPER(aistring_q7_print_aiscalar_4, ")");
 
 void aimath_q7_print_aiscalar(const void *scalar)
 {
@@ -129,13 +126,12 @@ void aimath_q7_print_aiscalar(const void *scalar)
     AIPRINT(aistring_q7_print_aiscalar_4);
 }
 
-AISTRING_STORAGE_WRAPPER(aistring_error_q7_calc_q_params_from_f32_1) = "[aimath_q7_calc_q_params_from_f32] min_value has to be smaller than max_value.\n";
-AISTRING_STORAGE_WRAPPER(aistring_error_q7_calc_q_params_from_f32_2) = "[aimath_q7_calc_q_params_from_f32] One or more values are too big to quantize them to a 8 bit integer.\n";
+AISTRING_STORAGE_WRAPPER(aistring_error_q7_calc_q_params_from_f32_1, "[aimath_q7_calc_q_params_from_f32] min_value has to be smaller than max_value.\n");
+AISTRING_STORAGE_WRAPPER(aistring_error_q7_calc_q_params_from_f32_2, "[aimath_q7_calc_q_params_from_f32] One or more values are too big to quantize them to a 8 bit integer.\n");
 
 void aimath_q7_calc_q_params_from_f32(float min_value, float max_value, aimath_q7_params_t *q_params)
 {
     int8_t min_target = -128;
-    //int8_t max_target = 127;
     uint8_t target_interval_bitlen = 8;
     int8_t value_interval_bitlen;
 
@@ -164,7 +160,6 @@ void aimath_q7_calc_q_params_from_f32(float min_value, float max_value, aimath_q
     #endif // AIDEBUG_GENERAL_CHECKS
 
     // Find the smalles 2^n interval that fits interval_old
-    // value_interval_bitlen = (int) ceil(log2(interval_old))
     interval_new = 1.0f / (float) ((uint32_t) 1 << 24);
     for(value_interval_bitlen = -24; interval_new <= interval_old; value_interval_bitlen++){
         interval_new *= 2;
@@ -180,7 +175,6 @@ void aimath_q7_calc_q_params_from_f32(float min_value, float max_value, aimath_q
 
     // Adapt the old interval borders to the new ones
     float min_new = min_value - (interval_new - interval_old) / 2.0f;
-    //float max_new = max_value + (interval_new - interval_old) / 2.0f;
 
     uint16_t shift = target_interval_bitlen - value_interval_bitlen;
     int8_t zero_point = (int8_t)(-min_new * (float) (1 << shift) + ((-min_value) >= 0 ? 0.5f : -0.5f)) + min_target;

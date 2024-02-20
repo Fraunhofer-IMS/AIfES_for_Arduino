@@ -3,20 +3,17 @@
  * \internal
  * \date 28.10.2020
  * \endinternal
- * \version 2.0alpha
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
-    All rights reserved.
-
+ * \version 2.2.0
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
+    All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
+    (at your option) any later version.<br><br>
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
+    GNU Affero General Public License for more details.<br><br>
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
@@ -78,12 +75,26 @@
 #include "core/aifes_math.h"
 #include "basic/base/aimath/aimath_basic.h"
 
+/** @brief Initialize a 1 dimensional F32 tensor
+ *
+ * @param shape A uint16_t array of length 1 for the shape
+ * @param data  A float array for the tensor data
+ */
+#define AITENSOR_1D_F32(shape, data)    {aif32, 1, (uint16_t *) shape, 0, (float *) data}
+
 /** @brief Initialize a 2 dimensional F32 tensor
  *
  * @param shape A uint16_t array of length 2 for the shape
  * @param data  A float array for the tensor data
  */
-#define AITENSOR_2D_F32(shape, data)    {aif32, 2, shape, 0, data}
+#define AITENSOR_2D_F32(shape, data)    {aif32, 2, (uint16_t *) shape, 0, (float *) data}
+
+/** @brief Initialize a 4 dimensional F32 tensor
+ *
+ * @param shape A uint16_t array of length 4 for the shape
+ * @param data  A float array for the tensor data
+ */
+#define AITENSOR_4D_F32(shape, data)    {aif32, 4, (uint16_t *) shape, 0, (float *) data}
 
 /** @brief Scalar for F32 (aif32) data-type
  *
@@ -117,7 +128,6 @@ typedef float				aiscalar_f32_t;
  * is prefered.
  *
  * @param *tensor	The tensor to print.
- * @param *print	The print function to use (Must be able to handle formated strings)
  */
 void aimath_f32_print_aitensor(const aitensor_t *tensor);
 
@@ -130,7 +140,6 @@ void aimath_f32_print_aitensor(const aitensor_t *tensor);
  * is prefered.
  *
  * @param *scalar	The scalar (type: float) to print.
- * @param *print	The print function to use (Must be able to handle formated strings)
  */
 void aimath_f32_print_aiscalar(const void *scalar);
 

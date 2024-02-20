@@ -115,58 +115,54 @@ const <a class="el" href="structaimath__dtype.html">aimath_dtype_t</a> *&#160;</
 <tr><td colspan="2"><div class="groupHeader">Math fuctions</div></td></tr>
 <tr><td colspan="2"><div class="groupText"><p>Required data type specific math functions </p>
 </div></td></tr>
-<tr class="memitem:a5f5b55cad6c306233a8e4510d1773244"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structailoss__mse.html#a5f5b55cad6c306233a8e4510d1773244">tensor_sub</a> )(const <a class="el" href="structaitensor.html">aitensor_t</a> *a, const <a class="el" href="structaitensor.html">aitensor_t</a> *b, <a class="el" href="structaitensor.html">aitensor_t</a> *result)</td></tr>
-<tr class="memdesc:a5f5b55cad6c306233a8e4510d1773244"><td class="mdescLeft">&#160;</td><td class="mdescRight">Required math function: Element wise tensor subtraction.  <a href="structailoss__mse.html#a5f5b55cad6c306233a8e4510d1773244">More...</a><br /></td></tr>
-<tr class="separator:a5f5b55cad6c306233a8e4510d1773244"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:afa10b339e3aeb58766e81c49a18bbea2"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structailoss__mse.html#afa10b339e3aeb58766e81c49a18bbea2">norm_squared</a> )(const <a class="el" href="structaitensor.html">aitensor_t</a> *x, void *result)</td></tr>
-<tr class="memdesc:afa10b339e3aeb58766e81c49a18bbea2"><td class="mdescLeft">&#160;</td><td class="mdescRight">Required math function: Squared sum of tensor elements.  <a href="structailoss__mse.html#afa10b339e3aeb58766e81c49a18bbea2">More...</a><br /></td></tr>
-<tr class="separator:afa10b339e3aeb58766e81c49a18bbea2"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2a66dbdd12def87d03f2f773a5e379f0"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structailoss__mse.html#a2a66dbdd12def87d03f2f773a5e379f0">mse_gradients</a> )(const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted, const <a class="el" href="structaitensor.html">aitensor_t</a> *target, <a class="el" href="structaitensor.html">aitensor_t</a> *result)</td></tr>
+<tr class="memdesc:a2a66dbdd12def87d03f2f773a5e379f0"><td class="mdescLeft">&#160;</td><td class="mdescRight">Required math function: Gradient calculation of MSE loss function.  <a href="structailoss__mse.html#a2a66dbdd12def87d03f2f773a5e379f0">More...</a><br /></td></tr>
+<tr class="separator:a2a66dbdd12def87d03f2f773a5e379f0"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad2a12952092157bd8f5e8bc4bee6aaae"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structailoss__mse.html#ad2a12952092157bd8f5e8bc4bee6aaae">mse_loss</a> )(const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted, const <a class="el" href="structaitensor.html">aitensor_t</a> *target, void *result)</td></tr>
+<tr class="memdesc:ad2a12952092157bd8f5e8bc4bee6aaae"><td class="mdescLeft">&#160;</td><td class="mdescRight">Required math function: Calculation of the MSE loss function.  <a href="structailoss__mse.html#ad2a12952092157bd8f5e8bc4bee6aaae">More...</a><br /></td></tr>
+<tr class="separator:ad2a12952092157bd8f5e8bc4bee6aaae"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>General <a class="el" href="ailoss__mse_8h.html">Mean Squared Error (MSE) loss </a> struct. </p>
 </div><h2 class="groupheader">Field Documentation</h2>
-<a id="afa10b339e3aeb58766e81c49a18bbea2"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#afa10b339e3aeb58766e81c49a18bbea2">&#9670;&nbsp;</a></span>norm_squared</h2>
+<a id="a2a66dbdd12def87d03f2f773a5e379f0"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2a66dbdd12def87d03f2f773a5e379f0">&#9670;&nbsp;</a></span>mse_gradients</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* norm_squared) (const <a class="el" href="structaitensor.html">aitensor_t</a> *x, void *result)</td>
+          <td class="memname">void(* mse_gradients) (const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted, const <a class="el" href="structaitensor.html">aitensor_t</a> *target, <a class="el" href="structaitensor.html">aitensor_t</a> *result)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Required math function: Squared sum of tensor elements. </p>
-<p>Requires a math function that calculates the squared sum of all elements of a given tensor:<br  />
- </p><p class="formulaDsp">
-\[ result = \sum_i x_{i}^2 \]
+<p>Required math function: Gradient calculation of MSE loss function. </p>
+<p>Requires a math function that calculates the gradient for each output with respect to the MSE loss:<br  />
 </p>
- 
+
 </div>
 </div>
-<a id="a5f5b55cad6c306233a8e4510d1773244"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a5f5b55cad6c306233a8e4510d1773244">&#9670;&nbsp;</a></span>tensor_sub</h2>
+<a id="ad2a12952092157bd8f5e8bc4bee6aaae"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad2a12952092157bd8f5e8bc4bee6aaae">&#9670;&nbsp;</a></span>mse_loss</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void(* tensor_sub) (const <a class="el" href="structaitensor.html">aitensor_t</a> *a, const <a class="el" href="structaitensor.html">aitensor_t</a> *b, <a class="el" href="structaitensor.html">aitensor_t</a> *result)</td>
+          <td class="memname">void(* mse_loss) (const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted, const <a class="el" href="structaitensor.html">aitensor_t</a> *target, void *result)</td>
         </tr>
       </table>
 </div><div class="memdoc">
 
-<p>Required math function: Element wise tensor subtraction. </p>
-<p>Requires a math function that subtracts two tensors element wise:<br  />
- </p><p class="formulaDsp">
-\[ result = a - b \]
+<p>Required math function: Calculation of the MSE loss function. </p>
+<p>Requires a math function that calculates loss of the prediction compared to the target:<br  />
 </p>
- 
+
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/builds/ims-esa/aifes_2/include/basic/base/ailoss/<a class="el" href="ailoss__mse_8h_source.html">ailoss_mse.h</a></li>
+<li><a class="el" href="ailoss__mse_8h_source.html">ailoss_mse.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

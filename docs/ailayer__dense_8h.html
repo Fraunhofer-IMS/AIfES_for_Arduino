@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AIfES 2: /builds/ims-esa/aifes_2/include/basic/base/ailayer/ailayer_dense.h File Reference</title>
+<title>AIfES 2: ailayer_dense.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -131,6 +131,9 @@ Functions</h2></td></tr>
 <tr class="memitem:af5b9c869c1fa531d97c4552260a281bb"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ailayer__dense_8h.html#af5b9c869c1fa531d97c4552260a281bb">ailayer_dense_calc_result_shape</a> (<a class="el" href="structailayer.html">ailayer_t</a> *self)</td></tr>
 <tr class="memdesc:af5b9c869c1fa531d97c4552260a281bb"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the shape of the result tensor (<a class="el" href="structailayer.html#a1ed86d1fec7aae68bc79c55f3f965790" title="The result of the forward function is stored here.">ailayer.result</a>)  <a href="ailayer__dense_8h.html#af5b9c869c1fa531d97c4552260a281bb">More...</a><br /></td></tr>
 <tr class="separator:af5b9c869c1fa531d97c4552260a281bb"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a30255360ac6220d5c0db2951f94cc28e"><td class="memItemLeft" align="right" valign="top"><a id="a30255360ac6220d5c0db2951f94cc28e"></a>
+uint32_t&#160;</td><td class="memItemRight" valign="bottom"><b>ailayer_dense_sizeof_bwdmem</b> (const <a class="el" href="structailayer.html">ailayer_t</a> *self)</td></tr>
+<tr class="separator:a30255360ac6220d5c0db2951f94cc28e"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:acbf46397f7de94812d143bce76e242e9"><td class="memItemLeft" align="right" valign="top">uint32_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ailayer__dense_8h.html#acbf46397f7de94812d143bce76e242e9">ailayer_dense_sizeof_paramem</a> (const <a class="el" href="structailayer.html">ailayer_t</a> *self)</td></tr>
 <tr class="memdesc:acbf46397f7de94812d143bce76e242e9"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate and return the parameter memory size needed for this layer.  <a href="ailayer__dense_8h.html#acbf46397f7de94812d143bce76e242e9">More...</a><br /></td></tr>
 <tr class="separator:acbf46397f7de94812d143bce76e242e9"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -155,8 +158,8 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base <a class="el" href="structailayer.html">layer </a> implementation of the Dense layer. </p>
-<dl class="section version"><dt>Version</dt><dd>2.0alpha </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2020-2021 Fraunhofer Institute for Microelectronic Circuits and Systems. All rights reserved.<br  />
+<dl class="section version"><dt>Version</dt><dd>2.2.0 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2020-2023 Fraunhofer Institute for Microelectronic Circuits and Systems. All rights reserved.<br  />
 <br  />
  AIfES is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.<br  />
 <br  />
@@ -167,7 +170,7 @@ Variables</h2></td></tr>
 <div class="image">
 <img src="ailayer_dense_schematic.png" alt="" width="200px"/>
 </div>
-<p>The Dense layer (or fully connected layer) is the core layer of a FNN and calculates the weighted sums of its inputs </p><p class="formulaDsp">
+<p>The Dense layer (or fully-connected layer) is the core layer of a FNN and calculates the weighted sums of its inputs </p><p class="formulaDsp">
 \[ y = x \cdot W + b \]
 </p>
 <p> with the number of inputs \( K \), the number of neurons / outputs \( M \), the input vektor \( x \in \mathbb{R}^{1 \times K} \), the output vektor \( y \in \mathbb{R}^{1 \times M} \), the weights matrix \( W \in \mathbb{R}^{K \times M} \) and the bias \( b \in \mathbb{R}^{1 \times M} \).</p>
@@ -257,8 +260,10 @@ This function is not intended to call it directly. Instead use one of the data t
  \( \delta_{out} \): Result of the backward pass of the next layer<br  />
 <br  />
  Used math functions:</p><ul>
-<li><a class="el" href="structailayer__dense.html#ae42c3139db5213ba8619454dc7e026f7" title="Required math function: Matrix multiplication.">ailayer_dense.mat_mul</a></li>
+<li><a class="el" href="structailayer__dense.html#aa401e714d435b2673670e3be35da33c1" title="Required math function: Matrix multiplication with transposed a.">ailayer_dense.mat_mul_at</a></li>
+<li><a class="el" href="structailayer__dense.html#a422118d4ddc5559465a4a411dc20bcb5" title="Required math function: Matrix multiplication with transposed b.">ailayer_dense.mat_mul_bt</a></li>
 <li><a class="el" href="structailayer__dense.html#a7674445f16490c6cacdb03157feab8c7" title="Required math function: Element wise tensor addition.">ailayer_dense.tensor_add</a></li>
+<li>ailayer.dense.sum_channelwise</li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -320,7 +325,7 @@ This function is not intended to call it directly. Instead use one of the data t
 \[ x_{out} \leftarrow x_{in} \cdot w \oplus b \]
 </p>
 <p>\( w \): Weights matrix<br  />
- \( b \): Bias vektor<br  />
+ \( b \): Bias vector<br  />
  \( x_{in} \): Result of the forward pass of the previous layer<br  />
  \( x_{out} \): Result of the forward pass of this layer<br  />
 <br  />

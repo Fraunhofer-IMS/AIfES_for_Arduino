@@ -1,4 +1,11 @@
 var searchData=
 [
-  ['update_5fparams_1068',['update_params',['../structaiopti.html#a833b900d14688a649c1037466adf444b',1,'aiopti']]]
+  ['tanh_1378',['tanh',['../structailayer__tanh.html#a044094cf164cf12ae0a5cc682dfc9804',1,'ailayer_tanh']]],
+  ['tempmem_1379',['tempmem',['../structailayer.html#a5b6e01700671b0cb2118edd432b09a76',1,'ailayer']]],
+  ['tensor_5fadd_1380',['tensor_add',['../structailayer__dense.html#a7674445f16490c6cacdb03157feab8c7',1,'ailayer_dense::tensor_add()'],['../structailayer__template.html#a7674445f16490c6cacdb03157feab8c7',1,'ailayer_template::tensor_add()'],['../structaiopti__adam.html#a7674445f16490c6cacdb03157feab8c7',1,'aiopti_adam::tensor_add()'],['../structaiopti__sgd.html#a7674445f16490c6cacdb03157feab8c7',1,'aiopti_sgd::tensor_add()'],['../structailayer__conv2d.html#a7674445f16490c6cacdb03157feab8c7',1,'ailayer_conv2d::tensor_add()']]],
+  ['tensor_5fparams_1381',['tensor_params',['../structaitensor.html#ab615dd1ddcc27064097dd98cbc7fe9a0',1,'aitensor']]],
+  ['tensor_5fparams_5fsize_1382',['tensor_params_size',['../structaimath__dtype.html#a05bb6981d499d285a533edfc40bab941',1,'aimath_dtype']]],
+  ['tensor_5fsub_1383',['tensor_sub',['../structailoss__crossentropy.html#a5f5b55cad6c306233a8e4510d1773244',1,'ailoss_crossentropy::tensor_sub()'],['../structaiopti__sgd.html#a5f5b55cad6c306233a8e4510d1773244',1,'aiopti_sgd::tensor_sub()'],['../structaiopti__adam.html#a5f5b55cad6c306233a8e4510d1773244',1,'aiopti_adam::tensor_sub()']]],
+  ['trainable_5fparams_1384',['trainable_params',['../structailayer__dense.html#afcc6c64ff572ae7408fe1c4bcfe7b9d1',1,'ailayer_dense::trainable_params()'],['../structailayer__template.html#afcc6c64ff572ae7408fe1c4bcfe7b9d1',1,'ailayer_template::trainable_params()'],['../structailayer.html#a8a3410d74de23e53ffb75649fec0851a',1,'ailayer::trainable_params()'],['../structailayer__batch__norm.html#afcc6c64ff572ae7408fe1c4bcfe7b9d1',1,'ailayer_batch_norm::trainable_params()'],['../structailayer__conv2d.html#afcc6c64ff572ae7408fe1c4bcfe7b9d1',1,'ailayer_conv2d::trainable_params()']]],
+  ['trainable_5fparams_5fcount_1385',['trainable_params_count',['../structaimodel.html#a0ccfc06a73c9325540dea85791a1e36b',1,'aimodel::trainable_params_count()'],['../structailayer.html#a328cb32bcb611f02ace7da86ab9711a2',1,'ailayer::trainable_params_count()']]]
 ];

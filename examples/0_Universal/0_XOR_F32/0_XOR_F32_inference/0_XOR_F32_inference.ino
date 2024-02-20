@@ -2,7 +2,7 @@
   /*
   www.aifes.ai
   https://github.com/Fraunhofer-IMS/AIfES_for_Arduino
-  Copyright (C) 2020-2022  Fraunhofer Institute for Microelectronic Circuits and Systems.
+  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
   All rights reserved.
 
   AIfES is free software: you can redistribute it and/or modify

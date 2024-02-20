@@ -3,20 +3,17 @@
  * \internal
  * \date 20.10.2020
  * \endinternal
- * \version 2.0alpha
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
-    All rights reserved.
-
+ * \version 2.2.0
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
+    All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
+    (at your option) any later version.<br><br>
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
+    GNU Affero General Public License for more details.<br><br>
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
@@ -113,9 +110,9 @@ aitensor_t *aialgo_forward_model(aimodel_t *model, aitensor_t *input_data);
  * @param *model         The model
  * @param *input_data    Input data tensor of the same shape as the input_layer shape
  * @param *output_data   Empty tensor for the results of the inference with the size of your outputs
- * @return               Pointer to the output_data tensor with the results
+ * @return               0 if successful
  */
-aitensor_t *aialgo_inference_model(aimodel_t *model, aitensor_t *input_data, aitensor_t *output_data);
+uint8_t aialgo_inference_model(aimodel_t *model, aitensor_t *input_data, aitensor_t *output_data);
 
 /** @brief Initialize the model structure
 *
@@ -171,5 +168,66 @@ void aialgo_set_model_gradient_precision_q31(aimodel_t *model, uint16_t shift);
 * @param *model The model
 */
 void aialgo_print_model_structure(aimodel_t *model);
+
+/** @brief Apply the specified setting to all layers in the model
+ *
+ * @param *model    The model
+ * @param bitmask   32-bit mask to address the setting value (usually set to 0b1)
+ * @param shift     The amount of bits to shift the bitmask to address the desired setting value (e.g. AILAYER_SETTINGS_TRAINING_MODE)
+ * @param value     The target value
+ */
+void aialgo_set_layer_settings_model(aimodel_t *model, uint32_t bitmask, uint8_t shift, uint32_t value);
+
+/** @brief Enables / disables the training mode of the model
+*
+* Some layers may behave differently during training than during inference (e.g. the Batch Normalization layer).\n
+* The aialgo_train_model() function calls this function internally.
+*
+* The setting value can be accessed with:
+* \code{c}
+* if(AILAYER_SETTINGS_IS(layer->settings, 0b1, AILAYER_SETTINGS_TRAINING_MODE)){
+*   ...
+* }
+* \endcode
+*
+* @param *model     The model
+* @param value      Target value (TRUE or FALSE)
+*/
+void aialgo_set_training_mode_model(aimodel_t *model, uint8_t value);
+
+/** @brief Enables / disables the batch mode of the model
+*
+* When executed in batch mode, a whole batch is processed by one forward pass.\n
+* Some layers may behave differently during training than during inference (e.g. the Batch Normalization layer).\n
+* The aialgo_train_model() function calls this function internally (Batch mode gets enabled if the batch_size equals the first element of
+* the ailayer_input.input_shape and gets disabled otherwise).
+*
+* The setting value can be accessed with:
+* \code{c}
+* if(AILAYER_SETTINGS_IS(layer->settings, 0b1, AILAYER_SETTINGS_BATCH_MODE)){
+*   ...
+* }
+* \endcode
+*
+* @param *model     The model
+* @param value      Target value (TRUE or FALSE)
+*/
+void aialgo_set_batch_mode_model(aimodel_t *model, uint8_t value);
+
+/** @brief Freeze / Unfreeze trainable parameters of the model
+*
+* When a layer is set to trainable = FALSE, the corresponding parameters are not modified by aialgo_train_model().
+*
+* The setting value can be accessed with:
+* \code{c}
+* if(AILAYER_SETTINGS_IS(layer->settings, 0b1, AILAYER_SETTINGS_TRAINABLE)){
+*   ...
+* }
+* \endcode
+*
+* @param *model     The model
+* @param value      Target value (TRUE or FALSE)
+*/
+void aialgo_set_trainable_model(aimodel_t *model, uint8_t value);
 
 #endif // AIALGO_SEQUENTIAL_INFERENCE

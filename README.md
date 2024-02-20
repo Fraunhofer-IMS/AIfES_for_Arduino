@@ -3,11 +3,11 @@
 # AIfES for Arduino®
 
 AIfES (Artificial Intelligence for Embedded Systems) is a platform-independent and standalone AI software framework optimized for embedded systems.
-The Feedforward Neural Networks (FNN) implemented in AIfES can be freely parameterized, trained, modified or reloaded at runtime.
+The Feedforward Neural Networks (FNN) and Convolutional Neural Networks (CNN) implemented in AIfES can be freely parameterized, trained, modified or reloaded at runtime.
 In this version, it is optimized for the Arduino IDE and compatible to almost any Arduino board.
 AIfES is developed in the C programming language and uses only standard libraries based on the GNU Compiler Collection (GCC).
 AIfES thus runs on almost any hardware from 8-bit microcontrollers over Raspberry PI to smartphones or PCs.
-Not only inference of FNN is possible, but also training directly in the device. Furthermore, compatibility to other AI software frameworks such as Keras or TensorFlow is also given.
+Not only inference of FNN and CNN is possible, but also training directly in the device. Furthermore, compatibility to other AI software frameworks such as Keras or TensorFlow is also given.
 
 AIfES was developed by the Fraunhofer Institute for Microelectronic Circuits and Systems IMS. Additional information can be found at <www.aifes.ai>
 
@@ -61,7 +61,14 @@ This standard can speed up inference and training for large FNNs.
 Please read the README.md in https://github.com/Fraunhofer-IMS/AIfES_for_Arduino/tree/main/src/CMSIS for more information on how to add the CMSIS library.
 
 ### Python
-To help you with the quantization of a neural network, we provide some Python tools. You can install them via pip with:
+
+To get you startet we developed the [AIfES-Converter](https://github.com/Fraunhofer-IMS/AIfES-Converter). It can export your FNN from Python and create the suitable AIfES code. 
+Furthermore, it helps you with the quantization of your neural network. 
+You can install it via pip with:
+
+```pip install AIfES-Converter```
+
+The quantization can also be done manually by using the provided Python tools in this repository. You can install them via pip with:
 
 ```pip install https://github.com/Fraunhofer-IMS/AIfES_for_Arduino/raw/main/etc/python/aifes_tools.zip```
 
@@ -101,6 +108,11 @@ The number of neurons and the number of different layers can be adapted individu
 | ELU | ailayer_elu_f32_default() | ailayer_elu_q31_default() | ailayer_elu_q7_default()<br>ailayer_elu_q7_avr_pgm() |
 | Tanh | ailayer_tanh_f32_default() | ailayer_tanh_q31_default() | ailayer_tanh_q7_default()<br>ailayer_tanh_q7_avr_pgm() |
 | Softsign | ailayer_softsign_f32_default() | ailayer_softsign_q31_default()| ailayer_softsign_q7_default()<br>ailayer_softsign_q7_avr_pgm() |
+| Conv2D | ailayer_conv2d_f32_default() |  |  |
+| Batch Normalization | ailayer_batch_norm_f32_default() |  |  |
+| MaxPool2D | ailayer_maxpool2d_f32_default() |  |  |
+| Reshape | ailayer_reshape_f32_default() |  |  |
+| Flatten | ailayer_flatten_f32_default() |  |  |
 
 **Training layer**
 
@@ -115,6 +127,11 @@ The number of neurons and the number of different layers can be adapted individu
 | ELU | ailayer_elu_f32_default() | ailayer_elu_q31_default()|         |
 | Tanh | ailayer_tanh_f32_default() | ailayer_tanh_q31_default() |         |
 | Softsign | ailayer_softsign_f32_default() | ailayer_softsign_q31_default() |         |
+| Conv2D | ailayer_conv2d_f32_default() |  |  |
+| Batch Normalization | ailayer_batch_norm_f32_default() |  |  |
+| MaxPool2D | ailayer_maxpool2d_f32_default() |  |  |
+| Reshape | ailayer_reshape_f32_default() |  |  |
+| Flatten | ailayer_flatten_f32_default() |  |  |
 
 **Loss:**
 
@@ -138,8 +155,30 @@ Alternatively, the manual download is also possible:
 Download the AIfES repository as a ZIP archive and follow these instructions:
 <https://www.arduino.cc/en/guide/libraries>
 
-## Roadmap
-The AIfES team at Fraunhofer IMS is constantly working on new features and network types. The next feature you can look forward to is:
+## Citation
+If you use this software in your work please cite it.
 
-### Convolutional Neural Networks (ConvNet) 
-Soon, classical ConvNets can be executed and trained in AIfES.
+For your scientific work you can cite the following paper:
+
+Plain Text:
+``` 
+L. Wulfert et al., "AIfES: A Next-Generation Edge AI Framework," in IEEE Transactions on Pattern Analysis and Machine Intelligence, doi: 10.1109/TPAMI.2024.3355495.
+keywords: {Training;Data models;Artificial intelligence;Support vector machines;Hardware acceleration;Libraries;Performance evaluation;Machine Learning Framework;Edge AI Framework;On-Device Training;Embedded Systems;Resource-Constrained Devices;TinyML}
+```
+
+BibTex:
+```
+@ARTICLE{10403985,
+  author={Wulfert, Lars and Kühnel, Johannes and Krupp, Lukas and Viga, Justus and Wiede, Christian and Gembaczka, Pierre and Grabmaier, Anton},
+  journal={IEEE Transactions on Pattern Analysis and Machine Intelligence}, 
+  title={AIfES: A Next-Generation Edge AI Framework}, 
+  year={2024},
+  volume={},
+  number={},
+  pages={1-16},
+  keywords={Training;Data models;Artificial intelligence;Support vector machines;Hardware acceleration;Libraries;Performance evaluation;Machine Learning Framework;Edge AI Framework;On-Device Training;Embedded Systems;Resource-Constrained Devices;TinyML},
+  doi={10.1109/TPAMI.2024.3355495}}
+```
+
+## Roadmap
+The AIfES team at Fraunhofer IMS is constantly working on new features and network types.

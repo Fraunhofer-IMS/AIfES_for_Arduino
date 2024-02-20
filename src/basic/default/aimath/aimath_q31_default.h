@@ -3,20 +3,17 @@
  * \internal
  * \date 03.02.2021
  * \endinternal
- * \version 2.0alpha
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
-    All rights reserved.
-
+ * \version 2.2.0
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
+    All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
+    (at your option) any later version.<br><br>
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
+    GNU Affero General Public License for more details.<br><br>
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
@@ -734,6 +731,7 @@ void aimath_q31_default_leaky_relu(const aitensor_t *x, const void *alpha, aiten
   * \endcode
   *
   * @param *x       Q31 tensor to calculate the leaky-ReLU derivative from (N-D tensor)
+  * @param *alpha   Scalar \f$ \alpha \f$ (type aiscalar_q31_t) for the leakage
   * @param *result  Resulting Q31 tensor (N-D tensor)
   */
 void aimath_q31_default_d_leaky_relu(const aitensor_t *x, const void *alpha, aitensor_t *result);
@@ -1084,6 +1082,8 @@ void aimath_q31_default_tensor_init_uniform(aitensor_t *tensor, float from, floa
 
 /** @brief Fills a \link aimath_q31.h Q31 \endlink tensor with random numbers uniformly within given range, according to Glorot et al.
   *
+  * Same functionality as aimath_q31_default_init_glorot_uniform_cdim() with cin_axis = 0 and cout_axis = 1 (channels last dataformat).
+  *
   * @f[
   *  fan_{avg} = \frac{fan_{in} + fan_{out}}{2}
   * @f]
@@ -1112,6 +1112,101 @@ void aimath_q31_default_tensor_init_uniform(aitensor_t *tensor, float from, floa
   */
 void aimath_q31_default_init_glorot_uniform(aitensor_t *tensor);
 
+/** @brief Fills a \link aimath_q31.h Q31 \endlink tensor with random numbers uniformly within given range, according to Glorot et al.
+  *
+  * @f[
+  *  fan_{avg} = \frac{fan_{in} + fan_{out}}{2}
+  * @f]
+  * @f[
+  *  r = \sqrt{\frac{3}{fan_{avg}}}
+  * @f]
+  * @f[
+  *  tensor_i \in \mathcal{U(-r, r)}
+  * @f]
+  *
+  * Example:
+  * \code{.c}
+  * uint16_t tensor_shape[2] = {2, 3};
+  * aimath_q31_params_t tensor_params = {20, 0}; // {shift, zero point}
+  * int32_t tensor_data[2*3];
+  * aitensor_t tensor = AITENSOR_2D_Q31(tensor_shape, &tensor_params, tensor_data);
+  *
+  * aimath_q31_default_init_glorot_uniform_cdim(&tensor, 0, 1);
+  *
+  * print_aitensor(&tensor);
+  * \endcode
+  *
+  * @see Glorot et al., 2010 ( http://jmlr.org/proceedings/papers/v9/glorot10a/glorot10a.pdf )
+  *
+  * @param *tensor      Q31 tensor to initialize with random numbers (N-D tensor)
+  * @param cin_axis     Axis of the input channels (negative number means indexing from the end)
+  * @param cout_axis    Axis of the output channels (negative number means indexing from the end)
+  */
+void aimath_q31_default_init_glorot_uniform_cdim(aitensor_t *tensor, int8_t cin_axis, int8_t cout_axis);
+
+/** @brief Fills a \link aimath_q31.h Q31 \endlink tensor with random numbers uniformly within given range, according to He et al.
+  *
+  * Same functionality as aimath_q31_default_init_he_uniform_cdim() with cout_axis = 1 (channels last dataformat).
+  *
+  * @f[
+  *  fan_{avg} = \frac{fan_{in}}{2}
+  * @f]
+  * @f[
+  *  r = \sqrt{\frac{3}{fan_{avg}}}
+  * @f]
+  * @f[
+  *  tensor_i \in \mathcal{U(-r, r)}
+  * @f]
+  *
+  * Example:
+  * \code{.c}
+  * uint16_t tensor_shape[2] = {2, 3};
+  * aimath_q31_params_t tensor_params = {20, 0}; // {shift, zero point}
+  * int32_t tensor_data[2*3];
+  * aitensor_t tensor = AITENSOR_2D_Q31(tensor_shape, &tensor_params, tensor_data);
+  *
+  * aimath_q31_default_init_he_uniform(&tensor);
+  *
+  * print_aitensor(&tensor);
+  * \endcode
+  *
+  * @see He et al., 2015 ( https://www.cv-foundation.org/openaccess/content_iccv_2015/html/He_Delving_Deep_into_ICCV_2015_paper.html )
+  *
+  * @param *tensor      Q31 tensor to initialize with random numbers (N-D tensor)
+  */
+void aimath_q31_default_init_he_uniform(aitensor_t *tensor);
+
+/** @brief Fills a \link aimath_q31.h Q31 \endlink tensor with random numbers uniformly within given range, according to He et al.
+  *
+  * @f[
+  *  fan_{avg} = \frac{fan_{in}}{2}
+  * @f]
+  * @f[
+  *  r = \sqrt{\frac{3}{fan_{avg}}}
+  * @f]
+  * @f[
+  *  tensor_i \in \mathcal{U(-r, r)}
+  * @f]
+  *
+  * Example:
+  * \code{.c}
+  * uint16_t tensor_shape[2] = {2, 3};
+  * aimath_q31_params_t tensor_params = {20, 0}; // {shift, zero point}
+  * int32_t tensor_data[2*3];
+  * aitensor_t tensor = AITENSOR_2D_Q31(tensor_shape, &tensor_params, tensor_data);
+  *
+  * aimath_q31_default_init_he_uniform_cdim(&tensor, 1);
+  *
+  * print_aitensor(&tensor);
+  * \endcode
+  *
+  * @see He et al., 2015 ( https://www.cv-foundation.org/openaccess/content_iccv_2015/html/He_Delving_Deep_into_ICCV_2015_paper.html )
+  *
+  * @param *tensor      Q31 tensor to initialize with random numbers (N-D tensor)
+  * @param cout_axis    Axis of the output channels (negative number means indexing from the end)
+  */
+void aimath_q31_default_init_he_uniform_cdim(aitensor_t *tensor, int8_t cout_axis);
+
 /** @brief Calculates square root of an int64 value
   *
   *
@@ -1120,6 +1215,26 @@ void aimath_q31_default_init_glorot_uniform(aitensor_t *tensor);
   */
 int64_t aimath_q31_default_sqrt(int64_t x);
 
+/** @brief Sums up all values of a channel of the \link aimath_q31.h Q31 \endlink tensor x
+ *
+ * Calculates the sum of all elements of each channel c. The result tensor is 1D:
+ * @f[
+ *  result_c = \sum_i(x_{ci})
+ * @f]
+ *
+ * @param x             Q31 input tensor (N-D)
+ * @param channel_axis  Index of the channel axis (negative values mean indexing from the end).
+ * @param result        Q31 result vector (1D)
+ */
+void aimath_q31_default_sum_channelwise(const aitensor_t *x, int8_t channel_axis, aitensor_t *result);
 
+// TODO: docs
+void aimath_q31_default_mse_gradients_sum(const aitensor_t *predicted, const aitensor_t *target, aitensor_t *result);
+
+void aimath_q31_default_mse_gradients_mean(const aitensor_t *predicted, const aitensor_t *target, aitensor_t *result);
+
+void aimath_q31_default_mse_loss_sum(const aitensor_t *predicted, const aitensor_t *target, void *result);
+
+void aimath_q31_default_mse_loss_mean(const aitensor_t *predicted, const aitensor_t *target, void *result);
 #endif // AIMATH_Q31_DEFAULT
 

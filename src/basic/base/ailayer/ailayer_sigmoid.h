@@ -3,20 +3,17 @@
  * \internal
  * \date 20.10.2020
  * \endinternal
- * \version 2.0alpha
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
-    All rights reserved.
-
+ * \version 2.2.0
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
+    All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
+    (at your option) any later version.<br><br>
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
+    GNU Affero General Public License for more details.<br><br>
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
@@ -49,7 +46,6 @@ typedef struct ailayer_sigmoid 	ailayer_sigmoid_t;
 */
 struct ailayer_sigmoid {
 	ailayer_t base; /**< Inherited field members from general ailayer struct. */
-	const aimath_dtype_t *dtype; /**< Data type of the input and inference result values. */
 
 	/** @name Math functions
 	 * @brief Required data type specific math functions
@@ -170,11 +166,12 @@ void ailayer_sigmoid_backward(ailayer_t *self);
  */
 void ailayer_sigmoid_calc_result_shape(ailayer_t *self);
 
+uint32_t ailayer_sigmoid_sizeof_bwdmem(const ailayer_t *self);
+
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
 /** @brief Print the layer specification
  *
  * @param *self     The layer to print the specification for
- * @param *print    Pointer to the print function to use
  */
 void ailayer_sigmoid_print_specs(const ailayer_t *self);
 #endif // AIDEBUG_PRINT_MODULE_SPECS

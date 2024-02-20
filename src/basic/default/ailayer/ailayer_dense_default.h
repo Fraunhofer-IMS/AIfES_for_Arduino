@@ -3,20 +3,17 @@
  * \internal
  * \date 28.10.2020
  * \endinternal
- * \version 2.0alpha
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
-    All rights reserved.
-
+ * \version 2.2.0
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
+    All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
+    (at your option) any later version.<br><br>
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
+    GNU Affero General Public License for more details.<br><br>
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
@@ -36,12 +33,12 @@
 #include "basic/default/aimath/aimath_q31_default.h"
 #include "basic/default/aimath/aimath_q7_default.h"
 
-#define AILAYER_DENSE_F32_M(neurons, weights, bias)  {{0,},0,neurons,{0,0,0,0,(float *) weights},{0,0,0,0,(float *) bias}}
-#define AILAYER_DENSE_F32_A(neurons)                 {{0,},0,neurons,{0,0,0,0,0},{0,0,0,0,0}}
-#define AILAYER_DENSE_Q31_M(neurons, weights, weights_qparams, bias, bias_qparams, result_qparams)  {{0,0,0,0,0,0,{0,0,0,result_qparams,0}},0,neurons,{0,0,0,weights_qparams,(float *) weights},{0,0,0,bias_qparams,(float *) bias},}
-#define AILAYER_DENSE_Q31_A(neurons)                 {{0,},0,neurons,{0,0,0,0,0},{0,0,0,0,0}}
-#define AILAYER_DENSE_Q7_M(neurons, weights, weights_qparams, bias, bias_qparams, result_qparams)  {{0,0,0,0,0,0,{0,0,0,result_qparams,0}},0,neurons,{0,0,0,weights_qparams,(float *) weights},{0,0,0,bias_qparams,(float *) bias},}
-#define AILAYER_DENSE_Q7_A(neurons)                  {{0,},0,neurons,{0,0,0,0,0},{0,0,0,0,0}}
+#define AILAYER_DENSE_F32_M(neurons, weights, bias)  {{0,},neurons,{0,0,0,0,(float *) weights},{0,0,0,0,(float *) bias}}
+#define AILAYER_DENSE_F32_A(neurons)                 {{0,},neurons,{0,0,0,0,0},{0,0,0,0,0}}
+#define AILAYER_DENSE_Q31_M(neurons, weights, weights_qparams, bias, bias_qparams, result_qparams)  {{0,0,0,0,0,0,0,{0,0,0,result_qparams,0}},neurons,{0,0,0,weights_qparams,(float *) weights},{0,0,0,bias_qparams,(float *) bias},}
+#define AILAYER_DENSE_Q31_A(neurons)                 {{0,},neurons,{0,0,0,0,0},{0,0,0,0,0}}
+#define AILAYER_DENSE_Q7_M(neurons, weights, weights_qparams, bias, bias_qparams, result_qparams)  {{0,0,0,0,0,0,0,{0,0,0,result_qparams,0}},neurons,{0,0,0,weights_qparams,(float *) weights},{0,0,0,bias_qparams,(float *) bias},}
+#define AILAYER_DENSE_Q7_A(neurons)                  {{0,},neurons,{0,0,0,0,0},{0,0,0,0,0}}
 
 typedef struct ailayer_dense 	ailayer_dense_f32_t;
 typedef struct ailayer_dense 	ailayer_dense_q31_t;
@@ -138,7 +135,7 @@ ailayer_t *ailayer_dense_f32_default(ailayer_dense_f32_t *layer, ailayer_t *inpu
  * @param *input_layer  The prior layer.
  * @return              The (successfully) initialized layer structure.
  */
-//ailayer_t *ailayer_dense_f32_wt_default(ailayer_dense_f32_t *layer, ailayer_t *input_layer);
+ailayer_t *ailayer_dense_wt_f32_default(ailayer_dense_f32_t *layer, ailayer_t *input_layer);
 
 /** @brief Initializes and connect a \link ailayer_dense.h Dense layer \endlink with the \link aimath_q31.h Q31 \endlink default implementation
  *
@@ -343,6 +340,36 @@ ailayer_t *ailayer_dense_q7_default(ailayer_dense_q7_t *layer, ailayer_t *input_
  * @return              The (successfully) initialized layer structure.
  */
 ailayer_t *ailayer_dense_wt_q7_default(ailayer_dense_q7_t *layer, ailayer_t *input_layer);
+
+/** @brief \link aimath_f32.h F32 \endlink default implementation of the ailayer.init_params function for the Conv2D layer
+ *
+ * *Implementation of ailayer.init_params.*
+ *
+ * The function will initialize the weights and bias depending on the following activation function.
+ *
+ * | Activation function				| Weights-init	| Bias-init  |
+ * |------------------------------------|---------------|------------|
+ * | None, tanh, logistic, softmax	    | Glorot		| Zeros      |
+ * | ReLu and variants				    | He			| Zeros      |
+ *
+ * @param *self  The layer structure
+ */
+void ailayer_dense_init_params_f32_default(ailayer_t *self);
+
+/** @brief \link aimath_q31.h Q31 \endlink default implementation of the ailayer.init_params function for the Conv2D layer
+ *
+ * *Implementation of ailayer.init_params.*
+ *
+ * The function will initialize the weights and bias depending on the following activation function.
+ *
+ * | Activation function				| Weights-init	| Bias-init  |
+ * |------------------------------------|---------------|------------|
+ * | None, tanh, logistic, softmax	    | Glorot		| Zeros      |
+ * | ReLu and variants				    | He			| Zeros      |
+ *
+ * @param *self  The layer structure
+ */
+void ailayer_dense_init_params_q31_default(ailayer_t *self);
 
 
 /** @brief Convert a \link aimath_f32.h F32 \endlink dense layer to a \link aimath_q7.h Q7 \endlink representation

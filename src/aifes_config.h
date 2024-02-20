@@ -3,8 +3,8 @@
  * \internal
  * \date 15.06.2021
  * \endinternal
- * \version 2.0alpha
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
+ * \version 2.2.0
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
     All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
@@ -61,9 +61,9 @@
 #ifdef AIDEBUG_ENABLE_PRINTING
 
     #ifdef PROGMEM
-        #define AISTRING_STORAGE_WRAPPER(S)     const char S[] PROGMEM  /**< Specifies the storage type of strings like logs or names */
+        #define AISTRING_STORAGE_WRAPPER(name, msg)   const char PROGMEM name[] = msg ;  /**< Specifies the storage type of strings like logs or names */
     #else
-        #define AISTRING_STORAGE_WRAPPER(S)     const char S[]  /**< Specifies the storage type of strings like logs or names */
+        #define AISTRING_STORAGE_WRAPPER(name, msg)   const char name[] = msg;  /**< Specifies the storage type of strings like logs or names */
     #endif
 
     #define AIDEBUG_PRINT_MODULE_SPECS  /**< Enable printing of the module (layer, loss, optimizer) specifications */
@@ -92,8 +92,8 @@
     int aifes_print_float(const char *format, float var);
 
 #else
-        
-    #define AISTRING_STORAGE_WRAPPER(S)       /**< Specifies the storage type of strings like logs or names */
+
+    #define AISTRING_STORAGE_WRAPPER(name, msg)       /**< Specifies the storage type of strings like logs or names */
 
     #define AILOG_E(MESSAGE)                  /**< Logging function for errors */
 

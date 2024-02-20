@@ -121,6 +121,9 @@ const <a class="el" href="structaimath__dtype.html">aimath_dtype_t</a> *&#160;</
 <tr class="memitem:aedaeff294e1c5d7e56da1531faa50fe4"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structailoss__crossentropy.html#aedaeff294e1c5d7e56da1531faa50fe4">crossentropy</a> )(const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted_data, const <a class="el" href="structaitensor.html">aitensor_t</a> *target_data, void *result)</td></tr>
 <tr class="memdesc:aedaeff294e1c5d7e56da1531faa50fe4"><td class="mdescLeft">&#160;</td><td class="mdescRight">Required math function: Cross-Entropy between two tensors.  <a href="structailoss__crossentropy.html#aedaeff294e1c5d7e56da1531faa50fe4">More...</a><br /></td></tr>
 <tr class="separator:aedaeff294e1c5d7e56da1531faa50fe4"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa04382a12e87f95208e982eb71f8777a"><td class="memItemLeft" align="right" valign="top">void(*&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="structailoss__crossentropy.html#aa04382a12e87f95208e982eb71f8777a">scale_by_batch_size</a> )(const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted_data, <a class="el" href="structaitensor.html">aitensor_t</a> *result)</td></tr>
+<tr class="memdesc:aa04382a12e87f95208e982eb71f8777a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Required math function: Scaling of the gradient tensor.  <a href="structailoss__crossentropy.html#aa04382a12e87f95208e982eb71f8777a">More...</a><br /></td></tr>
+<tr class="separator:aa04382a12e87f95208e982eb71f8777a"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>General <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> struct. </p>
@@ -154,6 +157,24 @@ For a Sigmoid output layer it should be the binary Cross-Entropy: </p><p class="
 
 </div>
 </div>
+<a id="aa04382a12e87f95208e982eb71f8777a"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa04382a12e87f95208e982eb71f8777a">&#9670;&nbsp;</a></span>scale_by_batch_size</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void(* scale_by_batch_size) (const <a class="el" href="structaitensor.html">aitensor_t</a> *predicted_data, <a class="el" href="structaitensor.html">aitensor_t</a> *result)</td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Required math function: Scaling of the gradient tensor. </p>
+<p>Requires a math function that scales a tensor by its batch size:<br  />
+</p>
+
+</div>
+</div>
 <a id="a5f5b55cad6c306233a8e4510d1773244"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a5f5b55cad6c306233a8e4510d1773244">&#9670;&nbsp;</a></span>tensor_sub</h2>
 
@@ -175,7 +196,7 @@ For a Sigmoid output layer it should be the binary Cross-Entropy: </p><p class="
 </div>
 </div>
 <hr/>The documentation for this struct was generated from the following file:<ul>
-<li>/builds/ims-esa/aifes_2/include/basic/base/ailoss/<a class="el" href="ailoss__crossentropy_8h_source.html">ailoss_crossentropy.h</a></li>
+<li><a class="el" href="ailoss__crossentropy_8h_source.html">ailoss_crossentropy.h</a></li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->

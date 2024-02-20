@@ -1,20 +1,17 @@
 /**
  * \file basic/base/ailayer/ailayer_template.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 20.10.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
-    All rights reserved.
-
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
+    All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
+    (at your option) any later version.<br><br>
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
+    GNU Affero General Public License for more details.<br><br>
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
@@ -25,7 +22,7 @@
 #include "basic/base/ailayer/ailayer_template.h"
 #include "basic/base/aimath/aimath_basic.h"
 
-AISTRING_STORAGE_WRAPPER(aistring_layer_template) = "Template";
+AISTRING_STORAGE_WRAPPER(aistring_layer_template, "Template");
 
 const aicore_layertype_t ailayer_template_type_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
@@ -40,17 +37,20 @@ const aicore_layertype_t *ailayer_template_type = &ailayer_template_type_s;
 
 ailayer_t *ailayer_template(ailayer_template_t *layer, ailayer_t *input_layer)
 {
+    layer->base.settings = 0;
+    AILAYER_SETTINGS_SET(layer->base.settings, 0b1, AILAYER_SETTINGS_TRAINABLE, TRUE);
+    AILAYER_SETTINGS_SET(layer->base.settings, 0b1, AILAYER_SETTINGS_NO_INPUT_GRADIENT, FALSE);
+
 	// Connect the layer with its input
 	layer->base.input_layer = input_layer;
+    layer->base.output_layer = 0;
 	input_layer->output_layer = &(layer->base);
 
 	// Init basic layer variables
 	layer->base.layer_configuration = layer;
-	layer->base.result.dtype = layer->dtype;
 	layer->base.result.shape = layer->result_shape;
 	layer->base.result.dim = 2;
 
-	layer->base.deltas.dtype = layer->dtype;
 	layer->base.deltas.shape = input_layer->result.shape;
 	layer->base.deltas.dim = 2;
 
@@ -63,6 +63,10 @@ ailayer_t *ailayer_template(ailayer_template_t *layer, ailayer_t *input_layer)
 	layer->base.set_paramem = ailayer_template_set_paramem;
 	layer->base.sizeof_paramem = ailayer_template_sizeof_trainmem;
 	layer->base.set_trainmem = ailayer_template_set_trainmem;
+	layer->base.sizeof_fwdmem = 0;
+	layer->base.sizeof_bwdmem = 0;
+
+	ailayer_template_calc_result_shape(&layer->base);
 
 	return &layer->base;
 }
@@ -134,7 +138,7 @@ void ailayer_template_calc_result_shape(ailayer_t *self)
 
 uint32_t ailayer_template_sizeof_paramem(const ailayer_t *self)
 {
-	ailayer_template_t *layer = (ailayer_template_t *)(self->layer_configuration);
+	//ailayer_template_t *layer = (ailayer_template_t *)(self->layer_configuration);
 //	const aitensor_t *x_in = &(self->input_layer->result);
 	const aitensor_t *x_out = &(self->result);
 
@@ -143,7 +147,7 @@ uint32_t ailayer_template_sizeof_paramem(const ailayer_t *self)
 	// Memory amount for params. Attention: result shape is calculated but params tensor is not available yet.
 	memory += sizeof(aitensor_t);	// struct
 	memory += 2 * sizeof(uint16_t);	    // shape array
-	memory += x_out->shape[0] * x_out->shape[1] * aimath_sizeof_dtype(layer->dtype); // data
+	memory += x_out->shape[0] * x_out->shape[1] * aimath_sizeof_dtype(self->result.dtype); // data
 
 	return memory;
 }
@@ -161,7 +165,6 @@ void ailayer_template_set_paramem(ailayer_t *self, void *memory_ptr)
 	layer->params = memory_ptr + address_counter;
 	address_counter += sizeof(aitensor_t);
 	layer->params->dim = 2;
-	layer->params->dtype = layer->dtype;
 	// shape array:
 	layer->params->shape = memory_ptr + address_counter;
 	address_counter += 2 * sizeof(uint16_t);

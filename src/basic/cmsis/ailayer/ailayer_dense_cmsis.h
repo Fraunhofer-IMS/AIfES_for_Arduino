@@ -3,20 +3,17 @@
  * \internal
  * \date 15.03.2021
  * \endinternal
- * \version 2.0alpha
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
-    All rights reserved.
-
+ * \version 2.2.0
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
+    All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
+    (at your option) any later version.<br><br>
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
+    GNU Affero General Public License for more details.<br><br>
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
@@ -73,51 +70,6 @@
  * @return              The (successfully) initialized layer structure.
  */
 ailayer_t *ailayer_dense_f32_cmsis(ailayer_dense_t *layer, ailayer_t *input_layer);
-
-/** @brief Initializes and connect a Dense layer with the \link aimath_q31.h Q31 \endlink CMSIS implementation
- *
- * Example: Create the layer structure with pretrained weights:\n
- * \code{.c}
- * // Use constant data only for inference. For training remove the const qualifier!!
- * // Weights (32 bit quantized)
- * const aimath_q31_params_t weights_q_params_dense = { .shift = 25, .zero_point = 0 };
- * const int32_t weights_data_dense[] = {-3036,  2425, -1635, -3036,  2425, -1635};
- * // Bias (32 bit quantized)
- * const aimath_q31_params_t bias_q_params_dense = { .shift = 10, .zero_point = 0 };
- * const int32_t bias_data_dense[] = {-3036,  2425, -1635};
- * // Result (32 bit quantized)
- * const aimath_q31_params_t result_q_params_dense = { .shift = 26, .zero_point = 41 };
- * ailayer_dense_q31_t dense_layer = {
- *     .neurons = 3,
- *     .weights = {
- *         .tensor_params = (aimath_q31_params_t *) &weights_q_params_dense,
- *         .data = (int32_t *) weights_data_dense
- *     },
- *     .bias = {
- *         .tensor_params = (aimath_q31_params_t *) &bias_q_params_dense,
- *         .data = (int32_t *) bias_data_dense
- *     },
- *     .base.result.tensor_params = (aimath_q31_params_t *) &result_q_params_dense
- * };
- * \endcode
- *
- * Example: Create the layer structure for training:\n
- * \code{.c}
- * ailayer_dense_q31_t dense_layer = {
- *     .neurons = 3
- * };
- * \endcode
- *
- * Example: Initialize and connect the layer:\n
- * \code{.c}
- * x = ailayer_dense_q31_cmsis(&dense_layer, x);
- * \endcode
- *
- * @param *layer        The layer structure to initialize.
- * @param *input_layer  The prior layer.
- * @return              The (successfully) initialized layer structure.
- */
-//ailayer_t *ailayer_dense_q31_cmsis(ailayer_dense_t *layer, ailayer_t *input_layer);
 
 /** @brief Initializes and connect a \link ailayer_dense.h Dense layer \endlink with the \link aimath_q7.h Q7 \endlink AMR CMSIS implementation for transposed weights tensor
  *

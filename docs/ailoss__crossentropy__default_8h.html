@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AIfES 2: /builds/ims-esa/aifes_2/include/basic/default/ailoss/ailoss_crossentropy_default.h File Reference</title>
+<title>AIfES 2: ailoss_crossentropy_default.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -112,16 +112,28 @@ typedef struct <a class="el" href="structailoss__crossentropy.html">ailoss_cross
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="func-members"></a>
 Functions</h2></td></tr>
 <tr class="memitem:aa10b5c43deef1891d98cb8c45d57b3ee"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structailoss.html">ailoss_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ailoss__crossentropy__default_8h.html#aa10b5c43deef1891d98cb8c45d57b3ee">ailoss_crossentropy_f32_default</a> (<a class="el" href="structailoss__crossentropy.html">ailoss_crossentropy_f32_t</a> *loss, <a class="el" href="structailayer.html">ailayer_t</a> *input_layer)</td></tr>
-<tr class="memdesc:aa10b5c43deef1891d98cb8c45d57b3ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and connect a <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> with the <a class="el" href="aimath__f32_8h.html">F32 </a> default implementation.  <a href="ailoss__crossentropy__default_8h.html#aa10b5c43deef1891d98cb8c45d57b3ee">More...</a><br /></td></tr>
+<tr class="memdesc:aa10b5c43deef1891d98cb8c45d57b3ee"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and connect a <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> with the <a class="el" href="aimath__f32_8h.html">F32 </a> default implementation using a mean reduction.  <a href="ailoss__crossentropy__default_8h.html#aa10b5c43deef1891d98cb8c45d57b3ee">More...</a><br /></td></tr>
 <tr class="separator:aa10b5c43deef1891d98cb8c45d57b3ee"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a578c19c19b9d4e699582501124bfb67b"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structailoss.html">ailoss_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ailoss__crossentropy__default_8h.html#a578c19c19b9d4e699582501124bfb67b">ailoss_crossentropy_sum_f32_default</a> (<a class="el" href="structailoss__crossentropy.html">ailoss_crossentropy_f32_t</a> *loss, <a class="el" href="structailayer.html">ailayer_t</a> *input_layer)</td></tr>
+<tr class="memdesc:a578c19c19b9d4e699582501124bfb67b"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and connect a <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> with the <a class="el" href="aimath__f32_8h.html">F32 </a> default implementation using a sum reduction.  <a href="ailoss__crossentropy__default_8h.html#a578c19c19b9d4e699582501124bfb67b">More...</a><br /></td></tr>
+<tr class="separator:a578c19c19b9d4e699582501124bfb67b"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9c50fc1211ca8126adec060e7db1bbc6"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structailoss.html">ailoss_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ailoss__crossentropy__default_8h.html#a9c50fc1211ca8126adec060e7db1bbc6">ailoss_crossentropy_mean_f32_default</a> (<a class="el" href="structailoss__crossentropy.html">ailoss_crossentropy_f32_t</a> *loss, <a class="el" href="structailayer.html">ailayer_t</a> *input_layer)</td></tr>
+<tr class="memdesc:a9c50fc1211ca8126adec060e7db1bbc6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and connect a <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> with the <a class="el" href="aimath__f32_8h.html">F32 </a> default implementation using a mean reduction.  <a href="ailoss__crossentropy__default_8h.html#a9c50fc1211ca8126adec060e7db1bbc6">More...</a><br /></td></tr>
+<tr class="separator:a9c50fc1211ca8126adec060e7db1bbc6"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a01f977cc97f44940f402462686e13de3"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structailoss.html">ailoss_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ailoss__crossentropy__default_8h.html#a01f977cc97f44940f402462686e13de3">ailoss_crossentropy_sparse8_f32_default</a> (<a class="el" href="structailoss__crossentropy.html">ailoss_crossentropy_f32_t</a> *loss, <a class="el" href="structailayer.html">ailayer_t</a> *input_layer)</td></tr>
-<tr class="memdesc:a01f977cc97f44940f402462686e13de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and connect a <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> with the <a class="el" href="aimath__f32_8h.html">F32 </a> default implementation for sparse labels.  <a href="ailoss__crossentropy__default_8h.html#a01f977cc97f44940f402462686e13de3">More...</a><br /></td></tr>
+<tr class="memdesc:a01f977cc97f44940f402462686e13de3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and connect a <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> with the <a class="el" href="aimath__f32_8h.html">F32 </a> default implementation for sparse labels using a mean reduction.  <a href="ailoss__crossentropy__default_8h.html#a01f977cc97f44940f402462686e13de3">More...</a><br /></td></tr>
 <tr class="separator:a01f977cc97f44940f402462686e13de3"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6d07fc7fe0472790176e0d62261e1acf"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structailoss.html">ailoss_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ailoss__crossentropy__default_8h.html#a6d07fc7fe0472790176e0d62261e1acf">ailoss_crossentropy_sum_sparse8_f32_default</a> (<a class="el" href="structailoss__crossentropy.html">ailoss_crossentropy_f32_t</a> *loss, <a class="el" href="structailayer.html">ailayer_t</a> *input_layer)</td></tr>
+<tr class="memdesc:a6d07fc7fe0472790176e0d62261e1acf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and connect a <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> with the <a class="el" href="aimath__f32_8h.html">F32 </a> default implementation for sparse labels using a sum reduction.  <a href="ailoss__crossentropy__default_8h.html#a6d07fc7fe0472790176e0d62261e1acf">More...</a><br /></td></tr>
+<tr class="separator:a6d07fc7fe0472790176e0d62261e1acf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a921b0cf86d01c60c06ea70dfceafee9c"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structailoss.html">ailoss_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="ailoss__crossentropy__default_8h.html#a921b0cf86d01c60c06ea70dfceafee9c">ailoss_crossentropy_mean_sparse8_f32_default</a> (<a class="el" href="structailoss__crossentropy.html">ailoss_crossentropy_f32_t</a> *loss, <a class="el" href="structailayer.html">ailayer_t</a> *input_layer)</td></tr>
+<tr class="memdesc:a921b0cf86d01c60c06ea70dfceafee9c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initializes and connect a <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> with the <a class="el" href="aimath__f32_8h.html">F32 </a> default implementation for sparse labels using a mean reduction.  <a href="ailoss__crossentropy__default_8h.html#a921b0cf86d01c60c06ea70dfceafee9c">More...</a><br /></td></tr>
+<tr class="separator:a921b0cf86d01c60c06ea70dfceafee9c"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Default implementation of the <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a>. </p>
-<dl class="section version"><dt>Version</dt><dd>2.0alpha </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2020-2021 Fraunhofer Institute for Microelectronic Circuits and Systems. All rights reserved.<br  />
+<dl class="section version"><dt>Version</dt><dd>2.2.0 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2020-2023 Fraunhofer Institute for Microelectronic Circuits and Systems. All rights reserved.<br  />
 <br  />
  AIfES is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.<br  />
 <br  />
@@ -156,14 +168,14 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initializes and connect a <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> with the <a class="el" href="aimath__f32_8h.html">F32 </a> default implementation. </p>
+<p>Initializes and connect a <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> with the <a class="el" href="aimath__f32_8h.html">F32 </a> default implementation using a mean reduction. </p>
 <p>The labels must me either binary (when the output layer is a Sigmoid layer), for example </p><p class="formulaDsp">
 \[ \left( \begin{array}{ccc} 1 &amp; 0 &amp; 0 &amp; 1 \\ 1 &amp; 1 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{array}\right) \]
 </p>
 <p>or row wise one-hot encoded (when the output layer is a Softmax layer), for example </p><p class="formulaDsp">
 \[ \left( \begin{array}{ccc} 0 &amp; 0 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{array}\right) \]
 </p>
-<p>If you want to provide labels as integers, please use <a class="el" href="ailoss__crossentropy__default_8h.html#a01f977cc97f44940f402462686e13de3" title="Initializes and connect a Cross-Entropy loss  with the F32  default implementation for sparse labels.">ailoss_crossentropy_sparse8_f32_default()</a> loss.</p>
+<p>If you want to provide labels as integers, please use <a class="el" href="ailoss__crossentropy__default_8h.html#a01f977cc97f44940f402462686e13de3" title="Initializes and connect a Cross-Entropy loss  with the F32  default implementation for sparse labels ...">ailoss_crossentropy_sparse8_f32_default()</a> loss.</p>
 <p><b>Example:</b> Create the loss structure:<br  />
 </p><div class="fragment"><div class="line"><a class="code" href="structailoss__crossentropy.html">ailoss_crossentropy_f32_t</a> crossentropy_loss;</div>
 <div class="ttc" id="astructailoss__crossentropy_html"><div class="ttname"><a href="structailoss__crossentropy.html">ailoss_crossentropy</a></div><div class="ttdoc">General Cross-Entropy loss  struct.</div><div class="ttdef"><b>Definition:</b> ailoss_crossentropy.h:62</div></div>
@@ -174,14 +186,128 @@ Functions</h2></td></tr>
 <div class="line"> </div>
 <div class="line">model.<a class="code" href="structaimodel.html#ad08c61cef46d4042c62d8cdeba81986f">loss</a> = <a class="code" href="ailoss__crossentropy__default_8h.html#aa10b5c43deef1891d98cb8c45d57b3ee">ailoss_crossentropy_f32_default</a>(&amp;crossentropy_loss, model.<a class="code" href="structaimodel.html#a7c7ad89e7d15631b3f5893b8f19030ef">output_layer</a>);</div>
 <div class="ttc" id="aailayer__sigmoid__default_8h_html_a1ec45b121e81b85e2109f0072d46f602"><div class="ttname"><a href="ailayer__sigmoid__default_8h.html#a1ec45b121e81b85e2109f0072d46f602">ailayer_sigmoid_f32_default</a></div><div class="ttdeci">ailayer_t * ailayer_sigmoid_f32_default(ailayer_sigmoid_f32_t *layer, ailayer_t *input_layer)</div><div class="ttdoc">Initializes and connect a Sigmoid layer  with the F32  default implementation.</div></div>
-<div class="ttc" id="aailoss__crossentropy__default_8h_html_aa10b5c43deef1891d98cb8c45d57b3ee"><div class="ttname"><a href="ailoss__crossentropy__default_8h.html#aa10b5c43deef1891d98cb8c45d57b3ee">ailoss_crossentropy_f32_default</a></div><div class="ttdeci">ailoss_t * ailoss_crossentropy_f32_default(ailoss_crossentropy_f32_t *loss, ailayer_t *input_layer)</div><div class="ttdoc">Initializes and connect a Cross-Entropy loss  with the F32  default implementation.</div></div>
-<div class="ttc" id="astructaimodel_html"><div class="ttname"><a href="structaimodel.html">aimodel</a></div><div class="ttdoc">AIfES artificial neural network model.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:178</div></div>
-<div class="ttc" id="astructaimodel_html_a7c7ad89e7d15631b3f5893b8f19030ef"><div class="ttname"><a href="structaimodel.html#a7c7ad89e7d15631b3f5893b8f19030ef">aimodel::output_layer</a></div><div class="ttdeci">ailayer_t * output_layer</div><div class="ttdoc">Output layer of the model.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:180</div></div>
-<div class="ttc" id="astructaimodel_html_ad08c61cef46d4042c62d8cdeba81986f"><div class="ttname"><a href="structaimodel.html#ad08c61cef46d4042c62d8cdeba81986f">aimodel::loss</a></div><div class="ttdeci">ailoss_t * loss</div><div class="ttdoc">The loss or cost function of the model (only for training).</div><div class="ttdef"><b>Definition:</b> aifes_core.h:185</div></div>
+<div class="ttc" id="aailoss__crossentropy__default_8h_html_aa10b5c43deef1891d98cb8c45d57b3ee"><div class="ttname"><a href="ailoss__crossentropy__default_8h.html#aa10b5c43deef1891d98cb8c45d57b3ee">ailoss_crossentropy_f32_default</a></div><div class="ttdeci">ailoss_t * ailoss_crossentropy_f32_default(ailoss_crossentropy_f32_t *loss, ailayer_t *input_layer)</div><div class="ttdoc">Initializes and connect a Cross-Entropy loss  with the F32  default implementation using a mean reduc...</div></div>
+<div class="ttc" id="astructaimodel_html"><div class="ttname"><a href="structaimodel.html">aimodel</a></div><div class="ttdoc">AIfES artificial neural network model.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:181</div></div>
+<div class="ttc" id="astructaimodel_html_a7c7ad89e7d15631b3f5893b8f19030ef"><div class="ttname"><a href="structaimodel.html#a7c7ad89e7d15631b3f5893b8f19030ef">aimodel::output_layer</a></div><div class="ttdeci">ailayer_t * output_layer</div><div class="ttdoc">Output layer of the model.</div><div class="ttdef"><b>Definition:</b> aifes_core.h:183</div></div>
+<div class="ttc" id="astructaimodel_html_ad08c61cef46d4042c62d8cdeba81986f"><div class="ttname"><a href="structaimodel.html#ad08c61cef46d4042c62d8cdeba81986f">aimodel::loss</a></div><div class="ttdeci">ailoss_t * loss</div><div class="ttdoc">The loss or cost function of the model (only for training).</div><div class="ttdef"><b>Definition:</b> aifes_core.h:188</div></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">*loss</td><td>The loss structure to initialize. </td></tr>
     <tr><td class="paramname">*input_layer</td><td>The output layer of the model (<b>Must be either a Sigmoid or a Softmax layer!</b>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The (successfully) initialized loss structure. </dd></dl>
+
+</div>
+</div>
+<a id="a9c50fc1211ca8126adec060e7db1bbc6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9c50fc1211ca8126adec060e7db1bbc6">&#9670;&nbsp;</a></span>ailoss_crossentropy_mean_f32_default()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structailoss.html">ailoss_t</a>* ailoss_crossentropy_mean_f32_default </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structailoss__crossentropy.html">ailoss_crossentropy_f32_t</a> *&#160;</td>
+          <td class="paramname"><em>loss</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structailayer.html">ailayer_t</a> *&#160;</td>
+          <td class="paramname"><em>input_layer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes and connect a <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> with the <a class="el" href="aimath__f32_8h.html">F32 </a> default implementation using a mean reduction. </p>
+<p>The labels must me either binary (when the output layer is a Sigmoid layer), for example </p><p class="formulaDsp">
+\[ \left( \begin{array}{ccc} 1 &amp; 0 &amp; 0 &amp; 1 \\ 1 &amp; 1 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{array}\right) \]
+</p>
+<p>or row wise one-hot encoded (when the output layer is a Softmax layer), for example </p><p class="formulaDsp">
+\[ \left( \begin{array}{ccc} 0 &amp; 0 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{array}\right) \]
+</p>
+<p>If you want to provide labels as integers, please use <a class="el" href="ailoss__crossentropy__default_8h.html#a01f977cc97f44940f402462686e13de3" title="Initializes and connect a Cross-Entropy loss  with the F32  default implementation for sparse labels ...">ailoss_crossentropy_sparse8_f32_default()</a> loss.</p>
+<p><b>Example:</b> Create the loss structure:<br  />
+</p><div class="fragment"><div class="line"><a class="code" href="structailoss__crossentropy.html">ailoss_crossentropy_f32_t</a> crossentropy_loss;</div>
+</div><!-- fragment --><p><b>Example:</b> Initialize and connect the loss to the layer structure:<br  />
+</p><div class="fragment"><div class="line"><a class="code" href="structaimodel.html">aimodel_t</a> model;</div>
+<div class="line">...</div>
+<div class="line">model.<a class="code" href="structaimodel.html#a7c7ad89e7d15631b3f5893b8f19030ef">output_layer</a> = <a class="code" href="ailayer__sigmoid__default_8h.html#a1ec45b121e81b85e2109f0072d46f602">ailayer_sigmoid_f32_default</a>(&amp;sigmoid_layer, x);</div>
+<div class="line"> </div>
+<div class="line">model.<a class="code" href="structaimodel.html#ad08c61cef46d4042c62d8cdeba81986f">loss</a> = <a class="code" href="ailoss__crossentropy__default_8h.html#aa10b5c43deef1891d98cb8c45d57b3ee">ailoss_crossentropy_f32_default</a>(&amp;crossentropy_loss, model.<a class="code" href="structaimodel.html#a7c7ad89e7d15631b3f5893b8f19030ef">output_layer</a>);</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*loss</td><td>The loss structure to initialize. </td></tr>
+    <tr><td class="paramname">*input_layer</td><td>The output layer of the model (<b>Must be either a Sigmoid or a Softmax layer!</b>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The (successfully) initialized loss structure. </dd></dl>
+
+</div>
+</div>
+<a id="a921b0cf86d01c60c06ea70dfceafee9c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a921b0cf86d01c60c06ea70dfceafee9c">&#9670;&nbsp;</a></span>ailoss_crossentropy_mean_sparse8_f32_default()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structailoss.html">ailoss_t</a>* ailoss_crossentropy_mean_sparse8_f32_default </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structailoss__crossentropy.html">ailoss_crossentropy_f32_t</a> *&#160;</td>
+          <td class="paramname"><em>loss</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structailayer.html">ailayer_t</a> *&#160;</td>
+          <td class="paramname"><em>input_layer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes and connect a <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> with the <a class="el" href="aimath__f32_8h.html">F32 </a> default implementation for sparse labels using a mean reduction. </p>
+<p>This loss is meant for single label classification purposes. It expects the target data / labels to be an 8-bit integer tensor (<a class="el" href="aimath__u8_8h.html">U8 </a>) with the true-class index.</p>
+<p>For example the matrix </p><p class="formulaDsp">
+\[ \left( \begin{array}{ccc} 0 &amp; 0 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{array}\right) \]
+</p>
+<p> in sparse representation is </p><p class="formulaDsp">
+\[ \left( \begin{array}{ccc} 3 \\ 0 \\ 2 \end{array}\right) \]
+</p>
+<p> and can be created with </p><div class="fragment"><div class="line">uint16_t t_shape[2] = {3, 1};</div>
+<div class="line">uint8_t t_data[2*1] = {3,</div>
+<div class="line">                       0,</div>
+<div class="line">                       2};</div>
+<div class="line"><a class="code" href="structaitensor.html">aitensor_t</a> t = AITENSOR_2D_U8(t_shape, t_data);</div>
+<div class="ttc" id="astructaitensor_html"><div class="ttname"><a href="structaitensor.html">aitensor</a></div><div class="ttdoc">A tensor in AIfES.</div><div class="ttdef"><b>Definition:</b> aifes_math.h:89</div></div>
+</div><!-- fragment --><p>Example: Create the loss structure:<br  />
+</p><div class="fragment"><div class="line"><a class="code" href="structailoss__crossentropy.html">ailoss_crossentropy_f32_t</a> crossentropy_loss;</div>
+</div><!-- fragment --><p>Example: Initialize and connect the loss to the layer structure:<br  />
+</p><div class="fragment"><div class="line"><a class="code" href="structaimodel.html">aimodel_t</a> model;</div>
+<div class="line">...</div>
+<div class="line">model.<a class="code" href="structaimodel.html#a7c7ad89e7d15631b3f5893b8f19030ef">output_layer</a> = <a class="code" href="ailayer__softmax__default_8h.html#a3a89bb8691ee208550e0b267355679ea">ailayer_softmax_f32_default</a>(&amp;softmax_layer, x);</div>
+<div class="line"> </div>
+<div class="line">model.<a class="code" href="structaimodel.html#ad08c61cef46d4042c62d8cdeba81986f">loss</a> = <a class="code" href="ailoss__crossentropy__default_8h.html#a01f977cc97f44940f402462686e13de3">ailoss_crossentropy_sparse8_f32_default</a>(&amp;crossentropy_loss, model.<a class="code" href="structaimodel.html#a7c7ad89e7d15631b3f5893b8f19030ef">output_layer</a>);</div>
+<div class="ttc" id="aailayer__softmax__default_8h_html_a3a89bb8691ee208550e0b267355679ea"><div class="ttname"><a href="ailayer__softmax__default_8h.html#a3a89bb8691ee208550e0b267355679ea">ailayer_softmax_f32_default</a></div><div class="ttdeci">ailayer_t * ailayer_softmax_f32_default(ailayer_softmax_f32_t *layer, ailayer_t *input_layer)</div><div class="ttdoc">Initializes and connect an Softmax layer  with the F32  default implementation.</div></div>
+<div class="ttc" id="aailoss__crossentropy__default_8h_html_a01f977cc97f44940f402462686e13de3"><div class="ttname"><a href="ailoss__crossentropy__default_8h.html#a01f977cc97f44940f402462686e13de3">ailoss_crossentropy_sparse8_f32_default</a></div><div class="ttdeci">ailoss_t * ailoss_crossentropy_sparse8_f32_default(ailoss_crossentropy_f32_t *loss, ailayer_t *input_layer)</div><div class="ttdoc">Initializes and connect a Cross-Entropy loss  with the F32  default implementation for sparse labels ...</div></div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*loss</td><td>The loss structure to initialize. </td></tr>
+    <tr><td class="paramname">*input_layer</td><td>The output layer of the model (<b>Must be a Softmax layer!</b>). </td></tr>
   </table>
   </dd>
 </dl>
@@ -215,7 +341,7 @@ Functions</h2></td></tr>
       </table>
 </div><div class="memdoc">
 
-<p>Initializes and connect a <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> with the <a class="el" href="aimath__f32_8h.html">F32 </a> default implementation for sparse labels. </p>
+<p>Initializes and connect a <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> with the <a class="el" href="aimath__f32_8h.html">F32 </a> default implementation for sparse labels using a mean reduction. </p>
 <p>This loss is meant for single label classification purposes. It expects the target data / labels to be an 8-bit integer tensor (<a class="el" href="aimath__u8_8h.html">U8 </a>) with the true-class index.</p>
 <p>For example the matrix </p><p class="formulaDsp">
 \[ \left( \begin{array}{ccc} 0 &amp; 0 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{array}\right) \]
@@ -228,7 +354,6 @@ Functions</h2></td></tr>
 <div class="line">                       0,</div>
 <div class="line">                       2};</div>
 <div class="line"><a class="code" href="structaitensor.html">aitensor_t</a> t = AITENSOR_2D_U8(t_shape, t_data);</div>
-<div class="ttc" id="astructaitensor_html"><div class="ttname"><a href="structaitensor.html">aitensor</a></div><div class="ttdoc">A tensor in AIfES.</div><div class="ttdef"><b>Definition:</b> aifes_math.h:89</div></div>
 </div><!-- fragment --><p>Example: Create the loss structure:<br  />
 </p><div class="fragment"><div class="line"><a class="code" href="structailoss__crossentropy.html">ailoss_crossentropy_f32_t</a> crossentropy_loss;</div>
 </div><!-- fragment --><p>Example: Initialize and connect the loss to the layer structure:<br  />
@@ -237,8 +362,117 @@ Functions</h2></td></tr>
 <div class="line">model.<a class="code" href="structaimodel.html#a7c7ad89e7d15631b3f5893b8f19030ef">output_layer</a> = <a class="code" href="ailayer__softmax__default_8h.html#a3a89bb8691ee208550e0b267355679ea">ailayer_softmax_f32_default</a>(&amp;softmax_layer, x);</div>
 <div class="line"> </div>
 <div class="line">model.<a class="code" href="structaimodel.html#ad08c61cef46d4042c62d8cdeba81986f">loss</a> = <a class="code" href="ailoss__crossentropy__default_8h.html#a01f977cc97f44940f402462686e13de3">ailoss_crossentropy_sparse8_f32_default</a>(&amp;crossentropy_loss, model.<a class="code" href="structaimodel.html#a7c7ad89e7d15631b3f5893b8f19030ef">output_layer</a>);</div>
-<div class="ttc" id="aailayer__softmax__default_8h_html_a3a89bb8691ee208550e0b267355679ea"><div class="ttname"><a href="ailayer__softmax__default_8h.html#a3a89bb8691ee208550e0b267355679ea">ailayer_softmax_f32_default</a></div><div class="ttdeci">ailayer_t * ailayer_softmax_f32_default(ailayer_softmax_f32_t *layer, ailayer_t *input_layer)</div><div class="ttdoc">Initializes and connect an Softmax layer  with the F32  default implementation.</div></div>
-<div class="ttc" id="aailoss__crossentropy__default_8h_html_a01f977cc97f44940f402462686e13de3"><div class="ttname"><a href="ailoss__crossentropy__default_8h.html#a01f977cc97f44940f402462686e13de3">ailoss_crossentropy_sparse8_f32_default</a></div><div class="ttdeci">ailoss_t * ailoss_crossentropy_sparse8_f32_default(ailoss_crossentropy_f32_t *loss, ailayer_t *input_layer)</div><div class="ttdoc">Initializes and connect a Cross-Entropy loss  with the F32  default implementation for sparse labels.</div></div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*loss</td><td>The loss structure to initialize. </td></tr>
+    <tr><td class="paramname">*input_layer</td><td>The output layer of the model (<b>Must be a Softmax layer!</b>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The (successfully) initialized loss structure. </dd></dl>
+
+</div>
+</div>
+<a id="a578c19c19b9d4e699582501124bfb67b"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a578c19c19b9d4e699582501124bfb67b">&#9670;&nbsp;</a></span>ailoss_crossentropy_sum_f32_default()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structailoss.html">ailoss_t</a>* ailoss_crossentropy_sum_f32_default </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structailoss__crossentropy.html">ailoss_crossentropy_f32_t</a> *&#160;</td>
+          <td class="paramname"><em>loss</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structailayer.html">ailayer_t</a> *&#160;</td>
+          <td class="paramname"><em>input_layer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes and connect a <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> with the <a class="el" href="aimath__f32_8h.html">F32 </a> default implementation using a sum reduction. </p>
+<p>The labels must me either binary (when the output layer is a Sigmoid layer), for example </p><p class="formulaDsp">
+\[ \left( \begin{array}{ccc} 1 &amp; 0 &amp; 0 &amp; 1 \\ 1 &amp; 1 &amp; 1 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{array}\right) \]
+</p>
+<p>or row wise one-hot encoded (when the output layer is a Softmax layer), for example </p><p class="formulaDsp">
+\[ \left( \begin{array}{ccc} 0 &amp; 0 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{array}\right) \]
+</p>
+<p>If you want to provide labels as integers, please use <a class="el" href="ailoss__crossentropy__default_8h.html#a01f977cc97f44940f402462686e13de3" title="Initializes and connect a Cross-Entropy loss  with the F32  default implementation for sparse labels ...">ailoss_crossentropy_sparse8_f32_default()</a> loss.</p>
+<p><b>Example:</b> Create the loss structure:<br  />
+</p><div class="fragment"><div class="line"><a class="code" href="structailoss__crossentropy.html">ailoss_crossentropy_f32_t</a> crossentropy_loss;</div>
+</div><!-- fragment --><p><b>Example:</b> Initialize and connect the loss to the layer structure:<br  />
+</p><div class="fragment"><div class="line"><a class="code" href="structaimodel.html">aimodel_t</a> model;</div>
+<div class="line">...</div>
+<div class="line">model.<a class="code" href="structaimodel.html#a7c7ad89e7d15631b3f5893b8f19030ef">output_layer</a> = <a class="code" href="ailayer__sigmoid__default_8h.html#a1ec45b121e81b85e2109f0072d46f602">ailayer_sigmoid_f32_default</a>(&amp;sigmoid_layer, x);</div>
+<div class="line"> </div>
+<div class="line">model.<a class="code" href="structaimodel.html#ad08c61cef46d4042c62d8cdeba81986f">loss</a> = <a class="code" href="ailoss__crossentropy__default_8h.html#aa10b5c43deef1891d98cb8c45d57b3ee">ailoss_crossentropy_f32_default</a>(&amp;crossentropy_loss, model.<a class="code" href="structaimodel.html#a7c7ad89e7d15631b3f5893b8f19030ef">output_layer</a>);</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*loss</td><td>The loss structure to initialize. </td></tr>
+    <tr><td class="paramname">*input_layer</td><td>The output layer of the model (<b>Must be either a Sigmoid or a Softmax layer!</b>). </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="section return"><dt>Returns</dt><dd>The (successfully) initialized loss structure. </dd></dl>
+
+</div>
+</div>
+<a id="a6d07fc7fe0472790176e0d62261e1acf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6d07fc7fe0472790176e0d62261e1acf">&#9670;&nbsp;</a></span>ailoss_crossentropy_sum_sparse8_f32_default()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname"><a class="el" href="structailoss.html">ailoss_t</a>* ailoss_crossentropy_sum_sparse8_f32_default </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structailoss__crossentropy.html">ailoss_crossentropy_f32_t</a> *&#160;</td>
+          <td class="paramname"><em>loss</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype"><a class="el" href="structailayer.html">ailayer_t</a> *&#160;</td>
+          <td class="paramname"><em>input_layer</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initializes and connect a <a class="el" href="ailoss__crossentropy_8h.html">Cross-Entropy loss </a> with the <a class="el" href="aimath__f32_8h.html">F32 </a> default implementation for sparse labels using a sum reduction. </p>
+<p>This loss is meant for single label classification purposes. It expects the target data / labels to be an 8-bit integer tensor (<a class="el" href="aimath__u8_8h.html">U8 </a>) with the true-class index.</p>
+<p>For example the matrix </p><p class="formulaDsp">
+\[ \left( \begin{array}{ccc} 0 &amp; 0 &amp; 0 &amp; 1 \\ 1 &amp; 0 &amp; 0 &amp; 0 \\ 0 &amp; 0 &amp; 1 &amp; 0 \end{array}\right) \]
+</p>
+<p> in sparse representation is </p><p class="formulaDsp">
+\[ \left( \begin{array}{ccc} 3 \\ 0 \\ 2 \end{array}\right) \]
+</p>
+<p> and can be created with </p><div class="fragment"><div class="line">uint16_t t_shape[2] = {3, 1};</div>
+<div class="line">uint8_t t_data[2*1] = {3,</div>
+<div class="line">                       0,</div>
+<div class="line">                       2};</div>
+<div class="line"><a class="code" href="structaitensor.html">aitensor_t</a> t = AITENSOR_2D_U8(t_shape, t_data);</div>
+</div><!-- fragment --><p>Example: Create the loss structure:<br  />
+</p><div class="fragment"><div class="line"><a class="code" href="structailoss__crossentropy.html">ailoss_crossentropy_f32_t</a> crossentropy_loss;</div>
+</div><!-- fragment --><p>Example: Initialize and connect the loss to the layer structure:<br  />
+</p><div class="fragment"><div class="line"><a class="code" href="structaimodel.html">aimodel_t</a> model;</div>
+<div class="line">...</div>
+<div class="line">model.<a class="code" href="structaimodel.html#a7c7ad89e7d15631b3f5893b8f19030ef">output_layer</a> = <a class="code" href="ailayer__softmax__default_8h.html#a3a89bb8691ee208550e0b267355679ea">ailayer_softmax_f32_default</a>(&amp;softmax_layer, x);</div>
+<div class="line"> </div>
+<div class="line">model.<a class="code" href="structaimodel.html#ad08c61cef46d4042c62d8cdeba81986f">loss</a> = <a class="code" href="ailoss__crossentropy__default_8h.html#a01f977cc97f44940f402462686e13de3">ailoss_crossentropy_sparse8_f32_default</a>(&amp;crossentropy_loss, model.<a class="code" href="structaimodel.html#a7c7ad89e7d15631b3f5893b8f19030ef">output_layer</a>);</div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">*loss</td><td>The loss structure to initialize. </td></tr>

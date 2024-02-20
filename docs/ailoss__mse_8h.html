@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AIfES 2: /builds/ims-esa/aifes_2/include/basic/base/ailoss/ailoss_mse.h File Reference</title>
+<title>AIfES 2: ailoss_mse.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -141,8 +141,8 @@ Variables</h2></td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Base <a class="el" href="structailoss.html">loss </a> implementation of the Mean Squared Error (MSE) loss. </p>
-<dl class="section version"><dt>Version</dt><dd>2.0alpha </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2020-2021 Fraunhofer Institute for Microelectronic Circuits and Systems. All rights reserved.<br  />
+<dl class="section version"><dt>Version</dt><dd>2.2.0 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2020-2023 Fraunhofer Institute for Microelectronic Circuits and Systems. All rights reserved.<br  />
 <br  />
  AIfES is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.<br  />
 <br  />
@@ -185,7 +185,7 @@ Variables</h2></td></tr>
 
 <p>Initialize and connect the given MSE loss. </p>
 <p>This function represents the "constructor" of the abstract MSE loss. It initializes the loss structure and connects it to the output layer of the AIfES model.<br  />
-This function is not intended to call it directly. Instead use one of the data type specific implementations (like for example <a class="el" href="ailoss__mse__default_8h.html#a20b7e226622843064be672c3ad2949c8" title="Initializes and connect a Mean Squared Error loss  with the F32  default implementation.">ailoss_mse_f32_default()</a>).</p>
+This function is not intended to call it directly. Instead use one of the data type specific implementations (like for example <a class="el" href="ailoss__mse__default_8h.html#a20b7e226622843064be672c3ad2949c8" title="Initializes and connect a Mean Squared Error loss  with the F32  default implementation using a mean ...">ailoss_mse_f32_default()</a>).</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">*loss</td><td>The loss to initialize. </td></tr>
@@ -234,7 +234,7 @@ This function is not intended to call it directly. Instead use one of the data t
  \( y \): Target data / True values / Labels<br  />
 <br  />
  Used math functions:</p><ul>
-<li><a class="el" href="structailoss__mse.html#a5f5b55cad6c306233a8e4510d1773244" title="Required math function: Element wise tensor subtraction.">ailoss_mse.tensor_sub</a></li>
+<li>ailoss_mse.tensor_sub</li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -289,8 +289,8 @@ This function is not intended to call it directly. Instead use one of the data t
  \( y \): Target data / True values / Labels<br  />
 <br  />
  Used math functions:</p><ul>
-<li><a class="el" href="structailoss__mse.html#a5f5b55cad6c306233a8e4510d1773244" title="Required math function: Element wise tensor subtraction.">ailoss_mse.tensor_sub</a></li>
-<li><a class="el" href="structailoss__mse.html#afa10b339e3aeb58766e81c49a18bbea2" title="Required math function: Squared sum of tensor elements.">ailoss_mse.norm_squared</a></li>
+<li>ailoss_mse.tensor_sub</li>
+<li>ailoss_mse.norm_squared</li>
 </ul>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">

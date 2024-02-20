@@ -1,6 +1,12 @@
 var searchData=
 [
-  ['print_5faiscalar_1039',['print_aiscalar',['../structaimath__dtype.html#a08e786bc3ccde258981cff5b20988a51',1,'aimath_dtype']]],
-  ['print_5faitensor_1040',['print_aitensor',['../structaimath__dtype.html#a31255ef6a6f99a7fbe3685dec7f29218',1,'aimath_dtype']]],
-  ['print_5fspecs_1041',['print_specs',['../structaicore__layertype.html#a00bc72ab6d23f7ad53b92a8c64484b18',1,'aicore_layertype::print_specs()'],['../structaicore__losstype.html#a7ea4e2b11ece1dd4870f0fb364c15253',1,'aicore_losstype::print_specs()'],['../structaicore__optitype.html#a6c47b929d158f7ef286d7faef130e018',1,'aicore_optitype::print_specs()']]]
+  ['one_5fminus_5fbeta1_1338',['one_minus_beta1',['../structaiopti__adam__f32.html#a02e260a8f1cec862011a285d8af0f9f7',1,'aiopti_adam_f32::one_minus_beta1()'],['../structaiopti__adam.html#a508e23c3b1a359c4dc09fd4aca55b5be',1,'aiopti_adam::one_minus_beta1()']]],
+  ['one_5fminus_5fbeta2_1339',['one_minus_beta2',['../structaiopti__adam.html#a6a78981ba0fc6b6c94018fbbf550eeae',1,'aiopti_adam::one_minus_beta2()'],['../structaiopti__adam__f32.html#a6cf0c7e58cbeaa620a0323eca2176871',1,'aiopti_adam_f32::one_minus_beta2()']]],
+  ['optimem_1340',['optimem',['../structailayer__conv2d.html#a590c48e998a8a740439e38d0aa4302dd',1,'ailayer_conv2d::optimem()'],['../structailayer__maxpool2d.html#a590c48e998a8a740439e38d0aa4302dd',1,'ailayer_maxpool2d::optimem()'],['../structailayer__batch__norm.html#a590c48e998a8a740439e38d0aa4302dd',1,'ailayer_batch_norm::optimem()'],['../structailayer.html#a0d7d5229bb3c514d7bd3e2bcf40c5f5a',1,'ailayer::optimem()'],['../structailayer__template.html#a590c48e998a8a740439e38d0aa4302dd',1,'ailayer_template::optimem()'],['../structailayer__dense.html#a590c48e998a8a740439e38d0aa4302dd',1,'ailayer_dense::optimem()']]],
+  ['optimizer_1341',['optimizer',['../struct_a_i_f_e_s___e__training__parameter__fnn__f32.html#a9f597ad8d0c7bedb69b05275c9c5acc3',1,'AIFES_E_training_parameter_fnn_f32']]],
+  ['optimizer_5fconfiguration_1342',['optimizer_configuration',['../structaiopti.html#a137684e527116392d2672299bc93b95c',1,'aiopti']]],
+  ['optimizer_5ftype_1343',['optimizer_type',['../structaiopti.html#a6ca0fdd2169bc462e1cc4f87e786933d',1,'aiopti']]],
+  ['output_5fdim_1344',['output_dim',['../structailayer__reshape.html#a9a409c01151b26b02e9529cc3e9bad4a',1,'ailayer_reshape']]],
+  ['output_5flayer_1345',['output_layer',['../structaimodel.html#a7c7ad89e7d15631b3f5893b8f19030ef',1,'aimodel']]],
+  ['output_5fshape_1346',['output_shape',['../structailayer__reshape.html#ad3f93dd235b148208b067167c3ec0722',1,'ailayer_reshape::output_shape()'],['../structailayer__flatten.html#ac1131c176885226411465ea77bd4b92d',1,'ailayer_flatten::output_shape()']]]
 ];

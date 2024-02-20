@@ -3,20 +3,17 @@
  * \internal
  * \date 20.10.2020
  * \endinternal
- * \version 2.0alpha
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
-    All rights reserved.
-
+ * \version 2.2.0
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
+    All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
+    (at your option) any later version.<br><br>
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
+    GNU Affero General Public License for more details.<br><br>
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
@@ -105,7 +102,7 @@ void aialgo_backward_model(aimodel_t *model, aitensor_t *target_data);
  * @param *optimizer        The optimizer that is used for training
  * @param batch_size        Size of a batch / Number of input vektors
  */
-void aialgo_train_model(aimodel_t *model, aitensor_t *input_tensor, aitensor_t *target_tensor, aiopti_t *optimizer, uint32_t batch_size);
+uint8_t aialgo_train_model(aimodel_t *model, aitensor_t *input_tensor, aitensor_t *target_tensor, aiopti_t *optimizer, uint32_t batch_size);
 
 /** @brief Calculate the loss in \link aimath_f32.h F32 \endlink data type
  *
@@ -114,7 +111,7 @@ void aialgo_train_model(aimodel_t *model, aitensor_t *input_tensor, aitensor_t *
  * @param *target_data   Tensor containing the target data / labels
  * @param *result        The calculated loss will be written here
  */
-void aialgo_calc_loss_model_f32(aimodel_t *model, aitensor_t *input_data, aitensor_t *target_data, float *result);
+uint8_t aialgo_calc_loss_model_f32(aimodel_t *model, aitensor_t *input_data, aitensor_t *target_data, float *result);
 
 /** @brief Calculate the loss in \link aimath_q31.h Q31 \endlink data type
  *
@@ -123,7 +120,7 @@ void aialgo_calc_loss_model_f32(aimodel_t *model, aitensor_t *input_data, aitens
  * @param *target_data   Tensor containing the target data / labels
  * @param *result        The calculated loss will be written here. The zero_point and the scale should be set to proper values.
  */
-void aialgo_calc_loss_model_q31(aimodel_t *model, aitensor_t *input_data, aitensor_t *target_data, aiscalar_q31_t *result);
+uint8_t aialgo_calc_loss_model_q31(aimodel_t *model, aitensor_t *input_data, aitensor_t *target_data, aiscalar_q31_t *result);
 
 /** @brief Set the gradients to zero
  *
@@ -154,5 +151,14 @@ void aialgo_print_loss_specs(ailoss_t *loss);
  * @param *opti The optimizer
  */
 void aialgo_print_optimizer_specs(aiopti_t *opti);
+
+/** @brief Initialize the parameters of the given model with their default initialization method
+ *
+ * Initialize the parameters of all layers that have a default initialization function (ailayer.init_params) configured
+ * and that are set to trainable (ailayer.settings[AILAYER_SETTINGS_TRAINABLE] = TRUE).
+ *
+ * @param *model The model to initialize
+ */
+void aialgo_initialize_parameters_model(aimodel_t *model);
 
 #endif // AIALGO_SEQUENTIAL_TRAINING

@@ -3,20 +3,17 @@
  * \internal
  * \date 20.10.2020
  * \endinternal
- * \version 2.0alpha
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
-    All rights reserved.
-
+ * \version 2.2.0
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
+    All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
+    (at your option) any later version.<br><br>
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
+    GNU Affero General Public License for more details.<br><br>
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
@@ -37,11 +34,14 @@
 #define TRUE	1
 #define FALSE	0
 
-// ToDo: Make enum from the values
-#define AILAYER_RESULT_LOWER_BOUND      0
-#define AILAYER_RESULT_UPPER_BOUND      1
-#define AILAYER_DELTAS_LOWER_BOUND      2
-#define AILAYER_DELTAS_UPPER_BOUND      3
+#define AILAYER_SETTINGS_TRAINING_MODE                  0
+#define AILAYER_SETTINGS_TRAINABLE                      1
+#define AILAYER_SETTINGS_BATCH_MODE                     2 // When true, a whole batch is processed in a single forward pass
+#define AILAYER_SETTINGS_NO_INPUT_GRADIENT              3 // When true, no input gradient is calculated
+#define AILAYER_SETTINGS_KEEP_INPUT_BUFFER_FOR_RESULT   4 // When true, no input gradient is calculated
+
+#define AILAYER_SETTINGS_SET(settings, mask, selector, value)   (settings = ((settings) & ~(mask << (selector))) | ((value) << (selector)))
+#define AILAYER_SETTINGS_IS(settings, mask, selector)           (((settings) >> (selector)) & mask)
 
 typedef struct ailayer 	ailayer_t;
 typedef struct ailoss 	ailoss_t;
@@ -253,6 +253,23 @@ struct ailayer {
 	const aicore_layertype_t *layer_type; /**< Type of the layer (for example ailayer_dense_type) */
 	void *layer_configuration; /**< Layer specific configurations (back-link from abstract layer class to implementation) */
 
+    /** @brief General layer settings like freezing weights or switching between training and evaluation mode.
+	*
+	* **Example:** Read a value from the settings
+    * \code{c}
+    * if(AILAYER_SETTINGS_IS(layer->settings, 0b1, AILAYER_SETTINGS_TRAINABLE)){
+    *   ...
+    * }
+    * \endcode
+    *
+	* **Example:** Write a value to the settings
+    * \code{c}
+    * AILAYER_SETTINGS_SET(layer->settings, 0b1, AILAYER_SETTINGS_TRAINABLE, FALSE);
+    * \endcode
+	*
+	*/
+	uint32_t settings; /**< General layer settings like freezing weights or switching between training and evaluation mode. */
+
 	/** @name Layer connections
 	* Defines the model graph.
 	*/
@@ -333,6 +350,16 @@ struct ailayer {
 	///@{
 	uint32_t (*sizeof_paramem)(const ailayer_t *self); /**< Size of required memory (in bytes). */
 	void (*set_paramem)(ailayer_t *self, void* memory_ptr); /**< Set and distribute the memory block internally. */
+	void (*init_params)(ailayer_t *self); /**< Initialize the (trainable and not trainable) parameters of the layer with default initializers. */
+	///@}
+
+	/** @name Temporary memory for forward and backward pass
+	* @brief Calculate the size of the required memory for temporary result in forward and backward pass
+	*/
+	///@{
+	uint32_t (*sizeof_fwdmem)(const ailayer_t *self); /**< Size of required memory for the forward pass (in bytes). */
+	uint32_t (*sizeof_bwdmem)(const ailayer_t *self); /**< Size of required memory for the backward pass (in bytes). */
+	void *tempmem; /**< Pointer to the memory for the forward pass, backward pass and the optimizer. */
 	///@}
 
 	/** @name Training memory

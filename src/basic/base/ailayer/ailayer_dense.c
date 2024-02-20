@@ -1,20 +1,17 @@
 /**
  * \file basic/base/ailayer/ailayer_dense.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 20.10.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
-    All rights reserved.
-
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
+    All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
+    (at your option) any later version.<br><br>
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
+    GNU Affero General Public License for more details.<br><br>
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
@@ -25,7 +22,7 @@
 #include "basic/base/ailayer/ailayer_dense.h"
 #include "basic/base/aimath/aimath_basic.h"
 
-AISTRING_STORAGE_WRAPPER(aistring_layer_dense) = "Dense";
+AISTRING_STORAGE_WRAPPER(aistring_layer_dense, "Dense");
 
 const aicore_layertype_t ailayer_dense_type_s = {
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
@@ -42,30 +39,30 @@ ailayer_t *ailayer_dense(ailayer_dense_t *layer, ailayer_t *input_layer)
 {
     layer->base.layer_type = ailayer_dense_type;
 
+    layer->base.settings = 0;
+    AILAYER_SETTINGS_SET(layer->base.settings, 0b1, AILAYER_SETTINGS_TRAINABLE, TRUE);
+    AILAYER_SETTINGS_SET(layer->base.settings, 0b1, AILAYER_SETTINGS_NO_INPUT_GRADIENT, FALSE);
+
 	layer->base.input_layer = input_layer;
+    layer->base.output_layer = 0;
 	input_layer->output_layer = &(layer->base);
 
 	layer->base.layer_configuration = layer;
-	layer->base.result.dtype = layer->result_dtype;
 	layer->base.result.dim = 2;
 	layer->base.result.shape = layer->result_shape;
 	layer->base.result.shape[1] = layer->neurons;
 
-	layer->base.deltas.dtype = layer->result_dtype;
 	layer->base.deltas.dim = 2;
 	layer->base.deltas.shape = input_layer->result.shape;
 
 	layer->weights.dim = 2;
-	layer->weights.dtype = layer->weights_dtype;
 	layer->weights.shape = layer->weights_shape;
 	layer->weights.shape[0] = input_layer->result.shape[1];
 	layer->weights.shape[1] = layer->neurons;
 
-	layer->bias.dim = 2;
-	layer->bias.dtype = layer->bias_dtype;
+	layer->bias.dim = 1;
 	layer->bias.shape = layer->bias_shape;
-	layer->bias.shape[0] = 1;
-	layer->bias.shape[1] = layer->neurons;
+	layer->bias.shape[0] = layer->neurons;
 
 	layer->base.forward = ailayer_dense_forward;
 	layer->base.backward = ailayer_dense_backward;
@@ -75,6 +72,9 @@ ailayer_t *ailayer_dense(ailayer_dense_t *layer, ailayer_t *input_layer)
 	layer->base.set_paramem = ailayer_dense_set_paramem;
 	layer->base.sizeof_trainmem = ailayer_dense_sizeof_trainmem;
 	layer->base.set_trainmem = ailayer_dense_set_trainmem;
+	layer->base.sizeof_fwdmem = 0;
+	layer->base.sizeof_bwdmem = ailayer_dense_sizeof_bwdmem;
+
 
 	layer->base.trainable_params_count = 2;
 	layer->base.trainable_params = layer->trainable_params;
@@ -84,19 +84,21 @@ ailayer_t *ailayer_dense(ailayer_dense_t *layer, ailayer_t *input_layer)
 	layer->trainable_params[0] = &layer->weights;
 	layer->trainable_params[1] = &layer->bias;
 
+	ailayer_dense_calc_result_shape(&layer->base);
+
 	return &layer->base;
 }
 
 void ailayer_dense_forward(ailayer_t *self)
 {
-	aitensor_t *input_tensor = &(self->input_layer->result);
-	aitensor_t *result_tensor = &(self->result);
+	aitensor_t *x_in = &(self->input_layer->result);
+	aitensor_t *x_out = &(self->result);
 	ailayer_dense_t *layer = (ailayer_dense_t *)(self->layer_configuration);
-	aitensor_t *weight_tensor = &(layer->weights);
-	aitensor_t *bias_tensor = &(layer->bias);
+	aitensor_t *weights = &(layer->weights);
+	aitensor_t *bias = &(layer->bias);
 
 	// z = x * W + b
-	layer->linear(input_tensor, weight_tensor, bias_tensor, result_tensor);
+	layer->linear(x_in, weights, bias, x_out);
 
 	return;
 }
@@ -112,30 +114,33 @@ void ailayer_dense_backward(ailayer_t *self)
 	aitensor_t *d_weights = layer->gradients[0];
 	aitensor_t *d_bias = layer->gradients[1];
 
-	int8_t temp_result_data[aimath_sizeof_tensor_data(d_weights)];
-	aitensor_t temp_result = {
-		.dim = 2,
-		.shape = d_weights->shape,
-		.data = temp_result_data,
-		.dtype = d_weights->dtype,
-		.tensor_params = d_weights->tensor_params
-	};
+	aitensor_t temp_result;
+	temp_result.data = self->tempmem;
 
-	aimath_transpose_vector(x_in);
-	// d_weights += x_in^T * delta_out
-	layer->mat_mul(x_in, delta_out, &temp_result);
-	layer->tensor_add(d_weights, &temp_result, d_weights);
-	aimath_transpose_vector(x_in);
-	// d_bias += delta_out
-	layer->tensor_add(d_bias, delta_out, d_bias);
+	if(AILAYER_SETTINGS_IS(self->settings, 0b1, AILAYER_SETTINGS_TRAINABLE)){
 
-	// Calculate delta for next layer. Do not before calculating gradients!!! May override x_in!!!
-	// d_in = w^T * d_out = (d_out^T * w)^T
-	aimath_transpose_vector(delta_out);
-	aimath_transpose_vector(delta_in);
-	layer->mat_mul(weights, delta_out, delta_in);
-	aimath_transpose_vector(delta_in);
-	aimath_transpose_vector(delta_out);
+        // d_weights += x_in^T * delta_out
+        temp_result.dim             = 2;
+        temp_result.shape           = d_weights->shape;
+        temp_result.dtype           = d_weights->dtype;
+        temp_result.tensor_params   = d_weights->tensor_params;
+        layer->mat_mul_at(x_in, delta_out, &temp_result);
+        layer->tensor_add(d_weights, &temp_result, d_weights);
+
+        // d_bias_j += sum_i(delta_out_ij)
+        temp_result.dim             = 1;
+        temp_result.shape           = d_bias->shape;
+        temp_result.dtype           = d_bias->dtype;
+        temp_result.tensor_params   = d_bias->tensor_params;
+        layer->sum_channelwise(delta_out, 1, &temp_result);
+        layer->tensor_add(d_bias, &temp_result, d_bias);
+	}
+
+	if(!AILAYER_SETTINGS_IS(self->settings, 0b1, AILAYER_SETTINGS_NO_INPUT_GRADIENT)){
+        // Calculate delta for next layer. Do not before calculating gradients!!! May override x_in!!!
+        // d_in = delta_out * W^T
+        layer->mat_mul_bt(delta_out, weights, delta_in);
+	}
 
 	return;
 }
@@ -150,21 +155,37 @@ void ailayer_dense_calc_result_shape(ailayer_t *self)
 	return;
 }
 
+uint32_t ailayer_dense_sizeof_bwdmem(const ailayer_t *self)
+{
+	ailayer_dense_t *layer = (ailayer_dense_t *)(self->layer_configuration);
+    uint32_t d_weights_mem, d_bias_mem;
+
+    if(AILAYER_SETTINGS_IS(self->settings, 0b1, AILAYER_SETTINGS_TRAINABLE)){
+        // Shared memory buffer for d_weights and d_bias
+        d_weights_mem = aimath_sizeof_tensor_data(&layer->weights);
+        d_bias_mem = aimath_sizeof_tensor_data(&layer->bias);
+        return d_weights_mem > d_bias_mem ? d_weights_mem : d_bias_mem;
+    } else {
+        // No temp memory is needed
+        return 0;
+    }
+}
+
 uint32_t ailayer_dense_sizeof_paramem(const ailayer_t *self)
 {
 	uint32_t memory = 0;
 	ailayer_dense_t *layer = (ailayer_dense_t *)(self->layer_configuration);
 
 	// Weights
-	memory += layer->weights_dtype->tensor_params_size;
+	memory += layer->weights.dtype->tensor_params_size;
     AIFES_ALIGN_INTEGER(memory, AIFES_MEMORY_ALIGNMENT);
-	memory += self->input_layer->result.shape[1] * layer->neurons * aimath_sizeof_dtype(layer->weights_dtype); // data
+	memory += self->input_layer->result.shape[1] * layer->neurons * aimath_sizeof_dtype(layer->weights.dtype); // data
     AIFES_ALIGN_INTEGER(memory, AIFES_MEMORY_ALIGNMENT);
 
 	// Bias
-	memory += layer->bias_dtype->tensor_params_size;
+	memory += layer->bias.dtype->tensor_params_size;
     AIFES_ALIGN_INTEGER(memory, AIFES_MEMORY_ALIGNMENT);
-	memory += layer->neurons * aimath_sizeof_dtype(layer->bias_dtype); // data
+	memory += layer->neurons * aimath_sizeof_dtype(layer->bias.dtype); // data
 	return memory;
 }
 
@@ -174,7 +195,7 @@ void ailayer_dense_set_paramem(ailayer_t *self, void *memory_ptr)
 	ailayer_dense_t *layer = (ailayer_dense_t *) (self->layer_configuration);
 
 	layer->weights.tensor_params = memory_ptr + address_counter;
-	address_counter += layer->weights_dtype->tensor_params_size;
+	address_counter += layer->weights.dtype->tensor_params_size;
     AIFES_ALIGN_INTEGER(address_counter, AIFES_MEMORY_ALIGNMENT);
 
 	layer->weights.data = memory_ptr + address_counter;
@@ -182,11 +203,11 @@ void ailayer_dense_set_paramem(ailayer_t *self, void *memory_ptr)
     AIFES_ALIGN_INTEGER(address_counter, AIFES_MEMORY_ALIGNMENT);
 
 	layer->bias.tensor_params = memory_ptr + address_counter;
-	address_counter += layer->bias_dtype->tensor_params_size;
+	address_counter += layer->bias.dtype->tensor_params_size;
     AIFES_ALIGN_INTEGER(address_counter, AIFES_MEMORY_ALIGNMENT);
 
 	layer->bias.data = memory_ptr + address_counter;
-	//address_counter += aimath_sizeof_tensor_data(&(configuration->bias));
+	//address_counter += aimath_sizeof_tensor_data(&(layer->bias));
 
 	layer->trainable_params[0] = &(layer->weights);
 	layer->trainable_params[1] = &(layer->bias);
@@ -236,7 +257,7 @@ void ailayer_dense_set_trainmem(ailayer_t *self, void *memory_ptr)
 	address_counter += sizeof(aitensor_t);
 	self->gradients[1]->data = memory_ptr + address_counter;
 	self->gradients[1]->dtype = layer->bias.dtype;
-	self->gradients[1]->dim = 2;
+	self->gradients[1]->dim = 1;
 	self->gradients[1]->shape = layer->bias.shape;
 	address_counter += aimath_sizeof_tensor_data(layer->gradients[1]);
     AIFES_ALIGN_INTEGER(address_counter, AIFES_MEMORY_ALIGNMENT);
@@ -247,7 +268,7 @@ void ailayer_dense_set_trainmem(ailayer_t *self, void *memory_ptr)
 }
 
 #ifdef AIDEBUG_PRINT_MODULE_SPECS
-AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_dense_1) = "neurons: ";
+AISTRING_STORAGE_WRAPPER(aistring_print_layer_specs_dense_1, "neurons: ");
 
 void ailayer_dense_print_specs(const ailayer_t *self)
 {

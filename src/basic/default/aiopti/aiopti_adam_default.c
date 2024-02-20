@@ -1,20 +1,17 @@
 /**
  * \file basic/default/aiopti/aiopti_adam_default.c
- * \version 2.0alpha
+ * \version 2.2.0
  * \date 12.11.2020
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
-    All rights reserved.
-
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
+    All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
+    (at your option) any later version.<br><br>
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
+    GNU Affero General Public License for more details.<br><br>
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
@@ -45,7 +42,6 @@ aiopti_t *aiopti_adam_f32_default(aiopti_adam_f32_t *opti)
 	opti->beta2t = opti->beta2;
 	opti->one_minus_beta1 = 1.0f - opti->beta1;
 	opti->one_minus_beta2 = 1.0f - opti->beta2;
-	//opti->lrt = *((float *) opti->base.base.learning_rate) * sqrtf(1.0f - opti->beta2) / (1.0f - opti->beta1);
 
 	// Set f32 function of optimizer base function begin_step() and end_step()
 	opti->base.base.begin_step = aiopti_adam_f32_default_begin_step;

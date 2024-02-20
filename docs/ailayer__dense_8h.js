@@ -9,6 +9,7 @@ var ailayer__dense_8h =
     [ "ailayer_dense_print_specs", "ailayer__dense_8h.html#a24f794b27b7f95f1d7bb37d3d644709b", null ],
     [ "ailayer_dense_set_paramem", "ailayer__dense_8h.html#a53080c62efc7018b712b45cf12b1752c", null ],
     [ "ailayer_dense_set_trainmem", "ailayer__dense_8h.html#a6958d4d1d0e04b3956439d376eba68a6", null ],
+    [ "ailayer_dense_sizeof_bwdmem", "ailayer__dense_8h.html#a30255360ac6220d5c0db2951f94cc28e", null ],
     [ "ailayer_dense_sizeof_paramem", "ailayer__dense_8h.html#acbf46397f7de94812d143bce76e242e9", null ],
     [ "ailayer_dense_sizeof_trainmem", "ailayer__dense_8h.html#a805ebc0bc547e269a66cda967d6cf078", null ],
     [ "ailayer_dense_type", "ailayer__dense_8h.html#a1746227a13e65de07c7b7be8a0b8e8f8", null ]

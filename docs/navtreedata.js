@@ -121,9 +121,10 @@ var NAVTREE =
 var NAVTREEINDEX =
 [
 "_tutorial_inference_f32.html",
-"ailayer__sigmoid_8h.html#ac8b3179554261f9cb3dbf4036e18a265",
-"aimath__q7__avr__pgm_8h.html#ad4d2f63c565e7d4b9ac2cf7aef6c4844",
-"structailayer__leaky__relu.html"
+"ailayer__input__default_8h.html#a16317137ac99adf72f6f7f2396ec70e8",
+"aimath__cnn__f32__default_8h.html#a80dd6f6ad7235bcd71dffe4ad2b70493",
+"functions_vars_e.html",
+"structailoss.html#abf49a46edc25393b8cf2d799861961ea"
 ];
 
 var SYNCONMSG = 'click to disable panel synchronisation';

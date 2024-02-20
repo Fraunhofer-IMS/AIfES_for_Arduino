@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AIfES 2: /builds/ims-esa/aifes_2/include/basic/base/aialgo/aialgo_sequential_training.h File Reference</title>
+<title>AIfES 2: aialgo_sequential_training.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -116,15 +116,15 @@ Functions</h2></td></tr>
 <tr class="memitem:aca4ec290b2db30cc76ad78aff649a69d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__training_8h.html#aca4ec290b2db30cc76ad78aff649a69d">aialgo_backward_model</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model, <a class="el" href="structaitensor.html">aitensor_t</a> *target_data)</td></tr>
 <tr class="memdesc:aca4ec290b2db30cc76ad78aff649a69d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform the backward pass.  <a href="aialgo__sequential__training_8h.html#aca4ec290b2db30cc76ad78aff649a69d">More...</a><br /></td></tr>
 <tr class="separator:aca4ec290b2db30cc76ad78aff649a69d"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a0aadb77012a013367fb29f117ee5144c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__training_8h.html#a0aadb77012a013367fb29f117ee5144c">aialgo_train_model</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model, <a class="el" href="structaitensor.html">aitensor_t</a> *input_tensor, <a class="el" href="structaitensor.html">aitensor_t</a> *target_tensor, <a class="el" href="structaiopti.html">aiopti_t</a> *optimizer, uint32_t batch_size)</td></tr>
-<tr class="memdesc:a0aadb77012a013367fb29f117ee5144c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform one training epoch on all data batches of the dataset using backpropagation.  <a href="aialgo__sequential__training_8h.html#a0aadb77012a013367fb29f117ee5144c">More...</a><br /></td></tr>
-<tr class="separator:a0aadb77012a013367fb29f117ee5144c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:adf0d71421bd6cab071633f275eb9b1b3"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__training_8h.html#adf0d71421bd6cab071633f275eb9b1b3">aialgo_calc_loss_model_f32</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model, <a class="el" href="structaitensor.html">aitensor_t</a> *input_data, <a class="el" href="structaitensor.html">aitensor_t</a> *target_data, float *result)</td></tr>
-<tr class="memdesc:adf0d71421bd6cab071633f275eb9b1b3"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the loss in <a class="el" href="aimath__f32_8h.html">F32 </a> data type.  <a href="aialgo__sequential__training_8h.html#adf0d71421bd6cab071633f275eb9b1b3">More...</a><br /></td></tr>
-<tr class="separator:adf0d71421bd6cab071633f275eb9b1b3"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:a10e79c34f409b115573706895c63823d"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__training_8h.html#a10e79c34f409b115573706895c63823d">aialgo_calc_loss_model_q31</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model, <a class="el" href="structaitensor.html">aitensor_t</a> *input_data, <a class="el" href="structaitensor.html">aitensor_t</a> *target_data, <a class="el" href="structaiscalar__q31.html">aiscalar_q31_t</a> *result)</td></tr>
-<tr class="memdesc:a10e79c34f409b115573706895c63823d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the loss in <a class="el" href="aimath__q31_8h.html">Q31 </a> data type.  <a href="aialgo__sequential__training_8h.html#a10e79c34f409b115573706895c63823d">More...</a><br /></td></tr>
-<tr class="separator:a10e79c34f409b115573706895c63823d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a6557fccf302f653bcdcb77830463d14d"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__training_8h.html#a6557fccf302f653bcdcb77830463d14d">aialgo_train_model</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model, <a class="el" href="structaitensor.html">aitensor_t</a> *input_tensor, <a class="el" href="structaitensor.html">aitensor_t</a> *target_tensor, <a class="el" href="structaiopti.html">aiopti_t</a> *optimizer, uint32_t batch_size)</td></tr>
+<tr class="memdesc:a6557fccf302f653bcdcb77830463d14d"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform one training epoch on all data batches of the dataset using backpropagation.  <a href="aialgo__sequential__training_8h.html#a6557fccf302f653bcdcb77830463d14d">More...</a><br /></td></tr>
+<tr class="separator:a6557fccf302f653bcdcb77830463d14d"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab06a58b69f3136374e2dc6664f56e0c7"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__training_8h.html#ab06a58b69f3136374e2dc6664f56e0c7">aialgo_calc_loss_model_f32</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model, <a class="el" href="structaitensor.html">aitensor_t</a> *input_data, <a class="el" href="structaitensor.html">aitensor_t</a> *target_data, float *result)</td></tr>
+<tr class="memdesc:ab06a58b69f3136374e2dc6664f56e0c7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the loss in <a class="el" href="aimath__f32_8h.html">F32 </a> data type.  <a href="aialgo__sequential__training_8h.html#ab06a58b69f3136374e2dc6664f56e0c7">More...</a><br /></td></tr>
+<tr class="separator:ab06a58b69f3136374e2dc6664f56e0c7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a9d2a18685d1db30e00c91c194bea8104"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__training_8h.html#a9d2a18685d1db30e00c91c194bea8104">aialgo_calc_loss_model_q31</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model, <a class="el" href="structaitensor.html">aitensor_t</a> *input_data, <a class="el" href="structaitensor.html">aitensor_t</a> *target_data, <a class="el" href="structaiscalar__q31.html">aiscalar_q31_t</a> *result)</td></tr>
+<tr class="memdesc:a9d2a18685d1db30e00c91c194bea8104"><td class="mdescLeft">&#160;</td><td class="mdescRight">Calculate the loss in <a class="el" href="aimath__q31_8h.html">Q31 </a> data type.  <a href="aialgo__sequential__training_8h.html#a9d2a18685d1db30e00c91c194bea8104">More...</a><br /></td></tr>
+<tr class="separator:a9d2a18685d1db30e00c91c194bea8104"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a20ba9e0bdcfd4e36bc1168789de7e99f"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__training_8h.html#a20ba9e0bdcfd4e36bc1168789de7e99f">aialgo_zero_gradients_model</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model, <a class="el" href="structaiopti.html">aiopti_t</a> *optimizer)</td></tr>
 <tr class="memdesc:a20ba9e0bdcfd4e36bc1168789de7e99f"><td class="mdescLeft">&#160;</td><td class="mdescRight">Set the gradients to zero.  <a href="aialgo__sequential__training_8h.html#a20ba9e0bdcfd4e36bc1168789de7e99f">More...</a><br /></td></tr>
 <tr class="separator:a20ba9e0bdcfd4e36bc1168789de7e99f"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -137,11 +137,14 @@ Functions</h2></td></tr>
 <tr class="memitem:aa0a7ab4189d2f68c675d42aa687758e6"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__training_8h.html#aa0a7ab4189d2f68c675d42aa687758e6">aialgo_print_optimizer_specs</a> (<a class="el" href="structaiopti.html">aiopti_t</a> *opti)</td></tr>
 <tr class="memdesc:aa0a7ab4189d2f68c675d42aa687758e6"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the optimizer specs.  <a href="aialgo__sequential__training_8h.html#aa0a7ab4189d2f68c675d42aa687758e6">More...</a><br /></td></tr>
 <tr class="separator:aa0a7ab4189d2f68c675d42aa687758e6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ab6ea378b18812cf68fb4ae70c57380a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__training_8h.html#ab6ea378b18812cf68fb4ae70c57380a5">aialgo_initialize_parameters_model</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model)</td></tr>
+<tr class="memdesc:ab6ea378b18812cf68fb4ae70c57380a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the parameters of the given model with their default initialization method.  <a href="aialgo__sequential__training_8h.html#ab6ea378b18812cf68fb4ae70c57380a5">More...</a><br /></td></tr>
+<tr class="separator:ab6ea378b18812cf68fb4ae70c57380a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Functions required for the training of models. </p>
-<dl class="section version"><dt>Version</dt><dd>2.0alpha </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2020-2021 Fraunhofer Institute for Microelectronic Circuits and Systems. All rights reserved.<br  />
+<dl class="section version"><dt>Version</dt><dd>2.2.0 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2020-2023 Fraunhofer Institute for Microelectronic Circuits and Systems. All rights reserved.<br  />
 <br  />
  AIfES is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.<br  />
 <br  />
@@ -187,14 +190,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="adf0d71421bd6cab071633f275eb9b1b3"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#adf0d71421bd6cab071633f275eb9b1b3">&#9670;&nbsp;</a></span>aialgo_calc_loss_model_f32()</h2>
+<a id="ab06a58b69f3136374e2dc6664f56e0c7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab06a58b69f3136374e2dc6664f56e0c7">&#9670;&nbsp;</a></span>aialgo_calc_loss_model_f32()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void aialgo_calc_loss_model_f32 </td>
+          <td class="memname">uint8_t aialgo_calc_loss_model_f32 </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structaimodel.html">aimodel_t</a> *&#160;</td>
           <td class="paramname"><em>model</em>, </td>
@@ -238,14 +241,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a10e79c34f409b115573706895c63823d"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a10e79c34f409b115573706895c63823d">&#9670;&nbsp;</a></span>aialgo_calc_loss_model_q31()</h2>
+<a id="a9d2a18685d1db30e00c91c194bea8104"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a9d2a18685d1db30e00c91c194bea8104">&#9670;&nbsp;</a></span>aialgo_calc_loss_model_q31()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void aialgo_calc_loss_model_q31 </td>
+          <td class="memname">uint8_t aialgo_calc_loss_model_q31 </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structaimodel.html">aimodel_t</a> *&#160;</td>
           <td class="paramname"><em>model</em>, </td>
@@ -320,6 +323,33 @@ Functions</h2></td></tr>
   <table class="params">
     <tr><td class="paramname">*model</td><td>The model </td></tr>
     <tr><td class="paramname">*optimizer</td><td>The optimizer that is used for training </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="ab6ea378b18812cf68fb4ae70c57380a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ab6ea378b18812cf68fb4ae70c57380a5">&#9670;&nbsp;</a></span>aialgo_initialize_parameters_model()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void aialgo_initialize_parameters_model </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structaimodel.html">aimodel_t</a> *&#160;</td>
+          <td class="paramname"><em>model</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Initialize the parameters of the given model with their default initialization method. </p>
+<p>Initialize the parameters of all layers that have a default initialization function (<a class="el" href="structailayer.html#aedac95cb35a037d0e513ac690c34681a" title="Initialize the (trainable and not trainable) parameters of the layer with default initializers.">ailayer.init_params</a>) configured and that are set to trainable (<a class="el" href="structailayer.html#ac0da37622121ce424bfefdeaaf924508" title="General layer settings like freezing weights or switching between training and evaluation mode.">ailayer.settings</a>[AILAYER_SETTINGS_TRAINABLE] = TRUE).</p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*model</td><td>The model to initialize </td></tr>
   </table>
   </dd>
 </dl>
@@ -474,14 +504,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="a0aadb77012a013367fb29f117ee5144c"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#a0aadb77012a013367fb29f117ee5144c">&#9670;&nbsp;</a></span>aialgo_train_model()</h2>
+<a id="a6557fccf302f653bcdcb77830463d14d"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a6557fccf302f653bcdcb77830463d14d">&#9670;&nbsp;</a></span>aialgo_train_model()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname">void aialgo_train_model </td>
+          <td class="memname">uint8_t aialgo_train_model </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structaimodel.html">aimodel_t</a> *&#160;</td>
           <td class="paramname"><em>model</em>, </td>
@@ -528,17 +558,17 @@ Functions</h2></td></tr>
 <div class="line"><span class="keywordflow">for</span>(i = 0; i &lt; epochs; i++)</div>
 <div class="line">{</div>
 <div class="line">    <span class="comment">// One epoch of training. Iterates through the whole data once</span></div>
-<div class="line">    <a class="code" href="aialgo__sequential__training_8h.html#a0aadb77012a013367fb29f117ee5144c">aialgo_train_model</a>(&amp;model, &amp;input_tensor, &amp;target_tensor, optimizer, batch_size);</div>
+<div class="line">    <a class="code" href="aialgo__sequential__training_8h.html#a6557fccf302f653bcdcb77830463d14d">aialgo_train_model</a>(&amp;model, &amp;input_tensor, &amp;target_tensor, optimizer, batch_size);</div>
 <div class="line"> </div>
 <div class="line">    <span class="comment">// Calculate and print loss every print_interval epochs</span></div>
 <div class="line">    <span class="keywordflow">if</span>(i % print_interval == 0)</div>
 <div class="line">    {</div>
-<div class="line">        <a class="code" href="aialgo__sequential__training_8h.html#adf0d71421bd6cab071633f275eb9b1b3">aialgo_calc_loss_model_f32</a>(&amp;model, &amp;input_tensor, &amp;target_tensor, &amp;loss);</div>
+<div class="line">        <a class="code" href="aialgo__sequential__training_8h.html#ab06a58b69f3136374e2dc6664f56e0c7">aialgo_calc_loss_model_f32</a>(&amp;model, &amp;input_tensor, &amp;target_tensor, &amp;loss);</div>
 <div class="line">        printf(<span class="stringliteral">&quot;Epoch %5d: loss: %f\n&quot;</span>, i, loss);</div>
 <div class="line">    }</div>
 <div class="line">}</div>
-<div class="ttc" id="aaialgo__sequential__training_8h_html_a0aadb77012a013367fb29f117ee5144c"><div class="ttname"><a href="aialgo__sequential__training_8h.html#a0aadb77012a013367fb29f117ee5144c">aialgo_train_model</a></div><div class="ttdeci">void aialgo_train_model(aimodel_t *model, aitensor_t *input_tensor, aitensor_t *target_tensor, aiopti_t *optimizer, uint32_t batch_size)</div><div class="ttdoc">Perform one training epoch on all data batches of the dataset using backpropagation.</div></div>
-<div class="ttc" id="aaialgo__sequential__training_8h_html_adf0d71421bd6cab071633f275eb9b1b3"><div class="ttname"><a href="aialgo__sequential__training_8h.html#adf0d71421bd6cab071633f275eb9b1b3">aialgo_calc_loss_model_f32</a></div><div class="ttdeci">void aialgo_calc_loss_model_f32(aimodel_t *model, aitensor_t *input_data, aitensor_t *target_data, float *result)</div><div class="ttdoc">Calculate the loss in F32  data type.</div></div>
+<div class="ttc" id="aaialgo__sequential__training_8h_html_a6557fccf302f653bcdcb77830463d14d"><div class="ttname"><a href="aialgo__sequential__training_8h.html#a6557fccf302f653bcdcb77830463d14d">aialgo_train_model</a></div><div class="ttdeci">uint8_t aialgo_train_model(aimodel_t *model, aitensor_t *input_tensor, aitensor_t *target_tensor, aiopti_t *optimizer, uint32_t batch_size)</div><div class="ttdoc">Perform one training epoch on all data batches of the dataset using backpropagation.</div></div>
+<div class="ttc" id="aaialgo__sequential__training_8h_html_ab06a58b69f3136374e2dc6664f56e0c7"><div class="ttname"><a href="aialgo__sequential__training_8h.html#ab06a58b69f3136374e2dc6664f56e0c7">aialgo_calc_loss_model_f32</a></div><div class="ttdeci">uint8_t aialgo_calc_loss_model_f32(aimodel_t *model, aitensor_t *input_data, aitensor_t *target_data, float *result)</div><div class="ttdoc">Calculate the loss in F32  data type.</div></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">*model</td><td>The model </td></tr>

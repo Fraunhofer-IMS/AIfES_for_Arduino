@@ -3,20 +3,17 @@
  * \internal
  * \date 20.10.2020
  * \endinternal
- * \version 2.0alpha
- * \copyright  Copyright (C) 2020-2021  Fraunhofer Institute for Microelectronic Circuits and Systems.
-    All rights reserved.
-
+ * \version 2.2.0
+ * \copyright  Copyright (C) 2020-2023  Fraunhofer Institute for Microelectronic Circuits and Systems.
+    All rights reserved.<br><br>
     AIfES is free software: you can redistribute it and/or modify
     it under the terms of the GNU Affero General Public License as published by
     the Free Software Foundation, either version 3 of the License, or
-    (at your option) any later version.
-
+    (at your option) any later version.<br><br>
     This program is distributed in the hope that it will be useful,
     but WITHOUT ANY WARRANTY; without even the implied warranty of
     MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the
-    GNU Affero General Public License for more details.
-
+    GNU Affero General Public License for more details.<br><br>
     You should have received a copy of the GNU Affero General Public License
     along with this program.  If not, see <https://www.gnu.org/licenses/>.
  *
@@ -28,7 +25,7 @@
  *
  * \image html ailayer_dense_schematic.png width=200px
  *
- * The Dense layer (or fully connected layer) is the core layer of a FNN and calculates the weighted sums of its inputs
+ * The Dense layer (or fully-connected layer) is the core layer of a FNN and calculates the weighted sums of its inputs
  * @f[
  *  y = x \cdot W + b
  * @f]
@@ -73,7 +70,6 @@ typedef struct ailayer_dense 	ailayer_dense_t;
 */
 struct ailayer_dense {
 	ailayer_t base; /**< Inherited field members from general ailayer struct. */
-	const aimath_dtype_t *result_dtype; /**< Data type of the inference result values. */
 
     /** @name Layer configuration
 	 * @brief Required configuration parameters for the layer
@@ -91,11 +87,8 @@ struct ailayer_dense {
 	aitensor_t weights; /**< Tensor containing the layer weights. */
 	aitensor_t bias; /**< Tensor containing the layer bias weights. */
 
-	const aimath_dtype_t *weights_dtype; /**< Data type of the weights. */
-	const aimath_dtype_t *bias_dtype; /**< Data type of the bias weights. */
-
 	uint16_t weights_shape[2]; /**< Weights tensor shape (n x m matrix). */
-	uint16_t bias_shape[2]; /**< Bias weights tensor shape (n x m matrix). */
+	uint16_t bias_shape[1]; /**< Bias weights tensor shape (n x m matrix). */
 
 	aitensor_t *trainable_params[2]; /**< Pointer to the weights and biases (which are the trainable parameters). */
 	aitensor_t *gradients[2]; /**< Gradients structure for the back propagation algorithm. */
@@ -121,27 +114,49 @@ struct ailayer_dense {
 	 */
 	void (*linear)(const aitensor_t *a, const aitensor_t *b, const aitensor_t *c, aitensor_t *result);
 
-	/** @brief Required math function: Matrix multiplication
+	/** @brief Required math function: Matrix multiplication with transposed a
 	 *
 	 * Requires a math function that performs a matrix multiplication on two 2D tensors:\n
      * @f[
-     *  result = a \cdot b
+     *  result = a^T \cdot b
      * @f]
      *
-     * @param a         Matrix with dimension \f$ N \times K \f$ (input)
+     * @param a         Matrix with dimension \f$ K \times N \f$ (input)
      * @param b         Matrix with dimension \f$ K \times M \f$ (input)
      * @param result    Matrix with dimension \f$ N \times M \f$ (output)
 	 */
-	void (*mat_mul)(const aitensor_t *a, const aitensor_t *b, aitensor_t *result);
+	void (*mat_mul_at)(const aitensor_t *a, const aitensor_t *b, aitensor_t *result);
+
+	/** @brief Required math function: Matrix multiplication with transposed b
+	 *
+	 * Requires a math function that performs a matrix multiplication on two 2D tensors:\n
+     * @f[
+     *  result = a \cdot b^T
+     * @f]
+     *
+     * @param a         Matrix with dimension \f$ N \times K \f$ (input)
+     * @param b         Matrix with dimension \f$ M \times K \f$ (input)
+     * @param result    Matrix with dimension \f$ N \times M \f$ (output)
+	 */
+	void (*mat_mul_bt)(const aitensor_t *a, const aitensor_t *b, aitensor_t *result);
 
 	/** @brief Required math function: Element wise tensor addition
 	 *
-	 * Requires a math function that adds two tensors element wise:\n
+	 * Requires a math function that adds two tensors element-wise:
      * @f[
      *  result = a + b
      * @f]
 	 */
 	void (*tensor_add)(const aitensor_t *a, const aitensor_t *b, aitensor_t *result);
+
+	/** @brief Required math function: Channel-wise sum
+	 *
+	 * Requires a math function that calculates the sum of all elements of each channel c. The result tensor is 1D.:
+     * @f[
+     *  result_c = \sum_i(a_{ci})
+     * @f]
+	 */
+	void (*sum_channelwise)(const aitensor_t *a, int8_t channel_axis, aitensor_t *result);
 
 	///@}
 
@@ -181,7 +196,7 @@ ailayer_t *ailayer_dense(ailayer_dense_t *layer, ailayer_t *input_layer);
  * @f]
  *
  * \f$ w \f$:	 Weights matrix\n
- * \f$ b \f$:	 Bias vektor\n
+ * \f$ b \f$:	 Bias vector\n
  * \f$ x_{in} \f$:	 Result of the forward pass of the previous layer\n
  * \f$ x_{out} \f$:	 Result of the forward pass of this layer\n\n
  *
@@ -221,8 +236,10 @@ void ailayer_dense_forward(ailayer_t *self);
  * \f$ \delta_{out} \f$:	 Result of the backward pass of the next layer\n\n
  *
  * Used math functions:
- * * ailayer_dense.mat_mul
+ * * ailayer_dense.mat_mul_at
+ * * ailayer_dense.mat_mul_bt
  * * ailayer_dense.tensor_add
+ * * ailayer.dense.sum_channelwise
  *
  * @param *self Layer to calculate the backward path for.
  */
@@ -238,6 +255,7 @@ void ailayer_dense_backward(ailayer_t *self);
  */
 void ailayer_dense_calc_result_shape(ailayer_t *self);
 
+uint32_t ailayer_dense_sizeof_bwdmem(const ailayer_t *self);
 
 /** @brief Calculate and return the parameter memory size needed for this layer
  *
@@ -290,7 +308,6 @@ void ailayer_dense_set_trainmem(ailayer_t *self, void *memory_ptr);
 /** @brief Print the layer specification
  *
  * @param *self     The layer to print the specification for
- * @param *print    Pointer to the print function to use
  */
 void ailayer_dense_print_specs(const ailayer_t *self);
 #endif // AIDEBUG_PRINT_MODULE_SPECS

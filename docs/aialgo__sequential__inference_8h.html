@@ -5,7 +5,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=9"/>
 <meta name="generator" content="Doxygen 1.9.1"/>
 <meta name="viewport" content="width=device-width, initial-scale=1"/>
-<title>AIfES 2: /builds/ims-esa/aifes_2/include/basic/base/aialgo/aialgo_sequential_inference.h File Reference</title>
+<title>AIfES 2: aialgo_sequential_inference.h File Reference</title>
 <link href="tabs.css" rel="stylesheet" type="text/css"/>
 <script type="text/javascript" src="jquery.js"></script>
 <script type="text/javascript" src="dynsections.js"></script>
@@ -119,9 +119,9 @@ Functions</h2></td></tr>
 <tr class="memitem:a4655caab3051cc837312c286fbe4789a"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__inference_8h.html#a4655caab3051cc837312c286fbe4789a">aialgo_forward_model</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model, <a class="el" href="structaitensor.html">aitensor_t</a> *input_data)</td></tr>
 <tr class="memdesc:a4655caab3051cc837312c286fbe4789a"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform a forward pass on the model.  <a href="aialgo__sequential__inference_8h.html#a4655caab3051cc837312c286fbe4789a">More...</a><br /></td></tr>
 <tr class="separator:a4655caab3051cc837312c286fbe4789a"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:aafaea85e93de468925ada90c77494eec"><td class="memItemLeft" align="right" valign="top"><a class="el" href="structaitensor.html">aitensor_t</a> *&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__inference_8h.html#aafaea85e93de468925ada90c77494eec">aialgo_inference_model</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model, <a class="el" href="structaitensor.html">aitensor_t</a> *input_data, <a class="el" href="structaitensor.html">aitensor_t</a> *output_data)</td></tr>
-<tr class="memdesc:aafaea85e93de468925ada90c77494eec"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform an inference on the model / Run the model.  <a href="aialgo__sequential__inference_8h.html#aafaea85e93de468925ada90c77494eec">More...</a><br /></td></tr>
-<tr class="separator:aafaea85e93de468925ada90c77494eec"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a295cb2bb6c3fefc478042f66e067e090"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__inference_8h.html#a295cb2bb6c3fefc478042f66e067e090">aialgo_inference_model</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model, <a class="el" href="structaitensor.html">aitensor_t</a> *input_data, <a class="el" href="structaitensor.html">aitensor_t</a> *output_data)</td></tr>
+<tr class="memdesc:a295cb2bb6c3fefc478042f66e067e090"><td class="mdescLeft">&#160;</td><td class="mdescRight">Perform an inference on the model / Run the model.  <a href="aialgo__sequential__inference_8h.html#a295cb2bb6c3fefc478042f66e067e090">More...</a><br /></td></tr>
+<tr class="separator:a295cb2bb6c3fefc478042f66e067e090"><td class="memSeparator" colspan="2">&#160;</td></tr>
 <tr class="memitem:a3fb665166082f1e7a89e23218a105ce8"><td class="memItemLeft" align="right" valign="top">uint8_t&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__inference_8h.html#a3fb665166082f1e7a89e23218a105ce8">aialgo_compile_model</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model)</td></tr>
 <tr class="memdesc:a3fb665166082f1e7a89e23218a105ce8"><td class="mdescLeft">&#160;</td><td class="mdescRight">Initialize the model structure.  <a href="aialgo__sequential__inference_8h.html#a3fb665166082f1e7a89e23218a105ce8">More...</a><br /></td></tr>
 <tr class="separator:a3fb665166082f1e7a89e23218a105ce8"><td class="memSeparator" colspan="2">&#160;</td></tr>
@@ -140,11 +140,23 @@ Functions</h2></td></tr>
 <tr class="memitem:a3bb5fdb556c51ad8b3043d220f0a1276"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__inference_8h.html#a3bb5fdb556c51ad8b3043d220f0a1276">aialgo_print_model_structure</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model)</td></tr>
 <tr class="memdesc:a3bb5fdb556c51ad8b3043d220f0a1276"><td class="mdescLeft">&#160;</td><td class="mdescRight">Print the layer structure of the model with the configured parameters.  <a href="aialgo__sequential__inference_8h.html#a3bb5fdb556c51ad8b3043d220f0a1276">More...</a><br /></td></tr>
 <tr class="separator:a3bb5fdb556c51ad8b3043d220f0a1276"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:af3beb79c952cd2f86574f3608b09ebbf"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__inference_8h.html#af3beb79c952cd2f86574f3608b09ebbf">aialgo_set_layer_settings_model</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model, uint32_t bitmask, uint8_t shift, uint32_t value)</td></tr>
+<tr class="memdesc:af3beb79c952cd2f86574f3608b09ebbf"><td class="mdescLeft">&#160;</td><td class="mdescRight">Apply the specified setting to all layers in the model.  <a href="aialgo__sequential__inference_8h.html#af3beb79c952cd2f86574f3608b09ebbf">More...</a><br /></td></tr>
+<tr class="separator:af3beb79c952cd2f86574f3608b09ebbf"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a2d3943ef443b70a282c8af18b1155a2c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__inference_8h.html#a2d3943ef443b70a282c8af18b1155a2c">aialgo_set_training_mode_model</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model, uint8_t value)</td></tr>
+<tr class="memdesc:a2d3943ef443b70a282c8af18b1155a2c"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables / disables the training mode of the model.  <a href="aialgo__sequential__inference_8h.html#a2d3943ef443b70a282c8af18b1155a2c">More...</a><br /></td></tr>
+<tr class="separator:a2d3943ef443b70a282c8af18b1155a2c"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a364f7453327a3f2b734cae035fb31aa7"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__inference_8h.html#a364f7453327a3f2b734cae035fb31aa7">aialgo_set_batch_mode_model</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model, uint8_t value)</td></tr>
+<tr class="memdesc:a364f7453327a3f2b734cae035fb31aa7"><td class="mdescLeft">&#160;</td><td class="mdescRight">Enables / disables the batch mode of the model.  <a href="aialgo__sequential__inference_8h.html#a364f7453327a3f2b734cae035fb31aa7">More...</a><br /></td></tr>
+<tr class="separator:a364f7453327a3f2b734cae035fb31aa7"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:a46374a6a778c3fdeb43e7f32c7f5a2a5"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="aialgo__sequential__inference_8h.html#a46374a6a778c3fdeb43e7f32c7f5a2a5">aialgo_set_trainable_model</a> (<a class="el" href="structaimodel.html">aimodel_t</a> *model, uint8_t value)</td></tr>
+<tr class="memdesc:a46374a6a778c3fdeb43e7f32c7f5a2a5"><td class="mdescLeft">&#160;</td><td class="mdescRight">Freeze / Unfreeze trainable parameters of the model.  <a href="aialgo__sequential__inference_8h.html#a46374a6a778c3fdeb43e7f32c7f5a2a5">More...</a><br /></td></tr>
+<tr class="separator:a46374a6a778c3fdeb43e7f32c7f5a2a5"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
 <a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
 <div class="textblock"><p>Functions required for inference of models. </p>
-<dl class="section version"><dt>Version</dt><dd>2.0alpha </dd></dl>
-<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2020-2021 Fraunhofer Institute for Microelectronic Circuits and Systems. All rights reserved.<br  />
+<dl class="section version"><dt>Version</dt><dd>2.2.0 </dd></dl>
+<dl class="section copyright"><dt>Copyright</dt><dd>Copyright (C) 2020-2023 Fraunhofer Institute for Microelectronic Circuits and Systems. All rights reserved.<br  />
 <br  />
  AIfES is free software: you can redistribute it and/or modify it under the terms of the GNU Affero General Public License as published by the Free Software Foundation, either version 3 of the License, or (at your option) any later version.<br  />
 <br  />
@@ -255,7 +267,7 @@ Functions</h2></td></tr>
 </div><div class="memdoc">
 
 <p>Perform a forward pass on the model. </p>
-<p>The result is stored in the result tensor of the output layer and a pointer to this is returned. This output result is stored in the inference memory and is only valid as long as the inference memory is valid. To get the output as a separate tensor, use <a class="el" href="aialgo__sequential__inference_8h.html#aafaea85e93de468925ada90c77494eec" title="Perform an inference on the model / Run the model.">aialgo_inference_model()</a> instead.</p>
+<p>The result is stored in the result tensor of the output layer and a pointer to this is returned. This output result is stored in the inference memory and is only valid as long as the inference memory is valid. To get the output as a separate tensor, use <a class="el" href="aialgo__sequential__inference_8h.html#a295cb2bb6c3fefc478042f66e067e090" title="Perform an inference on the model / Run the model.">aialgo_inference_model()</a> instead.</p>
 <dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
     <tr><td class="paramname">*model</td><td>The model </td></tr>
@@ -267,14 +279,14 @@ Functions</h2></td></tr>
 
 </div>
 </div>
-<a id="aafaea85e93de468925ada90c77494eec"></a>
-<h2 class="memtitle"><span class="permalink"><a href="#aafaea85e93de468925ada90c77494eec">&#9670;&nbsp;</a></span>aialgo_inference_model()</h2>
+<a id="a295cb2bb6c3fefc478042f66e067e090"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a295cb2bb6c3fefc478042f66e067e090">&#9670;&nbsp;</a></span>aialgo_inference_model()</h2>
 
 <div class="memitem">
 <div class="memproto">
       <table class="memname">
         <tr>
-          <td class="memname"><a class="el" href="structaitensor.html">aitensor_t</a>* aialgo_inference_model </td>
+          <td class="memname">uint8_t aialgo_inference_model </td>
           <td>(</td>
           <td class="paramtype"><a class="el" href="structaimodel.html">aimodel_t</a> *&#160;</td>
           <td class="paramname"><em>model</em>, </td>
@@ -309,10 +321,10 @@ Functions</h2></td></tr>
 <div class="line">uint16_t output_shape[] = {1, 2}</div>
 <div class="line"><a class="code" href="structaitensor.html">aitensor_t</a> output_tensor = AITENSOR_2D_F32(output_shape, output_data);</div>
 <div class="line"> </div>
-<div class="line"><a class="code" href="aialgo__sequential__inference_8h.html#aafaea85e93de468925ada90c77494eec">aialgo_inference_model</a>(&amp;model, &amp;input_tensor, &amp;output_tensor);</div>
+<div class="line"><a class="code" href="aialgo__sequential__inference_8h.html#a295cb2bb6c3fefc478042f66e067e090">aialgo_inference_model</a>(&amp;model, &amp;input_tensor, &amp;output_tensor);</div>
 <div class="line"> </div>
 <div class="line"><span class="comment">// The results are now in the output_tensor</span></div>
-<div class="ttc" id="aaialgo__sequential__inference_8h_html_aafaea85e93de468925ada90c77494eec"><div class="ttname"><a href="aialgo__sequential__inference_8h.html#aafaea85e93de468925ada90c77494eec">aialgo_inference_model</a></div><div class="ttdeci">aitensor_t * aialgo_inference_model(aimodel_t *model, aitensor_t *input_data, aitensor_t *output_data)</div><div class="ttdoc">Perform an inference on the model / Run the model.</div></div>
+<div class="ttc" id="aaialgo__sequential__inference_8h_html_a295cb2bb6c3fefc478042f66e067e090"><div class="ttname"><a href="aialgo__sequential__inference_8h.html#a295cb2bb6c3fefc478042f66e067e090">aialgo_inference_model</a></div><div class="ttdeci">uint8_t aialgo_inference_model(aimodel_t *model, aitensor_t *input_data, aitensor_t *output_data)</div><div class="ttdoc">Perform an inference on the model / Run the model.</div></div>
 <div class="ttc" id="astructaitensor_html"><div class="ttname"><a href="structaitensor.html">aitensor</a></div><div class="ttdoc">A tensor in AIfES.</div><div class="ttdef"><b>Definition:</b> aifes_math.h:89</div></div>
 </div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
   <table class="params">
@@ -322,7 +334,7 @@ Functions</h2></td></tr>
   </table>
   </dd>
 </dl>
-<dl class="section return"><dt>Returns</dt><dd>Pointer to the output_data tensor with the results </dd></dl>
+<dl class="section return"><dt>Returns</dt><dd>0 if successful </dd></dl>
 
 </div>
 </div>
@@ -442,6 +454,100 @@ Functions</h2></td></tr>
 
 </div>
 </div>
+<a id="a364f7453327a3f2b734cae035fb31aa7"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a364f7453327a3f2b734cae035fb31aa7">&#9670;&nbsp;</a></span>aialgo_set_batch_mode_model()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void aialgo_set_batch_mode_model </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structaimodel.html">aimodel_t</a> *&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enables / disables the batch mode of the model. </p>
+<p>When executed in batch mode, a whole batch is processed by one forward pass.<br  />
+Some layers may behave differently during training than during inference (e.g. the Batch Normalization layer).<br  />
+The <a class="el" href="aialgo__sequential__training_8h.html#a6557fccf302f653bcdcb77830463d14d" title="Perform one training epoch on all data batches of the dataset using backpropagation.">aialgo_train_model()</a> function calls this function internally (Batch mode gets enabled if the batch_size equals the first element of the <a class="el" href="structailayer__input.html#a783daa03ac67ce4a58f74b1d3ad1f787" title="Shape of the input tensor.">ailayer_input.input_shape</a> and gets disabled otherwise).</p>
+<p>The setting value can be accessed with: </p><div class="fragment"><div class="line"><span class="keywordflow">if</span>(AILAYER_SETTINGS_IS(layer-&gt;settings, 0b1, AILAYER_SETTINGS_BATCH_MODE)){</div>
+<div class="line">  ...</div>
+<div class="line">}</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*model</td><td>The model </td></tr>
+    <tr><td class="paramname">value</td><td>Target value (TRUE or FALSE) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="af3beb79c952cd2f86574f3608b09ebbf"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#af3beb79c952cd2f86574f3608b09ebbf">&#9670;&nbsp;</a></span>aialgo_set_layer_settings_model()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void aialgo_set_layer_settings_model </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structaimodel.html">aimodel_t</a> *&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>bitmask</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>shift</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint32_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Apply the specified setting to all layers in the model. </p>
+<dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*model</td><td>The model </td></tr>
+    <tr><td class="paramname">bitmask</td><td>32-bit mask to address the setting value (usually set to 0b1) </td></tr>
+    <tr><td class="paramname">shift</td><td>The amount of bits to shift the bitmask to address the desired setting value (e.g. AILAYER_SETTINGS_TRAINING_MODE) </td></tr>
+    <tr><td class="paramname">value</td><td>The target value </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
 <a id="a4d70260b376741a0cef4c42d41e705f8"></a>
 <h2 class="memtitle"><span class="permalink"><a href="#a4d70260b376741a0cef4c42d41e705f8">&#9670;&nbsp;</a></span>aialgo_set_model_delta_precision_q31()</h2>
 
@@ -553,6 +659,89 @@ Use this function for example when you train a model in Q31 data-type.</p>
   <table class="params">
     <tr><td class="paramname">*model</td><td>The model </td></tr>
     <tr><td class="paramname">shift</td><td>Number of decimal places (shift in Q31) of the layer results </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a46374a6a778c3fdeb43e7f32c7f5a2a5"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a46374a6a778c3fdeb43e7f32c7f5a2a5">&#9670;&nbsp;</a></span>aialgo_set_trainable_model()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void aialgo_set_trainable_model </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structaimodel.html">aimodel_t</a> *&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Freeze / Unfreeze trainable parameters of the model. </p>
+<p>When a layer is set to trainable = FALSE, the corresponding parameters are not modified by <a class="el" href="aialgo__sequential__training_8h.html#a6557fccf302f653bcdcb77830463d14d" title="Perform one training epoch on all data batches of the dataset using backpropagation.">aialgo_train_model()</a>.</p>
+<p>The setting value can be accessed with: </p><div class="fragment"><div class="line"><span class="keywordflow">if</span>(AILAYER_SETTINGS_IS(layer-&gt;settings, 0b1, AILAYER_SETTINGS_TRAINABLE)){</div>
+<div class="line">  ...</div>
+<div class="line">}</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*model</td><td>The model </td></tr>
+    <tr><td class="paramname">value</td><td>Target value (TRUE or FALSE) </td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<a id="a2d3943ef443b70a282c8af18b1155a2c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#a2d3943ef443b70a282c8af18b1155a2c">&#9670;&nbsp;</a></span>aialgo_set_training_mode_model()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void aialgo_set_training_mode_model </td>
+          <td>(</td>
+          <td class="paramtype"><a class="el" href="structaimodel.html">aimodel_t</a> *&#160;</td>
+          <td class="paramname"><em>model</em>, </td>
+        </tr>
+        <tr>
+          <td class="paramkey"></td>
+          <td></td>
+          <td class="paramtype">uint8_t&#160;</td>
+          <td class="paramname"><em>value</em>&#160;</td>
+        </tr>
+        <tr>
+          <td></td>
+          <td>)</td>
+          <td></td><td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+
+<p>Enables / disables the training mode of the model. </p>
+<p>Some layers may behave differently during training than during inference (e.g. the Batch Normalization layer).<br  />
+The <a class="el" href="aialgo__sequential__training_8h.html#a6557fccf302f653bcdcb77830463d14d" title="Perform one training epoch on all data batches of the dataset using backpropagation.">aialgo_train_model()</a> function calls this function internally.</p>
+<p>The setting value can be accessed with: </p><div class="fragment"><div class="line"><span class="keywordflow">if</span>(AILAYER_SETTINGS_IS(layer-&gt;settings, 0b1, AILAYER_SETTINGS_TRAINING_MODE)){</div>
+<div class="line">  ...</div>
+<div class="line">}</div>
+</div><!-- fragment --><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">*model</td><td>The model </td></tr>
+    <tr><td class="paramname">value</td><td>Target value (TRUE or FALSE) </td></tr>
   </table>
   </dd>
 </dl>

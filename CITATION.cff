@@ -8,6 +8,35 @@ authors:
   country: DE
   website: https://ims.fraunhofer.de
 title: "AIfES for Arduino"
-version: 2.0.0
-date-released: 2021-07-05
+version: 2.2.0
+date-released: 2024-02-20
 url: https://github.com/Fraunhofer-IMS/AIfES_for_Arduino
+preferred-citation:
+  type: article
+  authors:
+  - family-names: Wulfert
+    given-names: Lars
+  - family-names: Kühnel
+    given-names: Johannes
+  - family-names: Krupp
+    given-names: Lukas
+  - family-names: Viga
+    given-names: Justus
+  - family-names: Wiede
+    given-names: Christian
+  - family-names: Gembaczka
+    given-names: Pierre
+  - family-names: Grabmaier
+    given-names: Anton
+  doi: 10.1109/tpami.2024.3355495
+  identifiers:
+    - type: doi
+      value: 10.1109/tpami.2024.3355495
+    - type: url
+      value: http://dx.doi.org/10.1109/TPAMI.2024.3355495
+    - type: other
+      value: urn:issn:0162-8828
+  title: 'AIfES: A Next-Generation Edge AI Framework'
+  url: http://dx.doi.org/10.1109/TPAMI.2024.3355495
+  journal: IEEE Transactions on Pattern Analysis and Machine Intelligence
+  year: 2024
