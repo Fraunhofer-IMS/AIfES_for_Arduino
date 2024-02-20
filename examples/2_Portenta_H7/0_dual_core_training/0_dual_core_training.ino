@@ -72,7 +72,7 @@
   https://create.arduino.cc/projecthub/aifes_team
 */
 
-#include "RPC_internal.h"           
+#include "RPC.h"
 #include <aifes.h>                  // include the AIfES libary
 
 //Defines for M7 and M4
@@ -215,7 +215,7 @@ AIFES_E_model_parameter_fnn_f32 FNN;
     FNN_TRAIN.early_stopping = AIfES_E_early_stopping_on;   // Use early stopping 
 
     // Check if the FNN has already been trained
-    auto res0 = RPC1.call("check_net_trained").as<int>();
+    auto res0 = RPC.call("check_net_trained").as<int>();
     
     // It has not been trained yet. Initialize the weights.
     if(res0 == 0)
@@ -237,7 +237,7 @@ AIFES_E_model_parameter_fnn_f32 FNN;
 
       // Copy the current weights from the M7
       for (i = 0; i < WEIGHTS; i++) {
-        auto res1 = RPC1.call("get_weight", i).as<float>();
+        auto res1 = RPC.call("get_weight", i).as<float>();
         M4_weights[i] = res1;
       }
     }
@@ -249,28 +249,28 @@ AIFES_E_model_parameter_fnn_f32 FNN;
 
     // Send the current weights to the M7
     for (i = 0; i < WEIGHTS; i++) {
-      auto res2 = RPC1.call("set_weight", i,M4_weights[i]).as<float>();
+      auto res2 = RPC.call("set_weight", i,M4_weights[i]).as<float>();
     }   
 
     // Set the flag so that the M7 knows that has been trained
-    auto res2 = RPC1.call("net_trained").as<int>();
+    auto res2 = RPC.call("net_trained").as<int>();
 
     // Print the results
     if(res0 == 0)
     {
-      RPC1.print("M4 Core: Training from scratch finished after " + String(M4_epoch_counter * PRINT_INTERVAL) + " epochs and an loss of ");
-      RPC1.print(M4_actual_loss, 6);
-      RPC1.print(" (learning rate: ");
-      RPC1.print(FNN_TRAIN.learn_rate, 5);
-      RPC1.println(")");
+      RPC.print("M4 Core: Training from scratch finished after " + String(M4_epoch_counter * PRINT_INTERVAL) + " epochs and an loss of ");
+      RPC.print(M4_actual_loss, 6);
+      RPC.print(" (learning rate: ");
+      RPC.print(FNN_TRAIN.learn_rate, 5);
+      RPC.println(")");
     }
     if(res0 == 1)
     {
-      RPC1.print("M4 Core: Continued training with " + String(M4_epoch_counter * PRINT_INTERVAL) + " epochs and an loss of ");
-      RPC1.print(M4_actual_loss, 6);
-      RPC1.print(" (learning rate: ");
-      RPC1.print(FNN_TRAIN.learn_rate, 5);
-      RPC1.println(")");
+      RPC.print("M4 Core: Continued training with " + String(M4_epoch_counter * PRINT_INTERVAL) + " epochs and an loss of ");
+      RPC.print(M4_actual_loss, 6);
+      RPC.print(" (learning rate: ");
+      RPC.print(FNN_TRAIN.learn_rate, 5);
+      RPC.println(")");
     }
     return 0;
   }
@@ -283,7 +283,7 @@ void setup() {
 
   // Setup for M7 and M4
    randomSeed(analogRead(A0));
-   RPC1.begin();
+   RPC.begin();
    
   // Configure AIfES activations
   FNN_activations[0] = AIfES_E_sigmoid; // Sigmoid for hidden (dense) layer
@@ -296,16 +296,15 @@ void setup() {
 
   // M7 setup
   #ifdef CORE_CM7  
-    LL_RCC_ForceCM4Boot();  
     global_LED = LEDB; // M7 uses the blue LED
     Serial.begin(115200);
 
     // M7 CPU makes the functions available under the defined names
-    RPC1.bind("check_train_task", check_train_task);
-    RPC1.bind("check_net_trained", check_net_trained);
-    RPC1.bind("net_trained", net_trained); 
-    RPC1.bind("get_weight", get_weight); 
-    RPC1.bind("set_weight", set_weight);
+    RPC.bind("check_train_task", check_train_task);
+    RPC.bind("check_net_trained", check_net_trained);
+    RPC.bind("net_trained", net_trained);
+    RPC.bind("get_weight", get_weight);
+    RPC.bind("set_weight", set_weight);
 
     // The M7 uses its own weights, which are updated from the M4
     FNN.flat_weights = M7_weights;
@@ -345,7 +344,7 @@ void loop() {
      //int myRand = rand() % 100;  // from 0 to 99
      //int myRand = 0;
      delay(50); 
-     auto res = RPC1.call("check_train_task").as<int>();
+     auto res = RPC.call("check_train_task").as<int>();
      
      if (res == 0)
      {
@@ -354,7 +353,7 @@ void loop() {
 
      if (res == 1)
      {
-        RPC1.println("M4 Core: I start training");
+        RPC.println("M4 Core: I start training");
         M4_train();
      }
 
@@ -392,8 +391,8 @@ void loop() {
      }
      
       delay(50);
-     while (RPC1.available()) {
-       Serial.write(RPC1.read()); // check if the M4 has sent an RPC println
+     while (RPC.available()) {
+       Serial.write(RPC.read()); // check if the M4 has sent an RPC println
      }
    #endif  
 
