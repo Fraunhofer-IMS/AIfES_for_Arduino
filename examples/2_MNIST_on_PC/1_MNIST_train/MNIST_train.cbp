@@ -1,0 +1,185 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="MNIST_train" />
+		<Option pch_mode="2" />
+		<Option compiler="gcc" />
+		<Build>
+			<Target title="Debug">
+				<Option output="bin/Debug/MNIST" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Debug/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-g" />
+					<Add directory="src" />
+				</Compiler>
+			</Target>
+			<Target title="Release">
+				<Option output="bin/Release/MNIST" prefix_auto="1" extension_auto="1" />
+				<Option object_output="obj/Release/" />
+				<Option type="1" />
+				<Option compiler="gcc" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="src/MNIST_test_data.h" />
+		<Unit filename="src/MNIST_test_data_label.h" />
+		<Unit filename="src/MNIST_training_data.h" />
+		<Unit filename="src/MNIST_training_data_label.h" />
+		<Unit filename="src/aifes.h" />
+		<Unit filename="src/basic/base/aialgo/aialgo_sequential_inference.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/aialgo/aialgo_sequential_inference.h" />
+		<Unit filename="src/basic/base/aialgo/aialgo_sequential_training.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/aialgo/aialgo_sequential_training.h" />
+		<Unit filename="src/basic/base/ailayer/ailayer_dense.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/ailayer/ailayer_dense.h" />
+		<Unit filename="src/basic/base/ailayer/ailayer_elu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/ailayer/ailayer_elu.h" />
+		<Unit filename="src/basic/base/ailayer/ailayer_input.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/ailayer/ailayer_input.h" />
+		<Unit filename="src/basic/base/ailayer/ailayer_leaky_relu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/ailayer/ailayer_leaky_relu.h" />
+		<Unit filename="src/basic/base/ailayer/ailayer_relu.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/ailayer/ailayer_relu.h" />
+		<Unit filename="src/basic/base/ailayer/ailayer_sigmoid.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/ailayer/ailayer_sigmoid.h" />
+		<Unit filename="src/basic/base/ailayer/ailayer_softmax.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/ailayer/ailayer_softmax.h" />
+		<Unit filename="src/basic/base/ailayer/ailayer_softsign.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/ailayer/ailayer_softsign.h" />
+		<Unit filename="src/basic/base/ailayer/ailayer_tanh.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/ailayer/ailayer_tanh.h" />
+		<Unit filename="src/basic/base/ailayer/ailayer_template.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/ailayer/ailayer_template.h" />
+		<Unit filename="src/basic/base/ailoss/ailoss_crossentropy.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/ailoss/ailoss_crossentropy.h" />
+		<Unit filename="src/basic/base/ailoss/ailoss_mse.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/ailoss/ailoss_mse.h" />
+		<Unit filename="src/basic/base/aimath/aimath_basic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/aimath/aimath_basic.h" />
+		<Unit filename="src/basic/base/aimath/aimath_f32.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/aimath/aimath_f32.h" />
+		<Unit filename="src/basic/base/aiopti/aiopti_adam.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/aiopti/aiopti_adam.h" />
+		<Unit filename="src/basic/base/aiopti/aiopti_sgd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/base/aiopti/aiopti_sgd.h" />
+		<Unit filename="src/basic/cmsis/ailayer/ailayer_dense_cmsis.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/cmsis/ailayer/ailayer_dense_cmsis.h" />
+		<Unit filename="src/basic/cmsis/aimath/aimath_f32_cmsis.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/cmsis/aimath/aimath_f32_cmsis.h" />
+		<Unit filename="src/basic/default/ailayer/ailayer_dense_default.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/default/ailayer/ailayer_dense_default.h" />
+		<Unit filename="src/basic/default/ailayer/ailayer_elu_default.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/default/ailayer/ailayer_elu_default.h" />
+		<Unit filename="src/basic/default/ailayer/ailayer_input_default.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/default/ailayer/ailayer_input_default.h" />
+		<Unit filename="src/basic/default/ailayer/ailayer_leaky_relu_default.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/default/ailayer/ailayer_leaky_relu_default.h" />
+		<Unit filename="src/basic/default/ailayer/ailayer_relu_default.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/default/ailayer/ailayer_relu_default.h" />
+		<Unit filename="src/basic/default/ailayer/ailayer_sigmoid_default.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/default/ailayer/ailayer_sigmoid_default.h" />
+		<Unit filename="src/basic/default/ailayer/ailayer_softmax_default.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/default/ailayer/ailayer_softmax_default.h" />
+		<Unit filename="src/basic/default/ailayer/ailayer_softsign_default.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/default/ailayer/ailayer_softsign_default.h" />
+		<Unit filename="src/basic/default/ailayer/ailayer_tanh_default.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/default/ailayer/ailayer_tanh_default.h" />
+		<Unit filename="src/basic/default/ailoss/ailoss_crossentropy_default.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/default/ailoss/ailoss_crossentropy_default.h" />
+		<Unit filename="src/basic/default/ailoss/ailoss_mse_default.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/default/ailoss/ailoss_mse_default.h" />
+		<Unit filename="src/basic/default/aimath/aimath_f32_default.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/default/aimath/aimath_f32_default.h" />
+		<Unit filename="src/basic/default/aiopti/aiopti_adam_default.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/default/aiopti/aiopti_adam_default.h" />
+		<Unit filename="src/basic/default/aiopti/aiopti_sgd_default.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="src/basic/default/aiopti/aiopti_sgd_default.h" />
+		<Unit filename="src/core/aifes_core.h" />
+		<Unit filename="src/core/aifes_math.h" />
+		<Unit filename="src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<lib_finder disable_auto="1" />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>
