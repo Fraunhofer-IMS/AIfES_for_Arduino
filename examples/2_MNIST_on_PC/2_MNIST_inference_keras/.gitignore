@@ -1,0 +1,5 @@
+bin/
+obj/
+/src/MNIST_test_data.h
+/src/MNIST_test_data_label.h
+/src/MNIST_weights.h

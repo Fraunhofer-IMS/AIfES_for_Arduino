@@ -1,0 +1,217 @@
+#######################################
+# Syntax Coloring Map For AIfES for Arduino
+#######################################
+
+#######################################
+# Datatypes (KEYWORD1)
+#######################################
+
+aimodel_t	KEYWORD1
+ailayer_t	KEYWORD1
+ailoss_t	KEYWORD1
+aiopti_t	KEYWORD1
+
+aicore_layertype_t	KEYWORD1
+aicore_losstype_t	KEYWORD1
+aicore_optitype_t	KEYWORD1
+
+ailayer_dense_t	KEYWORD1
+ailayer_elu_t	KEYWORD1
+ailayer_elu_f32_t	KEYWORD1
+ailayer_input_t	KEYWORD1
+ailayer_leaky_relu_t	KEYWORD1
+ailayer_leaky_relu_f32_t	KEYWORD1
+ailayer_relu_t	KEYWORD1
+ailayer_sigmoid_t	KEYWORD1
+ailayer_softmax_t	KEYWORD1
+ailayer_softsign_t	KEYWORD1
+ailayer_tanh_t	KEYWORD1
+
+ailoss_crossentropy_t	KEYWORD1
+ailoss_mse_t	KEYWORD1
+
+aiopti_adam_t	KEYWORD1
+aiopti_adam_f32_t	KEYWORD1
+aiopti_adam_momentums_t	KEYWORD1
+aiopti_sgd_t	KEYWORD1
+aiopti_sgd_f32_t	KEYWORD1
+
+aitensor_t	KEYWORD1
+#######################################
+# Methods and Functions (KEYWORD2)
+#######################################
+
+aialgo_backward_model	KEYWORD2
+aialgo_calc_loss_model_f32	KEYWORD2
+aialgo_compile_model	KEYWORD2
+aialgo_distribute_parameter_memory	KEYWORD2
+aialgo_forward_model	KEYWORD2
+aialgo_inference_model	KEYWORD2
+aialgo_init_model_for_training	KEYWORD2
+aialgo_print_loss_specs	KEYWORD2
+aialgo_print_model_structure	KEYWORD2
+aialgo_print_optimizer_specs	KEYWORD2
+aialgo_schedule_inference_memory	KEYWORD2
+aialgo_schedule_training_memory	KEYWORD2
+aialgo_sizeof_inference_memory	KEYWORD2
+aialgo_sizeof_parameter_memory	KEYWORD2
+aialgo_sizeof_training_memory	KEYWORD2
+aialgo_train_model	KEYWORD2
+aialgo_update_params_model	KEYWORD2
+aialgo_zero_gradients_model	KEYWORD2
+ailayer_dense	KEYWORD2
+ailayer_dense_backward	KEYWORD2
+ailayer_dense_calc_result_shape	KEYWORD2
+ailayer_dense_f32_cmsis	KEYWORD2
+ailayer_dense_f32_default	KEYWORD2
+ailayer_dense_forward	KEYWORD2
+ailayer_dense_print_specs	KEYWORD2
+ailayer_dense_set_paramem	KEYWORD2
+ailayer_dense_set_trainmem	KEYWORD2
+ailayer_dense_sizeof_paramem	KEYWORD2
+ailayer_dense_sizeof_trainmem	KEYWORD2
+ailayer_elu	KEYWORD2
+ailayer_elu_backward	KEYWORD2
+ailayer_elu_calc_result_shape	KEYWORD2
+ailayer_elu_f32_default	KEYWORD2
+ailayer_elu_forward	KEYWORD2
+ailayer_elu_print_specs	KEYWORD2
+ailayer_input	KEYWORD2
+ailayer_input_backward	KEYWORD2
+ailayer_input_calc_result_shape	KEYWORD2
+ailayer_input_f32_default	KEYWORD2
+ailayer_input_forward	KEYWORD2
+ailayer_input_print_specs	KEYWORD2
+ailayer_leaky_relu	KEYWORD2
+ailayer_leaky_relu_backward	KEYWORD2
+ailayer_leaky_relu_calc_result_shape	KEYWORD2
+ailayer_leaky_relu_f32_default	KEYWORD2
+ailayer_leaky_relu_forward	KEYWORD2
+ailayer_leaky_relu_print_specs	KEYWORD2
+ailayer_relu	KEYWORD2
+ailayer_relu_backward	KEYWORD2
+ailayer_relu_calc_result_shape	KEYWORD2
+ailayer_relu_f32_default	KEYWORD2
+ailayer_relu_forward	KEYWORD2
+ailayer_relu_print_specs	KEYWORD2
+ailayer_sigmoid	KEYWORD2
+ailayer_sigmoid_backward	KEYWORD2
+ailayer_sigmoid_calc_result_shape	KEYWORD2
+ailayer_sigmoid_f32_default	KEYWORD2
+ailayer_sigmoid_forward	KEYWORD2
+ailayer_sigmoid_get_result_bound_f32_default	KEYWORD2
+ailayer_sigmoid_print_specs	KEYWORD2
+ailayer_softmax	KEYWORD2
+ailayer_softmax_calc_result_shape	KEYWORD2
+ailayer_softmax_f32_default	KEYWORD2
+ailayer_softmax_forward	KEYWORD2
+ailayer_softmax_print_specs	KEYWORD2
+ailayer_softsign	KEYWORD2
+ailayer_softsign_backward	KEYWORD2
+ailayer_softsign_calc_result_shape	KEYWORD2
+ailayer_softsign_f32_default	KEYWORD2
+ailayer_softsign_forward	KEYWORD2
+ailayer_softsign_print_specs	KEYWORD2
+ailayer_tanh	KEYWORD2
+ailayer_tanh_backward	KEYWORD2
+ailayer_tanh_calc_result_shape	KEYWORD2
+ailayer_tanh_f32_default	KEYWORD2
+ailayer_tanh_forward	KEYWORD2
+ailayer_tanh_get_result_bound_f32_default	KEYWORD2
+ailayer_tanh_print_specs	KEYWORD2
+ailayer_template	KEYWORD2
+ailayer_template_backward	KEYWORD2
+ailayer_template_calc_result_shape	KEYWORD2
+ailayer_template_forward	KEYWORD2
+ailayer_template_print_specs	KEYWORD2
+ailayer_template_set_paramem	KEYWORD2
+ailayer_template_set_trainmem	KEYWORD2
+ailayer_template_sizeof_paramem	KEYWORD2
+ailayer_template_sizeof_trainmem	KEYWORD2
+ailoss_crossentropy	KEYWORD2
+ailoss_crossentropy_calc_delta	KEYWORD2
+ailoss_crossentropy_calc_loss	KEYWORD2
+ailoss_crossentropy_dummy_backward	KEYWORD2
+ailoss_crossentropy_f32_default	KEYWORD2
+ailoss_crossentropy_print_specs	KEYWORD2
+ailoss_mse	KEYWORD2
+ailoss_mse_calc_delta	KEYWORD2
+ailoss_mse_calc_loss	KEYWORD2
+ailoss_mse_f32_default	KEYWORD2
+ailoss_mse_print_specs	KEYWORD2
+aimath_f32_cmsis_linear	KEYWORD2
+aimath_f32_cmsis_mat_mul	KEYWORD2
+aimath_f32_default_binary_crossentropy	KEYWORD2
+aimath_f32_default_categorical_crossentropy	KEYWORD2
+aimath_f32_default_categorical_crossentropy_sparse8	KEYWORD2
+aimath_f32_default_copy_tensor	KEYWORD2
+aimath_f32_default_d_elu	KEYWORD2
+aimath_f32_default_d_leaky_relu	KEYWORD2
+aimath_f32_default_d_relu	KEYWORD2
+aimath_f32_default_d_sigmoid	KEYWORD2
+aimath_f32_default_d_softsign	KEYWORD2
+aimath_f32_default_d_tanh	KEYWORD2
+aimath_f32_default_divide	KEYWORD2
+aimath_f32_default_elu	KEYWORD2
+aimath_f32_default_expf_fast	KEYWORD2
+aimath_f32_default_init_glorot_uniform	KEYWORD2
+aimath_f32_default_init_he_uniform	KEYWORD2
+aimath_f32_default_init_zeros	KEYWORD2
+aimath_f32_default_leaky_relu	KEYWORD2
+aimath_f32_default_linear	KEYWORD2
+aimath_f32_default_mat_mul	KEYWORD2
+aimath_f32_default_max	KEYWORD2
+aimath_f32_default_min	KEYWORD2
+aimath_f32_default_multiply	KEYWORD2
+aimath_f32_default_norm_squared	KEYWORD2
+aimath_f32_default_relu	KEYWORD2
+aimath_f32_default_scalar_add	KEYWORD2
+aimath_f32_default_scalar_mul	KEYWORD2
+aimath_f32_default_sigmoid	KEYWORD2
+aimath_f32_default_softmax	KEYWORD2
+aimath_f32_default_softsign	KEYWORD2
+aimath_f32_default_sqrt	KEYWORD2
+aimath_f32_default_sum	KEYWORD2
+aimath_f32_default_tanh	KEYWORD2
+aimath_f32_default_tensor_add	KEYWORD2
+aimath_f32_default_tensor_init_uniform	KEYWORD2
+aimath_f32_default_tensor_sub	KEYWORD2
+aimath_f32_default_tensor_sub_sparse8	KEYWORD2
+aimath_f32_default_transpose_vector	KEYWORD2
+aimath_f32_default_zero_tensor	KEYWORD2
+aimath_f32_print_aiscalar	KEYWORD2
+aimath_f32_print_aitensor	KEYWORD2
+aimath_sizeof_dtype	KEYWORD2
+aimath_sizeof_tensor	KEYWORD2
+aimath_sizeof_tensor_data	KEYWORD2
+aimath_sizeof_tensor_params	KEYWORD2
+aimath_tensor_elements	KEYWORD2
+aimath_transpose_vector	KEYWORD2
+aiopti_adam	KEYWORD2
+aiopti_adam_f32_default	KEYWORD2
+aiopti_adam_f32_default_begin_step	KEYWORD2
+aiopti_adam_f32_default_end_step	KEYWORD2
+aiopti_adam_init_optimem	KEYWORD2
+aiopti_adam_print_specs	KEYWORD2
+aiopti_adam_sizeof_optimem	KEYWORD2
+aiopti_adam_update_params	KEYWORD2
+aiopti_adam_zero_gradients	KEYWORD2
+aiopti_sgd	KEYWORD2
+aiopti_sgd_f32_default	KEYWORD2
+aiopti_sgd_init_optimem_with_momentum	KEYWORD2
+aiopti_sgd_init_optimem_without_momentum	KEYWORD2
+aiopti_sgd_print_specs	KEYWORD2
+aiopti_sgd_sizeof_optimem_with_momentum	KEYWORD2
+aiopti_sgd_sizeof_optimem_without_momentum	KEYWORD2
+aiopti_sgd_update_params_with_momentum	KEYWORD2
+aiopti_sgd_update_params_without_momentum	KEYWORD2
+aiopti_sgd_zero_gradients	KEYWORD2
+
+print_aiscalar	KEYWORD2
+print_aitensor	KEYWORD2
+
+#######################################
+# Constants (LITERAL1)
+#######################################
+
+aif32	LITERAL1
